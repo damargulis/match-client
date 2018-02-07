@@ -15,7 +15,7 @@ class EventDetailsScreen extends React.Component {
     }
 
     async componentWillMount(){
-        fetch(GLOBAL.BASE_URL + 'event/' + this.props.navigation.state.params.event._id)
+        fetch(GLOBAL.BASE_URL + '/event/' + this.props.navigation.state.params.event._id)
         .then((response) => response.json())
         .then((response) => {
             this.setState({
@@ -35,7 +35,7 @@ class EventDetailsScreen extends React.Component {
         this.setState({
             userId: userId
         });
-        fetch(GLOBAL.BASE_URL + 'rsvp?eventId=' + this.props.navigation.state.params.event._id + '&userId=' + userId)
+        fetch(GLOBAL.BASE_URL + '/rsvp?eventId=' + this.props.navigation.state.params.event._id + '&userId=' + userId)
         .then((response) => response.json())
         .then((response) => {
             this.setState({
