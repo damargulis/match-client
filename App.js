@@ -9,7 +9,7 @@ import SwipeScreen from './SwipeScreen';
 
 import { Router, Scene, Actions } from 'react-native-router-flux';
 
-apiBaseUrl = 'http://ec2-54-186-191-46.us-west-2.compute.amazonaws.com:3000';
+const GLOBAL = require('./Globals');
 
 class RootTabs extends React.Component {
     render() {
@@ -86,7 +86,7 @@ class LoginScreen extends React.Component {
     }
 
     createAccount() {
-        fetch(apiBaseUrl + '/createAccount', {
+        fetch(GLOBAL.BASE_URL + '/createAccount', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -118,7 +118,7 @@ class LoginScreen extends React.Component {
     }
 
     login() {
-        fetch(apiBaseUrl + '/login', {
+        fetch(GLOBAL.BASE_URL + '/login', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

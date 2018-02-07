@@ -6,6 +6,8 @@ import './UserAgent';
 
 import io from 'socket.io-client/dist/socket.io';
 
+const GLOBAL = require('./Globals');
+
 class ChatScreen extends React.Component {
     constructor(props) {
         super(props);
@@ -19,7 +21,7 @@ class ChatScreen extends React.Component {
                 userId: userId
             });
         });
-        this.socket = io('http://ec2-54-186-191-46.us-west-2.compute.amazonaws.com:3000/?chatId=' + this.props.navigation.state.params.chat._id, {jsonp: false});
+        this.socket = io(GLOBAL.BASE_URL + '/?chatId=' + this.props.navigation.state.params.chat._id, {jsonp: false});
         this.socket.on('receiveMessage', (data) => {
             this.setState(previousState => ({
                 messages: GiftedChat.append(previousState.messages, data.message.message),

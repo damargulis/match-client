@@ -4,6 +4,8 @@ import { StackNavigator } from 'react-navigation';
 import ChatScreen from './ChatScreen';
 import PersonDetailScreen from './PersonDetailScreen';
 
+const GLOBAL = require('./Globals');
+
 class MainScreen extends React.Component {
     constructor(props) {
         super(props);
@@ -18,7 +20,7 @@ class MainScreen extends React.Component {
             this.setState({
                 userId: userId
             });
-            fetch('http://ec2-54-186-191-46.us-west-2.compute.amazonaws.com:3000/chats/' + userId)
+            fetch(GLOBAL.BASE_URL + '/chats/' + userId)
             .then((response) => response.json())
             .then((response) => {
                 this.setState({
