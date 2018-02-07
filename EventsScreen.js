@@ -2,6 +2,8 @@ import React from 'react';
 import { SectionList, StyleSheet, View, Text, Button, AsyncStorage } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
+const GLOBAL = require('./Globals');
+
 class EventDetailsScreen extends React.Component {
     constructor(props) {
         super(props);
@@ -13,8 +15,7 @@ class EventDetailsScreen extends React.Component {
     }
 
     async componentWillMount(){
-        let base_url = 'http://ec2-54-186-191-46.us-west-2.compute.amazonaws.com:3000/'
-        fetch(base_url + 'event/' + this.props.navigation.state.params.event._id)
+        fetch(GLOBAL.BASE_URL + 'event/' + this.props.navigation.state.params.event._id)
         .then((response) => response.json())
         .then((response) => {
             this.setState({
@@ -34,7 +35,7 @@ class EventDetailsScreen extends React.Component {
         this.setState({
             userId: userId
         });
-        fetch(base_url + 'rsvp?eventId=' + this.props.navigation.state.params.event._id + '&userId=' + userId)
+        fetch(GLOBAL.BASE_URL + 'rsvp?eventId=' + this.props.navigation.state.params.event._id + '&userId=' + userId)
         .then((response) => response.json())
         .then((response) => {
             this.setState({

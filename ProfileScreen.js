@@ -2,6 +2,8 @@ import React from 'react';
 import { Slider, Picker, TextInput, Modal, AsyncStorage, Button, Image, View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
+const GLOBAL = require('./Globals');
+
 class EditScreen extends React.Component {
     constructor(props) {
         super(props);
@@ -105,7 +107,7 @@ class ProfileScreen extends React.Component {
         AsyncStorage.getItem('userId')
         .then((userId) => {
             this.setState({ userId: userId });
-            fetch('http://ec2-54-186-191-46.us-west-2.compute.amazonaws.com:3000/user/' + userId)
+            fetch(GLOBAL.BASE_URL + '/user/' + userId)
             .then((response) => response.json())
             .then((response) => {
                 this.setState({ profile: response, edits: Object.assign({}, response) });
@@ -118,7 +120,7 @@ class ProfileScreen extends React.Component {
     }
 
     logout() {
-        fetch('http://ec2-54-186-191-46.us-west-2.compute.amazonaws.com:3000/logout')
+        fetch(GLOBAL.BASE_URL + '/logout')
         .then((response) => {
             Actions.loginScreen();
         })
@@ -128,7 +130,7 @@ class ProfileScreen extends React.Component {
     }
 
     save(edits) {
-        fetch('http://ec2-54-186-191-46.us-west-2.compute.amazonaws.com:3000/user/' + this.state.userId, {
+        fetch(GLOBAL.BASE_URL + '/user/' + this.state.userId, {
             method: 'PUT',
             headers: {
                 Accept: 'application/json',

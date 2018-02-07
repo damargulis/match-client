@@ -3,6 +3,8 @@ import { AsyncStorage, Button, View, Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import PersonDetailScreen from './PersonDetailScreen';
 
+const GLOBAL = require('./Globals');
+
 class MainScreen extends React.Component {
     constructor(props) {
         super(props);
@@ -17,7 +19,7 @@ class MainScreen extends React.Component {
             this.setState({
                 userId: userId
             });
-            fetch('http://ec2-54-186-191-46.us-west-2.compute.amazonaws.com:3000/possibleMatches/' + userId)
+            fetch(GLOBAL.BASE_URL + '/possibleMatches/' + userId)
             .then((response) => response.json())
             .then((response) => {
                 this.setState({
@@ -37,7 +39,7 @@ class MainScreen extends React.Component {
             });
             return;
         }
-        fetch('http://ec2-54-186-191-46.us-west-2.compute.amazonaws.com:3000/user/' + userId)
+        fetch(GLOBAL.BASE_URL + '/user/' + userId)
         .then((response) => response.json())
         .then((response) => {
             this.setState({
@@ -49,7 +51,7 @@ class MainScreen extends React.Component {
     }
 
     swipe(like) {
-        fetch('http://ec2-54-186-191-46.us-west-2.compute.amazonaws.com:3000/swipe', {
+        fetch(GLOBAL.BASE_URL + '/swipe', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
