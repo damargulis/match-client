@@ -133,7 +133,9 @@ class LoginScreen extends React.Component {
         .then(async (response) => {
             if(response.success){
                 try {
-                    await AsyncStorage.setItem('userId', response.userId.toString());
+                    await AsyncStorage.setItem('userId', 
+                        response.userId.toString()
+                    );
                 } catch (error) {
                     console.log(error);
                 }

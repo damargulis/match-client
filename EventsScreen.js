@@ -1,5 +1,12 @@
 import React from 'react';
-import { SectionList, StyleSheet, View, Text, Button, AsyncStorage } from 'react-native';
+import { 
+    SectionList, 
+    StyleSheet, 
+    View, 
+    Text, 
+    Button, 
+    AsyncStorage 
+} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 const GLOBAL = require('./Globals');
@@ -15,8 +22,11 @@ class EventDetailsScreen extends React.Component {
     }
 
     async componentWillMount(){
-        fetch(GLOBAL.BASE_URL + '/event/' + this.props.navigation.state.params.event._id)
-        .then((response) => response.json())
+        fetch(
+            GLOBAL.BASE_URL 
+            + '/event/' 
+            + this.props.navigation.state.params.event._id
+        ).then((response) => response.json())
         .then((response) => {
             this.setState({
                 eventDetails: response
@@ -35,8 +45,13 @@ class EventDetailsScreen extends React.Component {
         this.setState({
             userId: userId
         });
-        fetch(GLOBAL.BASE_URL + '/rsvp?eventId=' + this.props.navigation.state.params.event._id + '&userId=' + userId)
-        .then((response) => response.json())
+        fetch(
+            GLOBAL.BASE_URL 
+            + '/rsvp?eventId=' 
+            + this.props.navigation.state.params.event._id 
+            + '&userId=' 
+            + userId
+        ).then((response) => response.json())
         .then((response) => {
             this.setState({
                 attending: response.attending
@@ -48,7 +63,7 @@ class EventDetailsScreen extends React.Component {
     }
 
     rsvp(){
-        let url = 'http://ec2-54-186-191-46.us-west-2.compute.amazonaws.com:3000/event';
+        let url = GLOBAL.BASE_URL + '/event';
         if(this.state.attending){
             url = url + '/cancel';
         } else {
@@ -80,12 +95,21 @@ class EventDetailsScreen extends React.Component {
             <View>
                 <Text>Event Details</Text>
                 <Text>{this.props.navigation.state.params.event.name}</Text>
-                <Text>{this.props.navigation.state.params.event.startTime}</Text>
-                <Text>{
-                    ("description" in this.state.eventDetails) ? this.state.eventDetails.description : '' }</Text>
+                <Text>
+                    {this.props.navigation.state.params.event.startTime}
+                </Text>
+                <Text>
+                    {
+                        ("description" in this.state.eventDetails) ? 
+                        this.state.eventDetails.description : '' 
+                    }
+                </Text>
                 <Text>Number attendees</Text>
                 <Text>Attending: {this.state.attending ? 'Yes' : 'No'}</Text>
-                <Button title={this.state.attending ? 'Cancel' : 'RSVP'} onPress={this.rsvp.bind(this)}/>
+                <Button 
+                    title={this.state.attending ? 'Cancel' : 'RSVP'} 
+                    onPress={this.rsvp.bind(this)}
+                />
             </View>
         )
     }
@@ -100,7 +124,7 @@ class MainScreen extends React.Component {
     }
 
     componentWillMount() {
-        fetch('http://ec2-54-186-191-46.us-west-2.compute.amazonaws.com:3000/events')
+        fetch(GLOBAL.BASE_URL + '/events')
         .then((response) => response.json())
         .then((response) => {
             this.setState({
@@ -114,13 +138,38 @@ class MainScreen extends React.Component {
 
     render() {
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <View 
+                style={{ 
+                    flex: 1, 
+                    alignItems: 'center', 
+                    justifyContent: 'center' 
+                }}
+            >
                 <SectionList
                     sections={[
                         {title: 'Today', data: this.state.events},
                     ]}
-                    renderItem={({item}) => <Button style={styles.item} title={item.name} onPress={() => this.props.navigation.navigate('Details', {event: item})} />}
-                    renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
+                    renderItem={
+                        ({item}) => (
+                            <Button 
+                                style={styles.item} 
+                                title={item.name} 
+                                onPress={
+                                    () => this.props.navigation.navigate(
+                                        'Details', 
+                                        {event: item}
+                                    )
+                                } 
+                            />
+                        )
+                    }
+                    renderSectionHeader={
+                        ({section}) => (
+                            <Text style={styles.sectionHeader}>
+                                {section.title}
+                            </Text>
+                        )
+                    }
                     keyExtractor={(item, index) => index}
                 />
             </View>

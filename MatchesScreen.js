@@ -37,22 +37,45 @@ class MainScreen extends React.Component {
     renderMatch(match){
         let otherId = match.userIds.filter((id) => id != this.state.userId)[0];
         return(
-            <Button  title={otherId} onPress={() => this.props.navigation.navigate('Details', {chat: match})} />
+            <Button 
+                title={otherId} 
+                onPress={
+                    () => this.props.navigation.navigate(
+                        'Details', 
+                        {chat: match}
+                    )
+                }
+            />
         )
     }
 
     renderChat(chat){
         let otherId = chat.userIds.filter((id) => id != this.state.userId)[0];
         return (
-            <Button title={otherId} onPress={() => this.props.navigation.navigate('Details', {chat: chat})} />
+            <Button 
+                title={otherId} 
+                onPress={
+                    () => this.props.navigation.navigate(
+                        'Details', 
+                        {chat: chat})
+                }
+            />
         )
     }
 
     render() {
-        let matches = this.state.chats.filter((chat) => chat.messages.length == 0);
+        let matches = this.state.chats.filter(
+            (chat) => chat.messages.length == 0
+        );
         let chats = this.state.chats.filter((chat) => chat.messages.length > 0);
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <View 
+                style={{ 
+                    flex: 1, 
+                    alignItems: 'center', 
+                    justifyContent: 'center' 
+                }}
+            >
                 <FlatList
                     style={{flex: 1}}
                     data={matches}

@@ -79,14 +79,34 @@ class MainScreen extends React.Component {
             <View style={{backgroundColor: 'blue'}}>
                 <Text style={{height: 200}}>{name}</Text>
                 <Text>{school}</Text>
-                <Button title='View Details' onPress={() => this.props.navigation.navigate('Details', {user: this.state.nextSwipe})} />
+                <Button 
+                    title='View Details' 
+                    onPress={
+                        () => this.props.navigation.navigate(
+                            'Details', 
+                            {user: this.state.nextSwipe}
+                        )
+                    }
+                />
                 <View style={{flexDirection: 'row'}}>
                     <View style={{flex: 1}}>
-                    <Button disabled={!this.state.nextSwipe} color='red' title='No' style={{flex: 1, backgroundColor: 'red'}} onPress={() => this.swipe(false)}>
+                    <Button 
+                        disabled={!this.state.nextSwipe} 
+                        color='red' 
+                        title='No' 
+                        style={{flex: 1, backgroundColor: 'red'}} 
+                        onPress={() => this.swipe(false)}
+                    >
                     </Button>
                     </View>
                     <View style={{flex: 1}}>
-                    <Button disabled={!this.state.nextSwipe} color='green' title='Yes' style={{flex: 1, backgroundColor: 'green'}} onPress={() => this.swipe(true)}>
+                    <Button 
+                        disabled={!this.state.nextSwipe} 
+                        color='green' 
+                        title='Yes' 
+                        style={{flex: 1, backgroundColor: 'green'}} 
+                        onPress={() => this.swipe(true)}
+                    >
                     </Button>
                     </View>
                 </View>

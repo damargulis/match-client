@@ -11,7 +11,9 @@ const GLOBAL = require('./Globals');
 class ChatScreen extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {messages: this.props.navigation.state.params.chat.messages};
+        this.state = {
+            messages: this.props.navigation.state.params.chat.messages
+        };
     }
 
     componentWillMount() {
@@ -21,10 +23,18 @@ class ChatScreen extends React.Component {
                 userId: userId
             });
         });
-        this.socket = io(GLOBAL.BASE_URL + '/?chatId=' + this.props.navigation.state.params.chat._id, {jsonp: false});
+        this.socket = io(
+            GLOBAL.BASE_URL 
+            + '/?chatId=' 
+            + this.props.navigation.state.params.chat._id, 
+            {jsonp: false}
+        );
         this.socket.on('receiveMessage', (data) => {
             this.setState(previousState => ({
-                messages: GiftedChat.append(previousState.messages, data.message.message),
+                messages: GiftedChat.append(
+                    previousState.messages, 
+                    data.message.message
+                ),
             }))
         });
     }
@@ -47,7 +57,9 @@ class ChatScreen extends React.Component {
                 onSend={messages => this.onSend(messages)}
                 user={{_id: this.state.userId}}
                 keyboardShouldPersistTaps='never'
-                onPressAvatar={ () => this.props.navigation.navigate('PersonDetail') }
+                onPressAvatar={ 
+                    () => this.props.navigation.navigate('PersonDetail')
+                }
                 isAnimated={true}
             />
         )

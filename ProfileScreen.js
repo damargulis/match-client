@@ -1,5 +1,15 @@
 import React from 'react';
-import { Slider, Picker, TextInput, Modal, AsyncStorage, Button, Image, View, Text } from 'react-native';
+import { 
+    Slider, 
+    Picker, 
+    TextInput, 
+    Modal, 
+    AsyncStorage, 
+    Button, 
+    Image, 
+    Viee, 
+    Text 
+} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 const GLOBAL = require('./Globals');
@@ -23,7 +33,9 @@ class EditScreen extends React.Component {
             <View>
                     <Text>Edit Info Form</Text>
                     <Text>First Name:</Text>
-                    <TextInput onChangeText={(val) => this.setEdit('firstName', val)}/>
+                    <TextInput 
+                        onChangeText={(val) => this.setEdit('firstName', val)}
+                    />
                     <Text>Age: {this.state.edits.age}</Text>
                     <Slider
                         step={1}
@@ -33,10 +45,16 @@ class EditScreen extends React.Component {
                         onValueChange={(val) => this.setEdit('age', val)}
                     />
                     <Text>Occupation:</Text>
-                    <TextInput value={this.state.edits.occupation} onChangeText={(val) => this.setEdit('occupation', val)}/>
+                    <TextInput 
+                        value={this.state.edits.occupation} 
+                        onChangeText={(val) => this.setEdit('occupation', val)}
+                    />
 
                     <Text>School:</Text>
-                    <TextInput value={this.state.edits.school} onChangeText={(val) => this.setEdit('school', val)}/>
+                    <TextInput 
+                        value={this.state.edits.school} 
+                        onChangeText={(val) => this.setEdit('school', val)}
+                    />
                     <Text>Gender:</Text>
                     <Picker
                         selectedValue={this.state.edits.gender}
@@ -48,19 +66,27 @@ class EditScreen extends React.Component {
                     <Text>Interested In:</Text>
                     <Picker
                         selectedValue={this.state.edits.interestsGender}
-                        onValueChange={(val)=>this.setEdit('interestsGender', val)}
+                        onValueChange={
+                            (val)=>this.setEdit('interestsGender', val)
+                        }
                     >
                         <Picker.Item label='Male' value='Male'/>
                         <Picker.Item label='Female' value='Female'/>
                         <Picker.Item label='Any' value='Any'/>
                     </Picker>
-                    <Text>Maximum Distance: {this.state.edits.interestsDistance} miles</Text>
+                    <Text> {
+                        'Maximum Distance: '
+                        + this.state.edits.interestsDistance
+                        + ' miles'
+                    }</Text>
                     <Slider
                         step={1}
                         minimumValue={1}
                         maximumValue={300}
                         value={this.state.edits.interestsDistance}
-                        onValueChange={(val) => this.setEdit('interestsDistance', val)}
+                        onValueChange={
+                            (val) => this.setEdit('interestsDistance', val)
+                        }
                     />
                     <Text>Minimum Age: {this.state.edits.interestsAgeMin}</Text>
                     <Slider
@@ -68,7 +94,9 @@ class EditScreen extends React.Component {
                         minimumValue={18}
                         maximumValue={this.state.edits.interestsAgeMax}
                         value={this.state.edits.interestsAgeMin}
-                        onValueChange={(val) => this.setEdit('interestsAgeMin', val)}
+                        onValueChange={
+                            (val) => this.setEdit('interestsAgeMin', val)
+                        }
                     />
                     <Text>Maximum Age: {this.state.edits.interestsAgeMax}</Text>
                     <Slider
@@ -76,7 +104,9 @@ class EditScreen extends React.Component {
                         minimumValue={this.state.edits.interestsAgeMin}
                         maximumValue={99}
                         value={this.state.edits.interestsAgeMax}
-                        onValueChange={(val) => this.setEdit('interestsAgeMax', val)}
+                        onValueChange={
+                            (val) => this.setEdit('interestsAgeMax', val)
+                        }
                     />
                     <Button
                         title="Cancel"
@@ -110,7 +140,10 @@ class ProfileScreen extends React.Component {
             fetch(GLOBAL.BASE_URL + '/user/' + userId)
             .then((response) => response.json())
             .then((response) => {
-                this.setState({ profile: response, edits: Object.assign({}, response) });
+                this.setState({ 
+                    profile: response, 
+                    edits: Object.assign({}, response) 
+                });
             }).catch((error) => {
                 console.log(error);
             });
@@ -165,17 +198,35 @@ class ProfileScreen extends React.Component {
 
     render() {
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Image style={{ flex: 1, }} source={require('./profile_pic.jpg')} />
+            <View 
+                style={{ 
+                    flex: 1, 
+                    alignItems: 'center', 
+                    justifyContent: 'center' 
+                }}
+            >
+                <Image 
+                    style={{ flex: 1, }} 
+                    source={require('./profile_pic.jpg')}
+                />
                 <View style={{flex: 1, }} >
                     <Text>Name: {this.state.profile.firstName}</Text>
                     <Text>Age: {this.state.profile.age}</Text>
                     <Text>Occupation: {this.state.profile.occupation}</Text>
-                    <Text >School: {this.state.profile.school}</Text>
-                    <Text >Gender: {this.state.profile.gender}</Text>
-                    <Text >Interested In: {this.state.profile.interestsGender}</Text>
-                    <Text >Maximum Distance: {this.state.profile.interestsDistance}</Text>
-                    <Text >Age Range: {this.state.profile.interestsAgeMin}-{this.state.profile.interestsAgeMax}</Text>
+                    <Text>School: {this.state.profile.school}</Text>
+                    <Text>Gender: {this.state.profile.gender}</Text>
+                    <Text>
+                        Interested In: {this.state.profile.interestsGender}
+                    </Text>
+                    <Text>
+                        Maximum Distance: {this.state.profile.interestsDistance}
+                    </Text>
+                    <Text>{
+                        'Age Range: ' 
+                        + this.state.profile.interestsAgeMin
+                        + '-'
+                        + this.state.profile.interestsAgeMax
+                    }</Text>
                     <Button
                         title="Edit Info"
                         onPress={this.editInfo.bind(this)}
