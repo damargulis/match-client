@@ -26,6 +26,7 @@
     "react-native-facebook-login": "^1.6.0",
     "react-native-fbsdk": "^0.7.0",
     "react-native-gifted-chat": "^0.3.0",
+    "react-native-image-picker": "^0.26.7",
     "react-navigation": "^1.0.0-beta.27",
     "socket.io": "^2.0.4",
     "socket.io-client": "^2.0.4"

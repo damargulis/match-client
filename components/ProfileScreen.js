@@ -8,11 +8,83 @@ import {
     Button, 
     Image, 
     View, 
-    Text 
+    Text,
+    TouchableHighlight,
+    CameraRoll,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 const GLOBAL = require('./../Globals');
+
+class EditPhotosScreen extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            photos: this.props.photos.slice(),
+        }
+    }
+
+    addPhoto(){
+        console.log('Add photo!');
+        CameraRoll.getPhotos({
+            first: 20,
+            assetType: 'All',
+        }).then((r) => {
+            console.log(r);
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
+
+    renderPhoto(photoIndex) {
+        let photo = this.state.photos[photoIndex];
+        if(photo) {
+            return (
+                <Image 
+                    source={{photo}}
+                    style={{width: 150, height: 150}}
+                    key={photoIndex}
+                />
+            )
+        }else {
+            return (
+                <TouchableHighlight
+                    onPress={() => this.addPhoto()}
+                    key={photoIndex} 
+                    style={{width: 130, height: 130, backgroundColor: 'red'}}
+                >
+                    <Text style={{textAlign: 'center'}}>Add A Photo</Text>
+                </TouchableHighlight>
+            )
+        }
+    }
+
+    render() {
+        return(
+            <View>
+            <View>
+                <Text>Photo Editing Page</Text>
+                <View style={{
+                    width: 400,
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                }}>
+                    {
+                        Array(GLOBAL.MAX_PHOTOS).fill().map((_, index) => {
+                            return this.renderPhoto(index);
+                        })
+                    }
+                </View>
+                <Button
+                    title="Cancel"
+                    onPress={() => this.props.closeModal()}
+                />
+                
+            </View>
+            </View>
+        )
+    }
+}
 
 class EditScreen extends React.Component {
     constructor(props) {
@@ -128,6 +200,7 @@ class ProfileScreen extends React.Component {
             profile: {
             },
             editingInfo: false,
+            editingPhotos: false,
             edits: {
             },
         }
@@ -183,9 +256,20 @@ class ProfileScreen extends React.Component {
         }).catch((error) => console.log(error));
     }
 
+    savePhotos(newPhotos) {
+        console.log('Saving photos:');
+        console.log(newPhotos);
+    }
+
     editInfo() {
         this.setState({
             editingInfo: true,
+        });
+    }
+
+    editPhotos() {
+        this.setState({
+            editingPhotos: true,
         });
     }
 
@@ -193,6 +277,12 @@ class ProfileScreen extends React.Component {
         this.setState({
             editingInfo: false,
             edits: Object.assign({}, this.state.profile)
+        });
+    }
+
+    closePhotoModal() {
+        this.setState({
+            editingPhotos: false,
         });
     }
 
@@ -228,6 +318,10 @@ class ProfileScreen extends React.Component {
                         + this.state.profile.interestsAgeMax
                     }</Text>
                     <Button
+                        title="Edit Photos"
+                        onPress={this.editPhotos.bind(this)}
+                    />
+                    <Button
                         title="Edit Info"
                         onPress={this.editInfo.bind(this)}
                     />
@@ -241,9 +335,21 @@ class ProfileScreen extends React.Component {
                     animationType={'slide'}
                     onRequestClose={() => this.closeModal()}
                 >
-                    <EditScreen closeModal={() => this.closeModal()} 
+                    <EditScreen 
+                        closeModal={() => this.closeModal()} 
                         original={this.state.profile}
                         save={(edits) => this.save(edits)}
+                    />
+                </Modal>
+                <Modal
+                    visible={this.state.editingPhotos}
+                    animationType={'slide'}
+                    onRequestClose={() => this.closePhotoModal()}
+                >
+                    <EditPhotosScreen 
+                        closeModal={() => this.closePhotoModal()}
+                        photos={this.state.profile.photos}
+                        savePhotos={(newPhotos) => this.savePhotos(newPhotoos)}
                     />
                 </Modal>
             </View>
