@@ -7,12 +7,12 @@ import {
     AsyncStorage, 
     Button, 
     Image, 
-    Viee, 
+    View, 
     Text 
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-const GLOBAL = require('./Globals');
+const GLOBAL = require('./../Globals');
 
 class EditScreen extends React.Component {
     constructor(props) {
@@ -207,7 +207,7 @@ class ProfileScreen extends React.Component {
             >
                 <Image 
                     style={{ flex: 1, }} 
-                    source={require('./profile_pic.jpg')}
+                    source={require('./../profile_pic.jpg')}
                 />
                 <View style={{flex: 1, }} >
                     <Text>Name: {this.state.profile.firstName}</Text>

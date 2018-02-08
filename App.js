@@ -2,10 +2,10 @@ import React from 'react';
 import { Button, View, Text, TextInput, AsyncStorage } from 'react-native';
 import { TabNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import EventsScreen from './EventsScreen';
-import ProfileScreen from './ProfileScreen';
-import MatchesScreen from './MatchesScreen';
-import SwipeScreen from './SwipeScreen';
+import EventsScreen from './components/EventScreen';
+import ProfileScreen from './components/ProfileScreen';
+import MatchesScreen from './components/MatchesScreen';
+import SwipeScreen from './components/SwipeScreen';
 
 import { Router, Scene, Actions } from 'react-native-router-flux';
 

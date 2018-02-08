@@ -2,11 +2,11 @@ import React from 'react';
 import { AsyncStorage } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 
-import './UserAgent';
+import './../UserAgent';
 
 import io from 'socket.io-client/dist/socket.io';
 
-const GLOBAL = require('./Globals');
+const GLOBAL = require('./../Globals');
 
 class ChatScreen extends React.Component {
     constructor(props) {

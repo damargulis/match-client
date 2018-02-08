@@ -4,7 +4,7 @@ import { StackNavigator } from 'react-navigation';
 import ChatScreen from './ChatScreen';
 import PersonDetailScreen from './PersonDetailScreen';
 
-const GLOBAL = require('./Globals');
+const GLOBAL = require('./../Globals');
 
 class MainScreen extends React.Component {
     constructor(props) {

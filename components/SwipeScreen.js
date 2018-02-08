@@ -3,7 +3,7 @@ import { AsyncStorage, Button, View, Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import PersonDetailScreen from './PersonDetailScreen';
 
-const GLOBAL = require('./Globals');
+const GLOBAL = require('./../Globals');
 
 class MainScreen extends React.Component {
     constructor(props) {

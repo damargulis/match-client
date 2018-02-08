@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-const GLOBAL = require('./Globals');
+const GLOBAL = require('./../Globals');
 
 class EventDetailsScreen extends React.Component {
     constructor(props) {
