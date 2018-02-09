@@ -30,9 +30,10 @@ class EditPhotosScreen extends React.Component {
             first: 20,
             assetType: 'All',
         }).then((r) => {
+            this.setState
             console.log(r);
-        }).catch((err) => {
-            console.log(err);
+        }).catch((error) => {
+            console.log(erro);
         });
     }
 
