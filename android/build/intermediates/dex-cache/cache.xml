@@ -75,6 +75,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/NativeMatch/react-native-image-picker/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2014d174468df686f021f60b03fc7d460d8480b1">
+        <dex dex="/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/pre-dexed/debug/NativeMatch-react-native-image-picker-unspecified_7168f90e22679b3bc0d3033afa722a65ed8bdfa0.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.3.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"

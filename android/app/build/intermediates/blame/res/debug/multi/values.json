@@ -6627,9 +6627,30 @@
                     "startLine": 1218,
                     "startColumn": 4,
                     "startOffset": 93722,
-                    "endLine": 1221,
+                    "endLine": 1225,
+                    "endColumn": 12,
+                    "endOffset": 94128
+                },
+                "from": {
+                    "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/NativeMatch/react-native-image-picker/unspecified/res/values/values.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 9,
+                        "endColumn": 12,
+                        "endOffset": 461
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 1226,
+                    "startColumn": 4,
+                    "startOffset": 94133,
+                    "endLine": 1229,
                     "endColumn": 10,
-                    "endOffset": 93919
+                    "endOffset": 94330
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/values/values.xml",
@@ -6645,12 +6666,12 @@
             },
             {
                 "to": {
-                    "startLine": 1222,
+                    "startLine": 1230,
                     "startColumn": 4,
-                    "startOffset": 93924,
-                    "endLine": 1225,
+                    "startOffset": 94335,
+                    "endLine": 1233,
                     "endColumn": 10,
-                    "endOffset": 94125
+                    "endOffset": 94536
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/values/values.xml",
@@ -6666,12 +6687,12 @@
             },
             {
                 "to": {
-                    "startLine": 1226,
+                    "startLine": 1234,
                     "startColumn": 4,
-                    "startOffset": 94130,
-                    "endLine": 1263,
+                    "startOffset": 94541,
+                    "endLine": 1271,
                     "endColumn": 12,
-                    "endOffset": 96987
+                    "endOffset": 97398
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6687,12 +6708,12 @@
             },
             {
                 "to": {
-                    "startLine": 1264,
+                    "startLine": 1272,
                     "startColumn": 4,
-                    "startOffset": 96992,
-                    "endLine": 1302,
+                    "startOffset": 97403,
+                    "endLine": 1310,
                     "endColumn": 12,
-                    "endOffset": 99989
+                    "endOffset": 100400
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6708,11 +6729,11 @@
             },
             {
                 "to": {
-                    "startLine": 1303,
+                    "startLine": 1311,
                     "startColumn": 4,
-                    "startOffset": 99994,
+                    "startOffset": 100405,
                     "endColumn": 61,
-                    "endOffset": 100051
+                    "endOffset": 100462
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6727,12 +6748,12 @@
             },
             {
                 "to": {
-                    "startLine": 1304,
+                    "startLine": 1312,
                     "startColumn": 4,
-                    "startOffset": 100056,
-                    "endLine": 1313,
+                    "startOffset": 100467,
+                    "endLine": 1321,
                     "endColumn": 12,
-                    "endOffset": 100681
+                    "endOffset": 101092
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6748,12 +6769,12 @@
             },
             {
                 "to": {
-                    "startLine": 1314,
+                    "startLine": 1322,
                     "startColumn": 4,
-                    "startOffset": 100686,
-                    "endLine": 1322,
+                    "startOffset": 101097,
+                    "endLine": 1330,
                     "endColumn": 12,
-                    "endOffset": 101295
+                    "endOffset": 101706
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6769,11 +6790,11 @@
             },
             {
                 "to": {
-                    "startLine": 1323,
+                    "startLine": 1331,
                     "startColumn": 4,
-                    "startOffset": 101300,
+                    "startOffset": 101711,
                     "endColumn": 85,
-                    "endOffset": 101381
+                    "endOffset": 101792
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6788,12 +6809,12 @@
             },
             {
                 "to": {
-                    "startLine": 1324,
+                    "startLine": 1332,
                     "startColumn": 4,
-                    "startOffset": 101386,
-                    "endLine": 1325,
+                    "startOffset": 101797,
+                    "endLine": 1333,
                     "endColumn": 12,
-                    "endOffset": 101494
+                    "endOffset": 101905
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6809,12 +6830,12 @@
             },
             {
                 "to": {
-                    "startLine": 1326,
+                    "startLine": 1334,
                     "startColumn": 4,
-                    "startOffset": 101499,
-                    "endLine": 1329,
+                    "startOffset": 101910,
+                    "endLine": 1337,
                     "endColumn": 12,
-                    "endOffset": 101723
+                    "endOffset": 102134
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6830,12 +6851,12 @@
             },
             {
                 "to": {
-                    "startLine": 1330,
+                    "startLine": 1338,
                     "startColumn": 4,
-                    "startOffset": 101728,
-                    "endLine": 1333,
+                    "startOffset": 102139,
+                    "endLine": 1341,
                     "endColumn": 12,
-                    "endOffset": 102061
+                    "endOffset": 102472
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6851,12 +6872,12 @@
             },
             {
                 "to": {
-                    "startLine": 1334,
+                    "startLine": 1342,
                     "startColumn": 4,
-                    "startOffset": 102066,
-                    "endLine": 1336,
+                    "startOffset": 102477,
+                    "endLine": 1344,
                     "endColumn": 12,
-                    "endOffset": 102221
+                    "endOffset": 102632
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6872,12 +6893,12 @@
             },
             {
                 "to": {
-                    "startLine": 1337,
+                    "startLine": 1345,
                     "startColumn": 4,
-                    "startOffset": 102226,
-                    "endLine": 1339,
+                    "startOffset": 102637,
+                    "endLine": 1347,
                     "endColumn": 12,
-                    "endOffset": 102373
+                    "endOffset": 102784
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6893,12 +6914,12 @@
             },
             {
                 "to": {
-                    "startLine": 1340,
+                    "startLine": 1348,
                     "startColumn": 4,
-                    "startOffset": 102378,
-                    "endLine": 1342,
+                    "startOffset": 102789,
+                    "endLine": 1350,
                     "endColumn": 12,
-                    "endOffset": 102544
+                    "endOffset": 102955
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6914,12 +6935,12 @@
             },
             {
                 "to": {
-                    "startLine": 1343,
+                    "startLine": 1351,
                     "startColumn": 4,
-                    "startOffset": 102549,
-                    "endLine": 1345,
+                    "startOffset": 102960,
+                    "endLine": 1353,
                     "endColumn": 12,
-                    "endOffset": 102711
+                    "endOffset": 103122
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6935,12 +6956,12 @@
             },
             {
                 "to": {
-                    "startLine": 1346,
+                    "startLine": 1354,
                     "startColumn": 4,
-                    "startOffset": 102716,
-                    "endLine": 1349,
+                    "startOffset": 103127,
+                    "endLine": 1357,
                     "endColumn": 12,
-                    "endOffset": 102954
+                    "endOffset": 103365
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6956,12 +6977,12 @@
             },
             {
                 "to": {
-                    "startLine": 1350,
+                    "startLine": 1358,
                     "startColumn": 4,
-                    "startOffset": 102959,
-                    "endLine": 1352,
+                    "startOffset": 103370,
+                    "endLine": 1360,
                     "endColumn": 12,
-                    "endOffset": 103124
+                    "endOffset": 103535
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6977,12 +6998,12 @@
             },
             {
                 "to": {
-                    "startLine": 1353,
+                    "startLine": 1361,
                     "startColumn": 4,
-                    "startOffset": 103129,
-                    "endLine": 1355,
+                    "startOffset": 103540,
+                    "endLine": 1363,
                     "endColumn": 12,
-                    "endOffset": 103297
+                    "endOffset": 103708
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -6998,12 +7019,12 @@
             },
             {
                 "to": {
-                    "startLine": 1356,
+                    "startLine": 1364,
                     "startColumn": 4,
-                    "startOffset": 103302,
-                    "endLine": 1358,
+                    "startOffset": 103713,
+                    "endLine": 1366,
                     "endColumn": 12,
-                    "endOffset": 103468
+                    "endOffset": 103879
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7019,12 +7040,12 @@
             },
             {
                 "to": {
-                    "startLine": 1359,
+                    "startLine": 1367,
                     "startColumn": 4,
-                    "startOffset": 103473,
-                    "endLine": 1362,
+                    "startOffset": 103884,
+                    "endLine": 1370,
                     "endColumn": 12,
-                    "endOffset": 103742
+                    "endOffset": 104153
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7040,12 +7061,12 @@
             },
             {
                 "to": {
-                    "startLine": 1363,
+                    "startLine": 1371,
                     "startColumn": 4,
-                    "startOffset": 103747,
-                    "endLine": 1365,
+                    "startOffset": 104158,
+                    "endLine": 1373,
                     "endColumn": 12,
-                    "endOffset": 103941
+                    "endOffset": 104352
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7061,12 +7082,12 @@
             },
             {
                 "to": {
-                    "startLine": 1366,
+                    "startLine": 1374,
                     "startColumn": 4,
-                    "startOffset": 103946,
-                    "endLine": 1368,
+                    "startOffset": 104357,
+                    "endLine": 1376,
                     "endColumn": 12,
-                    "endOffset": 104142
+                    "endOffset": 104553
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/values/values.xml",
@@ -7082,12 +7103,12 @@
             },
             {
                 "to": {
-                    "startLine": 1369,
+                    "startLine": 1377,
                     "startColumn": 4,
-                    "startOffset": 104147,
-                    "endLine": 1371,
+                    "startOffset": 104558,
+                    "endLine": 1379,
                     "endColumn": 12,
-                    "endOffset": 104331
+                    "endOffset": 104742
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/values/values.xml",
@@ -7103,12 +7124,12 @@
             },
             {
                 "to": {
-                    "startLine": 1372,
+                    "startLine": 1380,
                     "startColumn": 4,
-                    "startOffset": 104336,
-                    "endLine": 1374,
+                    "startOffset": 104747,
+                    "endLine": 1382,
                     "endColumn": 12,
-                    "endOffset": 104530
+                    "endOffset": 104941
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/values/values.xml",
@@ -7124,12 +7145,12 @@
             },
             {
                 "to": {
-                    "startLine": 1375,
+                    "startLine": 1383,
                     "startColumn": 4,
-                    "startOffset": 104535,
-                    "endLine": 1377,
+                    "startOffset": 104946,
+                    "endLine": 1385,
                     "endColumn": 12,
-                    "endOffset": 104717
+                    "endOffset": 105128
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/values/values.xml",
@@ -7145,11 +7166,11 @@
             },
             {
                 "to": {
-                    "startLine": 1378,
+                    "startLine": 1386,
                     "startColumn": 4,
-                    "startOffset": 104722,
+                    "startOffset": 105133,
                     "endColumn": 83,
-                    "endOffset": 104801
+                    "endOffset": 105212
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7164,11 +7185,11 @@
             },
             {
                 "to": {
-                    "startLine": 1379,
+                    "startLine": 1387,
                     "startColumn": 4,
-                    "startOffset": 104806,
+                    "startOffset": 105217,
                     "endColumn": 95,
-                    "endOffset": 104897
+                    "endOffset": 105308
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7183,11 +7204,11 @@
             },
             {
                 "to": {
-                    "startLine": 1380,
+                    "startLine": 1388,
                     "startColumn": 4,
-                    "startOffset": 104902,
+                    "startOffset": 105313,
                     "endColumn": 95,
-                    "endOffset": 104993
+                    "endOffset": 105404
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7202,11 +7223,11 @@
             },
             {
                 "to": {
-                    "startLine": 1381,
+                    "startLine": 1389,
                     "startColumn": 4,
-                    "startOffset": 104998,
+                    "startOffset": 105409,
                     "endColumn": 97,
-                    "endOffset": 105091
+                    "endOffset": 105502
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7221,11 +7242,11 @@
             },
             {
                 "to": {
-                    "startLine": 1382,
+                    "startLine": 1390,
                     "startColumn": 4,
-                    "startOffset": 105096,
+                    "startOffset": 105507,
                     "endColumn": 99,
-                    "endOffset": 105191
+                    "endOffset": 105602
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7240,11 +7261,11 @@
             },
             {
                 "to": {
-                    "startLine": 1383,
+                    "startLine": 1391,
                     "startColumn": 4,
-                    "startOffset": 105196,
+                    "startOffset": 105607,
                     "endColumn": 101,
-                    "endOffset": 105293
+                    "endOffset": 105704
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7259,11 +7280,11 @@
             },
             {
                 "to": {
-                    "startLine": 1384,
+                    "startLine": 1392,
                     "startColumn": 4,
-                    "startOffset": 105298,
+                    "startOffset": 105709,
                     "endColumn": 101,
-                    "endOffset": 105395
+                    "endOffset": 105806
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7278,11 +7299,11 @@
             },
             {
                 "to": {
-                    "startLine": 1385,
+                    "startLine": 1393,
                     "startColumn": 4,
-                    "startOffset": 105400,
+                    "startOffset": 105811,
                     "endColumn": 101,
-                    "endOffset": 105497
+                    "endOffset": 105908
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7297,11 +7318,11 @@
             },
             {
                 "to": {
-                    "startLine": 1386,
+                    "startLine": 1394,
                     "startColumn": 4,
-                    "startOffset": 105502,
+                    "startOffset": 105913,
                     "endColumn": 101,
-                    "endOffset": 105599
+                    "endOffset": 106010
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7316,11 +7337,11 @@
             },
             {
                 "to": {
-                    "startLine": 1387,
+                    "startLine": 1395,
                     "startColumn": 4,
-                    "startOffset": 105604,
+                    "startOffset": 106015,
                     "endColumn": 101,
-                    "endOffset": 105701
+                    "endOffset": 106112
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7335,11 +7356,11 @@
             },
             {
                 "to": {
-                    "startLine": 1388,
+                    "startLine": 1396,
                     "startColumn": 4,
-                    "startOffset": 105706,
+                    "startOffset": 106117,
                     "endColumn": 99,
-                    "endOffset": 105801
+                    "endOffset": 106212
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7354,11 +7375,11 @@
             },
             {
                 "to": {
-                    "startLine": 1389,
+                    "startLine": 1397,
                     "startColumn": 4,
-                    "startOffset": 105806,
+                    "startOffset": 106217,
                     "endColumn": 95,
-                    "endOffset": 105897
+                    "endOffset": 106308
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7373,11 +7394,11 @@
             },
             {
                 "to": {
-                    "startLine": 1390,
+                    "startLine": 1398,
                     "startColumn": 4,
-                    "startOffset": 105902,
+                    "startOffset": 106313,
                     "endColumn": 111,
-                    "endOffset": 106009
+                    "endOffset": 106420
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7392,11 +7413,11 @@
             },
             {
                 "to": {
-                    "startLine": 1391,
+                    "startLine": 1399,
                     "startColumn": 4,
-                    "startOffset": 106014,
+                    "startOffset": 106425,
                     "endColumn": 128,
-                    "endOffset": 106138
+                    "endOffset": 106549
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7411,11 +7432,11 @@
             },
             {
                 "to": {
-                    "startLine": 1392,
+                    "startLine": 1400,
                     "startColumn": 4,
-                    "startOffset": 106143,
+                    "startOffset": 106554,
                     "endColumn": 122,
-                    "endOffset": 106261
+                    "endOffset": 106672
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7430,12 +7451,12 @@
             },
             {
                 "to": {
-                    "startLine": 1393,
+                    "startLine": 1401,
                     "startColumn": 4,
-                    "startOffset": 106266,
-                    "endLine": 1394,
+                    "startOffset": 106677,
+                    "endLine": 1402,
                     "endColumn": 12,
-                    "endOffset": 106415
+                    "endOffset": 106826
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7451,12 +7472,12 @@
             },
             {
                 "to": {
-                    "startLine": 1395,
+                    "startLine": 1403,
                     "startColumn": 4,
-                    "startOffset": 106420,
-                    "endLine": 1396,
+                    "startOffset": 106831,
+                    "endLine": 1404,
                     "endColumn": 12,
-                    "endOffset": 106569
+                    "endOffset": 106980
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7472,11 +7493,11 @@
             },
             {
                 "to": {
-                    "startLine": 1397,
+                    "startLine": 1405,
                     "startColumn": 4,
-                    "startOffset": 106574,
+                    "startOffset": 106985,
                     "endColumn": 97,
-                    "endOffset": 106667
+                    "endOffset": 107078
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7491,11 +7512,11 @@
             },
             {
                 "to": {
-                    "startLine": 1398,
+                    "startLine": 1406,
                     "startColumn": 4,
-                    "startOffset": 106672,
+                    "startOffset": 107083,
                     "endColumn": 113,
-                    "endOffset": 106781
+                    "endOffset": 107192
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7510,11 +7531,11 @@
             },
             {
                 "to": {
-                    "startLine": 1399,
+                    "startLine": 1407,
                     "startColumn": 4,
-                    "startOffset": 106786,
+                    "startOffset": 107197,
                     "endColumn": 93,
-                    "endOffset": 106875
+                    "endOffset": 107286
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7529,12 +7550,12 @@
             },
             {
                 "to": {
-                    "startLine": 1400,
+                    "startLine": 1408,
                     "startColumn": 4,
-                    "startOffset": 106880,
-                    "endLine": 1401,
+                    "startOffset": 107291,
+                    "endLine": 1409,
                     "endColumn": 12,
-                    "endOffset": 107015
+                    "endOffset": 107426
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7550,12 +7571,12 @@
             },
             {
                 "to": {
-                    "startLine": 1402,
+                    "startLine": 1410,
                     "startColumn": 4,
-                    "startOffset": 107020,
-                    "endLine": 1403,
+                    "startOffset": 107431,
+                    "endLine": 1411,
                     "endColumn": 12,
-                    "endOffset": 107149
+                    "endOffset": 107560
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7571,11 +7592,11 @@
             },
             {
                 "to": {
-                    "startLine": 1404,
+                    "startLine": 1412,
                     "startColumn": 4,
-                    "startOffset": 107154,
+                    "startOffset": 107565,
                     "endColumn": 95,
-                    "endOffset": 107245
+                    "endOffset": 107656
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7590,11 +7611,11 @@
             },
             {
                 "to": {
-                    "startLine": 1405,
+                    "startLine": 1413,
                     "startColumn": 4,
-                    "startOffset": 107250,
+                    "startOffset": 107661,
                     "endColumn": 111,
-                    "endOffset": 107357
+                    "endOffset": 107768
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7609,11 +7630,11 @@
             },
             {
                 "to": {
-                    "startLine": 1406,
+                    "startLine": 1414,
                     "startColumn": 4,
-                    "startOffset": 107362,
+                    "startOffset": 107773,
                     "endColumn": 99,
-                    "endOffset": 107457
+                    "endOffset": 107868
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7628,11 +7649,11 @@
             },
             {
                 "to": {
-                    "startLine": 1407,
+                    "startLine": 1415,
                     "startColumn": 4,
-                    "startOffset": 107462,
+                    "startOffset": 107873,
                     "endColumn": 115,
-                    "endOffset": 107573
+                    "endOffset": 107984
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7647,11 +7668,11 @@
             },
             {
                 "to": {
-                    "startLine": 1408,
+                    "startLine": 1416,
                     "startColumn": 4,
-                    "startOffset": 107578,
+                    "startOffset": 107989,
                     "endColumn": 95,
-                    "endOffset": 107669
+                    "endOffset": 108080
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7666,11 +7687,11 @@
             },
             {
                 "to": {
-                    "startLine": 1409,
+                    "startLine": 1417,
                     "startColumn": 4,
-                    "startOffset": 107674,
+                    "startOffset": 108085,
                     "endColumn": 111,
-                    "endOffset": 107781
+                    "endOffset": 108192
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7685,12 +7706,12 @@
             },
             {
                 "to": {
-                    "startLine": 1410,
+                    "startLine": 1418,
                     "startColumn": 4,
-                    "startOffset": 107786,
-                    "endLine": 1411,
+                    "startOffset": 108197,
+                    "endLine": 1419,
                     "endColumn": 12,
-                    "endOffset": 107921
+                    "endOffset": 108332
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7706,11 +7727,11 @@
             },
             {
                 "to": {
-                    "startLine": 1412,
+                    "startLine": 1420,
                     "startColumn": 4,
-                    "startOffset": 107926,
+                    "startOffset": 108337,
                     "endColumn": 135,
-                    "endOffset": 108057
+                    "endOffset": 108468
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7725,12 +7746,12 @@
             },
             {
                 "to": {
-                    "startLine": 1413,
+                    "startLine": 1421,
                     "startColumn": 4,
-                    "startOffset": 108062,
-                    "endLine": 1414,
+                    "startOffset": 108473,
+                    "endLine": 1422,
                     "endColumn": 12,
-                    "endOffset": 108221
+                    "endOffset": 108632
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7746,11 +7767,11 @@
             },
             {
                 "to": {
-                    "startLine": 1415,
+                    "startLine": 1423,
                     "startColumn": 4,
-                    "startOffset": 108226,
+                    "startOffset": 108637,
                     "endColumn": 129,
-                    "endOffset": 108351
+                    "endOffset": 108762
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7765,12 +7786,12 @@
             },
             {
                 "to": {
-                    "startLine": 1416,
+                    "startLine": 1424,
                     "startColumn": 4,
-                    "startOffset": 108356,
-                    "endLine": 1417,
+                    "startOffset": 108767,
+                    "endLine": 1425,
                     "endColumn": 12,
-                    "endOffset": 108509
+                    "endOffset": 108920
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7786,12 +7807,12 @@
             },
             {
                 "to": {
-                    "startLine": 1418,
+                    "startLine": 1426,
                     "startColumn": 4,
-                    "startOffset": 108514,
-                    "endLine": 1419,
+                    "startOffset": 108925,
+                    "endLine": 1427,
                     "endColumn": 12,
-                    "endOffset": 108659
+                    "endOffset": 109070
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7807,11 +7828,11 @@
             },
             {
                 "to": {
-                    "startLine": 1420,
+                    "startLine": 1428,
                     "startColumn": 4,
-                    "startOffset": 108664,
+                    "startOffset": 109075,
                     "endColumn": 140,
-                    "endOffset": 108800
+                    "endOffset": 109211
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7826,12 +7847,12 @@
             },
             {
                 "to": {
-                    "startLine": 1421,
+                    "startLine": 1429,
                     "startColumn": 4,
-                    "startOffset": 108805,
-                    "endLine": 1422,
+                    "startOffset": 109216,
+                    "endLine": 1430,
                     "endColumn": 12,
-                    "endOffset": 108944
+                    "endOffset": 109355
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7847,11 +7868,11 @@
             },
             {
                 "to": {
-                    "startLine": 1423,
+                    "startLine": 1431,
                     "startColumn": 4,
-                    "startOffset": 108949,
+                    "startOffset": 109360,
                     "endColumn": 134,
-                    "endOffset": 109079
+                    "endOffset": 109490
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7866,11 +7887,11 @@
             },
             {
                 "to": {
-                    "startLine": 1424,
+                    "startLine": 1432,
                     "startColumn": 4,
-                    "startOffset": 109084,
+                    "startOffset": 109495,
                     "endColumn": 111,
-                    "endOffset": 109191
+                    "endOffset": 109602
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7885,11 +7906,11 @@
             },
             {
                 "to": {
-                    "startLine": 1425,
+                    "startLine": 1433,
                     "startColumn": 4,
-                    "startOffset": 109196,
+                    "startOffset": 109607,
                     "endColumn": 127,
-                    "endOffset": 109319
+                    "endOffset": 109730
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7904,12 +7925,12 @@
             },
             {
                 "to": {
-                    "startLine": 1426,
+                    "startLine": 1434,
                     "startColumn": 4,
-                    "startOffset": 109324,
-                    "endLine": 1427,
+                    "startOffset": 109735,
+                    "endLine": 1435,
                     "endColumn": 12,
-                    "endOffset": 109455
+                    "endOffset": 109866
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7925,12 +7946,12 @@
             },
             {
                 "to": {
-                    "startLine": 1428,
+                    "startLine": 1436,
                     "startColumn": 4,
-                    "startOffset": 109460,
-                    "endLine": 1429,
+                    "startOffset": 109871,
+                    "endLine": 1437,
                     "endColumn": 12,
-                    "endOffset": 109597
+                    "endOffset": 110008
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7946,12 +7967,12 @@
             },
             {
                 "to": {
-                    "startLine": 1430,
+                    "startLine": 1438,
                     "startColumn": 4,
-                    "startOffset": 109602,
-                    "endLine": 1431,
+                    "startOffset": 110013,
+                    "endLine": 1439,
                     "endColumn": 12,
-                    "endOffset": 109739
+                    "endOffset": 110150
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7967,11 +7988,11 @@
             },
             {
                 "to": {
-                    "startLine": 1432,
+                    "startLine": 1440,
                     "startColumn": 4,
-                    "startOffset": 109744,
+                    "startOffset": 110155,
                     "endColumn": 111,
-                    "endOffset": 109851
+                    "endOffset": 110262
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -7986,11 +8007,11 @@
             },
             {
                 "to": {
-                    "startLine": 1433,
+                    "startLine": 1441,
                     "startColumn": 4,
-                    "startOffset": 109856,
+                    "startOffset": 110267,
                     "endColumn": 139,
-                    "endOffset": 109991
+                    "endOffset": 110402
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8005,11 +8026,11 @@
             },
             {
                 "to": {
-                    "startLine": 1434,
+                    "startLine": 1442,
                     "startColumn": 4,
-                    "startOffset": 109996,
+                    "startOffset": 110407,
                     "endColumn": 67,
-                    "endOffset": 110059
+                    "endOffset": 110470
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8024,11 +8045,11 @@
             },
             {
                 "to": {
-                    "startLine": 1435,
+                    "startLine": 1443,
                     "startColumn": 4,
-                    "startOffset": 110064,
+                    "startOffset": 110475,
                     "endColumn": 72,
-                    "endOffset": 110132
+                    "endOffset": 110543
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8043,11 +8064,11 @@
             },
             {
                 "to": {
-                    "startLine": 1436,
+                    "startLine": 1444,
                     "startColumn": 4,
-                    "startOffset": 110137,
+                    "startOffset": 110548,
                     "endColumn": 73,
-                    "endOffset": 110206
+                    "endOffset": 110617
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8062,11 +8083,11 @@
             },
             {
                 "to": {
-                    "startLine": 1437,
+                    "startLine": 1445,
                     "startColumn": 4,
-                    "startOffset": 110211,
+                    "startOffset": 110622,
                     "endColumn": 72,
-                    "endOffset": 110279
+                    "endOffset": 110690
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8081,11 +8102,11 @@
             },
             {
                 "to": {
-                    "startLine": 1438,
+                    "startLine": 1446,
                     "startColumn": 4,
-                    "startOffset": 110284,
+                    "startOffset": 110695,
                     "endColumn": 73,
-                    "endOffset": 110353
+                    "endOffset": 110764
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8100,12 +8121,12 @@
             },
             {
                 "to": {
-                    "startLine": 1439,
+                    "startLine": 1447,
                     "startColumn": 4,
-                    "startOffset": 110358,
-                    "endLine": 1440,
+                    "startOffset": 110769,
+                    "endLine": 1448,
                     "endColumn": 12,
-                    "endOffset": 110499
+                    "endOffset": 110910
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8121,12 +8142,12 @@
             },
             {
                 "to": {
-                    "startLine": 1441,
+                    "startLine": 1449,
                     "startColumn": 4,
-                    "startOffset": 110504,
-                    "endLine": 1442,
+                    "startOffset": 110915,
+                    "endLine": 1450,
                     "endColumn": 12,
-                    "endOffset": 110643
+                    "endOffset": 111054
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8142,12 +8163,12 @@
             },
             {
                 "to": {
-                    "startLine": 1443,
+                    "startLine": 1451,
                     "startColumn": 4,
-                    "startOffset": 110648,
-                    "endLine": 1444,
+                    "startOffset": 111059,
+                    "endLine": 1452,
                     "endColumn": 12,
-                    "endOffset": 110781
+                    "endOffset": 111192
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8163,11 +8184,11 @@
             },
             {
                 "to": {
-                    "startLine": 1445,
+                    "startLine": 1453,
                     "startColumn": 4,
-                    "startOffset": 110786,
+                    "startOffset": 111197,
                     "endColumn": 25,
-                    "endOffset": 110807
+                    "endOffset": 111218
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/values/values.xml",
@@ -8182,11 +8203,11 @@
             },
             {
                 "to": {
-                    "startLine": 1446,
+                    "startLine": 1454,
                     "startColumn": 4,
-                    "startOffset": 110812,
+                    "startOffset": 111223,
                     "endColumn": 65,
-                    "endOffset": 110873
+                    "endOffset": 111284
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8201,11 +8222,11 @@
             },
             {
                 "to": {
-                    "startLine": 1447,
+                    "startLine": 1455,
                     "startColumn": 4,
-                    "startOffset": 110878,
+                    "startOffset": 111289,
                     "endColumn": 89,
-                    "endOffset": 110963
+                    "endOffset": 111374
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8220,11 +8241,11 @@
             },
             {
                 "to": {
-                    "startLine": 1448,
+                    "startLine": 1456,
                     "startColumn": 4,
-                    "startOffset": 110968,
+                    "startOffset": 111379,
                     "endColumn": 79,
-                    "endOffset": 111043
+                    "endOffset": 111454
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8239,11 +8260,11 @@
             },
             {
                 "to": {
-                    "startLine": 1449,
+                    "startLine": 1457,
                     "startColumn": 4,
-                    "startOffset": 111048,
+                    "startOffset": 111459,
                     "endColumn": 91,
-                    "endOffset": 111135
+                    "endOffset": 111546
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8258,11 +8279,11 @@
             },
             {
                 "to": {
-                    "startLine": 1450,
+                    "startLine": 1458,
                     "startColumn": 4,
-                    "startOffset": 111140,
+                    "startOffset": 111551,
                     "endColumn": 97,
-                    "endOffset": 111233
+                    "endOffset": 111644
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8277,12 +8298,12 @@
             },
             {
                 "to": {
-                    "startLine": 1451,
+                    "startLine": 1459,
                     "startColumn": 4,
-                    "startOffset": 111238,
-                    "endLine": 1452,
+                    "startOffset": 111649,
+                    "endLine": 1460,
                     "endColumn": 12,
-                    "endOffset": 111343
+                    "endOffset": 111754
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8298,11 +8319,11 @@
             },
             {
                 "to": {
-                    "startLine": 1453,
+                    "startLine": 1461,
                     "startColumn": 4,
-                    "startOffset": 111348,
+                    "startOffset": 111759,
                     "endColumn": 77,
-                    "endOffset": 111421
+                    "endOffset": 111832
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8317,11 +8338,11 @@
             },
             {
                 "to": {
-                    "startLine": 1454,
+                    "startLine": 1462,
                     "startColumn": 4,
-                    "startOffset": 111426,
+                    "startOffset": 111837,
                     "endColumn": 105,
-                    "endOffset": 111527
+                    "endOffset": 111938
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8336,11 +8357,11 @@
             },
             {
                 "to": {
-                    "startLine": 1455,
+                    "startLine": 1463,
                     "startColumn": 4,
-                    "startOffset": 111532,
+                    "startOffset": 111943,
                     "endColumn": 91,
-                    "endOffset": 111619
+                    "endOffset": 112030
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8355,11 +8376,11 @@
             },
             {
                 "to": {
-                    "startLine": 1456,
+                    "startLine": 1464,
                     "startColumn": 4,
-                    "startOffset": 111624,
+                    "startOffset": 112035,
                     "endColumn": 103,
-                    "endOffset": 111723
+                    "endOffset": 112134
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8374,11 +8395,11 @@
             },
             {
                 "to": {
-                    "startLine": 1457,
+                    "startLine": 1465,
                     "startColumn": 4,
-                    "startOffset": 111728,
+                    "startOffset": 112139,
                     "endColumn": 109,
-                    "endOffset": 111833
+                    "endOffset": 112244
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8393,12 +8414,12 @@
             },
             {
                 "to": {
-                    "startLine": 1458,
+                    "startLine": 1466,
                     "startColumn": 4,
-                    "startOffset": 111838,
-                    "endLine": 1459,
+                    "startOffset": 112249,
+                    "endLine": 1467,
                     "endColumn": 12,
-                    "endOffset": 111955
+                    "endOffset": 112366
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8414,12 +8435,12 @@
             },
             {
                 "to": {
-                    "startLine": 1460,
+                    "startLine": 1468,
                     "startColumn": 4,
-                    "startOffset": 111960,
-                    "endLine": 1463,
+                    "startOffset": 112371,
+                    "endLine": 1471,
                     "endColumn": 12,
-                    "endOffset": 112118
+                    "endOffset": 112529
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8435,12 +8456,12 @@
             },
             {
                 "to": {
-                    "startLine": 1464,
+                    "startLine": 1472,
                     "startColumn": 4,
-                    "startOffset": 112123,
-                    "endLine": 1467,
+                    "startOffset": 112534,
+                    "endLine": 1475,
                     "endColumn": 12,
-                    "endOffset": 112275
+                    "endOffset": 112686
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8456,11 +8477,11 @@
             },
             {
                 "to": {
-                    "startLine": 1468,
+                    "startLine": 1476,
                     "startColumn": 4,
-                    "startOffset": 112280,
+                    "startOffset": 112691,
                     "endColumn": 34,
-                    "endOffset": 112310
+                    "endOffset": 112721
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/values/values.xml",
@@ -8475,12 +8496,12 @@
             },
             {
                 "to": {
-                    "startLine": 1469,
+                    "startLine": 1477,
                     "startColumn": 4,
-                    "startOffset": 112315,
-                    "endLine": 1475,
+                    "startOffset": 112726,
+                    "endLine": 1483,
                     "endColumn": 10,
-                    "endOffset": 112728
+                    "endOffset": 113139
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/values/values.xml",
@@ -8496,12 +8517,12 @@
             },
             {
                 "to": {
-                    "startLine": 1476,
+                    "startLine": 1484,
                     "startColumn": 4,
-                    "startOffset": 112733,
-                    "endLine": 1482,
+                    "startOffset": 113144,
+                    "endLine": 1490,
                     "endColumn": 10,
-                    "endOffset": 113106
+                    "endOffset": 113517
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/values/values.xml",
@@ -8517,12 +8538,12 @@
             },
             {
                 "to": {
-                    "startLine": 1483,
+                    "startLine": 1491,
                     "startColumn": 4,
-                    "startOffset": 113111,
-                    "endLine": 1485,
+                    "startOffset": 113522,
+                    "endLine": 1493,
                     "endColumn": 10,
-                    "endOffset": 113283
+                    "endOffset": 113694
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/values/values.xml",
@@ -8538,12 +8559,12 @@
             },
             {
                 "to": {
-                    "startLine": 1486,
+                    "startLine": 1494,
                     "startColumn": 4,
-                    "startOffset": 113288,
-                    "endLine": 1488,
+                    "startOffset": 113699,
+                    "endLine": 1496,
                     "endColumn": 10,
-                    "endOffset": 113462
+                    "endOffset": 113873
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/values/values.xml",
@@ -8559,12 +8580,12 @@
             },
             {
                 "to": {
-                    "startLine": 1489,
+                    "startLine": 1497,
                     "startColumn": 4,
-                    "startOffset": 113467,
-                    "endLine": 1491,
+                    "startOffset": 113878,
+                    "endLine": 1499,
                     "endColumn": 12,
-                    "endOffset": 113645
+                    "endOffset": 114056
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/values/values.xml",
@@ -8580,12 +8601,12 @@
             },
             {
                 "to": {
-                    "startLine": 1492,
+                    "startLine": 1500,
                     "startColumn": 4,
-                    "startOffset": 113650,
-                    "endLine": 1497,
+                    "startOffset": 114061,
+                    "endLine": 1505,
                     "endColumn": 12,
-                    "endOffset": 114010
+                    "endOffset": 114421
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/values/values.xml",
@@ -8601,11 +8622,11 @@
             },
             {
                 "to": {
-                    "startLine": 1498,
+                    "startLine": 1506,
                     "startColumn": 4,
-                    "startOffset": 114015,
+                    "startOffset": 114426,
                     "endColumn": 79,
-                    "endOffset": 114090
+                    "endOffset": 114501
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8620,11 +8641,11 @@
             },
             {
                 "to": {
-                    "startLine": 1499,
+                    "startLine": 1507,
                     "startColumn": 4,
-                    "startOffset": 114095,
+                    "startOffset": 114506,
                     "endColumn": 99,
-                    "endOffset": 114190
+                    "endOffset": 114601
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8639,11 +8660,11 @@
             },
             {
                 "to": {
-                    "startLine": 1500,
+                    "startLine": 1508,
                     "startColumn": 4,
-                    "startOffset": 114195,
+                    "startOffset": 114606,
                     "endColumn": 89,
-                    "endOffset": 114280
+                    "endOffset": 114691
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8658,11 +8679,11 @@
             },
             {
                 "to": {
-                    "startLine": 1501,
+                    "startLine": 1509,
                     "startColumn": 4,
-                    "startOffset": 114285,
+                    "startOffset": 114696,
                     "endColumn": 109,
-                    "endOffset": 114390
+                    "endOffset": 114801
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8677,11 +8698,11 @@
             },
             {
                 "to": {
-                    "startLine": 1502,
+                    "startLine": 1510,
                     "startColumn": 4,
-                    "startOffset": 114395,
+                    "startOffset": 114806,
                     "endColumn": 91,
-                    "endOffset": 114482
+                    "endOffset": 114893
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8696,12 +8717,12 @@
             },
             {
                 "to": {
-                    "startLine": 1503,
+                    "startLine": 1511,
                     "startColumn": 4,
-                    "startOffset": 114487,
-                    "endLine": 1504,
+                    "startOffset": 114898,
+                    "endLine": 1512,
                     "endColumn": 12,
-                    "endOffset": 114582
+                    "endOffset": 114993
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8717,12 +8738,12 @@
             },
             {
                 "to": {
-                    "startLine": 1505,
+                    "startLine": 1513,
                     "startColumn": 4,
-                    "startOffset": 114587,
-                    "endLine": 1506,
+                    "startOffset": 114998,
+                    "endLine": 1514,
                     "endColumn": 12,
-                    "endOffset": 114694
+                    "endOffset": 115105
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8738,12 +8759,12 @@
             },
             {
                 "to": {
-                    "startLine": 1507,
+                    "startLine": 1515,
                     "startColumn": 4,
-                    "startOffset": 114699,
-                    "endLine": 1508,
+                    "startOffset": 115110,
+                    "endLine": 1516,
                     "endColumn": 12,
-                    "endOffset": 114808
+                    "endOffset": 115219
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8759,12 +8780,12 @@
             },
             {
                 "to": {
-                    "startLine": 1509,
+                    "startLine": 1517,
                     "startColumn": 4,
-                    "startOffset": 114813,
-                    "endLine": 1510,
+                    "startOffset": 115224,
+                    "endLine": 1518,
                     "endColumn": 12,
-                    "endOffset": 114924
+                    "endOffset": 115335
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8780,12 +8801,12 @@
             },
             {
                 "to": {
-                    "startLine": 1511,
+                    "startLine": 1519,
                     "startColumn": 4,
-                    "startOffset": 114929,
-                    "endLine": 1512,
+                    "startOffset": 115340,
+                    "endLine": 1520,
                     "endColumn": 12,
-                    "endOffset": 115040
+                    "endOffset": 115451
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8801,11 +8822,11 @@
             },
             {
                 "to": {
-                    "startLine": 1513,
+                    "startLine": 1521,
                     "startColumn": 4,
-                    "startOffset": 115045,
+                    "startOffset": 115456,
                     "endColumn": 93,
-                    "endOffset": 115134
+                    "endOffset": 115545
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8820,11 +8841,11 @@
             },
             {
                 "to": {
-                    "startLine": 1514,
+                    "startLine": 1522,
                     "startColumn": 4,
-                    "startOffset": 115139,
+                    "startOffset": 115550,
                     "endColumn": 113,
-                    "endOffset": 115248
+                    "endOffset": 115659
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8839,11 +8860,11 @@
             },
             {
                 "to": {
-                    "startLine": 1515,
+                    "startLine": 1523,
                     "startColumn": 4,
-                    "startOffset": 115253,
+                    "startOffset": 115664,
                     "endColumn": 117,
-                    "endOffset": 115366
+                    "endOffset": 115777
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8858,12 +8879,12 @@
             },
             {
                 "to": {
-                    "startLine": 1516,
+                    "startLine": 1524,
                     "startColumn": 4,
-                    "startOffset": 115371,
-                    "endLine": 1517,
+                    "startOffset": 115782,
+                    "endLine": 1525,
                     "endColumn": 12,
-                    "endOffset": 115468
+                    "endOffset": 115879
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8879,12 +8900,12 @@
             },
             {
                 "to": {
-                    "startLine": 1518,
+                    "startLine": 1526,
                     "startColumn": 4,
-                    "startOffset": 115473,
-                    "endLine": 1519,
+                    "startOffset": 115884,
+                    "endLine": 1527,
                     "endColumn": 12,
-                    "endOffset": 115588
+                    "endOffset": 115999
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8900,12 +8921,12 @@
             },
             {
                 "to": {
-                    "startLine": 1520,
+                    "startLine": 1528,
                     "startColumn": 4,
-                    "startOffset": 115593,
-                    "endLine": 1521,
+                    "startOffset": 116004,
+                    "endLine": 1529,
                     "endColumn": 12,
-                    "endOffset": 115710
+                    "endOffset": 116121
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8921,11 +8942,11 @@
             },
             {
                 "to": {
-                    "startLine": 1522,
+                    "startLine": 1530,
                     "startColumn": 4,
-                    "startOffset": 115715,
+                    "startOffset": 116126,
                     "endColumn": 81,
-                    "endOffset": 115792
+                    "endOffset": 116203
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8940,11 +8961,11 @@
             },
             {
                 "to": {
-                    "startLine": 1523,
+                    "startLine": 1531,
                     "startColumn": 4,
-                    "startOffset": 115797,
+                    "startOffset": 116208,
                     "endColumn": 103,
-                    "endOffset": 115896
+                    "endOffset": 116307
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8959,11 +8980,11 @@
             },
             {
                 "to": {
-                    "startLine": 1524,
+                    "startLine": 1532,
                     "startColumn": 4,
-                    "startOffset": 115901,
+                    "startOffset": 116312,
                     "endColumn": 119,
-                    "endOffset": 116016
+                    "endOffset": 116427
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8978,11 +8999,11 @@
             },
             {
                 "to": {
-                    "startLine": 1525,
+                    "startLine": 1533,
                     "startColumn": 4,
-                    "startOffset": 116021,
+                    "startOffset": 116432,
                     "endColumn": 125,
-                    "endOffset": 116142
+                    "endOffset": 116553
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -8997,11 +9018,11 @@
             },
             {
                 "to": {
-                    "startLine": 1526,
+                    "startLine": 1534,
                     "startColumn": 4,
-                    "startOffset": 116147,
+                    "startOffset": 116558,
                     "endColumn": 97,
-                    "endOffset": 116240
+                    "endOffset": 116651
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9016,11 +9037,11 @@
             },
             {
                 "to": {
-                    "startLine": 1527,
+                    "startLine": 1535,
                     "startColumn": 4,
-                    "startOffset": 116245,
+                    "startOffset": 116656,
                     "endColumn": 93,
-                    "endOffset": 116334
+                    "endOffset": 116745
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9035,11 +9056,11 @@
             },
             {
                 "to": {
-                    "startLine": 1528,
+                    "startLine": 1536,
                     "startColumn": 4,
-                    "startOffset": 116339,
+                    "startOffset": 116750,
                     "endColumn": 87,
-                    "endOffset": 116422
+                    "endOffset": 116833
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9054,11 +9075,11 @@
             },
             {
                 "to": {
-                    "startLine": 1529,
+                    "startLine": 1537,
                     "startColumn": 4,
-                    "startOffset": 116427,
+                    "startOffset": 116838,
                     "endColumn": 111,
-                    "endOffset": 116534
+                    "endOffset": 116945
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9073,11 +9094,11 @@
             },
             {
                 "to": {
-                    "startLine": 1530,
+                    "startLine": 1538,
                     "startColumn": 4,
-                    "startOffset": 116539,
+                    "startOffset": 116950,
                     "endColumn": 115,
-                    "endOffset": 116650
+                    "endOffset": 117061
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9092,11 +9113,11 @@
             },
             {
                 "to": {
-                    "startLine": 1531,
+                    "startLine": 1539,
                     "startColumn": 4,
-                    "startOffset": 116655,
+                    "startOffset": 117066,
                     "endColumn": 121,
-                    "endOffset": 116772
+                    "endOffset": 117183
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9111,11 +9132,11 @@
             },
             {
                 "to": {
-                    "startLine": 1532,
+                    "startLine": 1540,
                     "startColumn": 4,
-                    "startOffset": 116777,
+                    "startOffset": 117188,
                     "endColumn": 111,
-                    "endOffset": 116884
+                    "endOffset": 117295
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9130,12 +9151,12 @@
             },
             {
                 "to": {
-                    "startLine": 1533,
+                    "startLine": 1541,
                     "startColumn": 4,
-                    "startOffset": 116889,
-                    "endLine": 1535,
+                    "startOffset": 117300,
+                    "endLine": 1543,
                     "endColumn": 12,
-                    "endOffset": 117059
+                    "endOffset": 117470
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9151,11 +9172,11 @@
             },
             {
                 "to": {
-                    "startLine": 1536,
+                    "startLine": 1544,
                     "startColumn": 4,
-                    "startOffset": 117064,
+                    "startOffset": 117475,
                     "endColumn": 115,
-                    "endOffset": 117175
+                    "endOffset": 117586
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9170,11 +9191,11 @@
             },
             {
                 "to": {
-                    "startLine": 1537,
+                    "startLine": 1545,
                     "startColumn": 4,
-                    "startOffset": 117180,
+                    "startOffset": 117591,
                     "endColumn": 85,
-                    "endOffset": 117261
+                    "endOffset": 117672
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9189,12 +9210,12 @@
             },
             {
                 "to": {
-                    "startLine": 1538,
+                    "startLine": 1546,
                     "startColumn": 4,
-                    "startOffset": 117266,
-                    "endLine": 1539,
+                    "startOffset": 117677,
+                    "endLine": 1547,
                     "endColumn": 12,
-                    "endOffset": 117373
+                    "endOffset": 117784
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9210,12 +9231,12 @@
             },
             {
                 "to": {
-                    "startLine": 1540,
+                    "startLine": 1548,
                     "startColumn": 4,
-                    "startOffset": 117378,
-                    "endLine": 1541,
+                    "startOffset": 117789,
+                    "endLine": 1549,
                     "endColumn": 12,
-                    "endOffset": 117497
+                    "endOffset": 117908
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9231,11 +9252,11 @@
             },
             {
                 "to": {
-                    "startLine": 1542,
+                    "startLine": 1550,
                     "startColumn": 4,
-                    "startOffset": 117502,
+                    "startOffset": 117913,
                     "endColumn": 66,
-                    "endOffset": 117564
+                    "endOffset": 117975
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9250,12 +9271,12 @@
             },
             {
                 "to": {
-                    "startLine": 1543,
+                    "startLine": 1551,
                     "startColumn": 4,
-                    "startOffset": 117569,
-                    "endLine": 1544,
+                    "startOffset": 117980,
+                    "endLine": 1552,
                     "endColumn": 12,
-                    "endOffset": 117690
+                    "endOffset": 118101
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9271,11 +9292,11 @@
             },
             {
                 "to": {
-                    "startLine": 1545,
+                    "startLine": 1553,
                     "startColumn": 4,
-                    "startOffset": 117695,
+                    "startOffset": 118106,
                     "endColumn": 67,
-                    "endOffset": 117758
+                    "endOffset": 118169
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9290,12 +9311,12 @@
             },
             {
                 "to": {
-                    "startLine": 1546,
+                    "startLine": 1554,
                     "startColumn": 4,
-                    "startOffset": 117763,
-                    "endLine": 1547,
+                    "startOffset": 118174,
+                    "endLine": 1555,
                     "endColumn": 12,
-                    "endOffset": 117886
+                    "endOffset": 118297
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9311,12 +9332,12 @@
             },
             {
                 "to": {
-                    "startLine": 1548,
+                    "startLine": 1556,
                     "startColumn": 4,
-                    "startOffset": 117891,
-                    "endLine": 1549,
+                    "startOffset": 118302,
+                    "endLine": 1557,
                     "endColumn": 12,
-                    "endOffset": 118030
+                    "endOffset": 118441
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9332,12 +9353,12 @@
             },
             {
                 "to": {
-                    "startLine": 1550,
+                    "startLine": 1558,
                     "startColumn": 4,
-                    "startOffset": 118035,
-                    "endLine": 1551,
+                    "startOffset": 118446,
+                    "endLine": 1559,
                     "endColumn": 12,
-                    "endOffset": 118158
+                    "endOffset": 118569
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9353,11 +9374,11 @@
             },
             {
                 "to": {
-                    "startLine": 1552,
+                    "startLine": 1560,
                     "startColumn": 4,
-                    "startOffset": 118163,
+                    "startOffset": 118574,
                     "endColumn": 68,
-                    "endOffset": 118227
+                    "endOffset": 118638
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9372,11 +9393,11 @@
             },
             {
                 "to": {
-                    "startLine": 1553,
+                    "startLine": 1561,
                     "startColumn": 4,
-                    "startOffset": 118232,
+                    "startOffset": 118643,
                     "endColumn": 94,
-                    "endOffset": 118322
+                    "endOffset": 118733
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9391,11 +9412,11 @@
             },
             {
                 "to": {
-                    "startLine": 1554,
+                    "startLine": 1562,
                     "startColumn": 4,
-                    "startOffset": 118327,
+                    "startOffset": 118738,
                     "endColumn": 114,
-                    "endOffset": 118437
+                    "endOffset": 118848
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9410,11 +9431,11 @@
             },
             {
                 "to": {
-                    "startLine": 1555,
+                    "startLine": 1563,
                     "startColumn": 4,
-                    "startOffset": 118442,
+                    "startOffset": 118853,
                     "endColumn": 112,
-                    "endOffset": 118550
+                    "endOffset": 118961
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9429,11 +9450,11 @@
             },
             {
                 "to": {
-                    "startLine": 1556,
+                    "startLine": 1564,
                     "startColumn": 4,
-                    "startOffset": 118555,
+                    "startOffset": 118966,
                     "endColumn": 98,
-                    "endOffset": 118649
+                    "endOffset": 119060
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9448,11 +9469,11 @@
             },
             {
                 "to": {
-                    "startLine": 1557,
+                    "startLine": 1565,
                     "startColumn": 4,
-                    "startOffset": 118654,
+                    "startOffset": 119065,
                     "endColumn": 108,
-                    "endOffset": 118758
+                    "endOffset": 119169
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9467,11 +9488,11 @@
             },
             {
                 "to": {
-                    "startLine": 1558,
+                    "startLine": 1566,
                     "startColumn": 4,
-                    "startOffset": 118763,
+                    "startOffset": 119174,
                     "endColumn": 110,
-                    "endOffset": 118869
+                    "endOffset": 119280
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9486,11 +9507,11 @@
             },
             {
                 "to": {
-                    "startLine": 1559,
+                    "startLine": 1567,
                     "startColumn": 4,
-                    "startOffset": 118874,
+                    "startOffset": 119285,
                     "endColumn": 110,
-                    "endOffset": 118980
+                    "endOffset": 119391
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9505,11 +9526,11 @@
             },
             {
                 "to": {
-                    "startLine": 1560,
+                    "startLine": 1568,
                     "startColumn": 4,
-                    "startOffset": 118985,
+                    "startOffset": 119396,
                     "endColumn": 100,
-                    "endOffset": 119081
+                    "endOffset": 119492
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9524,11 +9545,11 @@
             },
             {
                 "to": {
-                    "startLine": 1561,
+                    "startLine": 1569,
                     "startColumn": 4,
-                    "startOffset": 119086,
+                    "startOffset": 119497,
                     "endColumn": 104,
-                    "endOffset": 119186
+                    "endOffset": 119597
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9543,12 +9564,12 @@
             },
             {
                 "to": {
-                    "startLine": 1562,
+                    "startLine": 1570,
                     "startColumn": 4,
-                    "startOffset": 119191,
-                    "endLine": 1563,
+                    "startOffset": 119602,
+                    "endLine": 1571,
                     "endColumn": 12,
-                    "endOffset": 119298
+                    "endOffset": 119709
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9564,12 +9585,12 @@
             },
             {
                 "to": {
-                    "startLine": 1564,
+                    "startLine": 1572,
                     "startColumn": 4,
-                    "startOffset": 119303,
-                    "endLine": 1565,
+                    "startOffset": 119714,
+                    "endLine": 1573,
                     "endColumn": 12,
-                    "endOffset": 119428
+                    "endOffset": 119839
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9585,11 +9606,11 @@
             },
             {
                 "to": {
-                    "startLine": 1566,
+                    "startLine": 1574,
                     "startColumn": 4,
-                    "startOffset": 119433,
+                    "startOffset": 119844,
                     "endColumn": 90,
-                    "endOffset": 119519
+                    "endOffset": 119930
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9604,11 +9625,11 @@
             },
             {
                 "to": {
-                    "startLine": 1567,
+                    "startLine": 1575,
                     "startColumn": 4,
-                    "startOffset": 119524,
+                    "startOffset": 119935,
                     "endColumn": 122,
-                    "endOffset": 119642
+                    "endOffset": 120053
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9623,12 +9644,12 @@
             },
             {
                 "to": {
-                    "startLine": 1568,
+                    "startLine": 1576,
                     "startColumn": 4,
-                    "startOffset": 119647,
-                    "endLine": 1569,
+                    "startOffset": 120058,
+                    "endLine": 1577,
                     "endColumn": 12,
-                    "endOffset": 119754
+                    "endOffset": 120165
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9644,11 +9665,11 @@
             },
             {
                 "to": {
-                    "startLine": 1570,
+                    "startLine": 1578,
                     "startColumn": 4,
-                    "startOffset": 119759,
+                    "startOffset": 120170,
                     "endColumn": 85,
-                    "endOffset": 119840
+                    "endOffset": 120251
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9663,11 +9684,11 @@
             },
             {
                 "to": {
-                    "startLine": 1571,
+                    "startLine": 1579,
                     "startColumn": 4,
-                    "startOffset": 119845,
+                    "startOffset": 120256,
                     "endColumn": 103,
-                    "endOffset": 119944
+                    "endOffset": 120355
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9682,12 +9703,12 @@
             },
             {
                 "to": {
-                    "startLine": 1572,
+                    "startLine": 1580,
                     "startColumn": 4,
-                    "startOffset": 119949,
-                    "endLine": 1573,
+                    "startOffset": 120360,
+                    "endLine": 1581,
                     "endColumn": 12,
-                    "endOffset": 120052
+                    "endOffset": 120463
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9703,12 +9724,12 @@
             },
             {
                 "to": {
-                    "startLine": 1574,
+                    "startLine": 1582,
                     "startColumn": 4,
-                    "startOffset": 120057,
-                    "endLine": 1575,
+                    "startOffset": 120468,
+                    "endLine": 1583,
                     "endColumn": 12,
-                    "endOffset": 120152
+                    "endOffset": 120563
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9724,12 +9745,12 @@
             },
             {
                 "to": {
-                    "startLine": 1576,
+                    "startLine": 1584,
                     "startColumn": 4,
-                    "startOffset": 120157,
-                    "endLine": 1577,
+                    "startOffset": 120568,
+                    "endLine": 1585,
                     "endColumn": 12,
-                    "endOffset": 120270
+                    "endOffset": 120681
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9745,12 +9766,12 @@
             },
             {
                 "to": {
-                    "startLine": 1578,
+                    "startLine": 1586,
                     "startColumn": 4,
-                    "startOffset": 120275,
-                    "endLine": 1579,
+                    "startOffset": 120686,
+                    "endLine": 1587,
                     "endColumn": 12,
-                    "endOffset": 120374
+                    "endOffset": 120785
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9766,12 +9787,12 @@
             },
             {
                 "to": {
-                    "startLine": 1580,
+                    "startLine": 1588,
                     "startColumn": 4,
-                    "startOffset": 120379,
-                    "endLine": 1581,
+                    "startOffset": 120790,
+                    "endLine": 1589,
                     "endColumn": 12,
-                    "endOffset": 120478
+                    "endOffset": 120889
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9787,12 +9808,12 @@
             },
             {
                 "to": {
-                    "startLine": 1582,
+                    "startLine": 1590,
                     "startColumn": 4,
-                    "startOffset": 120483,
-                    "endLine": 1583,
+                    "startOffset": 120894,
+                    "endLine": 1591,
                     "endColumn": 12,
-                    "endOffset": 120604
+                    "endOffset": 121015
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9808,11 +9829,11 @@
             },
             {
                 "to": {
-                    "startLine": 1584,
+                    "startLine": 1592,
                     "startColumn": 4,
-                    "startOffset": 120609,
+                    "startOffset": 121020,
                     "endColumn": 87,
-                    "endOffset": 120692
+                    "endOffset": 121103
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9827,11 +9848,11 @@
             },
             {
                 "to": {
-                    "startLine": 1585,
+                    "startLine": 1593,
                     "startColumn": 4,
-                    "startOffset": 120697,
+                    "startOffset": 121108,
                     "endColumn": 89,
-                    "endOffset": 120782
+                    "endOffset": 121193
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9846,11 +9867,11 @@
             },
             {
                 "to": {
-                    "startLine": 1586,
+                    "startLine": 1594,
                     "startColumn": 4,
-                    "startOffset": 120787,
+                    "startOffset": 121198,
                     "endColumn": 109,
-                    "endOffset": 120892
+                    "endOffset": 121303
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9865,11 +9886,11 @@
             },
             {
                 "to": {
-                    "startLine": 1587,
+                    "startLine": 1595,
                     "startColumn": 4,
-                    "startOffset": 120897,
+                    "startOffset": 121308,
                     "endColumn": 83,
-                    "endOffset": 120976
+                    "endOffset": 121387
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9884,11 +9905,11 @@
             },
             {
                 "to": {
-                    "startLine": 1588,
+                    "startLine": 1596,
                     "startColumn": 4,
-                    "startOffset": 120981,
+                    "startOffset": 121392,
                     "endColumn": 53,
-                    "endOffset": 121030
+                    "endOffset": 121441
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9903,11 +9924,11 @@
             },
             {
                 "to": {
-                    "startLine": 1589,
+                    "startLine": 1597,
                     "startColumn": 4,
-                    "startOffset": 121035,
+                    "startOffset": 121446,
                     "endColumn": 63,
-                    "endOffset": 121094
+                    "endOffset": 121505
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9922,11 +9943,11 @@
             },
             {
                 "to": {
-                    "startLine": 1590,
+                    "startLine": 1598,
                     "startColumn": 4,
-                    "startOffset": 121099,
+                    "startOffset": 121510,
                     "endColumn": 105,
-                    "endOffset": 121200
+                    "endOffset": 121611
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9941,11 +9962,11 @@
             },
             {
                 "to": {
-                    "startLine": 1591,
+                    "startLine": 1599,
                     "startColumn": 4,
-                    "startOffset": 121205,
+                    "startOffset": 121616,
                     "endColumn": 109,
-                    "endOffset": 121310
+                    "endOffset": 121721
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9960,11 +9981,11 @@
             },
             {
                 "to": {
-                    "startLine": 1592,
+                    "startLine": 1600,
                     "startColumn": 4,
-                    "startOffset": 121315,
+                    "startOffset": 121726,
                     "endColumn": 83,
-                    "endOffset": 121394
+                    "endOffset": 121805
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",
@@ -9979,11 +10000,11 @@
             },
             {
                 "to": {
-                    "startLine": 1593,
+                    "startLine": 1601,
                     "startColumn": 4,
-                    "startOffset": 121399,
+                    "startOffset": 121810,
                     "endColumn": 119,
-                    "endOffset": 121514
+                    "endOffset": 121925
                 },
                 "from": {
                     "file": "/Users/damargulis/Desktop/NativeMatch/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml",

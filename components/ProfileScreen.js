@@ -14,6 +14,8 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
+var ImagePicker = require('react-native-image-picker');
+
 const GLOBAL = require('./../Globals');
 
 class EditPhotosScreen extends React.Component {
@@ -21,31 +23,89 @@ class EditPhotosScreen extends React.Component {
         super(props);
         this.state = {
             photos: this.props.photos.slice(),
+            newPhotos: [],
+            newData: null,
+            showNew: false,
         }
     }
 
     addPhoto(){
         console.log('Add photo!');
-        CameraRoll.getPhotos({
-            first: 20,
-            assetType: 'All',
-        }).then((r) => {
-            this.setState
-            console.log(r);
+        let options = {
+            title: 'Upload Photo',
+        };
+        ImagePicker.showImagePicker(options, (response) => {
+            if(response.didCancel) {
+                console.log('User cancelled');
+            } else if(response.error) {
+                console.log('Image picker error', response.error);
+            } else {
+                console.log(response);
+                let newPhotos = this.state.newPhotos;
+                let source = response.uri;
+                newPhotos.push({
+                    'uri': response.uri,
+                    'data': response.data,
+                    'path': response.path,
+                    'type': response.type
+                });
+                console.log(newPhotos);
+                this.setState({
+                    newPhotos: newPhotos,
+                })
+            }
+        });
+        console.log('added photo?');
+    }
+
+    movePhoto(){
+        console.log('movePhoto');
+    }
+
+    submitPhotos(){
+        let photo = this.state.newPhotos[0];
+        console.log(photo);
+        const data = new FormData();
+        data.append('photo', {
+            uri: photo.uri,
+            type: 'image/png',
+            name: 'testName',
+        });
+        fetch(GLOBAL.BASE_URL + '/user/' + this.props.userId + '/photos', {
+            method: 'POST',
+            body: data
+        }).then((response) => response.json())
+        .then((response) => {
+            console.log(response);
+            let photoId = response.photoId
+            fetch(GLOBAL.BASE_URL + '/user/photo/' + photoId)
+            .then((response) => response.json())
+            .then((response) => {
+                console.log(response)
+                this.setState({
+                    newData: response.data.data,
+                    showNew: true,
+                });
+            }).catch((error) => {
+                console.log(error);
+            });
         }).catch((error) => {
-            console.log(erro);
+            console.log(error);
         });
     }
 
     renderPhoto(photoIndex) {
-        let photo = this.state.photos[photoIndex];
+        let photos = this.state.photos.concat(this.state.newPhotos);
+        let photo = photos[photoIndex];
         if(photo) {
             return (
-                <Image 
-                    source={{photo}}
-                    style={{width: 150, height: 150}}
-                    key={photoIndex}
-                />
+                <View style={{width: 130, height: 130}} key={photoIndex} >
+                    <Image 
+                        source={{ uri: photo.uri }}
+                        style={{width: 129, height: 129}}
+                        key={photoIndex}
+                    />
+                </View>
             )
         }else {
             return (
@@ -60,6 +120,24 @@ class EditPhotosScreen extends React.Component {
         }
     }
 
+    showNew() {
+        if(this.state.showNew) {
+            console.log(this.state.newData);
+            console.log(this.state.newData.toString('ascii'));
+            var b64encode = btoa(String.fromCharCode.apply(null, this.state.newData));
+            b64encode = 'data:imgae/jpeg;base64,' + b64encode;
+            console.log(b64encode);
+            return (
+                <View style={{width: 130, height: 130}} >
+                    <Image 
+                        source={{ uri: b64encode }}
+                        style={{width: 129, height: 129}}
+                    />
+                </View>
+            )
+        }
+    }
+
     render() {
         return(
             <View>
@@ -70,6 +148,7 @@ class EditPhotosScreen extends React.Component {
                     flexDirection: 'row',
                     flexWrap: 'wrap',
                 }}>
+                    { this.showNew() }
                     {
                         Array(GLOBAL.MAX_PHOTOS).fill().map((_, index) => {
                             return this.renderPhoto(index);
@@ -77,10 +156,13 @@ class EditPhotosScreen extends React.Component {
                     }
                 </View>
                 <Button
+                    title="Submit"
+                    onPress={() => this.submitPhotos()}
+                />
+                <Button
                     title="Cancel"
                     onPress={() => this.props.closeModal()}
                 />
-                
             </View>
             </View>
         )
@@ -262,6 +344,9 @@ class ProfileScreen extends React.Component {
         console.log(newPhotos);
     }
 
+    reloadPhoto() {
+    }
+
     editInfo() {
         this.setState({
             editingInfo: true,
@@ -351,6 +436,8 @@ class ProfileScreen extends React.Component {
                         closeModal={() => this.closePhotoModal()}
                         photos={this.state.profile.photos}
                         savePhotos={(newPhotos) => this.savePhotos(newPhotoos)}
+                        userId={this.state.userId}
+                        reloadPhoto={() => this.reloadPhoto()}
                     />
                 </Modal>
             </View>

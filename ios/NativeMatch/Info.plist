@@ -41,7 +41,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
@@ -67,5 +67,11 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
 	</array>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Upload photos to your profile</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Upload photos to your profile</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>Upload photos to your profile</string>
 </dict>
 </plist>
