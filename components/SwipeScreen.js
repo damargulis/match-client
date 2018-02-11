@@ -20,7 +20,7 @@ class MainScreen extends React.Component {
             this.setState({
                 userId: userId
             });
-            fetch(GLOBAL.BASE_URL + '/possibleMatches/' + userId)
+            fetch(GLOBAL.BASE_URL + '/swipe/possibleMatches/' + userId)
             .then((response) => response.json())
             .then((response) => {
                 this.setState({
