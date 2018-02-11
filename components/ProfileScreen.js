@@ -34,8 +34,6 @@ class ProfileScreen extends React.Component {
             fetch(GLOBAL.BASE_URL + '/user/' + userId)
             .then((response) => response.json())
             .then((response) => {
-                console.log('got profile');
-                console.log(response);
                 this.setState({ 
                     profile: response, 
                     edits: Object.assign({}, response) 
