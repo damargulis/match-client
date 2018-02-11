@@ -28,6 +28,7 @@ class MainScreen extends React.Component {
             this.setState({
                 chats: chats
             });
+            if(!resposne.photos[0]) return;
             fetch(GLOBAL.BASE_URL + '/user/photo/' + response.photos[0])
             .then((response) => response.json())
             .then((response) => {
