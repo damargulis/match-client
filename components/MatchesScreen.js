@@ -53,7 +53,7 @@ class MainScreen extends React.Component {
             this.setState({
                 userId: userId
             });
-            fetch(GLOBAL.BASE_URL + '/chats/' + userId)
+            fetch(GLOBAL.BASE_URL + '/chat/' + userId)
             .then((response) => response.json())
             .then((response) => {
                 console.log('setting state');
