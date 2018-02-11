@@ -86,7 +86,7 @@ class LoginScreen extends React.Component {
     }
 
     createAccount() {
-        fetch(GLOBAL.BASE_URL + '/createAccount', {
+        fetch(GLOBAL.BASE_URL + '/auth/createAccount', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -118,7 +118,7 @@ class LoginScreen extends React.Component {
     }
 
     login() {
-        fetch(GLOBAL.BASE_URL + '/login', {
+        fetch(GLOBAL.BASE_URL + '/auth/login', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

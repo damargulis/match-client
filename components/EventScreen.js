@@ -47,7 +47,7 @@ class EventDetailsScreen extends React.Component {
         });
         fetch(
             GLOBAL.BASE_URL 
-            + '/rsvp?eventId=' 
+            + '/event/rsvp?eventId=' 
             + this.props.navigation.state.params.event._id 
             + '&userId=' 
             + userId
@@ -124,7 +124,7 @@ class MainScreen extends React.Component {
     }
 
     componentWillMount() {
-        fetch(GLOBAL.BASE_URL + '/events')
+        fetch(GLOBAL.BASE_URL + '/event')
         .then((response) => response.json())
         .then((response) => {
             this.setState({
