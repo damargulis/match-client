@@ -21,13 +21,15 @@ class ProfileScreen extends React.Component {
             },
             editingInfo: false,
             editingPhotos: false,
-            edits: {
-            },
             mainPhoto: null,
         }
     }
 
     componentWillMount(){
+        this.refreshProfile();
+    }
+
+    refreshProfile() {
         AsyncStorage.getItem('userId')
         .then((userId) => {
             this.setState({ userId: userId });
@@ -36,7 +38,6 @@ class ProfileScreen extends React.Component {
             .then((response) => {
                 this.setState({ 
                     profile: response, 
-                    edits: Object.assign({}, response) 
                 });
                 let mainPhotoId = response.photos[0];
                 if(mainPhotoId){
@@ -70,33 +71,14 @@ class ProfileScreen extends React.Component {
         });
     }
 
-    save(edits) {
-        fetch(GLOBAL.BASE_URL + '/user/' + this.state.userId, {
-            method: 'PUT',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                profile: edits
-            }),
-        }).then(response => response.json())
-        .then((resposne) => {
-            if(resposne.success) {
-                this.setState({
-                    profile: edits
-                });
-            }
-            this.closeModal();
-        }).catch((error) => console.log(error));
+    save() {
+        this.refreshProfile();
+        this.closeModal();
     }
 
     savePhotos(newPhotos) {
-        console.log('Saving photos:');
-        console.log(newPhotos);
-    }
-
-    reloadPhoto() {
+        this.refreshProfile();
+        this.closePhotoModal();
     }
 
     editInfo() {
@@ -114,7 +96,6 @@ class ProfileScreen extends React.Component {
     closeModal() {
         this.setState({
             editingInfo: false,
-            edits: Object.assign({}, this.state.profile)
         });
     }
 
@@ -176,7 +157,8 @@ class ProfileScreen extends React.Component {
                     <EditInfoScreen 
                         closeModal={() => this.closeModal()} 
                         original={this.state.profile}
-                        save={(edits) => this.save(edits)}
+                        save={() => this.save()}
+                        userId={this.state.userId}
                     />
                 </Modal>
                 <Modal
@@ -187,9 +169,8 @@ class ProfileScreen extends React.Component {
                     <EditPhotosScreen 
                         closeModal={() => this.closePhotoModal()}
                         photos={this.state.profile.photos}
-                        savePhotos={(newPhotos) => this.savePhotos(newPhotos)}
+                        savePhotos={(newPhotos) => this.savePhotos()}
                         userId={this.state.userId}
-                        reloadPhoto={() => this.reloadPhoto()}
                     />
                 </Modal>
             </View>

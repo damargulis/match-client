@@ -8,6 +8,8 @@ import {
     Text
 } from 'react-native';
 
+const GLOBAL = require('./../../Globals');
+
 class EditInfoScreen extends React.Component {
     constructor(props) {
         super(props);
@@ -20,6 +22,26 @@ class EditInfoScreen extends React.Component {
         let edits = this.state.edits;
         edits[key] = value;
         this.setState({edits: edits});
+    }
+
+    save() {
+        fetch(GLOBAL.BASE_URL + '/user/' + this.props.userId, {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                profile: this.state.edits
+            }),
+        }).then(response => response.json())
+        .then((response) => {
+            if(response.success) {
+                this.props.save();
+            }
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     render() {
@@ -108,7 +130,7 @@ class EditInfoScreen extends React.Component {
                     />
                     <Button
                         title="Save"
-                        onPress={() => this.props.save(this.state.edits)}
+                        onPress={() => this.save()}
                     />
             </View>
         )
