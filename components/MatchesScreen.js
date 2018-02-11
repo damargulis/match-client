@@ -1,5 +1,5 @@
 import React from 'react';
-import { AsyncStorage, Button, View, FlatList } from 'react-native';
+import { Text, Image, AsyncStorage, Button, View, FlatList } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import ChatScreen from './ChatScreen';
 import PersonDetailScreen from './PersonDetailScreen';
@@ -28,7 +28,7 @@ class MainScreen extends React.Component {
             this.setState({
                 chats: chats
             });
-            fetch(GLOBAL.BASE_URL + '/user/photos/' + response.photos[0])
+            fetch(GLOBAL.BASE_URL + '/user/photo/' + response.photos[0])
             .then((response) => response.json())
             .then((response) => {
                 var b64encode = btoa(String.fromCharCode.apply(null, response.data.data));
@@ -81,17 +81,26 @@ class MainScreen extends React.Component {
         console.log(otherId);
         let name = match.firstName ? match.firstName : '';
         console.log(name);
-        return(
-            <Button 
-                title={name} 
-                onPress={
-                    () => this.props.navigation.navigate(
-                        'Details', 
-                        {chat: match}
-                    )
-                }
-            />
+        return (
+            <View>
+                <Text>{name}</Text>
+                <Image
+                    style={{height: 200, width: 200}}
+                    source={{uri: match.photoData}}
+                />
+            </View>
         )
+        //return(
+        //    <Button 
+        //        title={name} 
+        //        onPress={
+        //            () => this.props.navigation.navigate(
+        //                'Details', 
+        //                {chat: match}
+        //            )
+        //        }
+        //    />
+        //)
     }
 
     renderChat(chat){
