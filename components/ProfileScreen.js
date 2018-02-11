@@ -30,7 +30,6 @@ class EditPhotosScreen extends React.Component {
     }
 
     addPhoto(){
-        console.log('Add photo!');
         let options = {
             title: 'Upload Photo',
         };
@@ -40,7 +39,6 @@ class EditPhotosScreen extends React.Component {
             } else if(response.error) {
                 console.log('Image picker error', response.error);
             } else {
-                console.log(response);
                 let newPhotos = this.state.newPhotos;
                 let source = response.uri;
                 newPhotos.push({
@@ -49,22 +47,18 @@ class EditPhotosScreen extends React.Component {
                     'path': response.path,
                     'type': response.type
                 });
-                console.log(newPhotos);
                 this.setState({
                     newPhotos: newPhotos,
                 })
             }
         });
-        console.log('added photo?');
     }
 
     movePhoto(){
-        console.log('movePhoto');
     }
 
     submitPhotos(){
         let photo = this.state.newPhotos[0];
-        console.log(photo);
         const data = new FormData();
         data.append('photo', {
             uri: photo.uri,
@@ -76,12 +70,10 @@ class EditPhotosScreen extends React.Component {
             body: data
         }).then((response) => response.json())
         .then((response) => {
-            console.log(response);
             let photoId = response.photoId
             fetch(GLOBAL.BASE_URL + '/user/photo/' + photoId)
             .then((response) => response.json())
             .then((response) => {
-                console.log(response)
                 this.setState({
                     newData: response.data.data,
                     showNew: true,
@@ -122,11 +114,8 @@ class EditPhotosScreen extends React.Component {
 
     showNew() {
         if(this.state.showNew) {
-            console.log(this.state.newData);
-            console.log(this.state.newData.toString('ascii'));
             var b64encode = btoa(String.fromCharCode.apply(null, this.state.newData));
             b64encode = 'data:imgae/jpeg;base64,' + b64encode;
-            console.log(b64encode);
             return (
                 <View style={{width: 130, height: 130}} >
                     <Image 
@@ -286,6 +275,7 @@ class ProfileScreen extends React.Component {
             editingPhotos: false,
             edits: {
             },
+            mainPhoto: null,
         }
     }
 
@@ -296,10 +286,28 @@ class ProfileScreen extends React.Component {
             fetch(GLOBAL.BASE_URL + '/user/' + userId)
             .then((response) => response.json())
             .then((response) => {
+                console.log('got profile');
+                console.log(response);
                 this.setState({ 
                     profile: response, 
                     edits: Object.assign({}, response) 
                 });
+                let mainPhotoId = response.photos[0];
+                if(mainPhotoId){
+                    fetch(GLOBAL.BASE_URL + '/user/photo/' + mainPhotoId)
+                    .then((response) => response.json())
+                    .then((response) => {
+                        console.log('got photo');
+                        console.log(response);
+                        var b64encode = btoa(String.fromCharCode.apply(null, response.data.data));
+                        b64encode = 'data:image/jpeg;base64,' + b64encode;
+                        this.setState({
+                            mainPhoto: b64encode
+                        });
+                    }).catch((error) => {
+                        console.log(error);
+                    });
+                }
             }).catch((error) => {
                 console.log(error);
             });
@@ -382,8 +390,8 @@ class ProfileScreen extends React.Component {
                 }}
             >
                 <Image 
-                    style={{ flex: 1, }} 
-                    source={require('./../profile_pic.jpg')}
+                    style={{ flex: 1, height: 400, width: 400}} 
+                    source={{uri: this.state.mainPhoto}}
                 />
                 <View style={{flex: 1, }} >
                     <Text>Name: {this.state.profile.firstName}</Text>
