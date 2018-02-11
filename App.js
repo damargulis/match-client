@@ -172,6 +172,7 @@ class LoginScreen extends React.Component {
                     style={{height: 40}}
                     placeholder="Password"
                     onChangeText={(password) => this.setState({password})}
+                    secureTextEntry={true}
                 />
                 { this.showWarning() }
                 <Button
