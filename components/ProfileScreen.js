@@ -8,11 +8,155 @@ import {
     Button, 
     Image, 
     View, 
-    Text 
+    Text,
+    TouchableHighlight,
+    CameraRoll,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
+var ImagePicker = require('react-native-image-picker');
+
 const GLOBAL = require('./../Globals');
+
+class EditPhotosScreen extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            photos: this.props.photos.slice(),
+            newPhotos: [],
+            newData: null,
+            showNew: false,
+        }
+    }
+
+    addPhoto(){
+        let options = {
+            title: 'Upload Photo',
+        };
+        ImagePicker.showImagePicker(options, (response) => {
+            if(response.didCancel) {
+                console.log('User cancelled');
+            } else if(response.error) {
+                console.log('Image picker error', response.error);
+            } else {
+                let newPhotos = this.state.newPhotos;
+                let source = response.uri;
+                newPhotos.push({
+                    'uri': response.uri,
+                    'data': response.data,
+                    'path': response.path,
+                    'type': response.type
+                });
+                this.setState({
+                    newPhotos: newPhotos,
+                })
+            }
+        });
+    }
+
+    movePhoto(){
+    }
+
+    submitPhotos(){
+        let photo = this.state.newPhotos[0];
+        const data = new FormData();
+        data.append('photo', {
+            uri: photo.uri,
+            type: 'image/png',
+            name: 'testName',
+        });
+        fetch(GLOBAL.BASE_URL + '/user/' + this.props.userId + '/photos', {
+            method: 'POST',
+            body: data
+        }).then((response) => response.json())
+        .then((response) => {
+            let photoId = response.photoId
+            fetch(GLOBAL.BASE_URL + '/user/photo/' + photoId)
+            .then((response) => response.json())
+            .then((response) => {
+                this.setState({
+                    newData: response.data.data,
+                    showNew: true,
+                });
+            }).catch((error) => {
+                console.log(error);
+            });
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
+    renderPhoto(photoIndex) {
+        let photos = this.state.photos.concat(this.state.newPhotos);
+        let photo = photos[photoIndex];
+        if(photo) {
+            return (
+                <View style={{width: 130, height: 130}} key={photoIndex} >
+                    <Image 
+                        source={{ uri: photo.uri }}
+                        style={{width: 129, height: 129}}
+                        key={photoIndex}
+                    />
+                </View>
+            )
+        }else {
+            return (
+                <TouchableHighlight
+                    onPress={() => this.addPhoto()}
+                    key={photoIndex} 
+                    style={{width: 130, height: 130, backgroundColor: 'red'}}
+                >
+                    <Text style={{textAlign: 'center'}}>Add A Photo</Text>
+                </TouchableHighlight>
+            )
+        }
+    }
+
+    showNew() {
+        if(this.state.showNew) {
+            var b64encode = btoa(String.fromCharCode.apply(null, this.state.newData));
+            b64encode = 'data:imgae/jpeg;base64,' + b64encode;
+            return (
+                <View style={{width: 130, height: 130}} >
+                    <Image 
+                        source={{ uri: b64encode }}
+                        style={{width: 129, height: 129}}
+                    />
+                </View>
+            )
+        }
+    }
+
+    render() {
+        return(
+            <View>
+            <View>
+                <Text>Photo Editing Page</Text>
+                <View style={{
+                    width: 400,
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                }}>
+                    { this.showNew() }
+                    {
+                        Array(GLOBAL.MAX_PHOTOS).fill().map((_, index) => {
+                            return this.renderPhoto(index);
+                        })
+                    }
+                </View>
+                <Button
+                    title="Submit"
+                    onPress={() => this.submitPhotos()}
+                />
+                <Button
+                    title="Cancel"
+                    onPress={() => this.props.closeModal()}
+                />
+            </View>
+            </View>
+        )
+    }
+}
 
 class EditScreen extends React.Component {
     constructor(props) {
@@ -128,8 +272,10 @@ class ProfileScreen extends React.Component {
             profile: {
             },
             editingInfo: false,
+            editingPhotos: false,
             edits: {
             },
+            mainPhoto: null,
         }
     }
 
@@ -140,10 +286,28 @@ class ProfileScreen extends React.Component {
             fetch(GLOBAL.BASE_URL + '/user/' + userId)
             .then((response) => response.json())
             .then((response) => {
+                console.log('got profile');
+                console.log(response);
                 this.setState({ 
                     profile: response, 
                     edits: Object.assign({}, response) 
                 });
+                let mainPhotoId = response.photos[0];
+                if(mainPhotoId){
+                    fetch(GLOBAL.BASE_URL + '/user/photo/' + mainPhotoId)
+                    .then((response) => response.json())
+                    .then((response) => {
+                        console.log('got photo');
+                        console.log(response);
+                        var b64encode = btoa(String.fromCharCode.apply(null, response.data.data));
+                        b64encode = 'data:image/jpeg;base64,' + b64encode;
+                        this.setState({
+                            mainPhoto: b64encode
+                        });
+                    }).catch((error) => {
+                        console.log(error);
+                    });
+                }
             }).catch((error) => {
                 console.log(error);
             });
@@ -183,9 +347,23 @@ class ProfileScreen extends React.Component {
         }).catch((error) => console.log(error));
     }
 
+    savePhotos(newPhotos) {
+        console.log('Saving photos:');
+        console.log(newPhotos);
+    }
+
+    reloadPhoto() {
+    }
+
     editInfo() {
         this.setState({
             editingInfo: true,
+        });
+    }
+
+    editPhotos() {
+        this.setState({
+            editingPhotos: true,
         });
     }
 
@@ -193,6 +371,12 @@ class ProfileScreen extends React.Component {
         this.setState({
             editingInfo: false,
             edits: Object.assign({}, this.state.profile)
+        });
+    }
+
+    closePhotoModal() {
+        this.setState({
+            editingPhotos: false,
         });
     }
 
@@ -206,8 +390,8 @@ class ProfileScreen extends React.Component {
                 }}
             >
                 <Image 
-                    style={{ flex: 1, }} 
-                    source={require('./../profile_pic.jpg')}
+                    style={{ flex: 1, height: 400, width: 400}} 
+                    source={{uri: this.state.mainPhoto}}
                 />
                 <View style={{flex: 1, }} >
                     <Text>Name: {this.state.profile.firstName}</Text>
@@ -228,6 +412,10 @@ class ProfileScreen extends React.Component {
                         + this.state.profile.interestsAgeMax
                     }</Text>
                     <Button
+                        title="Edit Photos"
+                        onPress={this.editPhotos.bind(this)}
+                    />
+                    <Button
                         title="Edit Info"
                         onPress={this.editInfo.bind(this)}
                     />
@@ -241,9 +429,23 @@ class ProfileScreen extends React.Component {
                     animationType={'slide'}
                     onRequestClose={() => this.closeModal()}
                 >
-                    <EditScreen closeModal={() => this.closeModal()} 
+                    <EditScreen 
+                        closeModal={() => this.closeModal()} 
                         original={this.state.profile}
                         save={(edits) => this.save(edits)}
+                    />
+                </Modal>
+                <Modal
+                    visible={this.state.editingPhotos}
+                    animationType={'slide'}
+                    onRequestClose={() => this.closePhotoModal()}
+                >
+                    <EditPhotosScreen 
+                        closeModal={() => this.closePhotoModal()}
+                        photos={this.state.profile.photos}
+                        savePhotos={(newPhotos) => this.savePhotos(newPhotoos)}
+                        userId={this.state.userId}
+                        reloadPhoto={() => this.reloadPhoto()}
                     />
                 </Modal>
             </View>
