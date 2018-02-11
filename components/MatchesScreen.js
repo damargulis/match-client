@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Image, AsyncStorage, Button, View, FlatList } from 'react-native';
+import { TouchableHighlight, Text, Image, AsyncStorage, Button, View, FlatList } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import ChatScreen from './ChatScreen';
 import PersonDetailScreen from './PersonDetailScreen';
@@ -82,13 +82,18 @@ class MainScreen extends React.Component {
         let name = match.firstName ? match.firstName : '';
         console.log(name);
         return (
-            <View>
-                <Text>{name}</Text>
-                <Image
-                    style={{height: 200, width: 200}}
-                    source={{uri: match.photoData}}
-                />
-            </View>
+            <TouchableHighlight
+                onPress={() => this.props.navigation.navigate('Details', {chat: match})}
+                key={otherId}
+            >
+                <View>
+                    <Text>{name}</Text>
+                    <Image
+                        style={{height: 200, width: 200}}
+                        source={{uri: match.photoData}}
+                    />
+                </View>
+            </TouchableHighlight>
         )
         //return(
         //    <Button 
@@ -105,7 +110,7 @@ class MainScreen extends React.Component {
 
     renderChat(chat){
         let otherId = chat.userIds.filter((id) => id != this.state.userId)[0];
-        let name = match.firstName ? match.firstName : '';
+        let name = chat.firstName ? chat.firstName : '';
         return (
             <Button 
                 title={name} 
