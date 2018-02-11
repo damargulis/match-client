@@ -1,5 +1,5 @@
 import React from 'react';
-import { AsyncStorage, Button, View, Text } from 'react-native';
+import { AsyncStorage, Image, Button, View, Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import PersonDetailScreen from './PersonDetailScreen';
 
@@ -11,6 +11,7 @@ class MainScreen extends React.Component {
         this.state = {
             swipeDeck: [],
             nextSwipe: {},
+            swipePhoto: null,
         }
     }
     componentWillMount() {
@@ -36,6 +37,7 @@ class MainScreen extends React.Component {
         if(! userId) {
             this.setState({
                 nextSwipe: {},
+                swipePhoto: null,
             });
             return;
         }
@@ -44,6 +46,18 @@ class MainScreen extends React.Component {
         .then((response) => {
             this.setState({
                 nextSwipe: response
+            }, () => {
+                fetch(GLOBAL.BASE_URL + '/user/photo/' + response.photos[0])
+                .then((response) => response.json())
+                .then((response) => {
+                    var b64encode = btoa(String.fromCharCode.apply(null, response.data.data));
+                    b64encode = 'data:image/jpeg;base64,' + b64encode;
+                    this.setState({
+                        swipePhoto: b64encode,
+                    });
+                }).catch((error) => {
+                    console.log(error);
+                });
             });
         }).catch((error) => {
             console.log(error);
@@ -76,9 +90,13 @@ class MainScreen extends React.Component {
         let name = this.state.nextSwipe ? this.state.nextSwipe.firstName : '';
         let school = this.state.nextSwipe ? this.state.nextSwipe.school : '';
         return (
-            <View style={{backgroundColor: 'blue'}}>
-                <Text style={{height: 200}}>{name}</Text>
+            <View>
+                <Text>{name}</Text>
                 <Text>{school}</Text>
+                <Image
+                    style={{height: 300, width: 300}}
+                    source={{uri: this.state.swipePhoto}}
+                />
                 <Button 
                     title='View Details' 
                     onPress={

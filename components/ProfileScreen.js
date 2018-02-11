@@ -45,8 +45,6 @@ class ProfileScreen extends React.Component {
                     fetch(GLOBAL.BASE_URL + '/user/photo/' + mainPhotoId)
                     .then((response) => response.json())
                     .then((response) => {
-                        console.log('got photo');
-                        console.log(response);
                         var b64encode = btoa(String.fromCharCode.apply(null, response.data.data));
                         b64encode = 'data:image/jpeg;base64,' + b64encode;
                         this.setState({
@@ -191,7 +189,7 @@ class ProfileScreen extends React.Component {
                     <EditPhotosScreen 
                         closeModal={() => this.closePhotoModal()}
                         photos={this.state.profile.photos}
-                        savePhotos={(newPhotos) => this.savePhotos(newPhotoos)}
+                        savePhotos={(newPhotos) => this.savePhotos(newPhotos)}
                         userId={this.state.userId}
                         reloadPhoto={() => this.reloadPhoto()}
                     />

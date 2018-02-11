@@ -15,10 +15,9 @@ class EditPhotosScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            photos: this.props.photos.slice(),
+            originalPhotos: this.props.photos.slice(),
             newPhotos: [],
             newData: null,
-            showNew: false,
         }
     }
 
@@ -47,9 +46,6 @@ class EditPhotosScreen extends React.Component {
         });
     }
 
-    movePhoto(){
-    }
-
     submitPhotos(){
         let photo = this.state.newPhotos[0];
         const data = new FormData();
@@ -69,7 +65,6 @@ class EditPhotosScreen extends React.Component {
             .then((response) => {
                 this.setState({
                     newData: response.data.data,
-                    showNew: true,
                 });
             }).catch((error) => {
                 console.log(error);
@@ -80,7 +75,7 @@ class EditPhotosScreen extends React.Component {
     }
 
     renderPhoto(photoIndex) {
-        let photos = this.state.photos.concat(this.state.newPhotos);
+        let photos = this.state.originalPhotos.concat(this.state.newPhotos);
         let photo = photos[photoIndex];
         if(photo) {
             return (
@@ -105,21 +100,6 @@ class EditPhotosScreen extends React.Component {
         }
     }
 
-    showNew() {
-        if(this.state.showNew) {
-            var b64encode = btoa(String.fromCharCode.apply(null, this.state.newData));
-            b64encode = 'data:imgae/jpeg;base64,' + b64encode;
-            return (
-                <View style={{width: 130, height: 130}} >
-                    <Image 
-                        source={{ uri: b64encode }}
-                        style={{width: 129, height: 129}}
-                    />
-                </View>
-            )
-        }
-    }
-
     render() {
         return(
             <View>
@@ -130,7 +110,6 @@ class EditPhotosScreen extends React.Component {
                     flexDirection: 'row',
                     flexWrap: 'wrap',
                 }}>
-                    { this.showNew() }
                     {
                         Array(GLOBAL.MAX_PHOTOS).fill().map((_, index) => {
                             return this.renderPhoto(index);
