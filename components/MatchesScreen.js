@@ -15,13 +15,10 @@ class MainScreen extends React.Component {
     }
 
     getInfo(chat, index, userId) {
-        console.log(chat);
-        console.log(index);
         let otherId = chat.userIds.filter((id) => id != userId)[0];
         fetch(GLOBAL.BASE_URL + '/user/' + otherId)
         .then((response) => response.json())
         .then((response) => {
-            console.log(response);
             let chats = this.state.chats;
             chats[index].firstName = response.firstName;
             chats[index].photoId = response.photos[0];
@@ -47,22 +44,17 @@ class MainScreen extends React.Component {
     }
 
     componentWillMount() {
-        console.log('component mounted 1');
         AsyncStorage.getItem('userId')
         .then((userId) => {
-            console.log('component mounted');
             this.setState({
                 userId: userId
             });
             fetch(GLOBAL.BASE_URL + '/chat/' + userId)
             .then((response) => response.json())
             .then((response) => {
-                console.log('setting state');
                 this.setState({
                     chats: response,
                 }, () => {
-                    console.log('here');
-                    console.log(this.state.chats);
                     this.state.chats.map((chat, index) => {
                         this.getInfo(chat, index, userId)
                     });
@@ -76,12 +68,8 @@ class MainScreen extends React.Component {
     }
 
     renderMatch(match){
-        console.log('render Match');
-        console.log(match);
         let otherId = match.userIds.filter((id) => id != this.state.userId)[0];
-        console.log(otherId);
         let name = match.firstName ? match.firstName : '';
-        console.log(name);
         return (
             <TouchableHighlight
                 onPress={() => this.props.navigation.navigate('Details', {chat: match})}
@@ -125,7 +113,6 @@ class MainScreen extends React.Component {
     }
 
     render() {
-        console.log('render');
         let matches = this.state.chats.filter(
             (chat) => chat.messages.length == 0
         );
