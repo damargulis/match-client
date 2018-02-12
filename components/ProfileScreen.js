@@ -1,15 +1,15 @@
 import React from 'react';
 import { 
-    Modal, 
     AsyncStorage, 
     Button, 
     Image, 
-    View, 
+    Modal, 
     Text,
+    View, 
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import EditPhotosScreen from './ProfileScreen/EditPhotosScreen';
 import EditInfoScreen from './ProfileScreen/EditInfoScreen';
+import EditPhotosScreen from './ProfileScreen/EditPhotosScreen';
 
 const GLOBAL = require('./../Globals');
 

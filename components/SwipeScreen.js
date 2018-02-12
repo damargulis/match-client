@@ -1,5 +1,5 @@
 import React from 'react';
-import { AsyncStorage, Image, Button, View, Text } from 'react-native';
+import { AsyncStorage, Button, Image, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import PersonDetailScreen from './PersonDetailScreen';
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-    Slider,
-    Picker,
-    TextInput,
     Button,
+    Picker,
+    Slider,
+    Text,
+    TextInput,
     View,
-    Text
 } from 'react-native';
 
 const GLOBAL = require('./../../Globals');

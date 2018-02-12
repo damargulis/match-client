@@ -1,11 +1,11 @@
 import React from 'react';
 import {
     Button,
+    CameraRoll,
     Image,
-    View,
     Text,
     TouchableHighlight,
-    CameraRoll
+    View,
 } from 'react-native';
 
 var ImagePicker = require('react-native-image-picker');

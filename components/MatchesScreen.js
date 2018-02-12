@@ -1,5 +1,13 @@
 import React from 'react';
-import { TouchableHighlight, Text, Image, AsyncStorage, Button, View, FlatList } from 'react-native';
+import { 
+    AsyncStorage, 
+    Button,
+    FlatList,
+    Image,
+    TouchableHighlight,
+    Text,
+    View,
+} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import ChatScreen from './ChatScreen';
 import PersonDetailScreen from './PersonDetailScreen';

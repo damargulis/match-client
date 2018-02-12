@@ -1,11 +1,11 @@
 import React from 'react';
 import { 
+    AsyncStorage,
+    Button, 
     SectionList, 
     StyleSheet, 
-    View, 
     Text, 
-    Button, 
-    AsyncStorage 
+    View,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
