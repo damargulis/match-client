@@ -65,7 +65,7 @@ class Root extends React.Component {
             initialRouteName: 'Events',
         });
         return (
-            <RootTabs />
+            <RootTabs screenProps={{user: this.props.user}} />
         )
     }
 }

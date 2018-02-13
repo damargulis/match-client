@@ -74,7 +74,7 @@ class LoginScreen extends React.Component {
                 } catch (error) {
                     console.log(error);
                 }
-                Actions.appScreen();
+                Actions.appScreen({user: response.user});
             } else{
                 this.setState({
                     showWarning: true

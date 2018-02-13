@@ -17,8 +17,7 @@ class ProfileScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            profile: {
-            },
+            profile: this.props.screenProps.user,
             editingInfo: false,
             editingPhotos: false,
             mainPhoto: null,
@@ -26,7 +25,6 @@ class ProfileScreen extends React.Component {
     }
 
     componentWillMount(){
-        this.refreshProfile();
         this.setLocation();
     }
 
