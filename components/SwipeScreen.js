@@ -34,8 +34,6 @@ class MainScreen extends React.Component {
                 userId: userId
             });
             navigator.geolocation.getCurrentPosition((position) => {
-                console.log('position:');
-                console.log(position);
                 fetch(GLOBAL.BASE_URL + '/user/' + userId + '/location', {
                     method: 'POST',
                     headers: {

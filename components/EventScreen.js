@@ -21,19 +21,26 @@ class MainScreen extends React.Component {
     }
 
     componentWillMount() {
-        fetch(GLOBAL.BASE_URL + '/event')
-        .then((response) => response.json())
-        .then((response) => {
-            for(var i=0; i<response.length; i++){
-                response[i].date = new Date(response[i].startTime);
-            }
-            let events = response.sort((a, b) => { b.date - a.date });
-            this.setState({
-                events: events
+        navigator.geolocation.getCurrentPosition((position) => {
+            fetch(
+                GLOBAL.BASE_URL 
+                + '/event?long=' 
+                + position.coords.longitude 
+                + '&lat=' 
+                + position.coords.latitude
+            ).then((response) => response.json())
+            .then((response) => {
+                for(var i=0; i<response.length; i++){
+                    response[i].date = new Date(response[i].startTime);
+                }
+                let events = response.sort((a, b) => { b.date - a.date });
+                this.setState({
+                    events: events
+                });
+            })
+            .catch((error) => {
+                console.error(error);
             });
-        })
-        .catch((error) => {
-            console.error(error);
         });
     }
 
