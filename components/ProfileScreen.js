@@ -27,6 +27,18 @@ class ProfileScreen extends React.Component {
 
     componentWillMount(){
         this.refreshProfile();
+        this.setLocation();
+    }
+
+    setLocation() {
+        console.log('getting location');
+        navigator.geolocation.getCurrentPosition((position) => {
+            console.log('location:');
+            console.log(position);
+        }, (error) => {
+            console.log('location error:');
+            console.log(error);
+        });
     }
 
     refreshProfile() {

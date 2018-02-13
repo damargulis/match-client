@@ -14,22 +14,46 @@ class MainScreen extends React.Component {
             swipePhoto: null,
         }
     }
+
+    getSwipeDeck(userId) {
+        fetch(GLOBAL.BASE_URL + '/swipe/possibleMatches/' + userId)
+        .then((response) => response.json())
+        .then((response) => {
+            this.setState({
+                swipeDeck: response.swipeDeck,
+            }, this.getNextSwipeOption);
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
     componentWillMount() {
         AsyncStorage.getItem('userId')
         .then((userId) => {
             this.setState({
                 userId: userId
             });
-            fetch(GLOBAL.BASE_URL + '/swipe/possibleMatches/' + userId)
-            .then((response) => response.json())
-            .then((response) => {
-                this.setState({
-                    swipeDeck: response.swipeDeck,
-                }, this.getNextSwipeOption);
-            }).catch((error) => {
-                console.log(error);
-            });
-        })
+            navigator.geolocation.getCurrentPosition((position) => {
+                console.log('position:');
+                console.log(position);
+                fetch(GLOBAL.BASE_URL + '/user/' + userId + '/location', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        long: position.coords.longitude,
+                        lat: position.coords.latitude,
+                    }),
+                }).then((response) => {
+                    console.log(response);
+                    this.getSwipeDeck(userId);
+                }).catch((error) => {
+                    console.log(error);
+                });
+            })
+        });
     }
 
     getNextSwipeOption() {
