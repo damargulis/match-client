@@ -1,4 +1,5 @@
 import React from 'react';
+import { AsyncStorage } from 'react-native';
 import { TabNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import EventsScreen from './EventScreen';
@@ -6,7 +7,71 @@ import ProfileScreen from './ProfileScreen';
 import MatchesScreen from './MatchesScreen';
 import SwipeScreen from './SwipeScreen';
 
+const GLOBAL = require('./../Globals');
+
 class Root extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            user: this.props.user,
+            mainPhoto: null,
+        };
+    }
+
+    componentWillMount() {
+        this.setLocation();
+    }
+
+    refreshProfile() {
+        fetch(GLOBAL.BASE_URL + '/user/' + this.state.user._id)
+        .then((response) => response.json())
+        .then((response) => {
+            this.setState({ 
+                user: response, 
+            });
+            let mainPhotoId = response.photos[0];
+            if(mainPhotoId){
+                fetch(GLOBAL.BASE_URL + '/user/photo/' + mainPhotoId)
+                .then((response) => response.json())
+                .then((response) => {
+                    var b64encode = btoa(String.fromCharCode.apply(null, response.data.data));
+                    b64encode = 'data:image/jpeg;base64,' + b64encode;
+                    this.setState({
+                        mainPhoto: b64encode
+                    });
+                }).catch((error) => {
+                    console.log(error);
+                });
+            }
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
+    setLocation() {
+        AsyncStorage.getItem('userId')
+        .then((userId) => {
+            navigator.geolocation.getCurrentPosition((position) => {
+                this.setState({
+                    position: position
+                });
+                fetch(GLOBAL.BASE_URL + '/user/' + userId + '/location', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        long: position.coords.longitude,
+                        lat: position.coords.latitude,
+                    }),
+                }).catch((error) => {
+                    console.log(error);
+                });
+            })
+        });
+    }
+
     render() {
         const RootTabs = TabNavigator({
             Profile: {
@@ -65,7 +130,12 @@ class Root extends React.Component {
             initialRouteName: 'Events',
         });
         return (
-            <RootTabs screenProps={{user: this.props.user}} />
+            <RootTabs screenProps={{
+                user: this.state.user, 
+                position: this.state.position, 
+                mainPhoto: this.state.mainPhoto,
+                refreshProfile: this.refreshProfile.bind(this),
+            }} />
         )
     }
 }

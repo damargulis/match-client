@@ -20,55 +20,8 @@ class ProfileScreen extends React.Component {
             profile: this.props.screenProps.user,
             editingInfo: false,
             editingPhotos: false,
-            mainPhoto: null,
+            mainPhoto: this.props.screenProps.mainPhoto,
         }
-    }
-
-    componentWillMount(){
-        this.setLocation();
-    }
-
-    setLocation() {
-        console.log('getting location');
-        navigator.geolocation.getCurrentPosition((position) => {
-            console.log('location:');
-            console.log(position);
-        }, (error) => {
-            console.log('location error:');
-            console.log(error);
-        });
-    }
-
-    refreshProfile() {
-        AsyncStorage.getItem('userId')
-        .then((userId) => {
-            this.setState({ userId: userId });
-            fetch(GLOBAL.BASE_URL + '/user/' + userId)
-            .then((response) => response.json())
-            .then((response) => {
-                this.setState({ 
-                    profile: response, 
-                });
-                let mainPhotoId = response.photos[0];
-                if(mainPhotoId){
-                    fetch(GLOBAL.BASE_URL + '/user/photo/' + mainPhotoId)
-                    .then((response) => response.json())
-                    .then((response) => {
-                        var b64encode = btoa(String.fromCharCode.apply(null, response.data.data));
-                        b64encode = 'data:image/jpeg;base64,' + b64encode;
-                        this.setState({
-                            mainPhoto: b64encode
-                        });
-                    }).catch((error) => {
-                        console.log(error);
-                    });
-                }
-            }).catch((error) => {
-                console.log(error);
-            });
-        }).catch((error) => {
-            console.log(error);
-        });
     }
 
     logout() {
@@ -82,12 +35,12 @@ class ProfileScreen extends React.Component {
     }
 
     save() {
-        this.refreshProfile();
+        this.props.screenProps.refreshProfile();
         this.closeModal();
     }
 
     savePhotos(newPhotos) {
-        this.refreshProfile();
+        this.props.screenProps.refreshProfile();
         this.closePhotoModal();
     }
 
@@ -168,7 +121,7 @@ class ProfileScreen extends React.Component {
                         closeModal={() => this.closeModal()} 
                         original={this.state.profile}
                         save={() => this.save()}
-                        userId={this.state.userId}
+                        userId={this.state.profile._id}
                     />
                 </Modal>
                 <Modal
@@ -180,7 +133,7 @@ class ProfileScreen extends React.Component {
                         closeModal={() => this.closePhotoModal()}
                         photos={this.state.profile.photos}
                         savePhotos={(newPhotos) => this.savePhotos()}
-                        userId={this.state.userId}
+                        userId={this.state.profile._id}
                     />
                 </Modal>
             </View>

@@ -39,9 +39,7 @@ class EditInfoScreen extends React.Component {
             if(response.success) {
                 this.props.save();
             }
-        }).catch((error) => {
-            console.log(error);
-        });
+        })
     }
 
     render() {

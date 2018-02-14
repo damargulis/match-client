@@ -27,33 +27,6 @@ class MainScreen extends React.Component {
         });
     }
 
-    componentWillMount() {
-        AsyncStorage.getItem('userId')
-        .then((userId) => {
-            this.setState({
-                userId: userId
-            });
-            navigator.geolocation.getCurrentPosition((position) => {
-                fetch(GLOBAL.BASE_URL + '/user/' + userId + '/location', {
-                    method: 'POST',
-                    headers: {
-                        Accept: 'application/json',
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        long: position.coords.longitude,
-                        lat: position.coords.latitude,
-                    }),
-                }).then((response) => {
-                    console.log(response);
-                    this.getSwipeDeck(userId);
-                }).catch((error) => {
-                    console.log(error);
-                });
-            })
-        });
-    }
-
     getNextSwipeOption() {
         let userId = this.state.swipeDeck.pop();
         if(! userId) {
