@@ -7,7 +7,6 @@ import {
     View,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-
 import EventDetailsScreen from './EventScreen/EventDetailsScreen';
 
 const GLOBAL = require('./../Globals');
@@ -21,13 +20,13 @@ class MainScreen extends React.Component {
     }
 
     componentWillMount() {
-        navigator.geolocation.getCurrentPosition((position) => {
+        if(this.props.screenProps.position){
             fetch(
                 GLOBAL.BASE_URL 
                 + '/event?long=' 
-                + position.coords.longitude 
+                + this.props.screenProps.position.coords.longitude
                 + '&lat=' 
-                + position.coords.latitude
+                + this.props.screenProps.position.coords.latitude
             ).then((response) => response.json())
             .then((response) => {
                 for(var i=0; i<response.length; i++){
@@ -41,7 +40,7 @@ class MainScreen extends React.Component {
             .catch((error) => {
                 console.error(error);
             });
-        });
+        }
     }
 
     render() {
@@ -58,7 +57,6 @@ class MainScreen extends React.Component {
                 currData.push(event);
             }else{
                 if(prevDay){
-                    console.log(prevDay);
                     sections.push({
                         title: prevDay.toLocaleDateString(),
                         data: currData
