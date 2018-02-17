@@ -2,11 +2,22 @@ import React from 'react';
 import {
     AsyncStorage,
     Button,
+    Image,
     Text,
     View,
 } from 'react-native';
 
 const GLOBAL = require('./../../Globals');
+
+const picMap = {
+    Concert: require('./concert.png'),
+    Bar: require('./bar.png'),
+    Movie: require('./movie.png'),
+    Restaurant: require('./restaurant.png'), 
+    Play: require('./play.png'),
+    Sports: require('./sports.png'),
+    Museum: require('./museum.png'),
+};
 
 class EventDetailsScreen extends React.Component {
     constructor(props) {
@@ -84,6 +95,15 @@ class EventDetailsScreen extends React.Component {
     render() {
         return (
             <View>
+                <Image 
+                    source={
+                        picMap[this.props.navigation.state.params.event.type]
+                    } 
+                    style={{
+                        height: 100,
+                        width: 100,
+                    }}
+                />
                 <Text>Event Details</Text>
                 <Text>{this.props.navigation.state.params.event.name}</Text>
                 <Text>
