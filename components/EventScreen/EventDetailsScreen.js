@@ -29,7 +29,7 @@ class EventDetailsScreen extends React.Component {
         };
     }
 
-    componentWillMount() {
+    refreshEvent() {
         fetch(GLOBAL.BASE_URL
             + '/event/'
             + this.props.navigation.state.params.event._id
@@ -41,7 +41,10 @@ class EventDetailsScreen extends React.Component {
         }).catch((error) => {
             console.log(error);
         });
+    }
 
+    componentWillMount() {
+        this.refreshEvent();
         AsyncStorage.getItem('userId')
         .then((userId) => {
             this.setState({
@@ -89,10 +92,16 @@ class EventDetailsScreen extends React.Component {
                     attending: !this.state.attending,
                 });
             }
-        })
+        }).then(() => {
+            this.refreshEvent();
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     render() {
+        let event = this.state.eventDetails;
+        let date = new Date(event.startTime);
         return (
             <View>
                 <Image 
@@ -104,18 +113,10 @@ class EventDetailsScreen extends React.Component {
                         width: 100,
                     }}
                 />
-                <Text>Event Details</Text>
-                <Text>{this.props.navigation.state.params.event.name}</Text>
-                <Text>
-                    {this.props.navigation.state.params.event.startTime}
-                </Text>
-                <Text>
-                    {
-                        ("description" in this.state.eventDetails) ? 
-                        this.state.eventDetails.description : '' 
-                    }
-                </Text>
-                <Text>Number attendees</Text>
+                <Text>{event.name}</Text>
+                <Text>{date.toLocaleDateString()}</Text>
+                <Text>{date.toLocaleTimeString()}</Text>
+                <Text>Number attendees: {event.attendees ? event.attendees.length : 0}</Text>
                 <Text>Attending: {this.state.attending ? 'Yes' : 'No'}</Text>
                 <Button 
                     title={this.state.attending ? 'Cancel' : 'RSVP'} 
