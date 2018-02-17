@@ -18,44 +18,38 @@ class EventDetailsScreen extends React.Component {
         };
     }
 
-    async componentWillMount(){
-        fetch(
-            GLOBAL.BASE_URL 
-            + '/event/' 
+    componentWillMount() {
+        fetch(GLOBAL.BASE_URL
+            + '/event/'
             + this.props.navigation.state.params.event._id
         ).then((response) => response.json())
         .then((response) => {
             this.setState({
                 eventDetails: response
             });
-        })
-        .catch((error) => {
+        }).catch((error) => {
             console.log(error);
         });
 
-        var userId;
-        try {
-            userId = await AsyncStorage.getItem('userId')
-        } catch (error) {
-            console.log(error);
-        }
-        this.setState({
-            userId: userId
-        });
-        fetch(
-            GLOBAL.BASE_URL 
-            + '/event/rsvp?eventId=' 
-            + this.props.navigation.state.params.event._id 
-            + '&userId=' 
-            + userId
-        ).then((response) => response.json())
-        .then((response) => {
+        AsyncStorage.getItem('userId')
+        .then((userId) => {
             this.setState({
-                attending: response.attending
-            })
-        })
-        .catch((error) => {
-            console.log(error);
+                userId: userId
+            });
+            fetch(
+                GLOBAL.BASE_URL
+                + '/event/rsvp?eventId='
+                + this.props.navigation.state.params.event._id
+                + '&userId='
+                + userId
+            ).then((response) => response.json())
+            .then((response) => {
+                this.setState({
+                    attending: response.attending
+                })
+            }).catch((error) => {
+                console.log(error);
+            });
         });
     }
 
