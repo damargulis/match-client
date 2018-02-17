@@ -19,14 +19,31 @@ class MainScreen extends React.Component {
         }
     }
 
+    componentWillReceiveProps(newProps) {
+        if(newProps.screenProps.position){
+            if(!this.props.screenProps.position || (
+                this.props.screenProps.position.coords.longitude != newProps.screenProps.position.coords.longitude
+                || this.props.screenProps.position.coords.latitude != newProps.screenProps.position.coords.latitude
+                || this.props.screenProps.user.interestsDistance != newProps.screenProps.user.interestsDistance)){
+                this.getEvents(newProps.screenProps);
+            }
+        }
+    };
+
     componentWillMount() {
-        if(this.props.screenProps.position){
+        this.getEvents(this.props.screenProps);
+    }
+
+    getEvents(props){
+        if(props.position){
             fetch(
                 GLOBAL.BASE_URL 
                 + '/event?long=' 
-                + this.props.screenProps.position.coords.longitude
+                + props.position.coords.longitude
                 + '&lat=' 
-                + this.props.screenProps.position.coords.latitude
+                + props.position.coords.latitude
+                + '&maxDist='
+                + props.user.interestsDistance
             ).then((response) => response.json())
             .then((response) => {
                 for(var i=0; i<response.length; i++){
