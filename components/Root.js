@@ -78,10 +78,28 @@ class Root extends React.Component {
 
     componentWillMount() {
         this.setLocation();
+        let mainPhotoId = this.props.user.photos[0];
+        if(mainPhotoId){
+            this.getMainPhoto(mainPhotoId);
+        }
+    }
+
+    getMainPhoto(mainPhotoId) {
+        fetch(GLOBAL.BASE_URL + '/user/photo/' + mainPhotoId)
+        .then((response) => response.json())
+        .then((response) => {
+            var b64encode = btoa(String.fromCharCode.apply(null, response.data.data));
+            b64encode = 'data:image/jpeg;base64,' + b64encode;
+            this.setState({
+                mainPhoto: b64encode
+            });
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     refreshProfile() {
-        fetch(GLOBAL.BASE_URL + '/user/' + this.state.user._id)
+        fetch(GLOBAL.BASE_URL + '/user/' + this.props.user._id)
         .then((response) => response.json())
         .then((response) => {
             this.setState({ 
@@ -89,17 +107,7 @@ class Root extends React.Component {
             });
             let mainPhotoId = response.photos[0];
             if(mainPhotoId){
-                fetch(GLOBAL.BASE_URL + '/user/photo/' + mainPhotoId)
-                .then((response) => response.json())
-                .then((response) => {
-                    var b64encode = btoa(String.fromCharCode.apply(null, response.data.data));
-                    b64encode = 'data:image/jpeg;base64,' + b64encode;
-                    this.setState({
-                        mainPhoto: b64encode
-                    });
-                }).catch((error) => {
-                    console.log(error);
-                });
+                this.getMainPhoto(mainPhotoId);
             }
         }).catch((error) => {
             console.log(error);
@@ -110,6 +118,13 @@ class Root extends React.Component {
         AsyncStorage.getItem('userId')
         .then((userId) => {
             navigator.geolocation.getCurrentPosition((position) => {
+                //cheap way to cheat simulator
+                position = {
+                    coords: {
+                            longitude: -90.295861,
+                            latitude: 38.650768,
+                        }
+                };
                 this.setState({
                     position: position
                 });
