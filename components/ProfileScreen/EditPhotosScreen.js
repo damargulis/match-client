@@ -59,14 +59,7 @@ class EditPhotosScreen extends React.Component {
             body: data
         }).then((response) => response.json())
         .then((response) => {
-            let photoId = response.photoId
-            fetch(GLOBAL.BASE_URL + '/user/photo/' + photoId)
-            .then((response) => response.json())
-            .then((response) => {
-                this.props.savePhotos()
-            }).catch((error) => {
-                console.log(error);
-            });
+            this.props.savePhotos()
         }).catch((error) => {
             console.log(error);
         });

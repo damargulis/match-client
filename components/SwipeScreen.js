@@ -15,6 +15,13 @@ class MainScreen extends React.Component {
         }
     }
 
+    componentWillMount(){
+        AsyncStorage.getItem('userId')
+        .then((userId) => {
+            this.getSwipeDeck(userId);
+        });
+    }
+
     getSwipeDeck(userId) {
         fetch(GLOBAL.BASE_URL + '/swipe/possibleMatches/' + userId)
         .then((response) => response.json())
@@ -82,17 +89,33 @@ class MainScreen extends React.Component {
         });
     }
 
+    renderPhoto() {
+        if(!this.state.nextSwipe.firstName){
+            return (
+                <Text>No current matches.  RSVP to more events</Text>
+            )
+        }else{
+            return (
+                <Image
+                    style={{height: 290, width: 290}}
+                    source={{uri: this.state.swipePhoto}}
+                />
+            )
+        }
+    }
+
     render() {
         let name = this.state.nextSwipe ? this.state.nextSwipe.firstName : '';
         let school = this.state.nextSwipe ? this.state.nextSwipe.school : '';
         return (
             <View>
-                <Text>{name}</Text>
-                <Text>{school}</Text>
-                <Image
+                <View
                     style={{height: 300, width: 300}}
-                    source={{uri: this.state.swipePhoto}}
-                />
+                >
+                    <Text>{name}</Text>
+                    <Text>{school}</Text>
+                    {this.renderPhoto()}
+                </View>
                 <Button 
                     title='View Details' 
                     onPress={

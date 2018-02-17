@@ -39,7 +39,7 @@ class ProfileScreen extends React.Component {
         this.closeModal();
     }
 
-    savePhotos(newPhotos) {
+    savePhotos() {
         this.props.screenProps.refreshProfile();
         this.closePhotoModal();
     }
@@ -79,25 +79,25 @@ class ProfileScreen extends React.Component {
             >
                 <Image 
                     style={{ flex: 1, height: 400, width: 400}} 
-                    source={{uri: this.state.mainPhoto}}
+                    source={{uri: this.props.screenProps.mainPhoto}}
                 />
                 <View style={{flex: 1, }} >
-                    <Text>Name: {this.state.profile.firstName}</Text>
-                    <Text>Age: {this.state.profile.age}</Text>
-                    <Text>Occupation: {this.state.profile.occupation}</Text>
-                    <Text>School: {this.state.profile.school}</Text>
-                    <Text>Gender: {this.state.profile.gender}</Text>
+                    <Text>Name: {this.props.screenProps.user.firstName}</Text>
+                    <Text>Age: {this.props.screenProps.user.age}</Text>
+                    <Text>Occupation: {this.props.screenProps.user.occupation}</Text>
+                    <Text>School: {this.props.screenProps.user.school}</Text>
+                    <Text>Gender: {this.props.screenProps.user.gender}</Text>
                     <Text>
-                        Interested In: {this.state.profile.interestsGender}
+                        Interested In: {this.props.screenProps.user.interestsGender}
                     </Text>
                     <Text>
-                        Maximum Distance: {this.state.profile.interestsDistance}
+                        Maximum Distance: {this.props.screenProps.user.interestsDistance}
                     </Text>
                     <Text>{
                         'Age Range: ' 
-                        + this.state.profile.interestsAgeMin
+                        + this.props.screenProps.user.interestsAgeMin
                         + '-'
-                        + this.state.profile.interestsAgeMax
+                        + this.props.screenProps.user.interestsAgeMax
                     }</Text>
                     <Button
                         title="Edit Photos"
@@ -119,9 +119,9 @@ class ProfileScreen extends React.Component {
                 >
                     <EditInfoScreen 
                         closeModal={() => this.closeModal()} 
-                        original={this.state.profile}
+                        original={this.props.screenProps.user}
                         save={() => this.save()}
-                        userId={this.state.profile._id}
+                        userId={this.props.screenProps.user._id}
                     />
                 </Modal>
                 <Modal
@@ -131,9 +131,9 @@ class ProfileScreen extends React.Component {
                 >
                     <EditPhotosScreen 
                         closeModal={() => this.closePhotoModal()}
-                        photos={this.state.profile.photos}
-                        savePhotos={(newPhotos) => this.savePhotos()}
-                        userId={this.state.profile._id}
+                        photos={this.props.screenProps.user.photos}
+                        savePhotos={() => this.savePhotos()}
+                        userId={this.props.screenProps.user._id}
                     />
                 </Modal>
             </View>
