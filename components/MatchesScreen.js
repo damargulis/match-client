@@ -33,7 +33,7 @@ class MainScreen extends React.Component {
             this.setState({
                 chats: chats
             });
-            if(!resposne.photos[0]) return;
+            if(!response.photos[0]) return;
             fetch(GLOBAL.BASE_URL + '/user/photo/' + response.photos[0])
             .then((response) => response.json())
             .then((response) => {
@@ -86,37 +86,11 @@ class MainScreen extends React.Component {
                 <View>
                     <Text>{name}</Text>
                     <Image
-                        style={{height: 200, width: 200}}
+                        style={{height: 100, width: 100}}
                         source={{uri: match.photoData}}
                     />
                 </View>
             </TouchableHighlight>
-        )
-        //return(
-        //    <Button 
-        //        title={name} 
-        //        onPress={
-        //            () => this.props.navigation.navigate(
-        //                'Details', 
-        //                {chat: match}
-        //            )
-        //        }
-        //    />
-        //)
-    }
-
-    renderChat(chat){
-        let otherId = chat.userIds.filter((id) => id != this.state.userId)[0];
-        let name = chat.firstName ? chat.firstName : '';
-        return (
-            <Button 
-                title={name} 
-                onPress={
-                    () => this.props.navigation.navigate(
-                        'Details', 
-                        {chat: chat})
-                }
-            />
         )
     }
 
@@ -143,7 +117,7 @@ class MainScreen extends React.Component {
                 <FlatList
                     style={{flex: 4}}
                     data={chats}
-                    renderItem={({item}) =>  this.renderChat(item)}
+                    renderItem={({item}) =>  this.renderMatch(item)}
                     keyExtractor={(item, index) => index}
                 />
             </View>

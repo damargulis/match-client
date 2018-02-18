@@ -48,13 +48,18 @@ class ChatScreen extends React.Component {
         }))
     }
 
-    renderAvatar() {
+    renderAvatar(user) {
         return(
             <Image
                 source={{uri: this.props.navigation.state.params.chat.photoData }}
                 style={{height: 50, width: 50}}
             />
         )
+    }
+
+    clickAvatar() {
+        console.log('avatar clicked');
+        this.props.navigation.navigate('PersonDetail');
     }
 
     render() {
@@ -64,9 +69,7 @@ class ChatScreen extends React.Component {
                 onSend={messages => this.onSend(messages)}
                 user={{_id: this.state.userId }}
                 keyboardShouldPersistTaps='never'
-                onPressAvatar={ 
-                    () => this.props.navigation.navigate('PersonDetail')
-                }
+                onPressAvatar={() => this.clickAvatar() }
                 isAnimated={true}
                 renderAvatar={() => this.renderAvatar()}
             />
