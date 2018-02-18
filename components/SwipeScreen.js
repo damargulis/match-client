@@ -10,7 +10,7 @@ class MainScreen extends React.Component {
         super(props);
         this.state = {
             swipeDeck: [],
-            nextSwipe: {},
+            nextSwipe: undefined,
             swipePhoto: null,
         }
     }
@@ -38,7 +38,7 @@ class MainScreen extends React.Component {
         let userId = this.state.swipeDeck.pop();
         if(! userId) {
             this.setState({
-                nextSwipe: {},
+                nextSwipe: undefined,
                 swipePhoto: null,
             });
             return;
@@ -68,6 +68,7 @@ class MainScreen extends React.Component {
     }
 
     swipe(like) {
+        if(!this.state.nextSwipe) return;
         fetch(GLOBAL.BASE_URL + '/swipe', {
             method: 'POST',
             headers: {
@@ -90,7 +91,7 @@ class MainScreen extends React.Component {
     }
 
     renderPhoto() {
-        if(!this.state.nextSwipe.firstName){
+        if(!this.state.nextSwipe){
             return (
                 <Text>No current matches.  RSVP to more events</Text>
             )
@@ -101,6 +102,17 @@ class MainScreen extends React.Component {
                     source={{uri: this.state.swipePhoto}}
                 />
             )
+        }
+    }
+
+    goToDetails(){
+        console.log(this.state);
+        console.log(!!this.state.nextSwipe);
+        if(this.state.nextSwipe){
+            this.props.navigation.navigate(
+                'Details', 
+                {user: this.state.nextSwipe}
+            );
         }
     }
 
@@ -118,12 +130,7 @@ class MainScreen extends React.Component {
                 </View>
                 <Button 
                     title='View Details' 
-                    onPress={
-                        () => this.props.navigation.navigate(
-                            'Details', 
-                            {user: this.state.nextSwipe}
-                        )
-                    }
+                    onPress={() => this.goToDetails()}
                 />
                 <View style={{flexDirection: 'row'}}>
                     <View style={{flex: 1}}>
