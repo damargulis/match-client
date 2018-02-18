@@ -1,6 +1,7 @@
 import React from 'react';
-import { AsyncStorage, Image } from 'react-native';
+import { AsyncStorage, Image, Text, TouchableHighlight, View } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
+import Title from './ChatScreen/ChatTitle';
 import io from 'socket.io-client/dist/socket.io';
 import './../UserAgent';
 
@@ -10,7 +11,11 @@ class ChatScreen extends React.Component {
     static navigationOptions = ({ navigation }) => {
         const { params } = navigation.state;
         return {
-            title: params.chat.firstName
+            headerTitle: <Title 
+                photo={params.chat.photoData} 
+                name={params.chat.firstName}
+                user={params.chat}
+            />,
         }
     };
 
@@ -82,6 +87,7 @@ class ChatScreen extends React.Component {
                 onPressAvatar={() => this.clickAvatar() }
                 isAnimated={true}
                 renderAvatar={() => this.renderAvatar()}
+
             />
         )
     }
