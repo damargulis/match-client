@@ -18,6 +18,7 @@ class MainScreen extends React.Component {
     componentWillMount(){
         AsyncStorage.getItem('userId')
         .then((userId) => {
+            this.setState({userId: userId});
             this.getSwipeDeck(userId);
         });
     }
