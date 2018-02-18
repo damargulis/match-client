@@ -10,7 +10,9 @@ class ChatScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            messages: this.props.navigation.state.params.chat.messages
+            messages: this.props.navigation.state.params.chat.messages.sort((a,b) => {
+                return (new Date(b.createdAt)) - (new Date(a.createdAt));
+            }),
         };
     }
 
