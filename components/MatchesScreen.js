@@ -134,9 +134,6 @@ const MatchesScreen = StackNavigator({
     },
     Details: {
         screen: ChatScreen,
-        navigationOptions: {
-            headerTitle: 'Chat',
-        },
     },
     PersonDetail: {
         screen: PersonDetailScreen,

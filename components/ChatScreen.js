@@ -7,6 +7,13 @@ import './../UserAgent';
 const GLOBAL = require('./../Globals');
 
 class ChatScreen extends React.Component {
+    static navigationOptions = ({ navigation }) => {
+        const { params } = navigation.state;
+        return {
+            title: params.chat.firstName
+        }
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -59,8 +66,9 @@ class ChatScreen extends React.Component {
         )
     }
 
-    clickAvatar() {
+    clickAvatar(user) {
         console.log('avatar clicked');
+        console.log(user);
         this.props.navigation.navigate('PersonDetail');
     }
 

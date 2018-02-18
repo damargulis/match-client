@@ -107,8 +107,6 @@ class MainScreen extends React.Component {
     }
 
     goToDetails(){
-        console.log(this.state);
-        console.log(!!this.state.nextSwipe);
         if(this.state.nextSwipe){
             this.props.navigation.navigate(
                 'Details', 
