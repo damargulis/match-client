@@ -63,7 +63,6 @@ class EditInfoScreen extends React.Component {
                         value={this.state.edits.occupation} 
                         onChangeText={(val) => this.setEdit('occupation', val)}
                     />
-
                     <Text>School:</Text>
                     <TextInput 
                         value={this.state.edits.school} 

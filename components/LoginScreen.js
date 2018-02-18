@@ -2,11 +2,13 @@ import React from 'react';
 import {
     AsyncStorage,
     Button,
+    Modal,
     Text,
     TextInput,
     View,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import CreateAccount from './CreateAccount';
 
 const GLOBAL = require('./../Globals');
 
@@ -17,39 +19,20 @@ class LoginScreen extends React.Component {
             username: '',
             password: '',
             showWarning: false,
+            createAccount: false,
         };
     }
 
+    closeModal() {
+        this.setState({
+            createAccount: false,
+        });
+    }
+    
     createAccount() {
-        fetch(GLOBAL.BASE_URL + '/auth/createAccount', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password,
-            })
-        })
-        .then((response) => response.json())
-        .then(async (response) => {
-            if(response.success){
-                try {
-                    await AsyncStorage.setItem('userId', response.userId)
-                } catch (error) {
-                    console.log(error);
-                }
-                Actions.appScreen();
-            } else {
-                this.setState({
-                    showWarning: true
-                });
-            }
-        })
-        .catch((error) => {
-            console.log(error);
-        })
+        this.setState({
+            createAccount: true,
+        });
     }
 
     login() {
@@ -118,6 +101,15 @@ class LoginScreen extends React.Component {
                     title="Create Account"
                     onPress={this.createAccount.bind(this)}
                 />
+                <Modal
+                    visible={this.state.createAccount}
+                    animationType={'slide'}
+                    onRequestClose={() => this.closeModal()}
+                >
+                    <CreateAccount 
+                        closeModal={() => this.closeModal()}
+                    />
+                </Modal>
             </View>
         )
     }
