@@ -1,11 +1,11 @@
 import React from 'react';
 import { AsyncStorage, Image, Text, TouchableHighlight, View } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
-import Title from './ChatScreen/ChatTitle';
+import Title from './ChatTitle';
 import io from 'socket.io-client/dist/socket.io';
-import './../UserAgent';
+import './../../UserAgent';
 
-const GLOBAL = require('./../Globals');
+const GLOBAL = require('./../../Globals');
 
 class ChatScreen extends React.Component {
     static navigationOptions = ({ navigation }) => {

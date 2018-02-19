@@ -9,7 +9,7 @@ import {
     View,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import ChatScreen from './ChatScreen';
+import ChatScreen from './MatchesScreen/ChatScreen';
 import PersonDetailScreen from './PersonDetailScreen';
 
 const GLOBAL = require('./../Globals');
