@@ -10,10 +10,10 @@ class Title extends React.Component {
             >
                 <View>
                     <Image
-                        source={{uri: this.props.photo}}
+                        source={{uri: this.props.user.photoData}}
                         style={{ width: 30, height: 30}}
                     />
-                    <Text>{this.props.name}</Text>
+                    <Text>{this.props.user.firstName}</Text>
                 </View>
             </TouchableHighlight>
         )

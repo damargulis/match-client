@@ -12,9 +12,7 @@ class ChatScreen extends React.Component {
         const { params } = navigation.state;
         return {
             headerTitle: <Title 
-                photo={params.chat.photoData} 
-                name={params.chat.firstName}
-                user={params.chat}
+                user={params.chat.user}
             />,
         }
     };
@@ -65,7 +63,7 @@ class ChatScreen extends React.Component {
     renderAvatar(user) {
         return(
             <Image
-                source={{uri: this.props.navigation.state.params.chat.photoData }}
+                source={{uri: this.props.navigation.state.params.chat.user.photoData }}
                 style={{height: 50, width: 50}}
             />
         )

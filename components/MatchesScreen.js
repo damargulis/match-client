@@ -28,8 +28,7 @@ class MainScreen extends React.Component {
         .then((response) => response.json())
         .then((response) => {
             let chats = this.state.chats;
-            chats[index].firstName = response.firstName;
-            chats[index].photoId = response.photos[0];
+            chats[index].user = response;
             this.setState({
                 chats: chats
             });
@@ -39,7 +38,7 @@ class MainScreen extends React.Component {
             .then((response) => {
                 var b64encode = btoa(String.fromCharCode.apply(null, response.data.data));
                 b64encode = 'data:image/jpeg;base64,' + b64encode;
-                chats[index].photoData = b64encode;
+                chats[index].user.photoData = b64encode;
                 this.setState({
                     chats: chats
                 });
@@ -77,7 +76,8 @@ class MainScreen extends React.Component {
 
     renderMatch(match){
         let otherId = match.userIds.filter((id) => id != this.state.userId)[0];
-        let name = match.firstName ? match.firstName : '';
+        let name = match.user ? match.user.firstName : '';
+        let source = match.user ? match.user.photoData : undefined;
         return (
             <TouchableHighlight
                 onPress={() => this.props.navigation.navigate('Details', {chat: match})}
@@ -87,7 +87,7 @@ class MainScreen extends React.Component {
                     <Text>{name}</Text>
                     <Image
                         style={{height: 100, width: 100}}
-                        source={{uri: match.photoData}}
+                        source={{uri: source}}
                     />
                 </View>
             </TouchableHighlight>
