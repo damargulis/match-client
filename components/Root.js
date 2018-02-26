@@ -77,7 +77,7 @@ class Root extends React.Component {
     }
 
     componentWillMount() {
-        this.setLocation();
+        this.getLocation();
         let mainPhotoId = this.props.user.photos[0];
         if(mainPhotoId){
             this.getMainPhoto(mainPhotoId);
@@ -114,7 +114,26 @@ class Root extends React.Component {
         });
     }
 
-    setLocation() {
+    setLocation(position, userId) {
+        this.setState({
+            position: position
+        });
+        fetch(GLOBAL.BASE_URL + '/user/' + userId + '/location', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                long: position.coords.longitude,
+                lat: position.coords.latitude,
+            }),
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
+    getLocation() {
         AsyncStorage.getItem('userId')
         .then((userId) => {
             navigator.geolocation.getCurrentPosition((position) => {
@@ -125,22 +144,20 @@ class Root extends React.Component {
                             latitude: 38.650768,
                         }
                 };
-                this.setState({
-                    position: position
-                });
-                fetch(GLOBAL.BASE_URL + '/user/' + userId + '/location', {
-                    method: 'POST',
-                    headers: {
-                        Accept: 'application/json',
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        long: position.coords.longitude,
-                        lat: position.coords.latitude,
-                    }),
-                }).catch((error) => {
-                    console.log(error);
-                });
+                this.setLocation(position, userId);
+            }, (error) => {
+                console.log('Failed to get location; mocking');
+                console.log(error);
+                //cheat simulator
+                position = {
+                    coords: {
+                            longitude: -90.295861,
+                            latitude: 38.650768,
+                        }
+                };
+                this.setLocation(position, userId);
+            }, { 
+                enableHighAccuracy: false
             })
         });
     }

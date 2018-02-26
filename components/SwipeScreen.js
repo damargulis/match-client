@@ -1,5 +1,12 @@
 import React from 'react';
-import { AsyncStorage, Button, Image, Text, View } from 'react-native';
+import { 
+    AsyncStorage, 
+    Button, 
+    Image, 
+    Text, 
+    TouchableHighlight, 
+    View,
+} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import PersonDetailScreen from './PersonDetailScreen';
 
@@ -24,9 +31,11 @@ class MainScreen extends React.Component {
     }
 
     getSwipeDeck(userId) {
+        console.log('getting');
         fetch(GLOBAL.BASE_URL + '/swipe/possibleMatches/' + userId)
         .then((response) => response.json())
         .then((response) => {
+            console.log(response);
             this.setState({
                 swipeDeck: response.swipeDeck,
             }, this.getNextSwipeOption);
@@ -91,10 +100,22 @@ class MainScreen extends React.Component {
         });
     }
 
+    refreshMatches(){
+        console.log('refreshing');
+        this.getSwipeDeck(this.state.userId);
+    }
+
     renderPhoto() {
         if(!this.state.nextSwipe){
             return (
-                <Text>No current matches.  RSVP to more events</Text>
+                <TouchableHighlight
+                    onPress={() => this.refreshMatches()}
+                >
+                    <View>
+                        <Text>No current matches.  RSVP to more events</Text>
+                        <Text>Tap here to refresh</Text>
+                    </View>
+                </TouchableHighlight>
             )
         }else{
             return (
