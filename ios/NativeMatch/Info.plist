@@ -65,5 +65,11 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
 	</array>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>BetterTinder would like access to your photo gallery</string>
+    <key>NSCameraUsageDescription</key>
+    <string>BetterTinder would to use your camera</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>BetterTinder would like to save photos to your photo gallery</string>
 </dict>
 </plist>
