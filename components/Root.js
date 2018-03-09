@@ -1,6 +1,7 @@
 import React from 'react';
-import { AsyncStorage } from 'react-native';
+import { Alert, AsyncStorage } from 'react-native';
 import { TabNavigator } from 'react-navigation';
+import io from 'socket.io-client/dist/socket.io';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import EventsScreen from './EventScreen';
 import ProfileScreen from './ProfileScreen';
@@ -73,6 +74,7 @@ class Root extends React.Component {
         this.state = {
             user: this.props.user,
             mainPhoto: null,
+            chats: [],
         };
     }
 
@@ -82,6 +84,21 @@ class Root extends React.Component {
         if(mainPhotoId){
             this.getMainPhoto(mainPhotoId);
         }
+        this.socket = io(
+            GLOBAL.BASE_URL
+            + '/matchNotification'
+            + '?userId='
+            + this.props.user._id,
+            {
+                jsonp: false,
+                path: '/socket.io',
+            },
+        );
+        this.socket.on('newMatch', (data) => {
+            this.refreshMatches();
+            Alert.alert('New Match!');
+        });
+        this.refreshMatches();
     }
 
     getMainPhoto(mainPhotoId) {
@@ -111,6 +128,50 @@ class Root extends React.Component {
             }
         }).catch((error) => {
             console.log(error);
+        });
+    }
+
+    getMatchInfo(chat, index, userId) {
+        let otherId = chat.userIds.filter((id) => id != userId)[0];
+        fetch(GLOBAL.BASE_URL + '/user/' + otherId)
+        .then((response) => response.json())
+        .then((response) => {
+            let chats = this.state.chats;
+            chats[index].user = response;
+            this.setState({
+                chats: chats
+            });
+            if(!response.photos[0]) return;
+            fetch(GLOBAL.BASE_URL + '/user/photo/' + response.photos[0])
+            .then((response) => response.json())
+            .then((response) => {
+                var b64encode = btoa(String.fromCharCode.apply(null, response.data.data));
+                b64encode = 'data:image/jpeg;base64,' + b64encode;
+                chats[index].user.photoData = b64encode;
+                this.setState({
+                    chats: chats
+                });
+            }).catch((error) => {
+                console.log(error);
+            });
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
+    refreshMatches() {
+        console.log('getting matches');
+        fetch(GLOBAL.BASE_URL + '/chat/' + this.props.user._id)
+        .then((response) => response.json())
+        .then((response) => {
+            console.log(response);
+            this.setState({
+                chats: response,
+            }, () => {
+                this.state.chats.map((chat, index) => {
+                    this.getMatchInfo(chat, index, this.props.user._id);
+                });
+            });
         });
     }
 
@@ -169,6 +230,7 @@ class Root extends React.Component {
                 position: this.state.position, 
                 mainPhoto: this.state.mainPhoto,
                 refreshProfile: this.refreshProfile.bind(this),
+                chats: this.state.chats,
             }} />
         )
     }

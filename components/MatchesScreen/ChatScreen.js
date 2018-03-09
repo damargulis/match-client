@@ -35,9 +35,13 @@ class ChatScreen extends React.Component {
         });
         this.socket = io(
             GLOBAL.BASE_URL 
-            + '/?chatId=' 
+            + '/chatNotification'
+            + '?chatId=' 
             + this.props.navigation.state.params.chat._id, 
-            {jsonp: false}
+            {
+                jsonp: false,
+                path: '/socket.io',
+            },
         );
         this.socket.on('receiveMessage', (data) => {
             this.setState(previousState => ({

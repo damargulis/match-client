@@ -1,6 +1,5 @@
 import React from 'react';
 import { 
-    AsyncStorage, 
     Button,
     FlatList,
     Image,
@@ -17,65 +16,11 @@ const GLOBAL = require('./../Globals');
 class MainScreen extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            chats: []
-        };
-    }
-
-    getInfo(chat, index, userId) {
-        let otherId = chat.userIds.filter((id) => id != userId)[0];
-        fetch(GLOBAL.BASE_URL + '/user/' + otherId)
-        .then((response) => response.json())
-        .then((response) => {
-            let chats = this.state.chats;
-            chats[index].user = response;
-            this.setState({
-                chats: chats
-            });
-            if(!response.photos[0]) return;
-            fetch(GLOBAL.BASE_URL + '/user/photo/' + response.photos[0])
-            .then((response) => response.json())
-            .then((response) => {
-                var b64encode = btoa(String.fromCharCode.apply(null, response.data.data));
-                b64encode = 'data:image/jpeg;base64,' + b64encode;
-                chats[index].user.photoData = b64encode;
-                this.setState({
-                    chats: chats
-                });
-            }).catch((error) => {
-                console.log(error);
-            });
-        }).catch((error) => {
-            console.log(error);
-        });
-    }
-
-    componentWillMount() {
-        AsyncStorage.getItem('userId')
-        .then((userId) => {
-            this.setState({
-                userId: userId
-            });
-            fetch(GLOBAL.BASE_URL + '/chat/' + userId)
-            .then((response) => response.json())
-            .then((response) => {
-                this.setState({
-                    chats: response,
-                }, () => {
-                    this.state.chats.map((chat, index) => {
-                        this.getInfo(chat, index, userId)
-                    });
-                });
-            }).catch((error) => {
-                console.log(error);
-            });
-        }).catch((error) => {
-            console.log(error);
-        });
     }
 
     renderMatch(match){
-        let otherId = match.userIds.filter((id) => id != this.state.userId)[0];
+
+        let otherId = match.userIds.filter((id) => id != this.props.screenProps.user._id)[0];
         let name = match.user ? match.user.firstName : '';
         let source = match.user ? match.user.photoData : undefined;
         return (
@@ -95,10 +40,10 @@ class MainScreen extends React.Component {
     }
 
     render() {
-        let matches = this.state.chats.filter(
+        let matches = this.props.screenProps.chats.filter(
             (chat) => chat.messages.length == 0
         );
-        let chats = this.state.chats.filter((chat) => chat.messages.length > 0);
+        let chats = this.props.screenProps.chats.filter((chat) => chat.messages.length > 0);
         return (
             <View 
                 style={{ 

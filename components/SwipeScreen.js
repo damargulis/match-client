@@ -34,7 +34,6 @@ class MainScreen extends React.Component {
         fetch(GLOBAL.BASE_URL + '/swipe/possibleMatches/' + userId)
         .then((response) => response.json())
         .then((response) => {
-            console.log(response);
             this.setState({
                 swipeDeck: response.swipeDeck,
             }, this.getNextSwipeOption);
