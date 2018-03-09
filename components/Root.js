@@ -1,12 +1,12 @@
 import React from 'react';
 import { Alert, AsyncStorage } from 'react-native';
 import { TabNavigator } from 'react-navigation';
+import io from 'socket.io-client/dist/socket.io';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import EventsScreen from './EventScreen';
 import ProfileScreen from './ProfileScreen';
 import MatchesScreen from './MatchesScreen';
 import SwipeScreen from './SwipeScreen';
-import io from 'socket.io-client/dist/socket.io';
 
 const GLOBAL = require('./../Globals');
 
