@@ -96,7 +96,7 @@ class Root extends React.Component {
         );
         this.socket.on('newMatch', (data) => {
             this.refreshMatches();
-            Alert.alert('New Match!');
+            Alert.alert('You\'ve matched with ' + data.match.firstName + '!');
         });
         this.refreshMatches();
     }
