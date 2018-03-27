@@ -1,4 +1,5 @@
 import React from 'react';
+import { Actions } from 'react-native-router-flux';
 import { Alert, AsyncStorage } from 'react-native';
 import { TabNavigator } from 'react-navigation';
 import io from 'socket.io-client/dist/socket.io';
@@ -101,6 +102,11 @@ class Root extends React.Component {
         this.refreshMatches();
     }
 
+    logout() {
+        this.socket.disconnect()
+        Actions.loginScreen();
+    }
+
     getMainPhoto(mainPhotoId) {
         fetch(GLOBAL.BASE_URL + '/user/photo/' + mainPhotoId)
         .then((response) => response.json())
@@ -160,11 +166,9 @@ class Root extends React.Component {
     }
 
     refreshMatches() {
-        console.log('getting matches');
         fetch(GLOBAL.BASE_URL + '/chat/' + this.props.user._id)
         .then((response) => response.json())
         .then((response) => {
-            console.log(response);
             this.setState({
                 chats: response,
             }, () => {
@@ -231,6 +235,7 @@ class Root extends React.Component {
                 mainPhoto: this.state.mainPhoto,
                 refreshProfile: this.refreshProfile.bind(this),
                 chats: this.state.chats,
+                logout: this.logout.bind(this),
             }} />
         )
     }

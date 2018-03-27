@@ -7,7 +7,6 @@ import {
     Text,
     View, 
 } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 import EditInfoScreen from './ProfileScreen/EditInfoScreen';
 import EditPhotosScreen from './ProfileScreen/EditPhotosScreen';
 
@@ -25,11 +24,15 @@ class ProfileScreen extends React.Component {
     }
 
     logout() {
-        fetch(GLOBAL.BASE_URL + '/logout')
-        .then((response) => {
-            Actions.loginScreen();
-        })
-        .catch((error) => {
+        fetch(GLOBAL.BASE_URL + '/auth/logout', {
+            method: 'POST', 
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            }
+        }).then((response) => {
+            this.props.screenProps.logout();
+        }).catch((error) => {
             console.log(error);
         });
     }
