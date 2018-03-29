@@ -35,6 +35,7 @@ class MainScreen extends React.Component {
 
     componentWillMount() {
         this.getEvents(this.props.screenProps);
+        this.getUserEvents();
     }
 
     setDates(events) {
@@ -43,6 +44,21 @@ class MainScreen extends React.Component {
         }
         let sortedEvents = events.sort((a, b) => {b.date - a.date });
         return sortedEvents
+    }
+
+    getUserEvents(){
+        fetch(GLOBAL.BASE_URL
+            + '/user/'
+            + this.props.screenProps.user._id
+            + '/events'
+        ).then((response) => response.json())
+        .then((response) => {
+            this.setState({
+                userEvents: this.setDates(response)
+            });
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     getEvents(props){
@@ -65,16 +81,6 @@ class MainScreen extends React.Component {
                 console.error(error);
             });
         }
-        fetch(GLOBAL.BASE_URL
-            + '/user/'
-            + props.user._id
-            + '/events'
-        ).then((response) => response.json())
-        .then((response) => {
-            this.setState({
-                userEvents: this.setDates(response)
-            });
-        });
     }
 
     onToggle(){
@@ -146,7 +152,10 @@ class MainScreen extends React.Component {
                                 onPress={
                                     () => this.props.navigation.navigate(
                                         'Details', 
-                                        {event: item}
+                                        {
+                                            event: item,
+                                            refreshEvents: this.getUserEvents.bind(this),
+                                        }
                                     )
                                 } 
                             />
@@ -187,7 +196,6 @@ const styles = StyleSheet.create({
               height: 44,
             },
 });
-
 
 const EventsScreen = StackNavigator({
     Home: {

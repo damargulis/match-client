@@ -88,6 +88,7 @@ class EventDetailsScreen extends React.Component {
         .then((response) => response.json())
         .then((response) => {
             if(response.success){
+                this.props.navigation.state.params.refreshEvents();
                 this.setState({
                     attending: !this.state.attending,
                 });
