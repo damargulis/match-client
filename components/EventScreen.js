@@ -3,6 +3,7 @@ import {
     Button, 
     SectionList, 
     StyleSheet, 
+    Switch,
     Text, 
     View,
 } from 'react-native';
@@ -15,7 +16,9 @@ class MainScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            events: []
+            events: [],
+            allEvents: true,
+            userEvents: []
         }
     }
 
@@ -34,6 +37,14 @@ class MainScreen extends React.Component {
         this.getEvents(this.props.screenProps);
     }
 
+    setDates(events) {
+        for(var i=0; i<events.length; i++) {
+            events[i].date = new Date(events[i].startTime);
+        }
+        let sortedEvents = events.sort((a, b) => {b.date - a.date });
+        return sortedEvents
+    }
+
     getEvents(props){
         if(props.position){
             fetch(
@@ -46,25 +57,37 @@ class MainScreen extends React.Component {
                 + props.user.interestsDistance
             ).then((response) => response.json())
             .then((response) => {
-                for(var i=0; i<response.length; i++){
-                    response[i].date = new Date(response[i].startTime);
-                }
-                let events = response.sort((a, b) => { b.date - a.date });
                 this.setState({
-                    events: events
+                    events: this.setDates(response)
                 });
             })
             .catch((error) => {
                 console.error(error);
             });
         }
+        fetch(GLOBAL.BASE_URL
+            + '/user/'
+            + props.user._id
+            + '/events'
+        ).then((response) => response.json())
+        .then((response) => {
+            this.setState({
+                userEvents: this.setDates(response)
+            });
+        });
+    }
+
+    onToggle(){
+        this.setState({
+            allEvents: !this.state.allEvents
+        });
     }
 
     render() {
         let sections = [];
-        let events = this.state.events;
+        let events = this.state.allEvents ? this.state.events : this.state.userEvents;
         var prevDay = null;
-        var currData = []
+        var currData = [];
         for(var i=0; i < events.length; i++){
             let event = events[i];
             if(prevDay && prevDay.getDate() == event.date.getDate()
@@ -98,6 +121,21 @@ class MainScreen extends React.Component {
                     justifyContent: 'center' 
                 }}
             >
+                <View
+                    style={{
+                        flex: 1,
+                        flexDirection: 'row',
+                        height: 30
+                    }}
+                >
+                <Text>Your Events</Text> 
+                <Switch 
+                    value={this.state.allEvents}
+                    onValueChange={this.onToggle.bind(this)}
+                />
+                <Text>All Events</Text>
+                </View>
+                <View style={{flex: 10}}>
                 <SectionList
                     sections={sections}
                     renderItem={
@@ -123,6 +161,7 @@ class MainScreen extends React.Component {
                     }
                     keyExtractor={(item, index) => index}
                 />
+                </View>
             </View>
         )
     }
