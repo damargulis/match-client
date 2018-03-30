@@ -21,7 +21,6 @@ class MainPage extends React.Component {
                     />
                 </Scene>
             </Router>
-                
         );
     }
 }
