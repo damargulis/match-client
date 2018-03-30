@@ -43,12 +43,17 @@ class MainScreen extends React.Component {
         );
     }
 
+    hasMessages(chat){
+        let messages = chat.messages.filter((message) => !message.system);
+        return messages.length > 0;
+    }
+
     render() {
         let matches = this.props.screenProps.chats.filter(
-            (chat) => chat.messages.length == 0
+            (chat) => !this.hasMessages(chat) 
         );
         let chats = this.props.screenProps.chats.filter(
-            (chat) => chat.messages.length > 0
+            (chat) => this.hasMessages(chat)
         );
         return (
             <View 
