@@ -111,7 +111,9 @@ class Root extends React.Component {
         fetch(GLOBAL.BASE_URL + '/user/photo/' + mainPhotoId)
         .then((response) => response.json())
         .then((response) => {
-            var b64encode = btoa(String.fromCharCode.apply(null, response.data.data));
+            var b64encode = btoa(
+                String.fromCharCode.apply(null, response.data.data)
+            );
             b64encode = 'data:image/jpeg;base64,' + b64encode;
             this.setState({
                 mainPhoto: b64encode
@@ -147,7 +149,9 @@ class Root extends React.Component {
             fetch(GLOBAL.BASE_URL + '/user/photo/' + response.photos[0])
             .then((response) => response.json())
             .then((response) => {
-                var b64encode = btoa(String.fromCharCode.apply(null, response.data.data));
+                var b64encode = btoa(
+                    String.fromCharCode.apply(null, response.data.data)
+                );
                 b64encode = 'data:image/jpeg;base64,' + b64encode;
                 chats[index].user.photoData = b64encode;
                 this.setState({

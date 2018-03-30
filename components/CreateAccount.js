@@ -51,11 +51,17 @@ class CreateAccount extends React.Component {
             <ScrollView>
                 <Text>Create an account!</Text>
                 <Text>Username:</Text>
-                <TextInput onChangeText={(val) => this.setState({username: val})} />
+                <TextInput 
+                    onChangeText={(val) => this.setState({username: val})}
+                />
                 <Text>Password:</Text>
-                <TextInput onChangeText={(val) => this.setState({password: val})} />
+                <TextInput 
+                    onChangeText={(val) => this.setState({password: val})} 
+                />
                 <Text>First Name:</Text>
-                <TextInput onChangeText={(val) => this.setState({firstName: val})} />
+                <TextInput 
+                    onChangeText={(val) => this.setState({firstName: val})}
+                />
                 <Text>Age: {this.state.age}</Text>
                 <Slider
                     step={1}
@@ -84,7 +90,7 @@ class CreateAccount extends React.Component {
                 <Text>Interested In:</Text>
                 <Picker
                     selectedValue={this.state.interestsGender}
-                    onValueChange={ (val)=>this.setState({interestsGender: val}) }
+                    onValueChange={(val)=>this.setState({interestsGender: val})}
                 >
                     <Picker.Item label='Male' value='Male'/>
                     <Picker.Item label='Female' value='Female'/>
@@ -96,7 +102,9 @@ class CreateAccount extends React.Component {
                     minimumValue={1}
                     maximumValue={300}
                     value={this.state.interestsDistance}
-                    onValueChange={ (val) => this.setState({interestsDistance: val})}
+                    onValueChange={
+                        (val) => this.setState({interestsDistance: val})
+                    }
                 />
                 <Text>Minimum Age: {this.state.interestsAgeMin}</Text>
                 <Slider
@@ -104,7 +112,9 @@ class CreateAccount extends React.Component {
                     minimumValue={18}
                     maximumValue={this.state.interestsAgeMax}
                     value={this.state.interestsAgeMin}
-                    onValueChange={(val) => this.setState({interestsAgeMin: val})}
+                    onValueChange={
+                        (val) => this.setState({interestsAgeMin: val})
+                    }
                 />
                 <Text>Maximum Age: {this.state.interestsAgeMax}</Text>
                 <Slider
@@ -112,7 +122,9 @@ class CreateAccount extends React.Component {
                     minimumValue={this.state.interestsAgeMin}
                     maximumValue={99}
                     value={this.state.interestsAgeMax}
-                    onValueChange={(val) => this.setState({interestsAgeMax: val})}
+                    onValueChange={
+                        (val) => this.setState({interestsAgeMax: val})
+                    }
                 />
                 <Button
                     title="Create"

@@ -111,7 +111,9 @@ class EventDetailsScreen extends React.Component {
                 <Text>{event.name}</Text>
                 <Text>{date.toLocaleDateString()}</Text>
                 <Text>{date.toLocaleTimeString()}</Text>
-                <Text>Number attendees: {event.attendees ? event.attendees.length : 0}</Text>
+                <Text>Number attendees: {
+                    event.attendees ? event.attendees.length : 0
+                }</Text>
                 <Text>Attending: {this.state.attending ? 'Yes' : 'No'}</Text>
                 <Button 
                     title={this.state.attending ? 'Cancel' : 'RSVP'} 

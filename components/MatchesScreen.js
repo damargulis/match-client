@@ -17,12 +17,19 @@ class MainScreen extends React.Component {
 
     renderMatch(match){
 
-        let otherId = match.userIds.filter((id) => id != this.props.screenProps.user._id)[0];
+        let otherId = match.userIds.filter(
+            (id) => id != this.props.screenProps.user._id
+        )[0];
         let name = match.user ? match.user.firstName : '';
         let source = match.user ? match.user.photoData : undefined;
         return (
             <TouchableHighlight
-                onPress={() => this.props.navigation.navigate('Details', {chat: match})}
+                onPress={
+                    () => this.props.navigation.navigate(
+                        'Details', 
+                        {chat: match}
+                    )
+                }
                 key={otherId}
             >
                 <View>
@@ -40,7 +47,9 @@ class MainScreen extends React.Component {
         let matches = this.props.screenProps.chats.filter(
             (chat) => chat.messages.length == 0
         );
-        let chats = this.props.screenProps.chats.filter((chat) => chat.messages.length > 0);
+        let chats = this.props.screenProps.chats.filter(
+            (chat) => chat.messages.length > 0
+        );
         return (
             <View 
                 style={{ 

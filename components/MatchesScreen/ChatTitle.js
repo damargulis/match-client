@@ -6,7 +6,12 @@ class Title extends React.Component {
     render() {
         return (
             <TouchableHighlight
-                onPress={() => this.props.navigation.navigate('PersonDetail', {user: this.props.user})}
+                onPress={
+                    () => this.props.navigation.navigate(
+                        'PersonDetail', 
+                        {user: this.props.user}
+                    )
+                }
             >
                 <View>
                     <Image

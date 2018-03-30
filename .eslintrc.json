@@ -49,6 +49,9 @@
         ],
         "react/prop-types": [
             0
+        ],
+        "max-len": [
+            2
         ]
     }
 }

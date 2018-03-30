@@ -23,11 +23,15 @@ class MainScreen extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
-        if(newProps.screenProps.position){
-            if(!this.props.screenProps.position || (
-                this.props.screenProps.position.coords.longitude != newProps.screenProps.position.coords.longitude
-                || this.props.screenProps.position.coords.latitude != newProps.screenProps.position.coords.latitude
-                || this.props.screenProps.user.interestsDistance != newProps.screenProps.user.interestsDistance)){
+        let oldPosition = this.props.screenProps.position;
+        let newPosition = newProps.screenProps.position;
+        let oldInterestsDist = this.props.screenProps.user.interestsDistance;
+        let newInterestsDist = newProps.screenProps.user.interestsDistance;
+        if(newPosition){
+            if(!oldPosition || (
+                oldPosition.coords.longitude != newPosition.coords.longitude
+                || oldPosition.coords.latitude != newPosition.coords.latitude
+                || oldInterestsDist != newInterestsDist)){
                 this.getEvents(newProps.screenProps);
             }
         }
@@ -42,7 +46,7 @@ class MainScreen extends React.Component {
         for(var i=0; i<events.length; i++) {
             events[i].date = new Date(events[i].startTime);
         }
-        let sortedEvents = events.sort(function(a, b){return a.date - b.date; });
+        let sortedEvents = events.sort(function(a, b){return a.date - b.date;});
         return sortedEvents;
     }
 
@@ -86,7 +90,8 @@ class MainScreen extends React.Component {
 
     render() {
         let sections = [];
-        let events = this.state.allEvents ? this.state.events : this.state.userEvents;
+        let events = this.state.allEvents ? 
+            this.state.events : this.state.userEvents;
         var prevDay = null;
         var currData = [];
         for(var i=0; i < events.length; i++){
@@ -149,7 +154,9 @@ class MainScreen extends React.Component {
                                             'Details', 
                                             {
                                                 event: item,
-                                                refreshEvents: this.getUserEvents.bind(this),
+                                                refreshEvents: 
+                                                    this.getUserEvents
+                                                    .bind(this),
                                             }
                                         )
                                     } 

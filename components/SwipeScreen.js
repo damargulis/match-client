@@ -59,7 +59,10 @@ class MainScreen extends React.Component {
                 fetch(GLOBAL.BASE_URL + '/user/photo/' + response.photos[0])
                 .then((response) => response.json())
                 .then((response) => {
-                    var b64encode = btoa(String.fromCharCode.apply(null, response.data.data));
+                    var b64encode = btoa(String.fromCharCode.apply(
+                        null, 
+                        response.data.data
+                    ));
                     b64encode = 'data:image/jpeg;base64,' + b64encode;
                     this.setState({
                         swipePhoto: b64encode,

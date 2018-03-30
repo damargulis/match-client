@@ -84,14 +84,20 @@ class ProfileScreen extends React.Component {
                 <View style={{flex: 1, }} >
                     <Text>Name: {this.props.screenProps.user.firstName}</Text>
                     <Text>Age: {this.props.screenProps.user.age}</Text>
-                    <Text>Occupation: {this.props.screenProps.user.occupation}</Text>
+                    <Text>
+                        Occupation: {this.props.screenProps.user.occupation}
+                    </Text>
                     <Text>School: {this.props.screenProps.user.school}</Text>
                     <Text>Gender: {this.props.screenProps.user.gender}</Text>
                     <Text>
-                        Interested In: {this.props.screenProps.user.interestsGender}
+                        Interested In: {
+                            this.props.screenProps.user.interestsGender
+                        }
                     </Text>
                     <Text>
-                        Maximum Distance: {this.props.screenProps.user.interestsDistance}
+                        Maximum Distance: {
+                            this.props.screenProps.user.interestsDistance
+                        }
                     </Text>
                     <Text>{
                         'Age Range: ' 
