@@ -42,7 +42,7 @@ class MainScreen extends React.Component {
         for(var i=0; i<events.length; i++) {
             events[i].date = new Date(events[i].startTime);
         }
-        let sortedEvents = events.sort((a, b) => {b.date - a.date });
+        let sortedEvents = events.sort(function(a, b){return a.date - b.date });
         return sortedEvents
     }
 
