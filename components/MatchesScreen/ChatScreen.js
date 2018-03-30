@@ -1,5 +1,11 @@
 import React from 'react';
-import { AsyncStorage, Image, Text, TouchableHighlight, View } from 'react-native';
+import { 
+    AsyncStorage, 
+    Image, 
+    Text, 
+    TouchableHighlight, 
+    View
+} from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 import Title from './ChatTitle';
 import io from 'socket.io-client/dist/socket.io';
@@ -19,10 +25,13 @@ class ChatScreen extends React.Component {
 
     constructor(props) {
         super(props);
+        console.log(this.props.navigation.state.params);
         this.state = {
-            messages: this.props.navigation.state.params.chat.messages.sort((a,b) => {
-                return (new Date(b.createdAt)) - (new Date(a.createdAt));
-            }),
+            messages: this.props.navigation.state.params.chat.messages.sort(
+                (a,b) => {
+                    return (new Date(b.createdAt)) - (new Date(a.createdAt));
+                }
+            ),
         };
     }
 
@@ -67,15 +76,15 @@ class ChatScreen extends React.Component {
     renderAvatar(user) {
         return(
             <Image
-                source={{uri: this.props.navigation.state.params.chat.user.photoData }}
+                source={{
+                    uri: this.props.navigation.state.params.chat.user.photoData 
+                }}
                 style={{height: 50, width: 50}}
             />
         )
     }
 
     clickAvatar(user) {
-        console.log('avatar clicked');
-        console.log(user);
         this.props.navigation.navigate('PersonDetail');
     }
 
