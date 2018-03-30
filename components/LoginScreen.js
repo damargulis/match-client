@@ -50,23 +50,16 @@ class LoginScreen extends React.Component {
         .then((response) => response.json())
         .then(async (response) => {
             if(response.success){
-                try {
-                    await AsyncStorage.setItem('userId', 
-                        response.userId.toString()
-                    );
-                } catch (error) {
-                    console.log(error);
-                }
+                await AsyncStorage.setItem('userId', 
+                    response.userId.toString()
+                );
                 Actions.appScreen({user: response.user});
             } else{
                 this.setState({
                     showWarning: true
                 });
             }
-        })
-        .catch((error) => {
-            console.log(error);
-        })
+        });
     }
 
     showWarning() {
@@ -111,8 +104,8 @@ class LoginScreen extends React.Component {
                     />
                 </Modal>
             </View>
-        )
+        );
     }
-};
+}
 
 export default LoginScreen;

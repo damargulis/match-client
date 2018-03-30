@@ -7,7 +7,6 @@ import {
     Slider,
     Text,
     TextInput,
-    View,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
@@ -21,7 +20,7 @@ class CreateAccount extends React.Component {
             interestsDistance: 50,
             interestsAgeMin: 18,
             interestsAgeMax: 99,
-        }
+        };
     }
 
     createAccount() {
@@ -41,7 +40,7 @@ class CreateAccount extends React.Component {
                 .then(() => {
                     Actions.appScreen({user: response.user});
                 }).then(() => {
-                    this.props.closeModal()
+                    this.props.closeModal();
                 });
             }
         });
@@ -124,7 +123,7 @@ class CreateAccount extends React.Component {
                     onPress={() => this.props.closeModal()}
                 />
             </ScrollView>
-        )
+        );
     }
 }
 

@@ -38,8 +38,6 @@ class EventDetailsScreen extends React.Component {
             this.setState({
                 eventDetails: response
             });
-        }).catch((error) => {
-            console.log(error);
         });
     }
 
@@ -60,9 +58,7 @@ class EventDetailsScreen extends React.Component {
             .then((response) => {
                 this.setState({
                     attending: response.attending
-                })
-            }).catch((error) => {
-                console.log(error);
+                });
             });
         });
     }
@@ -95,8 +91,6 @@ class EventDetailsScreen extends React.Component {
             }
         }).then(() => {
             this.refreshEvent();
-        }).catch((error) => {
-            console.log(error);
         });
     }
 
@@ -124,8 +118,8 @@ class EventDetailsScreen extends React.Component {
                     onPress={this.rsvp.bind(this)}
                 />
             </View>
-        )
+        );
     }
-};
+}
 
 export default EventDetailsScreen;

@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     Button,
-    CameraRoll,
     Image,
     Text,
     TouchableHighlight,
@@ -18,7 +17,7 @@ class EditPhotosScreen extends React.Component {
             originalPhotos: this.props.photos.slice(),
             newPhotos: [],
             newData: null,
-        }
+        };
     }
 
     addPhoto(){
@@ -26,13 +25,8 @@ class EditPhotosScreen extends React.Component {
             title: 'Upload Photo',
         };
         ImagePicker.showImagePicker(options, (response) => {
-            if(response.didCancel) {
-                console.log('User cancelled');
-            } else if(response.error) {
-                console.log('Image picker error', response.error);
-            } else {
+            if(!response.didCancel && !response.error) {
                 let newPhotos = this.state.newPhotos;
-                let source = response.uri;
                 newPhotos.push({
                     'uri': response.uri,
                     'data': response.data,
@@ -41,7 +35,7 @@ class EditPhotosScreen extends React.Component {
                 });
                 this.setState({
                     newPhotos: newPhotos,
-                })
+                });
             }
         });
     }
@@ -57,11 +51,8 @@ class EditPhotosScreen extends React.Component {
         fetch(GLOBAL.BASE_URL + '/user/' + this.props.userId + '/photos', {
             method: 'POST',
             body: data
-        }).then((response) => response.json())
-        .then((response) => {
-            this.props.savePhotos()
-        }).catch((error) => {
-            console.log(error);
+        }).then(() => {
+            this.props.savePhotos();
         });
     }
 
@@ -77,7 +68,7 @@ class EditPhotosScreen extends React.Component {
                         key={photoIndex}
                     />
                 </View>
-            )
+            );
         }else {
             return (
                 <TouchableHighlight
@@ -87,37 +78,37 @@ class EditPhotosScreen extends React.Component {
                 >
                     <Text style={{textAlign: 'center'}}>Add A Photo</Text>
                 </TouchableHighlight>
-            )
+            );
         }
     }
 
     render() {
         return(
             <View>
-            <View>
-                <Text>Photo Editing Page</Text>
-                <View style={{
-                    width: 400,
-                    flexDirection: 'row',
-                    flexWrap: 'wrap',
-                }}>
-                    {
-                        Array(GLOBAL.MAX_PHOTOS).fill().map((_, index) => {
-                            return this.renderPhoto(index);
-                        })
-                    }
+                <View>
+                    <Text>Photo Editing Page</Text>
+                    <View style={{
+                        width: 400,
+                        flexDirection: 'row',
+                        flexWrap: 'wrap',
+                    }}>
+                        {
+                            Array(GLOBAL.MAX_PHOTOS).fill().map((_, index) => {
+                                return this.renderPhoto(index);
+                            })
+                        }
+                    </View>
+                    <Button
+                        title="Submit"
+                        onPress={() => this.submitPhotos()}
+                    />
+                    <Button
+                        title="Cancel"
+                        onPress={() => this.props.closeModal()}
+                    />
                 </View>
-                <Button
-                    title="Submit"
-                    onPress={() => this.submitPhotos()}
-                />
-                <Button
-                    title="Cancel"
-                    onPress={() => this.props.closeModal()}
-                />
             </View>
-            </View>
-        )
+        );
     }
 }
 

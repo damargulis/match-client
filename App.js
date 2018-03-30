@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginScreen from './components/LoginScreen';
 import Root from './components/Root';
-import { Router, Scene, Actions } from 'react-native-router-flux';
+import { Router, Scene } from 'react-native-router-flux';
 
 class MainPage extends React.Component {
     render() {
@@ -22,7 +22,7 @@ class MainPage extends React.Component {
                 </Scene>
             </Router>
                 
-        )
+        );
     }
 }
 

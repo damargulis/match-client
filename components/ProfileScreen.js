@@ -1,6 +1,5 @@
 import React from 'react';
 import { 
-    AsyncStorage, 
     Button, 
     Image, 
     Modal, 
@@ -20,7 +19,7 @@ class ProfileScreen extends React.Component {
             editingInfo: false,
             editingPhotos: false,
             mainPhoto: this.props.screenProps.mainPhoto,
-        }
+        };
     }
 
     logout() {
@@ -30,10 +29,8 @@ class ProfileScreen extends React.Component {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             }
-        }).then((response) => {
+        }).then(() => {
             this.props.screenProps.logout();
-        }).catch((error) => {
-            console.log(error);
         });
     }
 
@@ -140,8 +137,8 @@ class ProfileScreen extends React.Component {
                     />
                 </Modal>
             </View>
-        )
+        );
     }
-};
+}
 
 export default ProfileScreen;

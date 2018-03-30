@@ -1,6 +1,5 @@
 import React from 'react';
 import { 
-    Button,
     FlatList,
     Image,
     TouchableHighlight,
@@ -10,8 +9,6 @@ import {
 import { StackNavigator } from 'react-navigation';
 import ChatScreen from './MatchesScreen/ChatScreen';
 import PersonDetailScreen from './PersonDetailScreen';
-
-const GLOBAL = require('./../Globals');
 
 class MainScreen extends React.Component {
     constructor(props) {
@@ -36,7 +33,7 @@ class MainScreen extends React.Component {
                     />
                 </View>
             </TouchableHighlight>
-        )
+        );
     }
 
     render() {
@@ -66,7 +63,7 @@ class MainScreen extends React.Component {
                     keyExtractor={(item, index) => index}
                 />
             </View>
-        )
+        );
     }
 }
 
@@ -86,6 +83,6 @@ const MatchesScreen = StackNavigator({
             headerTitle: 'Details',
         },
     },
-})
+});
 
 export default MatchesScreen;

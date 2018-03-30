@@ -19,7 +19,7 @@ class MainScreen extends React.Component {
             swipeDeck: [],
             nextSwipe: undefined,
             swipePhoto: null,
-        }
+        };
     }
 
     componentWillMount(){
@@ -37,8 +37,6 @@ class MainScreen extends React.Component {
             this.setState({
                 swipeDeck: response.swipeDeck,
             }, this.getNextSwipeOption);
-        }).catch((error) => {
-            console.log(error);
         });
     }
 
@@ -66,12 +64,8 @@ class MainScreen extends React.Component {
                     this.setState({
                         swipePhoto: b64encode,
                     });
-                }).catch((error) => {
-                    console.log(error);
                 });
             });
-        }).catch((error) => {
-            console.log(error);
         });
     }
 
@@ -93,13 +87,10 @@ class MainScreen extends React.Component {
             if(response.success) {
                 this.getNextSwipeOption();
             }
-        }).catch((error) => {
-            console.log(error);
         });
     }
 
     refreshMatches(){
-        console.log('refreshing');
         this.getSwipeDeck(this.state.userId);
     }
 
@@ -114,14 +105,14 @@ class MainScreen extends React.Component {
                         <Text>Tap here to refresh</Text>
                     </View>
                 </TouchableHighlight>
-            )
+            );
         }else{
             return (
                 <Image
                     style={{height: 290, width: 290}}
                     source={{uri: this.state.swipePhoto}}
                 />
-            )
+            );
         }
     }
 
@@ -152,30 +143,30 @@ class MainScreen extends React.Component {
                 />
                 <View style={{flexDirection: 'row'}}>
                     <View style={{flex: 1}}>
-                    <Button 
-                        disabled={!this.state.nextSwipe} 
-                        color='red' 
-                        title='No' 
-                        style={{flex: 1, backgroundColor: 'red'}} 
-                        onPress={() => this.swipe(false)}
-                    >
-                    </Button>
+                        <Button 
+                            disabled={!this.state.nextSwipe} 
+                            color='red' 
+                            title='No' 
+                            style={{flex: 1, backgroundColor: 'red'}} 
+                            onPress={() => this.swipe(false)}
+                        >
+                        </Button>
                     </View>
                     <View style={{flex: 1}}>
-                    <Button 
-                        disabled={!this.state.nextSwipe} 
-                        color='green' 
-                        title='Yes' 
-                        style={{flex: 1, backgroundColor: 'green'}} 
-                        onPress={() => this.swipe(true)}
-                    >
-                    </Button>
+                        <Button 
+                            disabled={!this.state.nextSwipe} 
+                            color='green' 
+                            title='Yes' 
+                            style={{flex: 1, backgroundColor: 'green'}} 
+                            onPress={() => this.swipe(true)}
+                        >
+                        </Button>
                     </View>
                 </View>
             </View>
-        )
+        );
     }
-};
+}
 
 const SwipeScreen = StackNavigator({
     Home: {

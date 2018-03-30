@@ -2,9 +2,6 @@ import React from 'react';
 import { 
     AsyncStorage, 
     Image, 
-    Text, 
-    TouchableHighlight, 
-    View
 } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 import Title from './ChatTitle';
@@ -20,12 +17,11 @@ class ChatScreen extends React.Component {
             headerTitle: <Title 
                 user={params.chat.user}
             />,
-        }
+        };
     };
 
     constructor(props) {
         super(props);
-        console.log(this.props.navigation.state.params);
         this.state = {
             messages: this.props.navigation.state.params.chat.messages.sort(
                 (a,b) => {
@@ -58,7 +54,7 @@ class ChatScreen extends React.Component {
                     previousState.messages, 
                     data.message.message
                 ),
-            }))
+            }));
         });
     }
 
@@ -70,10 +66,10 @@ class ChatScreen extends React.Component {
         this.socket.emit('sendMessage', {message: messages});
         this.setState(previousState => ({
             messages: GiftedChat.append(previousState.messages, messages),
-        }))
+        }));
     }
 
-    renderAvatar(user) {
+    renderAvatar() {
         return(
             <Image
                 source={{
@@ -81,10 +77,10 @@ class ChatScreen extends React.Component {
                 }}
                 style={{height: 50, width: 50}}
             />
-        )
+        );
     }
 
-    clickAvatar(user) {
+    clickAvatar() {
         this.props.navigation.navigate('PersonDetail');
     }
 
@@ -100,7 +96,7 @@ class ChatScreen extends React.Component {
                 renderAvatar={() => this.renderAvatar()}
 
             />
-        )
+        );
     }
 }
 
