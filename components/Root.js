@@ -103,7 +103,7 @@ class Root extends React.Component {
     }
 
     logout() {
-        this.socket.disconnect()
+        this.socket.disconnect();
         Actions.loginScreen();
     }
 
@@ -116,8 +116,6 @@ class Root extends React.Component {
             this.setState({
                 mainPhoto: b64encode
             });
-        }).catch((error) => {
-            console.log(error);
         });
     }
 
@@ -132,8 +130,6 @@ class Root extends React.Component {
             if(mainPhotoId){
                 this.getMainPhoto(mainPhotoId);
             }
-        }).catch((error) => {
-            console.log(error);
         });
     }
 
@@ -157,11 +153,7 @@ class Root extends React.Component {
                 this.setState({
                     chats: chats
                 });
-            }).catch((error) => {
-                console.log(error);
             });
-        }).catch((error) => {
-            console.log(error);
         });
     }
 
@@ -193,8 +185,6 @@ class Root extends React.Component {
                 long: position.coords.longitude,
                 lat: position.coords.latitude,
             }),
-        }).catch((error) => {
-            console.log(error);
         });
     }
 
@@ -205,25 +195,23 @@ class Root extends React.Component {
                 //cheap way to cheat simulator
                 position = {
                     coords: {
-                            longitude: -90.295861,
-                            latitude: 38.650768,
-                        }
+                        longitude: -90.295861,
+                        latitude: 38.650768,
+                    }
                 };
                 this.setLocation(position, userId);
-            }, (error) => {
-                console.log('Failed to get location; mocking');
-                console.log(error);
+            }, () => {
                 //cheat simulator
-                position = {
+                let position = {
                     coords: {
-                            longitude: -90.295861,
-                            latitude: 38.650768,
-                        }
+                        longitude: -90.295861,
+                        latitude: 38.650768,
+                    }
                 };
                 this.setLocation(position, userId);
             }, { 
                 enableHighAccuracy: false
-            })
+            });
         });
     }
 
@@ -237,7 +225,7 @@ class Root extends React.Component {
                 chats: this.state.chats,
                 logout: this.logout.bind(this),
             }} />
-        )
+        );
     }
 }
 

@@ -16,7 +16,7 @@ class PersonDetailScreen extends React.Component {
                     {this.props.navigation.state.params.user.occupation}
                 </Text>
             </View>
-        )
+        );
     }
 }
 

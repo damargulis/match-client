@@ -19,7 +19,7 @@ class MainScreen extends React.Component {
             events: [],
             allEvents: true,
             userEvents: []
-        }
+        };
     }
 
     componentWillReceiveProps(newProps) {
@@ -31,7 +31,7 @@ class MainScreen extends React.Component {
                 this.getEvents(newProps.screenProps);
             }
         }
-    };
+    }
 
     componentWillMount() {
         this.getEvents(this.props.screenProps);
@@ -42,8 +42,8 @@ class MainScreen extends React.Component {
         for(var i=0; i<events.length; i++) {
             events[i].date = new Date(events[i].startTime);
         }
-        let sortedEvents = events.sort(function(a, b){return a.date - b.date });
-        return sortedEvents
+        let sortedEvents = events.sort(function(a, b){return a.date - b.date; });
+        return sortedEvents;
     }
 
     getUserEvents(){
@@ -56,8 +56,6 @@ class MainScreen extends React.Component {
             this.setState({
                 userEvents: this.setDates(response)
             });
-        }).catch((error) => {
-            console.log(error);
         });
     }
 
@@ -76,9 +74,6 @@ class MainScreen extends React.Component {
                 this.setState({
                     events: this.setDates(response)
                 });
-            })
-            .catch((error) => {
-                console.error(error);
             });
         }
     }
@@ -134,67 +129,67 @@ class MainScreen extends React.Component {
                         height: 30
                     }}
                 >
-                <Text>Your Events</Text> 
-                <Switch 
-                    value={this.state.allEvents}
-                    onValueChange={this.onToggle.bind(this)}
-                />
-                <Text>All Events</Text>
+                    <Text>Your Events</Text> 
+                    <Switch 
+                        value={this.state.allEvents}
+                        onValueChange={this.onToggle.bind(this)}
+                    />
+                    <Text>All Events</Text>
                 </View>
                 <View style={{flex: 10}}>
-                <SectionList
-                    sections={sections}
-                    renderItem={
-                        ({item}) => (
-                            <Button 
-                                style={styles.item} 
-                                title={item.name} 
-                                onPress={
-                                    () => this.props.navigation.navigate(
-                                        'Details', 
-                                        {
-                                            event: item,
-                                            refreshEvents: this.getUserEvents.bind(this),
-                                        }
-                                    )
-                                } 
-                            />
-                        )
-                    }
-                    renderSectionHeader={
-                        ({section}) => (
-                            <Text style={styles.sectionHeader}>
-                                {section.title}
-                            </Text>
-                        )
-                    }
-                    keyExtractor={(item, index) => index}
-                />
+                    <SectionList
+                        sections={sections}
+                        renderItem={
+                            ({item}) => (
+                                <Button 
+                                    style={styles.item} 
+                                    title={item.name} 
+                                    onPress={
+                                        () => this.props.navigation.navigate(
+                                            'Details', 
+                                            {
+                                                event: item,
+                                                refreshEvents: this.getUserEvents.bind(this),
+                                            }
+                                        )
+                                    } 
+                                />
+                            )
+                        }
+                        renderSectionHeader={
+                            ({section}) => (
+                                <Text style={styles.sectionHeader}>
+                                    {section.title}
+                                </Text>
+                            )
+                        }
+                        keyExtractor={(item, index) => index}
+                    />
                 </View>
             </View>
-        )
+        );
     }
-};
+}
 
 const styles = StyleSheet.create({
-      container: {
-             flex: 1,
-             paddingTop: 22
-            },
-      sectionHeader: {
-              paddingTop: 2,
-              paddingLeft: 10,
-              paddingRight: 10,
-              paddingBottom: 2,
-              fontSize: 14,
-              fontWeight: 'bold',
-              backgroundColor: 'rgba(247,247,247,1.0)',
-            },
-      item: {
-              padding: 10,
-              fontSize: 18,
-              height: 44,
-            },
+    container: {
+        flex: 1,
+        paddingTop: 22
+    },
+    sectionHeader: {
+        paddingTop: 2,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingBottom: 2,
+        fontSize: 14,
+        fontWeight: 'bold',
+        backgroundColor: 'rgba(247,247,247,1.0)',
+    },
+    item: {
+        padding: 10,
+        fontSize: 18,
+        height: 44,
+    },
 });
 
 const EventsScreen = StackNavigator({

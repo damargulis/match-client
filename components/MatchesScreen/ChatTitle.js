@@ -16,7 +16,7 @@ class Title extends React.Component {
                     <Text>{this.props.user.firstName}</Text>
                 </View>
             </TouchableHighlight>
-        )
+        );
     }
 }
 
