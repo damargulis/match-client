@@ -88,6 +88,31 @@ class MainScreen extends React.Component {
         });
     }
 
+    onEndReached(){
+        var url = GLOBAL.BASE_URL;
+        if(this.state.allEvents) {
+            if(!this.state.events) return;
+            if(!this.props.screenProps.position) return;
+            url += '/event?long='
+                + this.props.screenProps.position.coords.longitude
+                + '&lat='
+                + this.props.screenProps.position.coords.latitude
+                + '&maxDist='
+                + this.props.screenProps.user.interestsDistance
+                + '&afterTime='
+                + this.state.events[this.state.events.length - 1].startTime;
+        } else {
+            return;
+        }
+        fetch(url)
+        .then((response) => response.json())
+        .then((response) => {
+            this.setState({
+                events: this.state.events.concat(this.setDates(response)),
+            });
+        });
+    }
+
     render() {
         let sections = [];
         let events = this.state.allEvents ? 
@@ -180,6 +205,7 @@ class MainScreen extends React.Component {
                             )
                         }
                         keyExtractor={(item, index) => index}
+                        onEndReached={this.onEndReached.bind(this)}
                     />
                 </View>
             </View>
