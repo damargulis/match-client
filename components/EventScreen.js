@@ -89,6 +89,8 @@ class MainScreen extends React.Component {
     }
 
     onEndReached(){
+        if(this.state.updating) return;
+        this.setState({updating: true});
         var url = GLOBAL.BASE_URL;
         if(this.state.allEvents) {
             if(!this.state.events) return;
@@ -109,6 +111,7 @@ class MainScreen extends React.Component {
         .then((response) => {
             this.setState({
                 events: this.state.events.concat(this.setDates(response)),
+                updating: false,
             });
         });
     }
