@@ -94,9 +94,13 @@ class MainScreen extends React.Component {
             this.state.events : this.state.userEvents;
         var prevDay = null;
         var currData = [];
+
+        let currentDay = Date.now();
         for(var i=0; i < events.length; i++){
             let event = events[i];
-            if(prevDay && prevDay.getDate() == event.date.getDate()
+            if(event.date < currentDay) {
+                currData.push(event);
+            } else if(prevDay && prevDay.getDate() == event.date.getDate()
                 && prevDay.getMonth() == event.date.getMonth()
                 && prevDay.getYear() == event.date.getYear()
             ){
@@ -105,6 +109,11 @@ class MainScreen extends React.Component {
                 if(prevDay){
                     sections.push({
                         title: prevDay.toLocaleDateString(),
+                        data: currData
+                    });
+                } else {
+                    sections.push({
+                        title: 'Ongoing',
                         data: currData
                     });
                 }
@@ -148,7 +157,7 @@ class MainScreen extends React.Component {
                             ({item}) => (
                                 <Button 
                                     style={styles.item} 
-                                    title={item.name} 
+                                    title={item.type + ': ' + item.name} 
                                     onPress={
                                         () => this.props.navigation.navigate(
                                             'Details', 
