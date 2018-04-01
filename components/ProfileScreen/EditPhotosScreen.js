@@ -1,4 +1,3 @@
-import React from 'react';
 import {
     Button,
     Image,
@@ -6,6 +5,7 @@ import {
     TouchableHighlight,
     View,
 } from 'react-native';
+import React from 'react';
 
 var ImagePicker = require('react-native-image-picker');
 const GLOBAL = require('./../../Globals');

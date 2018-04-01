@@ -1,4 +1,3 @@
-import React from 'react';
 import {
     AsyncStorage,
     Button,
@@ -9,6 +8,7 @@ import {
     TextInput,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import React from 'react';
 
 const GLOBAL = require('./../Globals');
 

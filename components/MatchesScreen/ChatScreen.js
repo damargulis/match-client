@@ -1,12 +1,12 @@
-import React from 'react';
+import './../../UserAgent';
 import { 
     AsyncStorage, 
     Image, 
 } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
-import Title from './ChatTitle';
 import io from 'socket.io-client/dist/socket.io';
-import './../../UserAgent';
+import React from 'react';
+import Title from './ChatTitle';
 
 const GLOBAL = require('./../../Globals');
 

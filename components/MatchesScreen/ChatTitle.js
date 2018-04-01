@@ -1,5 +1,5 @@
-import React from 'react';
 import {Image, Text, TouchableHighlight, View } from 'react-native';
+import React from 'react';
 import { withNavigation } from 'react-navigation';
 
 class Title extends React.Component {

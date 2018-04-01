@@ -1,4 +1,3 @@
-import React from 'react';
 import {
     Button,
     Picker,
@@ -7,6 +6,7 @@ import {
     TextInput,
     View,
 } from 'react-native';
+import React from 'react';
 
 const GLOBAL = require('./../../Globals');
 

@@ -1,5 +1,5 @@
+import {Image, Text, View} from 'react-native';
 import React from 'react';
-import {Image, View, Text} from 'react-native';
 
 class PersonDetailScreen extends React.Component {
     render() {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { 
     AsyncStorage, 
     Button, 
@@ -7,8 +6,9 @@ import {
     TouchableHighlight, 
     View,
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';
 import PersonDetailScreen from './PersonDetailScreen';
+import React from 'react';
+import { StackNavigator } from 'react-navigation';
 
 const GLOBAL = require('./../Globals');
 

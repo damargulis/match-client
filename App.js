@@ -1,7 +1,7 @@
-import React from 'react';
-import LoginScreen from './components/LoginScreen';
-import Root from './components/Root';
 import { Router, Scene } from 'react-native-router-flux';
+import LoginScreen from './components/LoginScreen';
+import React from 'react';
+import Root from './components/Root';
 
 class MainPage extends React.Component {
     render() {

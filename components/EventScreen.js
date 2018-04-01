@@ -1,12 +1,12 @@
-import React from 'react';
 import { 
     Switch,
     Text, 
     View,
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';
 import EventDetailsScreen from './EventScreen/EventDetailsScreen';
 import EventList from './EventScreen/EventList';
+import React from 'react';
+import { StackNavigator } from 'react-navigation';
 
 const GLOBAL = require('./../Globals');
 

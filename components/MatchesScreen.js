@@ -1,14 +1,14 @@
-import React from 'react';
 import { 
     FlatList,
     Image,
-    TouchableHighlight,
     Text,
+    TouchableHighlight,
     View,
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';
 import ChatScreen from './MatchesScreen/ChatScreen';
 import PersonDetailScreen from './PersonDetailScreen';
+import React from 'react';
+import { StackNavigator } from 'react-navigation';
 
 class MainScreen extends React.Component {
     constructor(props) {

@@ -1,13 +1,13 @@
-import React from 'react';
-import { Actions } from 'react-native-router-flux';
 import { Alert, AsyncStorage } from 'react-native';
-import { TabNavigator } from 'react-navigation';
+import { Actions } from 'react-native-router-flux';
+import EventsScreen from './EventScreen';
 import io from 'socket.io-client/dist/socket.io';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import EventsScreen from './EventScreen';
-import ProfileScreen from './ProfileScreen';
 import MatchesScreen from './MatchesScreen';
+import ProfileScreen from './ProfileScreen';
+import React from 'react';
 import SwipeScreen from './SwipeScreen';
+import { TabNavigator } from 'react-navigation';
 
 const GLOBAL = require('./../Globals');
 

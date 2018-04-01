@@ -1,4 +1,3 @@
-import React from 'react';
 import { 
     Button, 
     Image, 
@@ -8,6 +7,7 @@ import {
 } from 'react-native';
 import EditInfoScreen from './ProfileScreen/EditInfoScreen';
 import EditPhotosScreen from './ProfileScreen/EditPhotosScreen';
+import React from 'react';
 
 const GLOBAL = require('./../Globals');
 

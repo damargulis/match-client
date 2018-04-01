@@ -1,10 +1,10 @@
-import React from 'react';
 import { 
     Button,
+    SectionList, 
+    StyleSheet,
     Text, 
-    SectionList,
-    StyleSheet, 
 } from 'react-native';
+import React from 'react';
 
 class EventList extends React.Component {
     render() {

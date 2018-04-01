@@ -53,6 +53,7 @@
         "max-len": [
             2
         ],
-        "comma-dangle": ["error", "always-multiline"]
+        "comma-dangle": ["error", "always-multiline"],
+        "sort-imports": ["error", {"ignoreCase": true}]
     }
 }
