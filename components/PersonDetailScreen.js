@@ -8,7 +8,7 @@ class PersonDetailScreen extends React.Component {
                 <Image
                     style={{ height: 300, width: 300}}
                     source={{
-                        uri: this.props.navigation.state.params.user.photoData
+                        uri: this.props.navigation.state.params.user.photoData,
                     }}
                 />
                 <Text>{this.props.navigation.state.params.user.firstName}</Text>

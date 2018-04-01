@@ -64,7 +64,7 @@ const RootTabs = TabNavigator({
                 />
             ),
         },
-    } 
+    }, 
 }, {
     initialRouteName: 'Events',
 });
@@ -116,7 +116,7 @@ class Root extends React.Component {
             );
             b64encode = 'data:image/jpeg;base64,' + b64encode;
             this.setState({
-                mainPhoto: b64encode
+                mainPhoto: b64encode,
             });
         });
     }
@@ -143,7 +143,7 @@ class Root extends React.Component {
             let chats = this.state.chats;
             chats[index].user = response;
             this.setState({
-                chats: chats
+                chats: chats,
             });
             if(!response.photos[0]) return;
             fetch(GLOBAL.BASE_URL + '/user/photo/' + response.photos[0])
@@ -155,7 +155,7 @@ class Root extends React.Component {
                 b64encode = 'data:image/jpeg;base64,' + b64encode;
                 chats[index].user.photoData = b64encode;
                 this.setState({
-                    chats: chats
+                    chats: chats,
                 });
             });
         });
@@ -177,7 +177,7 @@ class Root extends React.Component {
 
     setLocation(position, userId) {
         this.setState({
-            position: position
+            position: position,
         });
         fetch(GLOBAL.BASE_URL + '/user/' + userId + '/location', {
             method: 'POST',
@@ -201,7 +201,7 @@ class Root extends React.Component {
                     coords: {
                         longitude: -90.295861,
                         latitude: 38.650768,
-                    }
+                    },
                 };
                 this.setLocation(position, userId);
             }, () => {
@@ -210,11 +210,11 @@ class Root extends React.Component {
                     coords: {
                         longitude: -90.295861,
                         latitude: 38.650768,
-                    }
+                    },
                 };
                 this.setLocation(position, userId);
             }, { 
-                enableHighAccuracy: false
+                enableHighAccuracy: false,
             });
         });
     }

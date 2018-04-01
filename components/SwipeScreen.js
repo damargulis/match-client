@@ -53,7 +53,7 @@ class MainScreen extends React.Component {
         .then((response) => response.json())
         .then((response) => {
             this.setState({
-                nextSwipe: response
+                nextSwipe: response,
             }, () => {
                 if(!response.photos[0]) return;
                 fetch(GLOBAL.BASE_URL + '/user/photo/' + response.photos[0])
@@ -175,7 +175,7 @@ const SwipeScreen = StackNavigator({
     Home: {
         screen: MainScreen,
         navigationOptions: {
-            headerTitle: 'Swipe'
+            headerTitle: 'Swipe',
         },
     },
     Details: {

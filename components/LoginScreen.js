@@ -44,8 +44,8 @@ class LoginScreen extends React.Component {
             },
             body: JSON.stringify({
                 username: this.state.username,
-                password: this.state.password
-            })
+                password: this.state.password,
+            }),
         })
         .then((response) => response.json())
         .then(async (response) => {
@@ -56,7 +56,7 @@ class LoginScreen extends React.Component {
                 Actions.appScreen({user: response.user});
             } else{
                 this.setState({
-                    showWarning: true
+                    showWarning: true,
                 });
             }
         });

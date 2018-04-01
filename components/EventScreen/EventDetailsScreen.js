@@ -36,7 +36,7 @@ class EventDetailsScreen extends React.Component {
         ).then((response) => response.json())
         .then((response) => {
             this.setState({
-                eventDetails: response
+                eventDetails: response,
             });
         });
     }
@@ -46,7 +46,7 @@ class EventDetailsScreen extends React.Component {
         AsyncStorage.getItem('userId')
         .then((userId) => {
             this.setState({
-                userId: userId
+                userId: userId,
             });
             fetch(
                 GLOBAL.BASE_URL
@@ -57,7 +57,7 @@ class EventDetailsScreen extends React.Component {
             ).then((response) => response.json())
             .then((response) => {
                 this.setState({
-                    attending: response.attending
+                    attending: response.attending,
                 });
             });
         });
@@ -79,7 +79,7 @@ class EventDetailsScreen extends React.Component {
             body: JSON.stringify({
                 userId: this.state.userId,
                 eventId: this.state.eventDetails._id,
-            })
+            }),
         })
         .then((response) => response.json())
         .then((response) => {

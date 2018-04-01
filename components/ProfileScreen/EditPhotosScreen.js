@@ -31,7 +31,7 @@ class EditPhotosScreen extends React.Component {
                     'uri': response.uri,
                     'data': response.data,
                     'path': response.path,
-                    'type': response.type
+                    'type': response.type,
                 });
                 this.setState({
                     newPhotos: newPhotos,
@@ -50,7 +50,7 @@ class EditPhotosScreen extends React.Component {
         });
         fetch(GLOBAL.BASE_URL + '/user/' + this.props.userId + '/photos', {
             method: 'POST',
-            body: data
+            body: data,
         }).then(() => {
             this.props.savePhotos();
         });

@@ -32,7 +32,7 @@ class EditInfoScreen extends React.Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                profile: this.state.edits
+                profile: this.state.edits,
             }),
         }).then(response => response.json())
         .then((response) => {

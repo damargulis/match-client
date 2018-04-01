@@ -60,7 +60,7 @@ class MainScreen extends React.Component {
                 style={{ 
                     flex: 1, 
                     alignItems: 'center', 
-                    justifyContent: 'center' 
+                    justifyContent: 'center', 
                 }}
             >
                 <FlatList

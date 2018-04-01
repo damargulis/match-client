@@ -18,7 +18,7 @@ class MainScreen extends React.Component {
         this.state = {
             events: [],
             allEvents: true,
-            userEvents: []
+            userEvents: [],
         };
     }
 
@@ -58,7 +58,7 @@ class MainScreen extends React.Component {
         ).then((response) => response.json())
         .then((response) => {
             this.setState({
-                userEvents: this.setDates(response)
+                userEvents: this.setDates(response),
             });
         });
     }
@@ -76,7 +76,7 @@ class MainScreen extends React.Component {
             ).then((response) => response.json())
             .then((response) => {
                 this.setState({
-                    events: this.setDates(response)
+                    events: this.setDates(response),
                 });
             });
         }
@@ -84,7 +84,7 @@ class MainScreen extends React.Component {
 
     onToggle(){
         this.setState({
-            allEvents: !this.state.allEvents
+            allEvents: !this.state.allEvents,
         });
     }
 
@@ -109,12 +109,12 @@ class MainScreen extends React.Component {
                 if(prevDay){
                     sections.push({
                         title: prevDay.toLocaleDateString(),
-                        data: currData
+                        data: currData,
                     });
                 } else {
                     sections.push({
                         title: 'Ongoing',
-                        data: currData
+                        data: currData,
                     });
                 }
                 currData = [];
@@ -125,7 +125,7 @@ class MainScreen extends React.Component {
         if(prevDay){
             sections.push({
                 title: prevDay.toLocaleDateString(),
-                data: currData
+                data: currData,
             });
         }
         return (
@@ -133,14 +133,14 @@ class MainScreen extends React.Component {
                 style={{ 
                     flex: 1, 
                     alignItems: 'center', 
-                    justifyContent: 'center' 
+                    justifyContent: 'center', 
                 }}
             >
                 <View
                     style={{
                         flex: 1,
                         flexDirection: 'row',
-                        height: 30
+                        height: 30,
                     }}
                 >
                     <Text>Your Events</Text> 
@@ -190,7 +190,7 @@ class MainScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 22
+        paddingTop: 22,
     },
     sectionHeader: {
         paddingTop: 2,

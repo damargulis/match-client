@@ -31,8 +31,8 @@ class CreateAccount extends React.Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                user: this.state
-            })
+                user: this.state,
+            }),
         }).then((response) => response.json())
         .then((response) => {
             if(response.success){

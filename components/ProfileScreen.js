@@ -28,7 +28,7 @@ class ProfileScreen extends React.Component {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
-            }
+            },
         }).then(() => {
             this.props.screenProps.logout();
         });
@@ -74,14 +74,14 @@ class ProfileScreen extends React.Component {
                 style={{ 
                     flex: 1, 
                     alignItems: 'center', 
-                    justifyContent: 'center' 
+                    justifyContent: 'center', 
                 }}
             >
                 <Image 
                     style={{ flex: 1, height: 400, width: 400}} 
                     source={{uri: this.props.screenProps.mainPhoto}}
                 />
-                <View style={{flex: 1, }} >
+                <View style={{flex: 1 }} >
                     <Text>Name: {this.props.screenProps.user.firstName}</Text>
                     <Text>Age: {this.props.screenProps.user.age}</Text>
                     <Text>

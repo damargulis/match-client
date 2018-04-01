@@ -35,7 +35,7 @@ class ChatScreen extends React.Component {
         AsyncStorage.getItem('userId')
         .then((userId) => {
             this.setState({
-                userId: userId
+                userId: userId,
             });
         });
         this.socket = io(
@@ -73,7 +73,7 @@ class ChatScreen extends React.Component {
         return(
             <Image
                 source={{
-                    uri: this.props.navigation.state.params.chat.user.photoData 
+                    uri: this.props.navigation.state.params.chat.user.photoData,
                 }}
                 style={{height: 50, width: 50}}
             />
