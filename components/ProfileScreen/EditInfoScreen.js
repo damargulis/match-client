@@ -19,7 +19,7 @@ class EditInfoScreen extends React.Component {
     }
 
     setEdit(key, value) {
-        let edits = this.state.edits;
+        const edits = this.state.edits;
         edits[key] = value;
         this.setState({edits: edits});
     }
@@ -47,7 +47,7 @@ class EditInfoScreen extends React.Component {
             <View>
                 <Text>Edit Info Form</Text>
                 <Text>First Name:</Text>
-                <TextInput 
+                <TextInput
                     onChangeText={(val) => this.setEdit('firstName', val)}
                 />
                 <Text>Age: {this.state.edits.age}</Text>
@@ -59,13 +59,13 @@ class EditInfoScreen extends React.Component {
                     onValueChange={(val) => this.setEdit('age', val)}
                 />
                 <Text>Occupation:</Text>
-                <TextInput 
-                    value={this.state.edits.occupation} 
+                <TextInput
+                    value={this.state.edits.occupation}
                     onChangeText={(val) => this.setEdit('occupation', val)}
                 />
                 <Text>School:</Text>
-                <TextInput 
-                    value={this.state.edits.school} 
+                <TextInput
+                    value={this.state.edits.school}
                     onChangeText={(val) => this.setEdit('school', val)}
                 />
                 <Text>Gender:</Text>

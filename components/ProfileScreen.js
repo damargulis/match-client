@@ -1,9 +1,9 @@
-import { 
-    Button, 
-    Image, 
-    Modal, 
+import {
+    Button,
+    Image,
+    Modal,
     Text,
-    View, 
+    View,
 } from 'react-native';
 import EditInfoScreen from './ProfileScreen/EditInfoScreen';
 import EditPhotosScreen from './ProfileScreen/EditPhotosScreen';
@@ -24,7 +24,7 @@ class ProfileScreen extends React.Component {
 
     logout() {
         fetch(GLOBAL.BASE_URL + '/auth/logout', {
-            method: 'POST', 
+            method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
@@ -70,15 +70,15 @@ class ProfileScreen extends React.Component {
 
     render() {
         return (
-            <View 
-                style={{ 
-                    flex: 1, 
-                    alignItems: 'center', 
-                    justifyContent: 'center', 
+            <View
+                style={{
+                    flex: 1,
+                    alignItems: 'center',
+                    justifyContent: 'center',
                 }}
             >
-                <Image 
-                    style={{ flex: 1, height: 400, width: 400}} 
+                <Image
+                    style={{ flex: 1, height: 400, width: 400}}
                     source={{uri: this.props.screenProps.mainPhoto}}
                 />
                 <View style={{flex: 1 }} >
@@ -100,7 +100,7 @@ class ProfileScreen extends React.Component {
                         }
                     </Text>
                     <Text>{
-                        'Age Range: ' 
+                        'Age Range: '
                         + this.props.screenProps.user.interestsAgeMin
                         + '-'
                         + this.props.screenProps.user.interestsAgeMax
@@ -123,8 +123,8 @@ class ProfileScreen extends React.Component {
                     animationType={'slide'}
                     onRequestClose={() => this.closeModal()}
                 >
-                    <EditInfoScreen 
-                        closeModal={() => this.closeModal()} 
+                    <EditInfoScreen
+                        closeModal={() => this.closeModal()}
                         original={this.props.screenProps.user}
                         save={() => this.save()}
                         userId={this.props.screenProps.user._id}
@@ -135,7 +135,7 @@ class ProfileScreen extends React.Component {
                     animationType={'slide'}
                     onRequestClose={() => this.closePhotoModal()}
                 >
-                    <EditPhotosScreen 
+                    <EditPhotosScreen
                         closeModal={() => this.closePhotoModal()}
                         photos={this.props.screenProps.user.photos}
                         savePhotos={() => this.savePhotos()}

@@ -51,15 +51,15 @@ class CreateAccount extends React.Component {
             <ScrollView>
                 <Text>Create an account!</Text>
                 <Text>Username:</Text>
-                <TextInput 
+                <TextInput
                     onChangeText={(val) => this.setState({username: val})}
                 />
                 <Text>Password:</Text>
-                <TextInput 
-                    onChangeText={(val) => this.setState({password: val})} 
+                <TextInput
+                    onChangeText={(val) => this.setState({password: val})}
                 />
                 <Text>First Name:</Text>
-                <TextInput 
+                <TextInput
                     onChangeText={(val) => this.setState({firstName: val})}
                 />
                 <Text>Age: {this.state.age}</Text>
@@ -70,13 +70,13 @@ class CreateAccount extends React.Component {
                     onValueChange={(val) => this.setState({age: val})}
                 />
                 <Text>Occupation:</Text>
-                <TextInput 
-                    value={this.state.occupation} 
+                <TextInput
+                    value={this.state.occupation}
                     onChangeText={(val) => this.setState({occupation: val})}
                 />
                 <Text>School:</Text>
-                <TextInput 
-                    value={this.state.school} 
+                <TextInput
+                    value={this.state.school}
                     onChangeText={(val) => this.setState({school: val})}
                 />
                 <Text>Gender:</Text>

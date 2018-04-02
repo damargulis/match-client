@@ -28,7 +28,7 @@ class LoginScreen extends React.Component {
             createAccount: false,
         });
     }
-    
+
     createAccount() {
         this.setState({
             createAccount: true,
@@ -50,7 +50,7 @@ class LoginScreen extends React.Component {
         .then((response) => response.json())
         .then(async (response) => {
             if(response.success){
-                await AsyncStorage.setItem('userId', 
+                await AsyncStorage.setItem('userId',
                     response.userId.toString()
                 );
                 Actions.appScreen({user: response.user});
@@ -99,7 +99,7 @@ class LoginScreen extends React.Component {
                     animationType={'slide'}
                     onRequestClose={() => this.closeModal()}
                 >
-                    <CreateAccount 
+                    <CreateAccount
                         closeModal={() => this.closeModal()}
                     />
                 </Modal>

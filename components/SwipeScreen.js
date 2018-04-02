@@ -1,9 +1,9 @@
-import { 
-    AsyncStorage, 
-    Button, 
-    Image, 
-    Text, 
-    TouchableHighlight, 
+import {
+    AsyncStorage,
+    Button,
+    Image,
+    Text,
+    TouchableHighlight,
     View,
 } from 'react-native';
 import PersonDetailScreen from './PersonDetailScreen';
@@ -41,7 +41,7 @@ class MainScreen extends React.Component {
     }
 
     getNextSwipeOption() {
-        let userId = this.state.swipeDeck.pop();
+        const userId = this.state.swipeDeck.pop();
         if(! userId) {
             this.setState({
                 nextSwipe: undefined,
@@ -60,7 +60,7 @@ class MainScreen extends React.Component {
                 .then((response) => response.json())
                 .then((response) => {
                     var b64encode = btoa(String.fromCharCode.apply(
-                        null, 
+                        null,
                         response.data.data
                     ));
                     b64encode = 'data:image/jpeg;base64,' + b64encode;
@@ -122,15 +122,15 @@ class MainScreen extends React.Component {
     goToDetails(){
         if(this.state.nextSwipe){
             this.props.navigation.navigate(
-                'Details', 
+                'Details',
                 {user: this.state.nextSwipe}
             );
         }
     }
 
     render() {
-        let name = this.state.nextSwipe ? this.state.nextSwipe.firstName : '';
-        let school = this.state.nextSwipe ? this.state.nextSwipe.school : '';
+        const name = this.state.nextSwipe ? this.state.nextSwipe.firstName : '';
+        const school = this.state.nextSwipe ? this.state.nextSwipe.school : '';
         return (
             <View>
                 <View
@@ -140,27 +140,27 @@ class MainScreen extends React.Component {
                     <Text>{school}</Text>
                     {this.renderPhoto()}
                 </View>
-                <Button 
-                    title='View Details' 
+                <Button
+                    title='View Details'
                     onPress={() => this.goToDetails()}
                 />
                 <View style={{flexDirection: 'row'}}>
                     <View style={{flex: 1}}>
-                        <Button 
-                            disabled={!this.state.nextSwipe} 
-                            color='red' 
-                            title='No' 
-                            style={{flex: 1, backgroundColor: 'red'}} 
+                        <Button
+                            disabled={!this.state.nextSwipe}
+                            color='red'
+                            title='No'
+                            style={{flex: 1, backgroundColor: 'red'}}
                             onPress={() => this.swipe(false)}
                         >
                         </Button>
                     </View>
                     <View style={{flex: 1}}>
-                        <Button 
-                            disabled={!this.state.nextSwipe} 
-                            color='green' 
-                            title='Yes' 
-                            style={{flex: 1, backgroundColor: 'green'}} 
+                        <Button
+                            disabled={!this.state.nextSwipe}
+                            color='green'
+                            title='Yes'
+                            style={{flex: 1, backgroundColor: 'green'}}
                             onPress={() => this.swipe(true)}
                         >
                         </Button>

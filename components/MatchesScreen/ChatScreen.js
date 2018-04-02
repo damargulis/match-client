@@ -1,7 +1,7 @@
 import './../../UserAgent';
-import { 
-    AsyncStorage, 
-    Image, 
+import {
+    AsyncStorage,
+    Image,
 } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 import io from 'socket.io-client/dist/socket.io';
@@ -14,7 +14,7 @@ class ChatScreen extends React.Component {
     static navigationOptions = ({ navigation }) => {
         const { params } = navigation.state;
         return {
-            headerTitle: <Title 
+            headerTitle: <Title
                 user={params.chat.user}
             />,
         };
@@ -24,7 +24,7 @@ class ChatScreen extends React.Component {
         super(props);
         this.state = {
             messages: this.props.navigation.state.params.chat.messages.sort(
-                (a,b) => {
+                (a, b) => {
                     return (new Date(b.createdAt)) - (new Date(a.createdAt));
                 }
             ),
@@ -39,10 +39,10 @@ class ChatScreen extends React.Component {
             });
         });
         this.socket = io(
-            GLOBAL.BASE_URL 
+            GLOBAL.BASE_URL
             + '/chatNotification'
-            + '?chatId=' 
-            + this.props.navigation.state.params.chat._id, 
+            + '?chatId='
+            + this.props.navigation.state.params.chat._id,
             {
                 jsonp: false,
                 path: '/socket.io',
@@ -51,7 +51,7 @@ class ChatScreen extends React.Component {
         this.socket.on('receiveMessage', (data) => {
             this.setState(previousState => ({
                 messages: GiftedChat.append(
-                    previousState.messages, 
+                    previousState.messages,
                     data.message.message
                 ),
             }));

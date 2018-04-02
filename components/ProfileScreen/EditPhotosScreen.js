@@ -21,12 +21,12 @@ class EditPhotosScreen extends React.Component {
     }
 
     addPhoto(){
-        let options = {
+        const options = {
             title: 'Upload Photo',
         };
         ImagePicker.showImagePicker(options, (response) => {
             if(!response.didCancel && !response.error) {
-                let newPhotos = this.state.newPhotos;
+                const newPhotos = this.state.newPhotos;
                 newPhotos.push({
                     'uri': response.uri,
                     'data': response.data,
@@ -41,7 +41,7 @@ class EditPhotosScreen extends React.Component {
     }
 
     submitPhotos(){
-        let photo = this.state.newPhotos[0];
+        const photo = this.state.newPhotos[0];
         const data = new FormData();
         data.append('photo', {
             uri: photo.uri,
@@ -57,12 +57,12 @@ class EditPhotosScreen extends React.Component {
     }
 
     renderPhoto(photoIndex) {
-        let photos = this.state.originalPhotos.concat(this.state.newPhotos);
-        let photo = photos[photoIndex];
+        const photos = this.state.originalPhotos.concat(this.state.newPhotos);
+        const photo = photos[photoIndex];
         if(photo) {
             return (
                 <View style={{width: 130, height: 130}} key={photoIndex} >
-                    <Image 
+                    <Image
                         source={{ uri: photo.uri }}
                         style={{width: 129, height: 129}}
                         key={photoIndex}
@@ -73,7 +73,7 @@ class EditPhotosScreen extends React.Component {
             return (
                 <TouchableHighlight
                     onPress={() => this.addPhoto()}
-                    key={photoIndex} 
+                    key={photoIndex}
                     style={{width: 130, height: 130, backgroundColor: 'red'}}
                 >
                     <Text style={{textAlign: 'center'}}>Add A Photo</Text>

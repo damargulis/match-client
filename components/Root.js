@@ -11,7 +11,6 @@ import { TabNavigator } from 'react-navigation';
 
 const GLOBAL = require('./../Globals');
 
-
 const RootTabs = TabNavigator({
     Profile: {
         screen: ProfileScreen,
@@ -64,7 +63,7 @@ const RootTabs = TabNavigator({
                 />
             ),
         },
-    }, 
+    },
 }, {
     initialRouteName: 'Events',
 });
@@ -81,7 +80,7 @@ class Root extends React.Component {
 
     componentWillMount() {
         this.getLocation();
-        let mainPhotoId = this.props.user.photos[0];
+        const mainPhotoId = this.props.user.photos[0];
         if(mainPhotoId){
             this.getMainPhoto(mainPhotoId);
         }
@@ -125,10 +124,10 @@ class Root extends React.Component {
         fetch(GLOBAL.BASE_URL + '/user/' + this.props.user._id)
         .then((response) => response.json())
         .then((response) => {
-            this.setState({ 
-                user: response, 
+            this.setState({
+                user: response,
             });
-            let mainPhotoId = response.photos[0];
+            const mainPhotoId = response.photos[0];
             if(mainPhotoId){
                 this.getMainPhoto(mainPhotoId);
             }
@@ -136,11 +135,11 @@ class Root extends React.Component {
     }
 
     getMatchInfo(chat, index, userId) {
-        let otherId = chat.userIds.filter((id) => id != userId)[0];
+        const otherId = chat.userIds.filter((id) => id != userId)[0];
         fetch(GLOBAL.BASE_URL + '/user/' + otherId)
         .then((response) => response.json())
         .then((response) => {
-            let chats = this.state.chats;
+            const chats = this.state.chats;
             chats[index].user = response;
             this.setState({
                 chats: chats,
@@ -206,14 +205,14 @@ class Root extends React.Component {
                 this.setLocation(position, userId);
             }, () => {
                 //cheat simulator
-                let position = {
+                const position = {
                     coords: {
                         longitude: -90.295861,
                         latitude: 38.650768,
                     },
                 };
                 this.setLocation(position, userId);
-            }, { 
+            }, {
                 enableHighAccuracy: false,
             });
         });
@@ -222,8 +221,8 @@ class Root extends React.Component {
     render() {
         return (
             <RootTabs screenProps={{
-                user: this.state.user, 
-                position: this.state.position, 
+                user: this.state.user,
+                position: this.state.position,
                 mainPhoto: this.state.mainPhoto,
                 refreshProfile: this.refreshProfile.bind(this),
                 chats: this.state.chats,

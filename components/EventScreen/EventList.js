@@ -1,21 +1,21 @@
-import { 
+import {
     Button,
-    SectionList, 
+    SectionList,
     StyleSheet,
-    Text, 
+    Text,
 } from 'react-native';
 import React from 'react';
 
 class EventList extends React.Component {
     render() {
-        let sections = [];
+        const sections = [];
         var prevDay = null;
         var currData = [];
 
-        let events = this.props.events;
-        let currentDay = Date.now();
+        const events = this.props.events;
+        const currentDay = Date.now();
         for(var i=0; i < events.length; i++){
-            let event = events[i];
+            const event = events[i];
             if(event.date < currentDay) {
                 currData.push(event);
             } else if(prevDay && prevDay.getDate() == event.date.getDate()
@@ -52,18 +52,18 @@ class EventList extends React.Component {
                 sections={sections}
                 renderItem={
                     ({item}) => (
-                        <Button 
-                            style={styles.item} 
-                            title={item.type + ': ' + item.name} 
+                        <Button
+                            style={styles.item}
+                            title={item.type + ': ' + item.name}
                             onPress={
                                 () => this.props.navigation.navigate(
-                                    'Details', 
+                                    'Details',
                                     {
                                         event: item,
                                         refreshEvents: this.props.getUserEvents,
                                     }
                                 )
-                            } 
+                            }
                         />
                     )
                 }

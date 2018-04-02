@@ -8,7 +8,7 @@ class Title extends React.Component {
             <TouchableHighlight
                 onPress={
                     () => this.props.navigation.navigate(
-                        'PersonDetail', 
+                        'PersonDetail',
                         {user: this.props.user}
                     )
                 }

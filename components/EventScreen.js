@@ -1,6 +1,6 @@
-import { 
+import {
     Switch,
-    Text, 
+    Text,
     View,
 } from 'react-native';
 import EventDetailsScreen from './EventScreen/EventDetailsScreen';
@@ -21,10 +21,10 @@ class MainScreen extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
-        let oldPosition = this.props.screenProps.position;
-        let newPosition = newProps.screenProps.position;
-        let oldInterestsDist = this.props.screenProps.user.interestsDistance;
-        let newInterestsDist = newProps.screenProps.user.interestsDistance;
+        const oldPosition = this.props.screenProps.position;
+        const newPosition = newProps.screenProps.position;
+        const oldInterestsDist = this.props.screenProps.user.interestsDistance;
+        const newInterestsDist = newProps.screenProps.user.interestsDistance;
         if(newPosition){
             if(!oldPosition || (
                 oldPosition.coords.longitude != newPosition.coords.longitude
@@ -44,7 +44,7 @@ class MainScreen extends React.Component {
         for(var i=0; i<events.length; i++) {
             events[i].date = new Date(events[i].startTime);
         }
-        let sortedEvents = events.sort(function(a, b){return a.date - b.date;});
+        const sortedEvents = events.sort((a, b) => {return a.date - b.date;});
         return sortedEvents;
     }
 
@@ -64,10 +64,10 @@ class MainScreen extends React.Component {
     getEvents(props){
         if(props.position){
             fetch(
-                GLOBAL.BASE_URL 
-                + '/event?long=' 
+                GLOBAL.BASE_URL
+                + '/event?long='
                 + props.position.coords.longitude
-                + '&lat=' 
+                + '&lat='
                 + props.position.coords.latitude
                 + '&maxDist='
                 + props.user.interestsDistance
@@ -115,14 +115,14 @@ class MainScreen extends React.Component {
     }
 
     render() {
-        let events = this.state.allEvents ? 
-            this.state.events : this.state.userEvents;
+        const events = this.state.allEvents
+            ? this.state.events : this.state.userEvents;
         return (
-            <View 
-                style={{ 
-                    flex: 1, 
-                    alignItems: 'center', 
-                    justifyContent: 'center', 
+            <View
+                style={{
+                    flex: 1,
+                    alignItems: 'center',
+                    justifyContent: 'center',
                 }}
             >
                 <View
@@ -132,18 +132,18 @@ class MainScreen extends React.Component {
                         height: 30,
                     }}
                 >
-                    <Text>Your Events</Text> 
-                    <Switch 
+                    <Text>Your Events</Text>
+                    <Switch
                         value={this.state.allEvents}
                         onValueChange={this.onToggle.bind(this)}
                     />
                     <Text>All Events</Text>
                 </View>
                 <View style={{flex: 10}}>
-                    <EventList 
-                        events={events} 
+                    <EventList
+                        events={events}
                         onEndReached={this.onEndReached.bind(this)}
-                        navigation={this.props.navigation} 
+                        navigation={this.props.navigation}
                         getUserEvents={this.getUserEvents.bind(this)}
                     />
                 </View>
@@ -151,7 +151,6 @@ class MainScreen extends React.Component {
         );
     }
 }
-
 
 const EventsScreen = StackNavigator({
     Home: {
