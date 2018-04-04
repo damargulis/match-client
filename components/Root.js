@@ -226,6 +226,7 @@ class Root extends React.Component {
                 mainPhoto: this.state.mainPhoto,
                 refreshProfile: this.refreshProfile.bind(this),
                 chats: this.state.chats,
+                refreshMatches: this.refreshMatches.bind(this),
                 logout: this.logout.bind(this),
             }} />
         );

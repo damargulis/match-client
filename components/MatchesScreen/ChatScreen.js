@@ -17,6 +17,7 @@ class ChatScreen extends React.Component {
             headerTitle: <Title
                 user={params.chat.user}
             />,
+
         };
     };
 

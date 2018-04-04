@@ -1,4 +1,5 @@
 import {
+    Button,
     FlatList,
     Image,
     Text,
@@ -24,10 +25,10 @@ class MainScreen extends React.Component {
         return (
             <TouchableHighlight
                 onPress={
-                    () => this.props.navigation.navigate(
-                        'Details',
-                        {chat: match}
-                    )
+                    () => this.props.navigation.navigate('Details', {
+                        chat: match,
+                        refreshMatches: this.props.screenProps.refreshMatches,
+                    })
                 }
                 key={otherId}
             >
@@ -89,6 +90,12 @@ const MatchesScreen = StackNavigator({
     },
     Details: {
         screen: ChatScreen,
+        navigationOptions: ({navigation}) => ({
+            headerLeft: <Button title="<-" onPress={ () => {
+                navigation.state.params.refreshMatches();
+                navigation.goBack();
+            }}/>,
+        }),
     },
     PersonDetail: {
         screen: PersonDetailScreen,
