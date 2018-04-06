@@ -1,16 +1,16 @@
 import {
-    TOGGLE_RSVP,
+    EventFilters,
     SET_EVENT_FILTER,
-    EventFilters
+    TOGGLE_RSVP,
 } from '../actions';
 
 const { SHOW_ALL } = EventFilters;
 function visibilityFilter(state = SHOW_ALL, action) {
     switch(action.type) {
-        case SET_EVENT_FILTER:
-            return action.filter
-        default:
-            return state
+    case SET_EVENT_FILTER:
+        return action.filter;
+    default:
+        return state;
     }
 }
 

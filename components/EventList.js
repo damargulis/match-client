@@ -1,18 +1,18 @@
-import React from 'react'
+import React from 'react';
 import EventListItem from './EventListItem';
-import { Text, SectionList } from 'react-native';
+import { SectionList, Text } from 'react-native';
 
 const EventList = ({ events, toggleRsvp }) => (
     <SectionList
         sections={[{
             title: 'Now',
-            data: events
+            data: events,
         }]}
         renderItem={
             ({item}) => (
-                <EventListItem 
-                {...item}
-                onClick={() => toggleRsvp(event._id)}
+                <EventListItem
+                    {...item}
+                    onClick={() => toggleRsvp(event._id)}
                 />
             )
         }

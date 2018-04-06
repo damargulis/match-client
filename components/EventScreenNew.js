@@ -6,6 +6,6 @@ const EventScreenNew = () => (
     <View>
         <EventListContainer />
     </View>
-)
+);
 
 export default EventScreenNew;

@@ -5,7 +5,7 @@ import Root from './components/Root';
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import rootReducer from './reducers'
+import rootReducer from './reducers';
 
 import EventScreenNew from './components/EventScreenNew';
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from 'react-native';
 
-
 class EventListItem extends React.Component {
     render() {
         return (
@@ -9,7 +8,7 @@ class EventListItem extends React.Component {
                 title={this.props.name}
                 onPress={ () => this.props.onClick() }
             />
-        )
+        );
     }
 }
 
