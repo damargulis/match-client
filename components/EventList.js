@@ -1,8 +1,9 @@
-import { SectionList, Text } from 'react-native';
+import { SectionList, Text, View } from 'react-native';
 import EventListItem from './EventListItem';
 import React from 'react';
 
 const EventList = ({ events, toggleRsvp }) => (
+    <View style={{flex: 10}} >
     <SectionList
         sections={[{
             title: 'Now',
@@ -25,6 +26,7 @@ const EventList = ({ events, toggleRsvp }) => (
         }
         keyExtractor={(item) => item._id}
     />
+    </View>
 );
 
 export default EventList;

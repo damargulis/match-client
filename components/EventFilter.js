@@ -8,7 +8,13 @@ class EventFilter extends React.Component {
         const toggleFilter = value
             ? EventFilters.SHOW_ATTENDING : EventFilters.SHOW_ALL;
         return (
-            <View>
+            <View
+                style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    height: 30,
+                }}
+            >
                 <Text>My Events</Text>
                 <Switch
                     value={value}
