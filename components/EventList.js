@@ -4,33 +4,33 @@ import React from 'react';
 
 const EventList = ({ events, toggleRsvp }) => {
     return (
-    <View style={{flex: 10}} >
-        <SectionList
-            sections={[{
-                title: 'Now',
-                data: events,
-            }]}
-            renderItem={
-                ({item}) => {
-                    return(
-                    <EventListItem
-                        {...item}
-                        onClick={() => toggleRsvp(item._id)}
-                    />
+        <View style={{flex: 10}} >
+            <SectionList
+                sections={[{
+                    title: 'Now',
+                    data: events,
+                }]}
+                renderItem={
+                    ({item}) => {
+                        return(
+                            <EventListItem
+                                {...item}
+                                onClick={() => toggleRsvp(item._id)}
+                            />
+                        );
+                    }
+                }
+                renderSectionHeader={
+                    ({section}) => (
+                        <Text>
+                            {section.title}
+                        </Text>
                     )
                 }
-            }
-            renderSectionHeader={
-                ({section}) => (
-                    <Text>
-                        {section.title}
-                    </Text>
-                )
-            }
-            keyExtractor={(item) => item._id}
-        />
-    </View>
-    )
+                keyExtractor={(item) => item._id}
+            />
+        </View>
+    );
 }
 ;
 

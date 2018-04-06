@@ -1,5 +1,6 @@
+import { applyMiddleware, createStore } from 'redux';
 import { Router, Scene } from 'react-native-router-flux';
-import { createStore, applyMiddleware } from 'redux';
+import {createLogger} from 'redux-logger';
 import EventScreenNew from './components/EventScreenNew';
 import LoginScreen from './components/LoginScreen';
 import { Provider } from 'react-redux';
@@ -9,7 +10,6 @@ import React from 'react';
 import rootReducer from './reducers';
 
 import thunkMiddleware from 'redux-thunk';
-import {createLogger} from 'redux-logger';
 
 const loggerMiddleware = createLogger();
 

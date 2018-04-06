@@ -1,28 +1,25 @@
-import React from 'react';
-import { EventFilters, toggleRsvp, fetchEventsIfNeeded } from '../actions';
+import { EventFilters, fetchEventsIfNeeded, toggleRsvp } from '../actions';
 import { connect } from 'react-redux';
 import EventList from './EventList';
+import React from 'react';
 
 class EventListContainer extends React.Component{
     componentDidMount() {
-        console.log('componentDidMount');
-        console.log(this.props);
-        let query = {
+        const query = {
             longitude: -90.295861,
             latitude: 38.650768,
-            interestsDistance: 50
-        }
+            interestsDistance: 50,
+        };
         this.props.fetchEventsIfNeeded(query);
-    }
-
-    componentDidUpdate() {
-        console.log('componentDidUpdate');
     }
 
     render(){
         return (
-            <EventList events={this.props.events} toggleRsvp={this.props.toggleRsvp} />
-        )
+            <EventList
+                events={this.props.events}
+                toggleRsvp={this.props.toggleRsvp}
+            />
+        );
     }
 }
 
@@ -42,7 +39,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     toggleRsvp: _id => dispatch(toggleRsvp(_id)),
-    fetchEventsIfNeeded: (query) => dispatch(fetchEventsIfNeeded(query))
+    fetchEventsIfNeeded: (query) => dispatch(fetchEventsIfNeeded(query)),
 });
 
 export default connect(

@@ -20,7 +20,7 @@ export function setEventFilter(filter) {
 }
 
 function requestEvents(query) {
-    return { type: REQUEST_EVENTS, query }
+    return { type: REQUEST_EVENTS, query };
 }
 
 function receiveEvents(query, json) {
@@ -29,29 +29,27 @@ function receiveEvents(query, json) {
         query,
         events: json,
         receivedAt: Date.now(),
-    }
+    };
 }
 
 function fetchEvents(query) {
     return function (dispatch) {
         dispatch(requestEvents(query));
-        return fetch(GLOBAL.BASE_URL 
+        return fetch(GLOBAL.BASE_URL
             + '/event?long='
             + query.longitude
             + '&lat='
             + query.latitude
             + '&maxDist='
             + query.interestsDistance
-        ).then(
-            response => response.json(),
-            error => console.log(error)
-        ).then(json => {
+        ).then(response => response.json())
+        .then((json) => {
             dispatch(receiveEvents(query, json));
         });
-    }
+    };
 }
 
-function shouldFetchEvents(state, query) {
+function shouldFetchEvents(state) {
     if(state.isFetching) {
         return false;
     } else if(state.events.items.length > 0){
@@ -67,5 +65,5 @@ export function fetchEventsIfNeeded(query) {
         } else {
             return Promise.resolve();
         }
-    }
+    };
 }
