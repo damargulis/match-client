@@ -5,8 +5,8 @@ import EventFilterPicker from './EventFilterPicker';
 
 const EventFilter = () => {
     <View>
-        <EventFilterPicker  />
-    </View>
-}
+        <EventFilterPicker />
+    </View>;
+};
 
 export default EventFilter;
