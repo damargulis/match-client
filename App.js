@@ -1,13 +1,12 @@
 import { Router, Scene } from 'react-native-router-flux';
-import LoginScreen from './components/LoginScreen';
-import React from 'react';
-import Root from './components/Root';
-
-import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import rootReducer from './reducers';
-
 import EventScreenNew from './components/EventScreenNew';
+import LoginScreen from './components/LoginScreen';
+import { Provider } from 'react-redux';
+import React from 'react';
+//import Root from './components/Root';
+
+import rootReducer from './reducers';
 
 const store = createStore(rootReducer);
 

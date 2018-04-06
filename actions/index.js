@@ -12,8 +12,6 @@ export function toggleRsvp(eventId) {
 }
 
 export function setEventFilter(filter) {
-    console.log('setEventFilter');
-    console.log(filter);
     return { type: SET_EVENT_FILTER, filter };
 }
 

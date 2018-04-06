@@ -1,6 +1,6 @@
-import React from 'react';
-import EventListItem from './EventListItem';
 import { SectionList, Text } from 'react-native';
+import EventListItem from './EventListItem';
+import React from 'react';
 
 const EventList = ({ events, toggleRsvp }) => (
     <SectionList
@@ -23,7 +23,7 @@ const EventList = ({ events, toggleRsvp }) => (
                 </Text>
             )
         }
-        keyExtractor={(item, index) => item._id}
+        keyExtractor={(item) => item._id}
     />
 );
 

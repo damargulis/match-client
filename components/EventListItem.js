@@ -1,5 +1,5 @@
-import React from 'react';
 import { Button } from 'react-native';
+import React from 'react';
 
 class EventListItem extends React.Component {
     render() {

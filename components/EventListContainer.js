@@ -1,10 +1,8 @@
-import { connect } from 'react-redux';
 import { EventFilters, toggleRsvp } from '../actions';
+import { connect } from 'react-redux';
 import EventList from './EventList';
 
 const getVisibleEvents = (events, filter) => {
-    console.log('getVisible');
-    console.log(filter);
     switch(filter) {
     case EventFilters.SHOW_ATTENDING:
         return events.filter(evt => evt.attending);

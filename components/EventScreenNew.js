@@ -1,7 +1,7 @@
+import EventFilterContainer from './EventFilterContainer';
+import EventListContainer from './EventListContainer';
 import React from 'react';
 import {View} from 'react-native';
-import EventListContainer from './EventListContainer';
-import EventFilterContainer from './EventFilterContainer';
 
 const EventScreenNew = () => (
     <View>
