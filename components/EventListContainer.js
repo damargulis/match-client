@@ -1,6 +1,30 @@
-import { EventFilters, toggleRsvp } from '../actions';
+import React from 'react';
+import { EventFilters, toggleRsvp, fetchEventsIfNeeded } from '../actions';
 import { connect } from 'react-redux';
 import EventList from './EventList';
+
+class EventListContainer extends React.Component{
+    componentDidMount() {
+        console.log('componentDidMount');
+        console.log(this.props);
+        let query = {
+            longitude: -90.295861,
+            latitude: 38.650768,
+            interestsDistance: 50
+        }
+        this.props.fetchEventsIfNeeded(query);
+    }
+
+    componentDidUpdate() {
+        console.log('componentDidUpdate');
+    }
+
+    render(){
+        return (
+            <EventList events={this.props.events} toggleRsvp={this.props.toggleRsvp} />
+        )
+    }
+}
 
 const getVisibleEvents = (events, filter) => {
     switch(filter) {
@@ -13,14 +37,15 @@ const getVisibleEvents = (events, filter) => {
 };
 
 const mapStateToProps = state => ({
-    events: getVisibleEvents(state.events, state.visibilityFilter),
+    events: getVisibleEvents(state.events.items, state.visibilityFilter),
 });
 
 const mapDispatchToProps = dispatch => ({
     toggleRsvp: _id => dispatch(toggleRsvp(_id)),
+    fetchEventsIfNeeded: (query) => dispatch(fetchEventsIfNeeded(query))
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(EventList);
+)(EventListContainer);

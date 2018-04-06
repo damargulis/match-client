@@ -2,7 +2,8 @@ import { SectionList, Text, View } from 'react-native';
 import EventListItem from './EventListItem';
 import React from 'react';
 
-const EventList = ({ events, toggleRsvp }) => (
+const EventList = ({ events, toggleRsvp }) => {
+    return (
     <View style={{flex: 10}} >
         <SectionList
             sections={[{
@@ -10,12 +11,14 @@ const EventList = ({ events, toggleRsvp }) => (
                 data: events,
             }]}
             renderItem={
-                ({item}) => (
+                ({item}) => {
+                    return(
                     <EventListItem
                         {...item}
                         onClick={() => toggleRsvp(item._id)}
                     />
-                )
+                    )
+                }
             }
             renderSectionHeader={
                 ({section}) => (
@@ -27,7 +30,9 @@ const EventList = ({ events, toggleRsvp }) => (
             keyExtractor={(item) => item._id}
         />
     </View>
-);
+    )
+}
+;
 
 export default EventList;
 
