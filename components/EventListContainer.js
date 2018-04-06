@@ -3,6 +3,8 @@ import { EventFilters, toggleRsvp } from '../actions';
 import EventList from './EventList';
 
 const getVisibleEvents = (events, filter) => {
+    console.log('getVisible');
+    console.log(filter);
     switch(filter) {
     case EventFilters.SHOW_ATTENDING:
         return events.filter(evt => evt.attending);
@@ -13,7 +15,7 @@ const getVisibleEvents = (events, filter) => {
 };
 
 const mapStateToProps = state => ({
-    events: getVisibleEvents(state.events, state.filter),
+    events: getVisibleEvents(state.events, state.visibilityFilter),
 });
 
 const mapDispatchToProps = dispatch => ({
