@@ -15,13 +15,17 @@ function events(state = [{
     'name': 'Half price drinks at 3 kings',
     'attending': false,
 }], action) {
+    console.log(state);
+    console.log(action);
     switch(action.type) {
     case TOGGLE_RSVP:
         return state.map((event) => {
-            if(event._id == action._id) {
+            if(event._id == action.eventId) {
+                console.log('switching');
                 return {...event, attending: !event.attending};
             }
-            return todo;
+            console.log('not switching');
+            return event;
         });
     default:
         return state;

@@ -12,7 +12,7 @@ const EventList = ({ events, toggleRsvp }) => (
             ({item}) => (
                 <EventListItem
                     {...item}
-                    onClick={() => toggleRsvp(event._id)}
+                    onClick={() => toggleRsvp(item._id)}
                 />
             )
         }
