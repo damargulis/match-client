@@ -38,7 +38,7 @@ function loginFailure(error) {
 function createAccountSuccess(query, json) {
     return {
         type: CREATE_ACCOUNT_SUCCESS,
-        user: json,
+        user: json.user,
     };
 }
 
@@ -63,11 +63,39 @@ function login(query) {
                 password: query.password,
             }),
         }).then(response => response.json(),
-            error => dispatch(loginFailure(error)),
         ).then((json) => {
-            dispatch(loginSuccess(query, json));
+            if(json.success) {
+                dispatch(loginSuccess(query, json));
+            } else {
+                dispatch(loginFailure(json));
+                return Promise.reject();
+            }
         });
     };
+}
+
+function createAccount(query) {
+    return function (dispatch) {
+        dispatch(requestCreateAccount(query));
+        return fetch(GLOBAL.BASE_URL + '/auth/createAccount/', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                user: query,
+            }),
+        }).then(response => response.json(),
+        ).then((json) => {
+            if(json.success) {
+                dispatch(createAccountSuccess(query, json));
+            } else {
+                dispatch(createAccountFailure(json));
+                return Promise.reject();
+            }
+        });
+    }
 }
 
 export function logout() {
@@ -83,12 +111,15 @@ export function logout() {
     };
 }
 
-function createAccount(query) {
-    //TODO:
-    return;
+function shouldLogin(state) {
+    if(state.user.isFetching) {
+        return false;
+    } else {
+        return !state.user.profile;
+    }
 }
 
-function shouldLogin(state) {
+function shouldCreateAccount(state) {
     if(state.user.isFetching) {
         return false;
     } else {
@@ -101,7 +132,17 @@ export function loginIfNeeded(query) {
         if(shouldLogin(getState(), query)){
             return dispatch(login(query));
         } else {
-            return Promise.resolve();
+            return Promise.reject();
+        }
+    };
+}
+
+export function attemptCreateAccount(query) {
+    return (dispatch, getState) => {
+        if(shouldCreateAccount(getState(), query)){
+            return dispatch(createAccount(query));
+        } else {
+            return Promise.reject();
         }
     };
 }

@@ -7,8 +7,11 @@ import React from 'react';
 class LoginScreenContainer extends React.Component {
     login(query) {
         const {login} = this.props;
-        login(query).then(() => {
+        login(query).then((response) => {
+            console.log(response);
             Actions.appScreen();
+        }).catch((error) => {
+            console.log(error);
         });
     }
 
@@ -30,7 +33,6 @@ const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch) => ({
     login: (query) => dispatch(loginIfNeeded(query)),
-    createAccount: (query) => dispatch(createAccount(query)),
 });
 
 export default connect(
