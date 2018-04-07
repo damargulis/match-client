@@ -5,12 +5,12 @@ import EventDetailScreenContainer from
     './components/EventDetailsScreenContainer';
 import EventScreenNew from './components/EventScreenNew';
 import LoginScreenContainer from './components/LoginScreenContainer';
+import MatchesScreenContainer from './components/MatchesScreenContainer';
 import ProfileScreenContainer from './components/ProfileScreenContainer';
 import { Provider } from 'react-redux';
 import React from 'react';
-//import Root from './components/Root';
-
 import rootReducer from './reducers';
+import SwipeScreenContainer from './components/SwipeScreenContainer';
 
 import thunkMiddleware from 'redux-thunk';
 
@@ -54,6 +54,16 @@ class MainPage extends React.Component {
                                     animation='fade'
                                 />
                             </Stack>
+                            <Scene
+                                key="swipeScreen"
+                                component={SwipeScreenContainer}
+                                hideNavBar={true}
+                            />
+                            <Scene
+                                key="matchesScreen"
+                                component={MatchesScreenContainer}
+                                hideNavBar={true}
+                            />
                         </Scene>
                     </Scene>
                 </Router>
