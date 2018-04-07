@@ -5,6 +5,7 @@ import EventDetailScreenContainer from
     './components/EventDetailsScreenContainer';
 import EventScreenNew from './components/EventScreenNew';
 import LoginScreenContainer from './components/LoginScreenContainer';
+import ProfileScreenContainer from './components/ProfileScreenContainer';
 import { Provider } from 'react-redux';
 import React from 'react';
 //import Root from './components/Root';
@@ -34,19 +35,26 @@ class MainPage extends React.Component {
                         <Scene key="loginScreen"
                             component={LoginScreenContainer}
                             animation='fade'
-                            initiail={true}
+                            initial={true}
                         />
-                        <Stack>
-                            <Scene key="appScreen"
-                                component={EventScreenNew}
-                                animation='fade'
+                        <Scene tabs key="appScreen" >
+                            <Scene key="profileScreen"
+                                component={ProfileScreenContainer}
                                 hideNavBar={true}
                             />
-                            <Scene key="eventDetailScreen"
-                                component={EventDetailScreenContainer}
-                                animation='fade'
-                            />
-                        </Stack>
+                            <Stack key="eventScreen" initial={true}>
+                                <Scene
+                                    component={EventScreenNew}
+                                    animation='fade'
+                                    hideNavBar={true}
+                                    initial={true}
+                                />
+                                <Scene key="eventDetailScreen"
+                                    component={EventDetailScreenContainer}
+                                    animation='fade'
+                                />
+                            </Stack>
+                        </Scene>
                     </Scene>
                 </Router>
             </Provider>
