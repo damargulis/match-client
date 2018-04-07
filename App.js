@@ -3,6 +3,8 @@ import { Router, Scene, Stack } from 'react-native-router-flux';
 import CreateAccountScreenContainer from
     './components/CreateAccountScreenContainer';
 import {createLogger} from 'redux-logger';
+import EditInfoScreenContainer from
+    './components/EditInfoScreenContainer';
 import EventDetailScreenContainer from
     './components/EventDetailsScreenContainer';
 import EventScreen from './components/EventScreen';
@@ -46,10 +48,18 @@ class MainPage extends React.Component {
                             />
                         </Stack>
                         <Scene tabs key="appScreen" >
-                            <Scene key="profileScreen"
-                                component={ProfileScreenContainer}
-                                hideNavBar={true}
-                            />
+                            <Stack key="profileScreen">
+                                <Scene
+                                    component={ProfileScreenContainer}
+                                    hideNavBar={true}
+                                    initiial={true}
+                                />
+                                <Scene
+                                    key="editInfoScreen"
+                                    component={EditInfoScreenContainer}
+                                />
+                            </Stack>
+
                             <Stack key="eventScreen" initial={true}>
                                 <Scene
                                     component={EventScreen}

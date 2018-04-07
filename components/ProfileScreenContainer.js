@@ -18,10 +18,14 @@ class ProfileScreenContainer extends React.Component {
         });
     }
 
+    editInfo() {
+        Actions.editInfoScreen()
+    }
+
     render() {
         const { user } = this.props;
         return (
-            <ProfileScreen user={user} logout={this.logout.bind(this)} />
+            <ProfileScreen user={user} logout={this.logout.bind(this)} editInfo={this.editInfo.bind(this)}/>
         );
     }
 }

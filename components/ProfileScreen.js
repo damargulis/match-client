@@ -3,7 +3,7 @@ import React from 'react';
 
 class ProfileScreen extends React.Component {
     render() {
-        const { user, logout } = this.props;
+        const { user, logout, editInfo } = this.props;
         return (
             <View
                 style={{
@@ -28,6 +28,7 @@ class ProfileScreen extends React.Component {
                     user.interestsAgeMin}-{user.interestsAgeMax
                 }</Text>
                 <Button title="Log Out" onPress={logout} />
+                <Button title="Edit Info" onPress={editInfo} />
             </View>
         );
     }
