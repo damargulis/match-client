@@ -1,5 +1,5 @@
+import { Button, Text, TextInput, View } from 'react-native';
 import React from 'react';
-import { Button, View, Text, TextInput } from 'react-native';
 
 class LoginScreen extends React.Component {
     constructor(props) {
@@ -7,13 +7,13 @@ class LoginScreen extends React.Component {
         this.state = {
             username: '',
             password: '',
-        }
+        };
     }
 
     login() {
         this.props.login({
             username: this.state.username,
-            password: this.state.password
+            password: this.state.password,
         });
     }
 
@@ -38,7 +38,7 @@ class LoginScreen extends React.Component {
                 />
             </View>
 
-        )
+        );
     }
 }
 

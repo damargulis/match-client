@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import events from './events';
-import visibilityFilter from './visibilityFilter';
 import user from './user';
+import visibilityFilter from './visibilityFilter';
 
 export default combineReducers({
     events,

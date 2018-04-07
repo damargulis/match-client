@@ -56,8 +56,8 @@ function loginSuccess(query, json) {
 function loginFailure(error) {
     return {
         type: LOGIN_FAILURE,
-        message: error.message
-    }
+        message: error.message,
+    };
 }
 
 function createAccountSuccess(query, json) {
@@ -71,7 +71,7 @@ function createAccountFailure(error) {
     return {
         type: CREATE_ACCOUNT_FAILURE,
         message: error.message,
-    }
+    };
 }
 
 function fetchEvents(query) {
@@ -91,11 +91,8 @@ function fetchEvents(query) {
     };
 }
 
-
 function login(query) {
     return function (dispatch) {
-        console.log('login');
-        console.log(query);
         dispatch(requestLogin(query));
         return fetch(GLOBAL.BASE_URL + '/auth/login', {
             method: 'POST',
@@ -106,18 +103,18 @@ function login(query) {
             body: JSON.stringify({
                 username: query.username,
                 password: query.password,
-            })
+            }),
         }).then(response => response.json(),
             error => dispatch(loginFailure(error)),
         ).then((json) => {
             dispatch(loginSuccess(query, json));
-        })
+        });
     };
 }
 
 function createAccount(query) {
     //TODO:
-    return
+    return;
 }
 
 function shouldFetchEvents(state) {
@@ -130,14 +127,9 @@ function shouldFetchEvents(state) {
 }
 
 function shouldLogin(state) {
-    console.log('shouldLogin');
-    console.log(state);
     if(state.user.isFetching) {
-        console.log('false');
         return false;
     } else {
-        console.log('not profile');
-        console.log(!state.user.profile);
         return !state.user.profile;
     }
 }
@@ -154,7 +146,6 @@ export function fetchEventsIfNeeded(query) {
 
 export function loginIfNeeded(query) {
     return (dispatch, getState) => {
-        console.log('loginIfNeeded');
         if(shouldLogin(getState(), query)){
             return dispatch(login(query));
         } else {

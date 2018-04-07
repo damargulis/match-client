@@ -1,8 +1,8 @@
-import React from 'react';
-import LoginScreen from './LoginScreen';
-import { connect } from 'react-redux';
-import { loginIfNeeded, createAccount } from '../actions';
+import { createAccount, loginIfNeeded } from '../actions';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+import LoginScreen from './LoginScreen';
+import React from 'react';
 
 class LoginScreenContainer extends React.Component {
     login(query) {
@@ -14,8 +14,8 @@ class LoginScreenContainer extends React.Component {
 
     render() {
         return (
-           <LoginScreen login={this.login.bind(this)}/> 
-        )
+            <LoginScreen login={this.login.bind(this)}/>
+        );
     }
 }
 
@@ -23,7 +23,7 @@ const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch) => ({
     login: (query) => dispatch(loginIfNeeded(query)),
-    createAccount: (query) => dispatch(createAccount(query))
+    createAccount: (query) => dispatch(createAccount(query)),
 });
 
 export default connect(
