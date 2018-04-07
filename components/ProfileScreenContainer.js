@@ -1,17 +1,14 @@
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
+import { fetchPhotoIfNeeded } from '../actions/user';
 import { logout } from '../actions/auth';
 import ProfileScreen from './ProfileScreen';
 import React from 'react';
 
-import { fetchPhotoIfNeeded } from '../actions/user';
-
 class ProfileScreenContainer extends React.Component {
     componentDidMount() {
-        console.log('fetching from mount');
-        console.log(this.props.user);
         this.props.fetchPhotoIfNeeded({
-            photoId: this.props.user.photos[0]
+            photoId: this.props.user.photos[0],
         });
     }
 

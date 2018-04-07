@@ -8,17 +8,14 @@ import {
     LOGOUT,
 } from '../actions/auth';
 import {
+    FETCH_PHOTOS_FAILURE,
     FETCH_PHOTOS_REQUEST,
     FETCH_PHOTOS_SUCCESS,
-    FETCH_PHOTOS_FAILURE,
 } from '../actions/user';
-
 
 function user(state = {
     isFetching: false,
 }, action) {
-    console.log('user reducer');
-    console.log(state, action);
     switch(action.type) {
     case LOGIN_REQUEST:
         return Object.assign({}, state, {
@@ -56,21 +53,17 @@ function user(state = {
             isFetchingPhoto: true,
             profile: Object.assign({}, state.profile, {
                 photoData: undefined,
-            })
-        })
+            }),
+        });
     case FETCH_PHOTOS_SUCCESS:
-        console.log('fetch photos success');
-        console.log(action);
-        
         var b64encode = btoa(
             String.fromCharCode.apply(null, action.data.data.data)
         );
-        console.log(b64encode);
         b64encode = 'data:image/jpeg;base64,' + b64encode;
         return Object.assign({}, state, {
             isFetchingPhoto: false,
             profile: Object.assign({}, state.profile, {
-                photoData: b64encode
+                photoData: b64encode,
             }),
         });
     case FETCH_PHOTOS_FAILURE:
