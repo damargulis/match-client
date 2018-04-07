@@ -5,6 +5,7 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const CREATE_ACCOUNT_REQUEST = 'CREATE_ACCOUNT_REQUEST';
 export const CREATE_ACCOUNT_SUCCESS = 'CREATE_ACCOUNT_SUCCESS';
 export const CREATE_ACCOUNT_FAILURE = 'CREATE_ACCOUNT_FAILURE';
+export const LOGOUT = 'LOGOUT';
 
 const GLOBAL = require('./../Globals');
 
@@ -14,6 +15,10 @@ function requestLogin(query) {
 
 function requestCreateAccount(query) {
     return { type: CREATE_ACCOUNT_REQUEST, query };
+}
+
+function sendLogout() {
+    return { type: LOGOUT };
 }
 
 function loginSuccess(query, json) {
@@ -63,6 +68,19 @@ function login(query) {
             dispatch(loginSuccess(query, json));
         });
     };
+}
+
+export function logout() {
+    return function (dispatch) {
+        dispatch(sendLogout());
+        return fetch(GLOBAL.BASE_URL + '/auth/logout', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
+    }
 }
 
 function createAccount(query) {

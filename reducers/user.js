@@ -2,6 +2,7 @@ import {
     LOGIN_FAILURE,
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
+    LOGOUT,
 } from '../actions/auth';
 
 function user(state = {
@@ -20,6 +21,11 @@ function user(state = {
     case LOGIN_FAILURE:
         return Object.assign({}, state, {
             isFetching: false,
+        });
+    case LOGOUT:
+        return Object.assign({}, state, {
+            isFetching: false,
+            profile: undefined,
         });
     default:
         return state;

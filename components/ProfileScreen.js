@@ -17,7 +17,7 @@ class ProfileScreen extends React.Component {
                 <Text>Age Range: {
                     user.interestsAgeMin}-{user.interestsAgeMax
                 }</Text>
-                <Button title="Log Out" onClick={logout} />
+                <Button title="Log Out" onPress={logout} />
             </View>
         );
     }
