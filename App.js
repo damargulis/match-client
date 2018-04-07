@@ -1,6 +1,8 @@
 import { applyMiddleware, createStore } from 'redux';
 import { Router, Scene, Stack } from 'react-native-router-flux';
 import {createLogger} from 'redux-logger';
+import CreateAccountScreenContainer from 
+    './components/CreateAccountScreenContainer';
 import EventDetailScreenContainer from
     './components/EventDetailsScreenContainer';
 import EventScreen from './components/EventScreen';
@@ -32,11 +34,17 @@ class MainPage extends React.Component {
                     <Scene key="root"
                         hideNavBar={true}
                     >
-                        <Scene key="loginScreen"
-                            component={LoginScreenContainer}
-                            animation='fade'
-                            initial={true}
-                        />
+                        <Stack key="loginScreenStack" >
+                            <Scene key="loginScreen"
+                                component={LoginScreenContainer}
+                                animation='fade'
+                                initial={true}
+                                hideNavBar={true}
+                            />
+                            <Scene key="createAccountScreen"
+                                component={CreateAccountScreenContainer}
+                            />
+                        </Stack>
                         <Scene tabs key="appScreen" >
                             <Scene key="profileScreen"
                                 component={ProfileScreenContainer}

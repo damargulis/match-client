@@ -36,6 +36,10 @@ class LoginScreen extends React.Component {
                     title="Login"
                     onPress={this.login.bind(this)}
                 />
+                <Button
+                    title="Create Account"
+                    onPress={this.props.createAccount}
+                />
             </View>
 
         );
