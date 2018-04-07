@@ -5,7 +5,7 @@ class MatchesScreenContainer extends React.Component {
     render() {
         return (
             <View>
-                <Text>Swipe Shit</Text>
+                <Text>Match Shit</Text>
             </View>
         );
     }

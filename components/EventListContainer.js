@@ -10,6 +10,7 @@ import React from 'react';
 
 class EventListContainer extends React.Component{
     componentDidMount() {
+        //TODO: get real location tracking back
         const query = {
             longitude: -90.295861,
             latitude: 38.650768,
