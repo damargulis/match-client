@@ -1,4 +1,4 @@
-import { EventFilters, fetchEventsIfNeeded, toggleRsvp } from '../actions';
+import { EventFilters, fetchEventsIfNeeded, toggleRsvp } from '../actions/events';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import EventList from './EventList';

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import EventFilter from './EventFilter';
-import { setEventFilter } from '../actions';
+import { setEventFilter } from '../actions/events';
 
 const mapStateToProps = (state) => {
     return {

@@ -1,4 +1,4 @@
-import { createAccount, loginIfNeeded } from '../actions';
+import { createAccount, loginIfNeeded } from '../actions/auth';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import LoginScreen from './LoginScreen';

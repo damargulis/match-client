@@ -2,7 +2,7 @@ import {
     RECEIVE_EVENTS,
     REQUEST_EVENTS,
     TOGGLE_RSVP,
-} from '../actions';
+} from '../actions/events';
 
 //function events(state = [{
 //    '_id': 1,

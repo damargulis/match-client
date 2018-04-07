@@ -2,7 +2,7 @@ import {
     LOGIN_FAILURE,
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
-} from '../actions';
+} from '../actions/auth';
 
 function user(state = {
     isFetching: false,

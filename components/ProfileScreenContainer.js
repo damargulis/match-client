@@ -14,7 +14,7 @@ class ProfileScreenContainer extends React.Component {
 
 const mapStateToProps = (state, props) => ({
     user: state.user.profile,
-})
+});
 
 const mapDispatchToProps = (dispatch, props) => ({
 

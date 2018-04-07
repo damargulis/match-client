@@ -1,7 +1,7 @@
 import { Button, Image, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import React from 'react';
-import { toggleRsvp } from '../actions';
+import { toggleRsvp } from '../actions/events';
 
 const picMap = {
     Concert: require('./EventScreen/concert.png'),

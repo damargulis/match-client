@@ -1,7 +1,7 @@
 import {
     EventFilters,
     SET_EVENT_FILTER,
-} from '../actions';
+} from '../actions/events';
 
 const { SHOW_ALL } = EventFilters;
 function visibilityFilter(state = SHOW_ALL, action) {

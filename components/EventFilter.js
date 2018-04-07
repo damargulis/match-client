@@ -1,5 +1,5 @@
 import { Switch, Text, View } from 'react-native';
-import { EventFilters } from '../actions';
+import { EventFilters } from '../actions/events';
 import React from 'react';
 
 class EventFilter extends React.Component {

@@ -1,8 +1,4 @@
 
-export const TOGGLE_RSVP = 'RSVP';
-export const SET_EVENT_FILTER = 'SET_EVENT_FILTER';
-export const REQUEST_EVENTS = 'REQUEST_EVENTS';
-export const RECEIVE_EVENTS = 'RECEIVE_EVENTS';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
@@ -10,24 +6,7 @@ export const CREATE_ACCOUNT_REQUEST = 'CREATE_ACCOUNT_REQUEST';
 export const CREATE_ACCOUNT_SUCCESS = 'CREATE_ACCOUNT_SUCCESS';
 export const CREATE_ACCOUNT_FAILURE = 'CREATE_ACCOUNT_FAILURE';
 
-export const EventFilters = {
-    SHOW_ALL: 'SHOW_ALL',
-    SHOW_ATTENDING: 'SHOW_ATTENDING',
-};
-
 const GLOBAL = require('./../Globals');
-
-export function toggleRsvp(eventId) {
-    return { type: TOGGLE_RSVP, eventId };
-}
-
-export function setEventFilter(filter) {
-    return { type: SET_EVENT_FILTER, filter };
-}
-
-function requestEvents(query) {
-    return { type: REQUEST_EVENTS, query };
-}
 
 function requestLogin(query) {
     return { type: LOGIN_REQUEST, query };
@@ -35,15 +14,6 @@ function requestLogin(query) {
 
 function requestCreateAccount(query) {
     return { type: CREATE_ACCOUNT_REQUEST, query };
-}
-
-function receiveEvents(query, json) {
-    return {
-        type: RECEIVE_EVENTS,
-        query,
-        events: json,
-        receivedAt: Date.now(),
-    };
 }
 
 function loginSuccess(query, json) {
@@ -74,23 +44,6 @@ function createAccountFailure(error) {
     };
 }
 
-function fetchEvents(query) {
-    return function (dispatch) {
-        dispatch(requestEvents(query));
-        return fetch(GLOBAL.BASE_URL
-            + '/event?long='
-            + query.longitude
-            + '&lat='
-            + query.latitude
-            + '&maxDist='
-            + query.interestsDistance
-        ).then(response => response.json())
-        .then((json) => {
-            dispatch(receiveEvents(query, json));
-        });
-    };
-}
-
 function login(query) {
     return function (dispatch) {
         dispatch(requestLogin(query));
@@ -117,31 +70,12 @@ function createAccount(query) {
     return;
 }
 
-function shouldFetchEvents(state) {
-    if(state.events.isFetching) {
-        return false;
-    } else if(state.events.items.length > 0){
-        return false;
-    }
-    return true;
-}
-
 function shouldLogin(state) {
     if(state.user.isFetching) {
         return false;
     } else {
         return !state.user.profile;
     }
-}
-
-export function fetchEventsIfNeeded(query) {
-    return (dispatch, getState) => {
-        if(shouldFetchEvents(getState(), query)){
-            return dispatch(fetchEvents(query));
-        } else {
-            return Promise.resolve();
-        }
-    };
 }
 
 export function loginIfNeeded(query) {
