@@ -1,7 +1,6 @@
-import {Text, View} from 'react-native';
-import React from 'react';
-import ProfileScreen from './ProfileScreen';
 import { connect } from 'react-redux';
+import ProfileScreen from './ProfileScreen';
+import React from 'react';
 
 class ProfileScreenContainer extends React.Component {
     render() {

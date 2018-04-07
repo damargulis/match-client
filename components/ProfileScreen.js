@@ -1,5 +1,5 @@
-import React from 'react';
 import { Button, Text, View } from 'react-native';
+import React from 'react';
 
 class ProfileScreen extends React.Component {
     render() {
@@ -14,7 +14,9 @@ class ProfileScreen extends React.Component {
                 <Text>Gender: {user.gender}</Text>
                 <Text>Interested In: {user.interestsGender}</Text>
                 <Text>Maximum Distance: {user.interestsDistance}</Text>
-                <Text>Age Range: {user.interestsAgeMin}-{user.interestsAgeMax}</Text>
+                <Text>Age Range: {
+                    user.interestsAgeMin}-{user.interestsAgeMax
+                }</Text>
                 <Button title="Log Out" onClick={logout} />
             </View>
         );
