@@ -16,7 +16,7 @@ class LoginScreenContainer extends React.Component {
         login(query).then(() => {
             Actions.appScreen();
         }).catch((error) => {
-            this.setState({errorMessage: error.message})
+            this.setState({errorMessage: error.message});
         });
     }
 
