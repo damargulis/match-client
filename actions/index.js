@@ -50,7 +50,7 @@ function fetchEvents(query) {
 }
 
 function shouldFetchEvents(state) {
-    if(state.isFetching) {
+    if(state.events.isFetching) {
         return false;
     } else if(state.events.items.length > 0){
         return false;
