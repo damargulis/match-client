@@ -1,10 +1,8 @@
-import {Text, View} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
+import { editInfoIfNeeded } from '../actions/user';
 import EditInfoScreen from './EditInfoScreen';
 import React from 'react';
-
-import { editInfoIfNeeded } from '../actions/user';
 
 class EditInfoScreenContainer extends React.Component {
     save(query) {
@@ -16,12 +14,12 @@ class EditInfoScreenContainer extends React.Component {
 
     render() {
         return (
-            <EditInfoScreen 
-                original={this.props.original} 
+            <EditInfoScreen
+                original={this.props.original}
                 cancel={() => Actions.pop()}
                 save={(query) => this.save(query)}
             />
-        )
+        );
     }
 }
 
@@ -30,7 +28,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    save: (query) => dispatch(editInfoIfNeeded(query))
+    save: (query) => dispatch(editInfoIfNeeded(query)),
 });
 
 export default connect(

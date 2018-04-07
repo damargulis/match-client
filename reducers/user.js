@@ -8,12 +8,12 @@ import {
     LOGOUT,
 } from '../actions/auth';
 import {
+    EDIT_INFO_FAILURE,
+    EDIT_INFO_REQUEST,
+    EDIT_INFO_SUCCESS,
     FETCH_PHOTOS_FAILURE,
     FETCH_PHOTOS_REQUEST,
     FETCH_PHOTOS_SUCCESS,
-    EDIT_INFO_REQUEST,
-    EDIT_INFO_SUCCESS,
-    EDIT_INFO_FAILURE,
 } from '../actions/user';
 
 function user(state = {
@@ -78,11 +78,9 @@ function user(state = {
         });
     case EDIT_INFO_REQUEST:
         return Object.assign({}, state, {
-            isFetching: true
+            isFetching: true,
         });
     case EDIT_INFO_SUCCESS:
-        console.log('edit info success');
-        console.log(state, action);
         return Object.assign({}, state, {
             isFetching: false,
             profile: Object.assign({}, state.profile, action.data),

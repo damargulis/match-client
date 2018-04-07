@@ -26,7 +26,7 @@ function editInfoSuccess(query, data) {
     return {
         type: EDIT_INFO_SUCCESS,
         data: data.profile,
-    }
+    };
 }
 
 function requestPhotosFailure(error) {
@@ -40,7 +40,7 @@ function editInfoFailure(error) {
     return {
         type: EDIT_INFO_FAILURE,
         message: error.message,
-    }
+    };
 }
 
 function fetchPhoto(query) {
@@ -65,7 +65,7 @@ function editInfo(query) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                profile: query
+                profile: query,
             }),
         }).then((response) => response.json(),
             error => dispatch(editInfoFailure(error))
@@ -76,7 +76,7 @@ function editInfo(query) {
                 dispatch(editInfoFailure(response));
             }
         });
-    }
+    };
 }
 
 function shouldFetchPhoto(state) {
@@ -112,5 +112,5 @@ export function editInfoIfNeeded(query) {
         } else {
             return Promise.resolve();
         }
-    }
+    };
 }

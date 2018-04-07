@@ -1,17 +1,16 @@
 import {
     Button,
     Picker,
+    ScrollView,
     Slider,
     Text,
     TextInput,
-    ScrollView,
 } from 'react-native';
 import React from 'react';
 
 class EditInfoScreen extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props);
         const {
             _id,
             firstName,
