@@ -3,7 +3,7 @@ import { Router, Scene, Stack } from 'react-native-router-flux';
 import {createLogger} from 'redux-logger';
 import EventDetailScreenContainer from
     './components/EventDetailsScreenContainer';
-import EventScreenNew from './components/EventScreenNew';
+import EventScreen from './components/EventScreen';
 import LoginScreenContainer from './components/LoginScreenContainer';
 import MatchesScreenContainer from './components/MatchesScreenContainer';
 import ProfileScreenContainer from './components/ProfileScreenContainer';
@@ -44,7 +44,7 @@ class MainPage extends React.Component {
                             />
                             <Stack key="eventScreen" initial={true}>
                                 <Scene
-                                    component={EventScreenNew}
+                                    component={EventScreen}
                                     animation='fade'
                                     hideNavBar={true}
                                     initial={true}
