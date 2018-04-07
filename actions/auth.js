@@ -92,7 +92,7 @@ function createAccount(query) {
                 dispatch(createAccountSuccess(query, json));
             } else {
                 dispatch(createAccountFailure(json));
-                return Promise.reject();
+                return Promise.reject(json);
             }
         });
     };

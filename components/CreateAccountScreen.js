@@ -98,6 +98,7 @@ class CreateAccountScreen extends React.Component {
                         (val) => this.setState({interestsAgeMax: val})
                     }
                 />
+                <Text style={{color: 'red'}}>{this.props.errorMessage}</Text>
                 <Button
                     title="Create"
                     onPress={() => this.props.createAccount(this.state)}

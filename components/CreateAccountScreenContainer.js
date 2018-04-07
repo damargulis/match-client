@@ -5,11 +5,17 @@ import CreateAccountScreen from './CreateAccountScreen';
 import React from 'react';
 
 class CreateAccountScreenContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        };
+    }
+
     createAccount(query) {
         this.props.createAccount(query).then(() => {
             Actions.appScreen();
         }).catch((error) => {
-            console.log(error);
+            this.setState({errorMessage: error.message});
         });
     }
 
@@ -18,6 +24,7 @@ class CreateAccountScreenContainer extends React.Component {
             <CreateAccountScreen
                 createAccount={this.createAccount.bind(this)}
                 cancel={() => Actions.pop()}
+                errorMessage={this.state.errorMessage}
             />
         );
     }
