@@ -79,8 +79,8 @@ export function logout() {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             },
-        })
-    }
+        });
+    };
 }
 
 function createAccount(query) {

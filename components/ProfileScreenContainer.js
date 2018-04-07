@@ -1,9 +1,8 @@
+import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
+import { logout } from '../actions/auth';
 import ProfileScreen from './ProfileScreen';
 import React from 'react';
-import { logout } from '../actions/auth';
-import { Actions } from 'react-native-router-flux';
-
 
 class ProfileScreenContainer extends React.Component {
     logout() {
@@ -19,11 +18,11 @@ class ProfileScreenContainer extends React.Component {
     }
 }
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = (state) => ({
     user: state.user.profile ? state.user.profile : {},
 });
 
-const mapDispatchToProps = (dispatch, props) => ({
+const mapDispatchToProps = (dispatch) => ({
     logout: () => dispatch(logout()),
 });
 
