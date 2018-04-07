@@ -1,16 +1,5 @@
-import {
-    AsyncStorage,
-    Button,
-    Modal,
-    Text,
-    TextInput,
-    View,
-} from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import CreateAccount from './CreateAccount';
 import React from 'react';
-
-const GLOBAL = require('./../Globals');
+import { Button, View, Text, TextInput } from 'react-native';
 
 class LoginScreen extends React.Component {
     constructor(props) {
@@ -18,56 +7,14 @@ class LoginScreen extends React.Component {
         this.state = {
             username: '',
             password: '',
-            showWarning: false,
-            createAccount: false,
-        };
-    }
-
-    closeModal() {
-        this.setState({
-            createAccount: false,
-        });
-    }
-
-    createAccount() {
-        this.setState({
-            createAccount: true,
-        });
+        }
     }
 
     login() {
-        fetch(GLOBAL.BASE_URL + '/auth/login', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password,
-            }),
-        })
-        .then((response) => response.json())
-        .then(async (response) => {
-            if(response.success){
-                await AsyncStorage.setItem('userId',
-                    response.userId.toString()
-                );
-                Actions.appScreen({user: response.user});
-            } else{
-                this.setState({
-                    showWarning: true,
-                });
-            }
+        this.props.login({
+            username: this.state.username,
+            password: this.state.password
         });
-    }
-
-    showWarning() {
-        if(this.state.showWarning) {
-            return ( <Text>Login Failed</Text> );
-        } else{
-            return null;
-        }
     }
 
     render() {
@@ -85,26 +32,13 @@ class LoginScreen extends React.Component {
                     onChangeText={(password) => this.setState({password})}
                     secureTextEntry={true}
                 />
-                { this.showWarning() }
                 <Button
                     title="Login"
                     onPress={this.login.bind(this)}
                 />
-                <Button
-                    title="Create Account"
-                    onPress={this.createAccount.bind(this)}
-                />
-                <Modal
-                    visible={this.state.createAccount}
-                    animationType={'slide'}
-                    onRequestClose={() => this.closeModal()}
-                >
-                    <CreateAccount
-                        closeModal={() => this.closeModal()}
-                    />
-                </Modal>
             </View>
-        );
+
+        )
     }
 }
 

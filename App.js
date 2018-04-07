@@ -4,7 +4,7 @@ import {createLogger} from 'redux-logger';
 import EventDetailScreenContainer from
     './components/EventDetailsScreenContainer';
 import EventScreenNew from './components/EventScreenNew';
-import LoginScreen from './components/LoginScreen';
+import LoginScreenContainer from './components/LoginScreenContainer';
 import { Provider } from 'react-redux';
 import React from 'react';
 //import Root from './components/Root';
@@ -32,9 +32,8 @@ class MainPage extends React.Component {
                         hideNavBar={true}
                     >
                         <Scene key="loginScreen"
-                            component={LoginScreen}
+                            component={LoginScreenContainer}
                             animation='fade'
-                            hideNavBar={true}
                             initiail={true}
                         />
                         <Stack>
