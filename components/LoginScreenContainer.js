@@ -5,12 +5,18 @@ import LoginScreen from './LoginScreen';
 import React from 'react';
 
 class LoginScreenContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        };
+    }
+
     login(query) {
         const {login} = this.props;
         login(query).then(() => {
             Actions.appScreen();
         }).catch((error) => {
-            console.log(error);
+            this.setState({errorMessage: error.message})
         });
     }
 
@@ -23,6 +29,7 @@ class LoginScreenContainer extends React.Component {
             <LoginScreen
                 login={this.login.bind(this)}
                 createAccount={this.createAccount.bind(this)}
+                errorMessage={this.state.errorMessage}
             />
         );
     }

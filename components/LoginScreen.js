@@ -14,7 +14,7 @@ class LoginScreen extends React.Component {
         this.props.login({
             username: this.state.username,
             password: this.state.password,
-        });
+        })
     }
 
     render() {
@@ -32,6 +32,7 @@ class LoginScreen extends React.Component {
                     onChangeText={(password) => this.setState({password})}
                     secureTextEntry={true}
                 />
+                <Text style={{color: 'red'}}>{this.props.errorMessage}</Text>
                 <Button
                     title="Login"
                     onPress={this.login.bind(this)}

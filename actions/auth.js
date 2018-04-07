@@ -68,7 +68,7 @@ function login(query) {
                 dispatch(loginSuccess(query, json));
             } else {
                 dispatch(loginFailure(json));
-                return Promise.reject();
+                return Promise.reject(json);
             }
         });
     };
