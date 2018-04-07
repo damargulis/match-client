@@ -1,8 +1,8 @@
 import { EventFilters, fetchEventsIfNeeded, toggleRsvp } from '../actions';
+import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import EventList from './EventList';
 import React from 'react';
-import { Actions } from 'react-native-router-flux';
 
 class EventListContainer extends React.Component{
     componentDidMount() {

@@ -1,7 +1,7 @@
-import React from 'react';
-import { Button, Image, Text, View }  from 'react-native';
-import { toggleRsvp } from '../actions';
+import { Button, Image, Text, View } from 'react-native';
 import { connect } from 'react-redux';
+import React from 'react';
+import { toggleRsvp } from '../actions';
 
 const picMap = {
     Concert: require('./EventScreen/concert.png'),
@@ -42,16 +42,16 @@ class EventDetailsScreenContainer extends React.Component {
                     title={event.attending ? 'Cancel' : 'RSVP'}
                     onPress={toggleRsvp}
                 />
-                
+
             </View>
-        )
+        );
     }
 }
 
 ///THIS IS JUST TEMP
 //(for real fix this shit)
 function getEventById(events, eventId) {
-    let event = events.filter((evt) => (evt._id === eventId))[0];
+    const event = events.filter((evt) => (evt._id === eventId))[0];
     return event;
 }
 
