@@ -2,7 +2,7 @@ import { SectionList, Text, View } from 'react-native';
 import EventListItem from './EventListItem';
 import React from 'react';
 
-const EventList = ({ events, toggleRsvp }) => {
+const EventList = ({ events, toggleRsvp, gotoDetails }) => {
     return (
         <View style={{flex: 10}} >
             <SectionList
@@ -15,7 +15,7 @@ const EventList = ({ events, toggleRsvp }) => {
                         return(
                             <EventListItem
                                 {...item}
-                                onClick={() => toggleRsvp(item._id)}
+                                onClick={() => gotoDetails({eventId: item._id})}
                             />
                         );
                     }

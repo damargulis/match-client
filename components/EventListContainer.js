@@ -2,6 +2,7 @@ import { EventFilters, fetchEventsIfNeeded, toggleRsvp } from '../actions';
 import { connect } from 'react-redux';
 import EventList from './EventList';
 import React from 'react';
+import { Actions } from 'react-native-router-flux';
 
 class EventListContainer extends React.Component{
     componentDidMount() {
@@ -18,6 +19,7 @@ class EventListContainer extends React.Component{
             <EventList
                 events={this.props.events}
                 toggleRsvp={this.props.toggleRsvp}
+                gotoDetails={Actions.eventDetailScreen}
             />
         );
     }

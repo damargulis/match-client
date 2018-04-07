@@ -1,5 +1,5 @@
 import { applyMiddleware, createStore } from 'redux';
-import { Router, Scene } from 'react-native-router-flux';
+import { Router, Scene, Stack } from 'react-native-router-flux';
 import {createLogger} from 'redux-logger';
 import EventScreenNew from './components/EventScreenNew';
 import LoginScreen from './components/LoginScreen';
@@ -10,6 +10,8 @@ import React from 'react';
 import rootReducer from './reducers';
 
 import thunkMiddleware from 'redux-thunk';
+
+import EventDetailScreenContainer from './components/EventDetailsScreenContainer';
 
 const loggerMiddleware = createLogger();
 
@@ -26,18 +28,26 @@ class MainPage extends React.Component {
         return (
             <Provider store={store} >
                 <Router>
-                    <Scene key="root">
+                    <Scene key="root"
+                        hideNavBar={true}
+                    >
                         <Scene key="loginScreen"
                             component={LoginScreen}
                             animation='fade'
                             hideNavBar={true}
                             initiail={true}
                         />
-                        <Scene key="appScreen"
-                            component={EventScreenNew}
-                            animation='fade'
-                            hideNavBar={true}
-                        />
+                        <Stack>
+                            <Scene key="appScreen"
+                                component={EventScreenNew}
+                                animation='fade'
+                                hideNavBar={true}
+                            />
+                            <Scene key="eventDetailScreen"
+                                component={EventDetailScreenContainer}
+                                animation='fade'
+                            />
+                        </Stack>
                     </Scene>
                 </Router>
             </Provider>
