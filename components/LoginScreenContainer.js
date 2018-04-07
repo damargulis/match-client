@@ -1,14 +1,13 @@
-import { createAccount, loginIfNeeded } from '../actions/auth';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
+import { loginIfNeeded } from '../actions/auth';
 import LoginScreen from './LoginScreen';
 import React from 'react';
 
 class LoginScreenContainer extends React.Component {
     login(query) {
         const {login} = this.props;
-        login(query).then((response) => {
-            console.log(response);
+        login(query).then(() => {
             Actions.appScreen();
         }).catch((error) => {
             console.log(error);

@@ -1,13 +1,12 @@
-import { Text, View } from 'react-native';
-import React from 'react';
-import CreateAccountScreen from './CreateAccountScreen';
-import { attemptCreateAccount } from '../actions/auth';
 import { Actions } from 'react-native-router-flux';
+import { attemptCreateAccount } from '../actions/auth';
 import { connect } from 'react-redux';
+import CreateAccountScreen from './CreateAccountScreen';
+import React from 'react';
 
 class CreateAccountScreenContainer extends React.Component {
     createAccount(query) {
-        this.props.createAccount(query).then((resposne) => {
+        this.props.createAccount(query).then(() => {
             Actions.appScreen();
         }).catch((error) => {
             console.log(error);
@@ -16,7 +15,7 @@ class CreateAccountScreenContainer extends React.Component {
 
     render() {
         return (
-            <CreateAccountScreen 
+            <CreateAccountScreen
                 createAccount={this.createAccount.bind(this)}
                 cancel={() => Actions.pop()}
             />
@@ -24,11 +23,11 @@ class CreateAccountScreenContainer extends React.Component {
     }
 }
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = () => ({
 
 });
 
-const mapDispatchToProps = (dispatch, props) => ({
+const mapDispatchToProps = (dispatch) => ({
     createAccount: (query) => dispatch(attemptCreateAccount(query)),
 });
 

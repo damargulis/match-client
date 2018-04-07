@@ -95,7 +95,7 @@ function createAccount(query) {
                 return Promise.reject();
             }
         });
-    }
+    };
 }
 
 export function logout() {

@@ -107,7 +107,7 @@ class CreateAccountScreen extends React.Component {
                     onPress={() => this.props.cancel()}
                 />
             </ScrollView>
-        )
+        );
     }
 }
 
