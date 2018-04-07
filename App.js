@@ -1,8 +1,8 @@
 import { applyMiddleware, createStore } from 'redux';
 import { Router, Scene, Stack } from 'react-native-router-flux';
-import {createLogger} from 'redux-logger';
-import CreateAccountScreenContainer from 
+import CreateAccountScreenContainer from
     './components/CreateAccountScreenContainer';
+import {createLogger} from 'redux-logger';
 import EventDetailScreenContainer from
     './components/EventDetailsScreenContainer';
 import EventScreen from './components/EventScreen';

@@ -1,5 +1,5 @@
+import { Text, View } from 'react-native';
 import React from 'react';
-import { View, Text } from 'react-native';
 
 class CreateAccountScreenContainer extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class CreateAccountScreenContainer extends React.Component {
             <View>
                 <Text>Create Account</Text>
             </View>
-        )
+        );
     }
 }
 

@@ -18,7 +18,10 @@ class LoginScreenContainer extends React.Component {
 
     render() {
         return (
-            <LoginScreen login={this.login.bind(this)} createAccount={this.createAccount.bind(this)}/>
+            <LoginScreen
+                login={this.login.bind(this)}
+                createAccount={this.createAccount.bind(this)}
+            />
         );
     }
 }
