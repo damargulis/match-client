@@ -35,7 +35,6 @@ function shouldLoadUser(state, userId) {
 
 export function loadUserById(userId) {
     return (dispatch, getState) => {
-        console.log('loaduserbyid');
         if(shouldLoadUser(getState(), userId)){
             return dispatch(fetchUser(userId));
         } else {
