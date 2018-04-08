@@ -1,3 +1,4 @@
+import {receiveUser} from './users';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -66,6 +67,7 @@ function login(query) {
         ).then((json) => {
             if(json.success) {
                 dispatch(loginSuccess(query, json));
+                dispatch(receiveUser(json.user._id, json.user));
             } else {
                 dispatch(loginFailure(json));
                 return Promise.reject(json);
@@ -90,6 +92,7 @@ function createAccount(query) {
         ).then((json) => {
             if(json.success) {
                 dispatch(createAccountSuccess(query, json));
+                dispatch(receiveUser(json._id, json));
             } else {
                 dispatch(createAccountFailure(json));
                 return Promise.reject(json);
@@ -112,19 +115,11 @@ export function logout() {
 }
 
 function shouldLogin(state) {
-    if(state.user.isFetching) {
-        return false;
-    } else {
-        return !state.user.profile;
-    }
+    return !state.auth.isFetching;
 }
 
 function shouldCreateAccount(state) {
-    if(state.user.isFetching) {
-        return false;
-    } else {
-        return !state.user.profile;
-    }
+    return !state.auth.isFetching;
 }
 
 export function loginIfNeeded(query) {

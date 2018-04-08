@@ -3,7 +3,8 @@ import React from 'react';
 
 class ProfileScreen extends React.Component {
     render() {
-        const { user, logout, editInfo } = this.props;
+        const { user, logout, editInfo, photo } = this.props;
+        console.log(photo);
         return (
             <View
                 style={{
@@ -13,7 +14,7 @@ class ProfileScreen extends React.Component {
                 }}
             >
                 <Image
-                    source={{uri: user.photoData}}
+                    source={{uri: photo}}
                     style={{flex: 1, height: 400, width: 400}}
                 />
                 <Text>Profile Screen</Text>

@@ -1,14 +1,14 @@
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import { fetchPhotoIfNeeded } from '../actions/user';
 import { logout } from '../actions/auth';
 import ProfileScreen from './ProfileScreen';
 import React from 'react';
+import { fetchPhotoIfNeeded } from '../actions/photos';
 
 class ProfileScreenContainer extends React.Component {
     componentDidMount() {
-        this.props.fetchPhotoIfNeeded({
-            photoId: this.props.user.photos[0],
+        this.props.fetchPhoto({
+            photoId: this.props.photoId,
         });
     }
 
@@ -23,24 +23,33 @@ class ProfileScreenContainer extends React.Component {
     }
 
     render() {
-        const { user } = this.props;
+        const { user, photo } = this.props;
         return (
             <ProfileScreen
                 user={user}
                 logout={this.logout.bind(this)}
                 editInfo={this.editInfo.bind(this)}
+                photo={photo}
             />
         );
     }
 }
 
-const mapStateToProps = (state) => ({
-    user: state.user.profile ? state.user.profile : {},
-});
+const mapStateToProps = (state) => {
+    let user = state.users[state.auth.userId] || {};
+    let photos = user.photos || [];
+    let photoId = photos[0];
+    let photoData = state.photos[photoId] || {};
+    return {
+        user: state.users[state.auth.userId] || {},
+        photoId: photoId,
+        photo: photoData.data,
+    }
+};
 
 const mapDispatchToProps = (dispatch) => ({
     logout: () => dispatch(logout()),
-    fetchPhotoIfNeeded: (query) => dispatch(fetchPhotoIfNeeded(query)),
+    fetchPhoto: (query) => dispatch(fetchPhotoIfNeeded(query)),
 });
 
 export default connect(

@@ -22,9 +22,9 @@ class SwipeScreenContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        nextSwipeId: state.users.nextSwipe,
-        userId: state.user && state.user.profile && state.user.profile._id,
-        nextSwipe: state.users.usersById[state.users.nextSwipe],
+        nextSwipeId: state.nextSwipe,
+        userId: state.auth.userId,
+        nextSwipe: state.users[state.nextSwipe],
     };
 };
 

@@ -48,11 +48,10 @@ const getEvents = (events, filter, userId) => {
 };
 
 const mapStateToProps = state => {
-    const userId = state.user.profile ? state.user.profile.userId : undefined;
     return {events: getEvents(
         state.events,
         state.visibilityFilter,
-        userId
+        state.auth.userId,
     )};
 };
 

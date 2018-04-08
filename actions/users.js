@@ -22,7 +22,9 @@ function requestUser(userId) {
     return { type: USER_REQUEST, userId };
 }
 
-function receiveUser(userId, json) {
+export function receiveUser(userId, json) {
+    console.log('receive User');
+    console.log(userId, json);
     return {
         type: USER_SUCCESS,
         userId,
@@ -73,7 +75,7 @@ function shouldFetchSwipeDeck(state) {
     if(state.users.isFetchingSwipeDeck) {
         return false;
     } else {
-        return state.users.swipeDeck.length === 0;
+        return state.swipeDeck.length === 0;
     }
 }
 

@@ -7,34 +7,21 @@ import {
 } from '../actions/users';
 
 function users(state={
-    swipeDeck: [],
-    usersById: {},
-    isFetching: false,
 }, action) {
     switch(action.type) {
-    case FETCH_SWIPE_DECK_REQUEST:
-        return Object.assign({}, state, {
-            isFetchingSwipeDeck: true,
-        });
-    case FETCH_SWIPE_DECK_SUCCESS:
-        return Object.assign({}, state, {
-            isFetchingSwipeDeck: false,
-            swipeDeck: action.data.swipeDeck,
-        });
-    case GET_NEXT_SWIPE:{
-        const swipeDeck = state.swipeDeck.slice();
-        const nextSwipe = swipeDeck.shift();
-        return Object.assign({}, state, {
-            nextSwipe: nextSwipe,
-            swipeDeck: swipeDeck,
-        });
-    }
     case USER_REQUEST:
-        return state;
-    case USER_SUCCESS:
         return Object.assign({}, state, {
-            usersById: Object.assign({}, state.usersById, {
-                [action.userId]: action.json,
+            [action.userId]: Object.assign({}, state[action.userId], {
+                isFetching: true,
+            }),
+        });
+    case USER_SUCCESS:
+        console.log('user success');
+        console.log(state, action);
+        return Object.assign({}, state, {
+            [action.userId]: Object.assign({}, state[action.userId], {
+                isFetching: false,
+                ...action.json
             }),
         });
     default:
