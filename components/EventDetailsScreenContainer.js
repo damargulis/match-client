@@ -22,7 +22,7 @@ class EventDetailsScreenContainer extends React.Component {
                     onPress={() => this.props.toggleRsvp({
                         userId: userId,
                         eventId: event._id,
-                        attending: attending
+                        attending: attending,
                     })}
                 />
 
