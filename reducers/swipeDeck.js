@@ -2,7 +2,7 @@ import {
     FETCH_SWIPE_DECK_REQUEST,
     FETCH_SWIPE_DECK_SUCCESS,
     GET_NEXT_SWIPE,
-} from '../actions/users';
+} from '../actions/swipeDeck';
 
 function swipeDeck(state={
     isFetching: false,
@@ -17,7 +17,7 @@ function swipeDeck(state={
     case FETCH_SWIPE_DECK_SUCCESS:
         return Object.assign({}, state, {
             isFetching: false,
-            items: action.data,
+            items: action.data.swipeDeck,
         });
     case GET_NEXT_SWIPE:
         return Object.assign({}, state, {

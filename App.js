@@ -60,7 +60,11 @@ class MainPage extends React.Component {
                                 />
                             </Stack>
 
-                            <Stack key="eventScreen" initial={true} title="Events">
+                            <Stack
+                                key="eventScreen"
+                                initial={true}
+                                title="Events"
+                            >
                                 <Scene
                                     component={EventScreen}
                                     animation='fade'

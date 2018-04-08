@@ -1,12 +1,14 @@
-import { fetchSwipeDeckIfNeeded, getNextSwipe } from '../actions/users';
+import { fetchSwipeDeckIfNeeded, getNextSwipe } from '../actions/swipeDeck';
 import { connect } from 'react-redux';
 import React from 'react';
 import SwipeScreen from './SwipeScreen';
 
 class SwipeScreenContainer extends React.Component {
     componentDidMount() {
+        console.log('here1');
         this.props.fetchSwipeDeck({userId: this.props.userId})
         .then(() => {
+            console.log('getting next swipe');
             return this.props.getNextSwipe();
         }).then(() => {
             return this.props.loadNextIfNeeded();
@@ -14,6 +16,8 @@ class SwipeScreenContainer extends React.Component {
     }
 
     render() {
+        console.log('render swipescreen');
+        console.log(this.props);
         return (
             <SwipeScreen nextSwipe={this.props.nextSwipe} />
         );
@@ -22,9 +26,9 @@ class SwipeScreenContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        nextSwipeId: state.nextSwipe,
+        nextSwipeId: state.swipeDeck.nextSwipe,
         userId: state.auth.userId,
-        nextSwipe: state.users[state.nextSwipe],
+        nextSwipe: state.users[state.swipeDeck.nextSwipe],
     };
 };
 
