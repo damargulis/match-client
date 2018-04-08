@@ -2,6 +2,8 @@ import {
     FETCH_SWIPE_DECK_REQUEST,
     FETCH_SWIPE_DECK_SUCCESS,
     GET_NEXT_SWIPE,
+    SWIPE_REQUEST,
+    SWIPE_SUCCESS,
 } from '../actions/swipeDeck';
 
 function swipeDeck(state={
@@ -24,6 +26,12 @@ function swipeDeck(state={
             items: state.items.slice(1),
             nextSwipe: state.items[0],
         });
+    case SWIPE_REQUEST:
+        return Object.assign({}, state, {
+            nextSwipe: undefined,
+        });
+    case SWIPE_SUCCESS:
+        return state
     default:
         return state;
     }

@@ -1,4 +1,8 @@
-import { fetchSwipeDeckIfNeeded, getNextSwipe } from '../actions/swipeDeck';
+import { 
+    fetchSwipeDeckIfNeeded, 
+    getNextSwipe, 
+    sendSwipe 
+} from '../actions/swipeDeck';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { fetchPhotoIfNeeded } from '../actions/photos';
@@ -20,6 +24,23 @@ class SwipeScreenContainer extends React.Component {
         });
     }
 
+    swipe(like) {
+        console.log('here2');
+        this.props.swipe({
+            userId: this.props.userId,
+            swipeId: this.props.nextSwipeId,
+            liked: like
+        }).then(() => {
+            return this.props.getNextSwipe();
+        }).then(() => {
+            return this.props.loadUser(this.props.nextSwipeId);
+        }).then(() => {
+            return this.props.getPhoto({
+                photoId: this.props.nextSwipe.photos[0],
+            });
+        });
+    }
+
     render() {
         return (
             <SwipeScreen
@@ -30,6 +51,7 @@ class SwipeScreenContainer extends React.Component {
                     })
                 }
                 nextSwipePhoto={this.props.nextSwipePhoto}
+                swipe={this.swipe.bind(this)}
             />
         );
     }
@@ -52,6 +74,7 @@ const mapDispatchToProps = (dispatch) => ({
     getNextSwipe: () => dispatch(getNextSwipe()),
     loadUser: (swipeId) => dispatch(loadUserById(swipeId)),
     getPhoto: (query) => dispatch(fetchPhotoIfNeeded(query)),
+    swipe: (query) => dispatch(sendSwipe(query))
 });
 
 export default connect(

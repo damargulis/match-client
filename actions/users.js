@@ -30,7 +30,10 @@ function fetchUser(userId) {
 }
 
 function shouldLoadUser(state, userId) {
-    return !state.users[userId];
+    if(userId) {
+        return !state.users[userId];
+    }
+    return false;
 }
 
 export function loadUserById(userId) {
