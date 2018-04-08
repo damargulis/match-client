@@ -15,7 +15,7 @@ class SwipeScreenContainer extends React.Component {
 
     render() {
         return (
-            <SwipeScreen />
+            <SwipeScreen nextSwipe={this.props.nextSwipe} />
         );
     }
 }

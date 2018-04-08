@@ -13,13 +13,14 @@ class SwipeScreen extends React.Component {
     }
 
     render() {
+        const user = this.props.nextSwipe ? this.props.nextSwipe : {};
         return (
             <View>
                 <View
                     style={{height: 300, width: 300}}
                 >
-                    <Text>Name</Text>
-                    <Text>School</Text>
+                    <Text>{user.firstName}</Text>
+                    <Text>{user.school}</Text>
                     <Image
                         stlye={{height: 290, width: 290}}
                         source={{uri: undefined }}
