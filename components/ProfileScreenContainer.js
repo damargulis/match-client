@@ -7,9 +7,11 @@ import React from 'react';
 
 class ProfileScreenContainer extends React.Component {
     componentDidMount() {
-        this.props.fetchPhoto({
-            photoId: this.props.photoId,
-        });
+        if(this.props.photoId) {
+            this.props.fetchPhoto({
+                photoId: this.props.photoId,
+            });
+        }
     }
 
     logout() {
