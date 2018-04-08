@@ -2,8 +2,6 @@ export const FETCH_SWIPE_DECK_REQUEST = 'FETCH_SWIPE_DECK_REQUEST';
 export const FETCH_SWIPE_DECK_SUCCESS = 'FETCH_SWIPE_DECK_SUCCESS';
 export const GET_NEXT_SWIPE = 'GET_NEXT_SWIPE';
 
-import { loadUserById } from './users';
-
 const GLOBAL = require('./../Globals');
 
 function requestSwipeDeck(query) {
@@ -24,10 +22,7 @@ function fetchSwipeDeck(query) {
         return fetch(GLOBAL.BASE_URL + '/swipe/possibleMatches/' + query.userId)
         .then((response) => response.json())
         .then((data) => {
-            dispatch(requestSwipeDeckSuccess(query, data));
-            data.swipeDeck.map((userId) => {
-                dispatch(loadUserById(userId));
-            });
+            return dispatch(requestSwipeDeckSuccess(query, data));
         });
     };
 }

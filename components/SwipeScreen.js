@@ -7,13 +7,12 @@ import {
 import React from 'react';
 
 class SwipeScreen extends React.Component {
-    goToDetails() {
-    }
     swipe() {
     }
 
     render() {
         const user = this.props.nextSwipe ? this.props.nextSwipe : {};
+        console.log('render', this.props.nextSwipePhoto);
         return (
             <View>
                 <View
@@ -22,8 +21,8 @@ class SwipeScreen extends React.Component {
                     <Text>{user.firstName}</Text>
                     <Text>{user.school}</Text>
                     <Image
-                        stlye={{height: 290, width: 290}}
-                        source={{uri: undefined }}
+                        style={{height: 290, width: 290}}
+                        source={{uri: this.props.nextSwipePhoto }}
                     />
                 </View>
                 <Button
