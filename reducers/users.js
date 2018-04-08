@@ -1,9 +1,9 @@
 import {
-    USER_REQUEST,
-    USER_SUCCESS,
+    EDIT_INFO_FAILURE,
     EDIT_INFO_REQUEST,
     EDIT_INFO_SUCCESS,
-    EDIT_INFO_FAILURE,
+    USER_REQUEST,
+    USER_SUCCESS,
 } from '../actions/users';
 
 function users(state={

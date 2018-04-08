@@ -146,7 +146,7 @@ function editInfo(query) {
 }
 
 function shouldEditInfo(state, query) {
-    let user = state.users[query._id] || {};
+    const user = state.users[query._id] || {};
     return !user.isFetching;
 }
 
