@@ -36,7 +36,7 @@ function fetchPhoto(query) {
 }
 
 function shouldFetchPhoto(state, query) {
-    let photo = state.photos[query.photoId];
+    const photo = state.photos[query.photoId];
     if(!photo) {
         return true;
     } else if(photo.isFetching) {

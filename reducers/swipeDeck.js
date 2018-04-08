@@ -10,22 +10,22 @@ function swipeDeck(state={
     nextSwipe: undefined,
 }, action) {
     switch(action.type) {
-        case FETCH_SWIPE_DECK_REQUEST:
-            return Object.assign({}, state, {
-                isFetching: true,
-            });
-        case FETCH_SWIPE_DECK_SUCCESS:
-            return Object.assign({}, state, {
-                isFetching: false,
-                items: action.data
-            });
-        case GET_NEXT_SWIPE:
-            return Object.assign({}, state, {
-                items: state.items.slice(1),
-                nextSwipe: state.items[0]
-            });
-        default:
-            return state
+    case FETCH_SWIPE_DECK_REQUEST:
+        return Object.assign({}, state, {
+            isFetching: true,
+        });
+    case FETCH_SWIPE_DECK_SUCCESS:
+        return Object.assign({}, state, {
+            isFetching: false,
+            items: action.data,
+        });
+    case GET_NEXT_SWIPE:
+        return Object.assign({}, state, {
+            items: state.items.slice(1),
+            nextSwipe: state.items[0],
+        });
+    default:
+        return state;
     }
 }
 

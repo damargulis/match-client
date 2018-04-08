@@ -4,7 +4,6 @@ import React from 'react';
 class ProfileScreen extends React.Component {
     render() {
         const { user, logout, editInfo, photo } = this.props;
-        console.log(photo);
         return (
             <View
                 style={{

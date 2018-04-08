@@ -1,5 +1,5 @@
-import { combineReducers } from 'redux';
 import auth from './auth';
+import { combineReducers } from 'redux';
 import events from './events';
 import photos from './photos';
 import swipeDeck from './swipeDeck';

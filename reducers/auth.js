@@ -28,7 +28,7 @@ function auth(state = {
     case CREATE_ACCOUNT_SUCCESS:
         return Object.assign({}, state, {
             isFetching: false,
-            userId: action.user._id
+            userId: action.user._id,
         });
     case LOGIN_FAILURE:
         return Object.assign({}, state, {
@@ -41,7 +41,7 @@ function auth(state = {
     case LOGOUT:
         return Object.assign({}, state, {
             isFetching: false,
-            userId: undefined
+            userId: undefined,
         });
     default:
         return state;

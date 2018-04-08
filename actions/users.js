@@ -23,8 +23,6 @@ function requestUser(userId) {
 }
 
 export function receiveUser(userId, json) {
-    console.log('receive User');
-    console.log(userId, json);
     return {
         type: USER_SUCCESS,
         userId,

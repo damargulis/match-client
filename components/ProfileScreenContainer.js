@@ -1,9 +1,9 @@
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
+import { fetchPhotoIfNeeded } from '../actions/photos';
 import { logout } from '../actions/auth';
 import ProfileScreen from './ProfileScreen';
 import React from 'react';
-import { fetchPhotoIfNeeded } from '../actions/photos';
 
 class ProfileScreenContainer extends React.Component {
     componentDidMount() {
@@ -36,15 +36,15 @@ class ProfileScreenContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    let user = state.users[state.auth.userId] || {};
-    let photos = user.photos || [];
-    let photoId = photos[0];
-    let photoData = state.photos[photoId] || {};
+    const user = state.users[state.auth.userId] || {};
+    const photos = user.photos || [];
+    const photoId = photos[0];
+    const photoData = state.photos[photoId] || {};
     return {
         user: state.users[state.auth.userId] || {},
         photoId: photoId,
         photo: photoData.data,
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch) => ({
