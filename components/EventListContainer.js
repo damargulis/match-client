@@ -48,12 +48,12 @@ const getEvents = (events, filter, userId) => {
 };
 
 const mapStateToProps = state => {
-    let userId  = state.user.profile ? state.user.profile.userId : undefined;
+    const userId = state.user.profile ? state.user.profile.userId : undefined;
     return {events: getEvents(
         state.events,
         state.visibilityFilter,
         userId
-    )}
+    )};
 };
 
 const mapDispatchToProps = dispatch => ({

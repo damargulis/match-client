@@ -1,5 +1,4 @@
 import {
-    AsyncStorage,
     Button,
     Image,
     Text,
@@ -53,7 +52,7 @@ class SwipeScreen extends React.Component {
                     </View>
                 </View>
             </View>
-        )
+        );
     }
 }
 

@@ -1,9 +1,5 @@
 import {
-    Button,
     FlatList,
-    Image,
-    Text,
-    TouchableHighlight,
     View,
 } from 'react-native';
 import React from 'react';
@@ -12,8 +8,8 @@ class MatchesScreen extends React.Component {
     renderMatch(){
     }
     render() {
-        let matches = [];
-        let chats = [];
+        const matches = [];
+        const chats = [];
         return (
             <View
                 style={{
@@ -36,7 +32,7 @@ class MatchesScreen extends React.Component {
                     keyExtractor={(item, index) => index}
                 />
             </View>
-        )
+        );
     }
 }
 

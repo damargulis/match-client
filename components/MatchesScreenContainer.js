@@ -1,6 +1,6 @@
+import { connect } from 'react-redux';
 import MatchesScreen from './MatchesScreen';
 import React from 'react';
-import { connect } from 'react-redux';
 
 class MatchesScreenContainer extends React.Component {
     render() {
@@ -10,10 +10,10 @@ class MatchesScreenContainer extends React.Component {
     }
 }
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = () => ({
 });
 
-const mapDispatchToProps = (dispatch, props) => ({
+const mapDispatchToProps = () => ({
 });
 
 export default connect(

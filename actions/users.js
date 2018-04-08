@@ -14,20 +14,20 @@ function requestSwipeDeckSuccess(query, data) {
     return {
         type: FETCH_SWIPE_DECK_SUCCESS,
         query,
-        data
-    }
+        data,
+    };
 }
 
 function requestUser(userId) {
-    return { type: USER_REQUEST, userId }
+    return { type: USER_REQUEST, userId };
 }
 
 function receiveUser(userId, json) {
     return {
         type: USER_SUCCESS,
         userId,
-        json
-    }
+        json,
+    };
 }
 
 function fetchUser(userId) {
@@ -42,8 +42,6 @@ function fetchUser(userId) {
 }
 
 function shouldLoadUser(state, userId) {
-    console.log('shouldLoadUser');
-    console.log(state.users.usersById[userId]);
     return !state.users.usersById[userId];
 }
 
@@ -54,29 +52,24 @@ export function loadUserById(userId) {
         } else {
             return Promise.resolve();
         }
-    }
+    };
 }
 
 function fetchSwipeDeck(query) {
     return function (dispatch) {
-        console.log('are fetching');
-        console.log(query);
         dispatch(requestSwipeDeck(query));
         return fetch(GLOBAL.BASE_URL + '/swipe/possibleMatches/' + query.userId)
         .then((response) => response.json())
         .then((data) => {
             dispatch(requestSwipeDeckSuccess(query, data));
-            console.log('success here mapping');
-            console.log(data);
             data.swipeDeck.map((userId) => {
                 dispatch(loadUserById(userId));
-            })
+            });
         });
-    }
+    };
 }
 
 function shouldFetchSwipeDeck(state) {
-    console.log('should');
     if(state.users.isFetchingSwipeDeck) {
         return false;
     } else {
@@ -86,14 +79,12 @@ function shouldFetchSwipeDeck(state) {
 
 export function fetchSwipeDeckIfNeeded(query) {
     return (dispatch, getState) => {
-        console.log('fetch if needed');
-        console.log(query);
         if(shouldFetchSwipeDeck(getState(), query)){
             return dispatch(fetchSwipeDeck(query));
         } else {
             return Promise.resolve();
         }
-    }
+    };
 }
 
 function canGetSwipe(state) {
@@ -105,5 +96,5 @@ export function getNextSwipe() {
         if(canGetSwipe(getState())) {
             return dispatch({ type: GET_NEXT_SWIPE });
         }
-    }
+    };
 }
