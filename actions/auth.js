@@ -1,5 +1,4 @@
 import {receiveUser} from './users';
-
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
@@ -92,7 +91,7 @@ function createAccount(query) {
         ).then((json) => {
             if(json.success) {
                 dispatch(createAccountSuccess(query, json));
-                dispatch(receiveUser(json._id, json));
+                dispatch(receiveUser(json.user._id, json.user));
             } else {
                 dispatch(createAccountFailure(json));
                 return Promise.reject(json);
