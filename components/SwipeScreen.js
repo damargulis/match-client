@@ -28,7 +28,7 @@ class SwipeScreen extends React.Component {
                 </View>
                 <Button
                     title='View Details'
-                    onPress={() => this.goToDetails()}
+                    onPress={this.props.seeDetails}
                 />
                 <View style={{flexDirection: 'row'}}>
                     <View style={{flex: 1}}>

@@ -1,4 +1,5 @@
 import { fetchSwipeDeckIfNeeded, getNextSwipe } from '../actions/swipeDeck';
+import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import React from 'react';
 import SwipeScreen from './SwipeScreen';
@@ -15,7 +16,14 @@ class SwipeScreenContainer extends React.Component {
 
     render() {
         return (
-            <SwipeScreen nextSwipe={this.props.nextSwipe} />
+            <SwipeScreen
+                nextSwipe={this.props.nextSwipe}
+                seeDetails={
+                    () => Actions.userDetailScreen({
+                        userId: this.props.nextSwipeId,
+                    })
+                }
+            />
         );
     }
 }

@@ -15,8 +15,8 @@ import { Provider } from 'react-redux';
 import React from 'react';
 import rootReducer from './reducers';
 import SwipeScreenContainer from './components/SwipeScreenContainer';
-
 import thunkMiddleware from 'redux-thunk';
+import UserDetailScreenContainer from './components/UserDetailScreenContainer';
 
 const loggerMiddleware = createLogger();
 
@@ -39,7 +39,6 @@ class MainPage extends React.Component {
                         <Stack key="loginScreenStack" >
                             <Scene key="loginScreen"
                                 component={LoginScreenContainer}
-                                animation='fade'
                                 initial={true}
                                 hideNavBar={true}
                             />
@@ -67,21 +66,26 @@ class MainPage extends React.Component {
                             >
                                 <Scene
                                     component={EventScreen}
-                                    animation='fade'
                                     hideNavBar={true}
                                     initial={true}
                                 />
                                 <Scene key="eventDetailScreen"
                                     component={EventDetailScreenContainer}
-                                    animation='fade'
                                 />
                             </Stack>
-                            <Scene
+                            <Stack
                                 key="swipeScreen"
-                                component={SwipeScreenContainer}
-                                hideNavBar={true}
                                 title="Swipe"
-                            />
+                            >
+                                <Scene
+                                    component={SwipeScreenContainer}
+                                    hideNavBar={true}
+                                    initial={true}
+                                />
+                                <Scene key="userDetailScreen"
+                                    component={UserDetailScreenContainer}
+                                />
+                            </Stack>
                             <Scene
                                 key="matchesScreen"
                                 component={MatchesScreenContainer}
