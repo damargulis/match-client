@@ -3,7 +3,7 @@ import EventListContainer from './EventListContainer';
 import React from 'react';
 import {View} from 'react-native';
 
-const EventScreenNew = () => (
+const EventScreen = () => (
     <View
         style={{
             flex: 1,
@@ -16,4 +16,4 @@ const EventScreenNew = () => (
     </View>
 );
 
-export default EventScreenNew;
+export default EventScreen;

@@ -1,7 +1,6 @@
 import {
     EventFilters,
     fetchEventsIfNeeded,
-    toggleRsvp,
 } from '../actions/events';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
@@ -20,10 +19,11 @@ class EventListContainer extends React.Component{
     }
 
     render(){
+        console.log('render');
+        console.log(this.props);
         return (
             <EventList
                 events={this.props.events}
-                toggleRsvp={this.props.toggleRsvp}
                 gotoDetails={Actions.eventDetailScreen}
             />
         );
@@ -40,12 +40,18 @@ const getVisibleEvents = (events, filter) => {
     }
 };
 
+const getEvents = (events, filter) => {
+    let allEvents = events.allEvents.map((evt) => {
+        return events.eventsById[evt];
+    })
+    return getVisibleEvents(allEvents, filter);
+}
+
 const mapStateToProps = state => ({
-    events: getVisibleEvents(state.events.items, state.visibilityFilter),
+    events: getEvents(state.events, state.visibilityFilter),
 });
 
 const mapDispatchToProps = dispatch => ({
-    toggleRsvp: _id => dispatch(toggleRsvp(_id)),
     fetchEventsIfNeeded: (query) => dispatch(fetchEventsIfNeeded(query)),
 });
 

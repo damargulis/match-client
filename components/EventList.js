@@ -3,6 +3,8 @@ import EventListItem from './EventListItem';
 import React from 'react';
 
 const EventList = ({ events, gotoDetails }) => {
+    console.log('eventList');
+    console.log(events)
     return (
         <View style={{flex: 10}} >
             <SectionList

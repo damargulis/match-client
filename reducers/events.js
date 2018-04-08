@@ -1,23 +1,42 @@
 import {
     RECEIVE_EVENTS,
     REQUEST_EVENTS,
-    TOGGLE_RSVP,
+    TOGGLE_RSVP_REQUEST,
+    TOGGLE_RSVP_SUCCESS,
 } from '../actions/events';
+
+function mapEventsToId(events) {
+    const map = {}
+    events.map((evt) => {
+        map[evt._id] = evt;
+    })
+    return map;
+}
 
 function events(state = {
     isFetching: false,
     didInvalidate: false,
-    items: [],
+    eventsById: {},
+    allEvents: [],
 }, action){
     switch(action.type) {
-    case TOGGLE_RSVP:
-        return { items: state.items.map((event) => {
-            if(event._id == action.eventId) {
-                return {...event, attending: !event.attending};
-            }
-            return event;
-        }),
-        };
+    case TOGGLE_RSVP_REQUEST:
+        return Object.assign({}, state, {
+            eventsById: Object.assign({}, state.eventsById, {
+                [action.query.eventId]: Object.assign({}, state.eventsById[action.query.eventId], {
+                    isToggling: true,
+                })
+            })
+        })
+    case TOGGLE_RSVP_SUCCESS:
+        return Object.assign({}, state, {
+            eventsById: Object.assign({}, state.eventsById, {
+                [action.query.eventId]: Object.assign({}, state.eventsById[action.query.eventId], {
+                    isToggling: false
+                }, action.event
+                )
+            })
+        });
     case REQUEST_EVENTS:
         return Object.assign({}, state, {
             isFetching: true,
@@ -26,7 +45,8 @@ function events(state = {
     case RECEIVE_EVENTS:
         return Object.assign({}, state, {
             isFetching: false,
-            items: action.events,
+            allEvents: action.events.map((evt) => evt._id),
+            eventsById: mapEventsToId(action.events),
             lastUpdated: action.receivedAt,
             query: action.query,
         });
