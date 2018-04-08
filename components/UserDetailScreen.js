@@ -1,9 +1,9 @@
-import React from 'react';
 import {
     Image,
     Text,
     View,
 } from 'react-native';
+import React from 'react';
 
 class UserDetailScreen extends React.Component {
     render () {

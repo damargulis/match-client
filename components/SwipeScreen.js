@@ -12,7 +12,6 @@ class SwipeScreen extends React.Component {
 
     render() {
         const user = this.props.nextSwipe ? this.props.nextSwipe : {};
-        console.log('render', this.props.nextSwipePhoto);
         return (
             <View>
                 <View
