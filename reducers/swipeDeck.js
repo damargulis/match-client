@@ -3,7 +3,6 @@ import {
     FETCH_SWIPE_DECK_SUCCESS,
     GET_NEXT_SWIPE,
     SWIPE_REQUEST,
-    SWIPE_SUCCESS,
 } from '../actions/swipeDeck';
 
 function swipeDeck(state={
@@ -30,8 +29,6 @@ function swipeDeck(state={
         return Object.assign({}, state, {
             nextSwipe: undefined,
         });
-    case SWIPE_SUCCESS:
-        return state
     default:
         return state;
     }

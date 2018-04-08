@@ -2,7 +2,6 @@ export const FETCH_SWIPE_DECK_REQUEST = 'FETCH_SWIPE_DECK_REQUEST';
 export const FETCH_SWIPE_DECK_SUCCESS = 'FETCH_SWIPE_DECK_SUCCESS';
 export const GET_NEXT_SWIPE = 'GET_NEXT_SWIPE';
 export const SWIPE_REQUEST = 'SWIPE_REQUEST';
-export const SWIPE_SUCCESS = 'SWIPE_SUCCESS';
 
 const GLOBAL = require('./../Globals');
 
@@ -17,14 +16,6 @@ function requestSwipe(query) {
 function requestSwipeDeckSuccess(query, data) {
     return {
         type: FETCH_SWIPE_DECK_SUCCESS,
-        query,
-        data,
-    };
-}
-
-function swipeSuccess(query, data) {
-    return {
-        type: SWIPE_SUCCESS,
         query,
         data,
     };
@@ -56,7 +47,7 @@ export function sendSwipe(query) {
                 liked: query.liked,
             }),
         });
-    }
+    };
 }
 
 function shouldFetchSwipeDeck(state) {

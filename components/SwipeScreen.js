@@ -8,7 +8,6 @@ import React from 'react';
 
 class SwipeScreen extends React.Component {
     swipe(like) {
-        console.log('here1');
         this.props.swipe(like);
     }
 

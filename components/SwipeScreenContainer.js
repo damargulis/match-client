@@ -1,7 +1,7 @@
-import { 
-    fetchSwipeDeckIfNeeded, 
-    getNextSwipe, 
-    sendSwipe 
+import {
+    fetchSwipeDeckIfNeeded,
+    getNextSwipe,
+    sendSwipe,
 } from '../actions/swipeDeck';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
@@ -25,11 +25,10 @@ class SwipeScreenContainer extends React.Component {
     }
 
     swipe(like) {
-        console.log('here2');
         this.props.swipe({
             userId: this.props.userId,
             swipeId: this.props.nextSwipeId,
-            liked: like
+            liked: like,
         }).then(() => {
             return this.props.getNextSwipe();
         }).then(() => {
@@ -74,7 +73,7 @@ const mapDispatchToProps = (dispatch) => ({
     getNextSwipe: () => dispatch(getNextSwipe()),
     loadUser: (swipeId) => dispatch(loadUserById(swipeId)),
     getPhoto: (query) => dispatch(fetchPhotoIfNeeded(query)),
-    swipe: (query) => dispatch(sendSwipe(query))
+    swipe: (query) => dispatch(sendSwipe(query)),
 });
 
 export default connect(
