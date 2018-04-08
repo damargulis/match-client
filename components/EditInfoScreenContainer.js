@@ -1,6 +1,6 @@
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import { editInfoIfNeeded } from '../actions/user';
+import { editInfoIfNeeded } from '../actions/users';
 import EditInfoScreen from './EditInfoScreen';
 import React from 'react';
 
@@ -24,7 +24,7 @@ class EditInfoScreenContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    original: state.user.profile,
+    original: state.users[state.auth.userId],
 });
 
 const mapDispatchToProps = (dispatch) => ({

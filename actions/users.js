@@ -3,6 +3,9 @@ export const FETCH_SWIPE_DECK_SUCCESS = 'FETCH_SWIPE_DECK_SUCCESS';
 export const GET_NEXT_SWIPE = 'GET_NEXT_SWIPE';
 export const USER_REQUEST = 'USER_REQUEST';
 export const USER_SUCCESS = 'USER_SUCCESS';
+export const EDIT_INFO_REQUEST = 'EDIT_INFO_REQUEST';
+export const EDIT_INFO_SUCCESS = 'EDIT_INFO_SUCCESS';
+export const EDIT_INFO_FAILURE = 'EDIT_INFO_FAILURE';
 
 const GLOBAL = require('../Globals');
 
@@ -95,6 +98,64 @@ export function getNextSwipe() {
     return (dispatch, getState) => {
         if(canGetSwipe(getState())) {
             return dispatch({ type: GET_NEXT_SWIPE });
+        }
+    };
+}
+
+function requestEditInfo(query) {
+    return { type: EDIT_INFO_REQUEST, query };
+}
+
+function editInfoSuccess(query, data) {
+    return {
+        type: EDIT_INFO_SUCCESS,
+        userId: query._id,
+        json: data.profile,
+    };
+}
+
+function editInfoFailure(error) {
+    return {
+        type: EDIT_INFO_FAILURE,
+        message: error.message,
+    };
+}
+
+function editInfo(query) {
+    return function (dispatch) {
+        dispatch(requestEditInfo(query));
+        return fetch(GLOBAL.BASE_URL + '/user/' + query._id, {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                profile: query,
+            }),
+        }).then((response) => response.json(),
+            error => dispatch(editInfoFailure(error))
+        ).then((response) => {
+            if(response.success) {
+                dispatch(editInfoSuccess(query, response));
+            } else {
+                dispatch(editInfoFailure(response));
+            }
+        });
+    };
+}
+
+function shouldEditInfo(state, query) {
+    let user = state.users[query._id] || {};
+    return !user.isFetching;
+}
+
+export function editInfoIfNeeded(query) {
+    return (dispatch, getState) => {
+        if(shouldEditInfo(getState(), query)){
+            return dispatch(editInfo(query));
+        } else {
+            return Promise.resolve();
         }
     };
 }
