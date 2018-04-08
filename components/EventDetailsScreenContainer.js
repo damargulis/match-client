@@ -4,17 +4,11 @@ import React from 'react';
 import { toggleRsvpIfNeeded } from '../actions/events';
 
 class EventDetailsScreenContainer extends React.Component {
-    toggleRsvp() {
-        this.props.toggleRsvp({
-            userId: this.props.userId,
-            eventId: this.props.event._id,
-        });
-    }
-
     render() {
-        const { event } = this.props;
+        const { event, userId } = this.props;
         const startTime = new Date(event.startTime);
         const endTime = new Date(event.endTime);
+        const attending = event.attendees.includes(userId);
         return (
             <View>
                 <Text>{event.name}</Text>
@@ -22,10 +16,14 @@ class EventDetailsScreenContainer extends React.Component {
                 <Text>Ending: {endTime.toLocaleString()}</Text>
                 <Text>Number attendees: {
                     event.attendees ? event.attendees.length : 0 }</Text>
-                <Text>Attending: {event.attending ? 'Yes' : 'No'}</Text>
+                <Text>Attending: {attending ? 'Yes' : 'No'}</Text>
                 <Button
-                    title={event.attending ? 'Cancel' : 'RSVP'}
-                    onPress={this.toggleRsvp.bind(this)}
+                    title={attending ? 'Cancel' : 'RSVP'}
+                    onPress={() => this.props.toggleRsvp({
+                        userId: userId,
+                        eventId: event._id,
+                        attending: attending
+                    })}
                 />
 
             </View>

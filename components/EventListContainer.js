@@ -28,25 +28,27 @@ class EventListContainer extends React.Component{
     }
 }
 
-const getVisibleEvents = (events, filter) => {
+const getVisibleEvents = (events, filter, userId) => {
     switch(filter) {
     case EventFilters.SHOW_ATTENDING:
-        return events.filter(evt => evt.attending);
+        return events.filter(evt => {
+            return evt.attendees.includes(userId);
+        });
     case EventFilters.SHOW_ALL:
     default:
         return events;
     }
 };
 
-const getEvents = (events, filter) => {
+const getEvents = (events, filter, userId) => {
     const allEvents = events.allEvents.map((evt) => {
         return events.eventsById[evt];
     });
-    return getVisibleEvents(allEvents, filter);
+    return getVisibleEvents(allEvents, filter, userId);
 };
 
 const mapStateToProps = state => ({
-    events: getEvents(state.events, state.visibilityFilter),
+    events: getEvents(state.events, state.visibilityFilter, state.user.profile._id),
 });
 
 const mapDispatchToProps = dispatch => ({

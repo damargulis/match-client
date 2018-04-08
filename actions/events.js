@@ -61,7 +61,8 @@ function fetchEvents(query) {
 function toggleRsvp(query) {
     return function (dispatch) {
         dispatch(requestToggleRsvp(query));
-        return fetch(GLOBAL.BASE_URL + '/event/rsvp', {
+        const rsvp = query.attending ? 'cancel' : 'rsvp'
+        return fetch(GLOBAL.BASE_URL + '/event/' + rsvp, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
