@@ -1,17 +1,7 @@
-import { Button, Image, Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import React from 'react';
 import { toggleRsvpIfNeeded } from '../actions/events';
-
-//const picMap = {
-//    Concert: require('./EventScreen/concert.png'),
-//    Bar: require('./EventScreen/bar.png'),
-//    Movie: require('./EventScreen/movie.png'),
-//    Restaurant: require('./EventScreen/restaurant.png'),
-//    Play: require('./EventScreen/play.png'),
-//    Sports: require('./EventScreen/sports.png'),
-//    Museum: require('./EventScreen/museum.png'),
-//};
 
 class EventDetailsScreenContainer extends React.Component {
     toggleRsvp() {
@@ -22,11 +12,9 @@ class EventDetailsScreenContainer extends React.Component {
     }
 
     render() {
-        const {event, toggleRsvp} = this.props;
+        const { event } = this.props;
         const startTime = new Date(event.startTime);
         const endTime = new Date(event.endTime);
-        console.log("RENDERHERE!!");
-        console.log(event);
         return (
             <View>
                 <Text>{event.name}</Text>
@@ -44,29 +32,13 @@ class EventDetailsScreenContainer extends React.Component {
         );
     }
 }
-                //<Image
-                //    source={
-                //        picMap[event.type]
-                //    }
-                //    style={{
-                //        height: 100,
-                //        width: 100,
-                //    }}
-                ///>
-
-///THIS IS JUST TEMP
-//(for real fix this shit)
-function getEventById(events, eventId) {
-    const event = events.filter((evt) => (evt._id === eventId))[0];
-    return event;
-}
 
 const mapStateToProps = (state, props) => ({
     event: state.events.eventsById[props.eventId],
-    userId: state.user.profile._id
+    userId: state.user.profile._id,
 });
 
-const mapDispatchToProps = (dispatch, props) => ({
+const mapDispatchToProps = (dispatch) => ({
     toggleRsvp: (query) => dispatch(toggleRsvpIfNeeded(query)),
 });
 

@@ -19,8 +19,6 @@ class EventListContainer extends React.Component{
     }
 
     render(){
-        console.log('render');
-        console.log(this.props);
         return (
             <EventList
                 events={this.props.events}
@@ -41,11 +39,11 @@ const getVisibleEvents = (events, filter) => {
 };
 
 const getEvents = (events, filter) => {
-    let allEvents = events.allEvents.map((evt) => {
+    const allEvents = events.allEvents.map((evt) => {
         return events.eventsById[evt];
-    })
+    });
     return getVisibleEvents(allEvents, filter);
-}
+};
 
 const mapStateToProps = state => ({
     events: getEvents(state.events, state.visibilityFilter),

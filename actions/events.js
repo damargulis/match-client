@@ -20,7 +20,7 @@ function requestEvents(query) {
 }
 
 function requestToggleRsvp(query) {
-    return { type: TOGGLE_RSVP_REQUEST, query }
+    return { type: TOGGLE_RSVP_REQUEST, query };
 }
 
 function receiveEvents(query, json) {
@@ -33,14 +33,12 @@ function receiveEvents(query, json) {
 }
 
 function toggleRsvpSuccess(query, json) {
-    console.log('success');
-    console.log(json);
     return {
         type: TOGGLE_RSVP_SUCCESS,
         query,
         event: json.event,
-        profile: json.profile
-    }
+        profile: json.profile,
+    };
 }
 
 function fetchEvents(query) {
@@ -62,24 +60,23 @@ function fetchEvents(query) {
 
 function toggleRsvp(query) {
     return function (dispatch) {
-        console.log('toggling');
         dispatch(requestToggleRsvp(query));
         return fetch(GLOBAL.BASE_URL + '/event/rsvp', {
-                method: 'POST',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    eventId: query.eventId,
-                    userId: query.userId
-                })
-            }
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                eventId: query.eventId,
+                userId: query.userId,
+            }),
+        }
         ).then(response => response.json())
         .then((json) => {
             dispatch(toggleRsvpSuccess(query, json));
         });
-    }
+    };
 }
 
 function shouldFetchEvents(state) {
@@ -90,7 +87,7 @@ function shouldFetchEvents(state) {
 }
 
 function shouldToggleRsvp(state, query) {
-    let event = state.events.eventsById[query.eventId];
+    const event = state.events.eventsById[query.eventId];
     if (!event) {
         return false;
     } else if(event.isToggling){
@@ -111,12 +108,11 @@ export function fetchEventsIfNeeded(query) {
 
 export function toggleRsvpIfNeeded(query) {
     return (dispatch, getState) => {
-        console.log('toggle if needed');
         if(shouldToggleRsvp(getState(), query)){
             return dispatch(toggleRsvp(query));
         } else {
             return Promise.resolve();
         }
-    }
+    };
 }
 

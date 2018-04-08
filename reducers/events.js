@@ -6,10 +6,10 @@ import {
 } from '../actions/events';
 
 function mapEventsToId(events) {
-    const map = {}
+    const map = {};
     events.map((evt) => {
         map[evt._id] = evt;
-    })
+    });
     return map;
 }
 
@@ -23,19 +23,23 @@ function events(state = {
     case TOGGLE_RSVP_REQUEST:
         return Object.assign({}, state, {
             eventsById: Object.assign({}, state.eventsById, {
-                [action.query.eventId]: Object.assign({}, state.eventsById[action.query.eventId], {
-                    isToggling: true,
-                })
-            })
-        })
+                [action.query.eventId]: Object.assign(
+                    {},
+                    state.eventsById[action.query.eventId],
+                    {
+                        isToggling: true,
+                    }),
+            }),
+        });
     case TOGGLE_RSVP_SUCCESS:
         return Object.assign({}, state, {
             eventsById: Object.assign({}, state.eventsById, {
-                [action.query.eventId]: Object.assign({}, state.eventsById[action.query.eventId], {
-                    isToggling: false
-                }, action.event
-                )
-            })
+                [action.query.eventId]: Object.assign({},
+                    state.eventsById[action.query.eventId], {
+                        isToggling: false,
+                    }, action.event
+                ),
+            }),
         });
     case REQUEST_EVENTS:
         return Object.assign({}, state, {
