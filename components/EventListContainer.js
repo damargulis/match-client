@@ -47,13 +47,14 @@ const getEvents = (events, filter, userId) => {
     return getVisibleEvents(allEvents, filter, userId);
 };
 
-const mapStateToProps = state => ({
-    events: getEvents(
+const mapStateToProps = state => {
+    let userId  = state.user.profile ? state.user.profile.userId : undefined;
+    return {events: getEvents(
         state.events,
         state.visibilityFilter,
-        state.user.profile._id
-    ),
-});
+        userId
+    )}
+};
 
 const mapDispatchToProps = dispatch => ({
     fetchEventsIfNeeded: (query) => dispatch(fetchEventsIfNeeded(query)),

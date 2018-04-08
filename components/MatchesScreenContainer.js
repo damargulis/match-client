@@ -1,14 +1,22 @@
-import {Text, View} from 'react-native';
+import MatchesScreen from './MatchesScreen';
 import React from 'react';
+import { connect } from 'react-redux';
 
 class MatchesScreenContainer extends React.Component {
     render() {
         return (
-            <View>
-                <Text>Match Shit</Text>
-            </View>
+            <MatchesScreen />
         );
     }
 }
 
-export default MatchesScreenContainer;
+const mapStateToProps = (state, props) => ({
+});
+
+const mapDispatchToProps = (dispatch, props) => ({
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(MatchesScreenContainer);

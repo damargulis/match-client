@@ -33,7 +33,7 @@ class EventDetailsScreenContainer extends React.Component {
 
 const mapStateToProps = (state, props) => ({
     event: state.events.eventsById[props.eventId],
-    userId: state.user.profile._id,
+    userId: state.user && state.user.profile && state.user.profile._id,
 });
 
 const mapDispatchToProps = (dispatch) => ({
