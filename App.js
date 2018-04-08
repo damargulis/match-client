@@ -48,7 +48,7 @@ class MainPage extends React.Component {
                             />
                         </Stack>
                         <Scene tabs key="appScreen" >
-                            <Stack key="profileScreen">
+                            <Stack key="profileScreen" title="Profile">
                                 <Scene
                                     component={ProfileScreenContainer}
                                     hideNavBar={true}
@@ -60,7 +60,7 @@ class MainPage extends React.Component {
                                 />
                             </Stack>
 
-                            <Stack key="eventScreen" initial={true}>
+                            <Stack key="eventScreen" initial={true} title="Events">
                                 <Scene
                                     component={EventScreen}
                                     animation='fade'
@@ -76,11 +76,13 @@ class MainPage extends React.Component {
                                 key="swipeScreen"
                                 component={SwipeScreenContainer}
                                 hideNavBar={true}
+                                title="Swipe"
                             />
                             <Scene
                                 key="matchesScreen"
                                 component={MatchesScreenContainer}
                                 hideNavBar={true}
+                                title="Chat"
                             />
                         </Scene>
                     </Scene>
