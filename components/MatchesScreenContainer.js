@@ -10,14 +10,23 @@ class MatchesScreenContainer extends React.Component {
 
     render() {
         return (
-            <MatchesScreen />
+            <MatchesScreen 
+                matches={this.props.matches}
+                chats={this.props.chats}
+                goToChat={() => ({})}
+            />
         );
     }
 }
 
-const mapStateToProps = (state) => ({
-    userId: state.auth.userId,
-});
+const mapStateToProps = (state) => {
+    let chats = (state.chats.byDate || []).map((chatId) => state.chats.items[chatId]);
+    return {
+        userId: state.auth.userId,
+        chats: chats.filter((chat) => chat.messages.length > 1),
+        matches: chats.filter((chat) => chat.messages.length <= 1),
+    }
+};
 
 const mapDispatchToProps = (dispatch) => ({
     fetchChats: (query) => dispatch(fetchChatsIfNeeded(query)),

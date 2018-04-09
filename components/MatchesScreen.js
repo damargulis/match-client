@@ -3,13 +3,17 @@ import {
     View,
 } from 'react-native';
 import React from 'react';
+import MatchIconContainer from './MatchIconContainer';
 
 class MatchesScreen extends React.Component {
-    renderMatch(){
+    renderMatch(match){
+        return (
+            <MatchIconContainer match={match} />
+        );
     }
+
     render() {
-        const matches = [];
-        const chats = [];
+        const { matches, chats } = this.props;
         return (
             <View
                 style={{

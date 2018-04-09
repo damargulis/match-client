@@ -17,6 +17,7 @@ function mapChatsToId(chats) {
 function chats(state = {
     isFetching: false,
     items: undefined,
+    byDate: [],
 }, action){
     switch(action.type) {
     case LOGOUT:
@@ -32,6 +33,7 @@ function chats(state = {
         return Object.assign({}, state, {
             isFetching: false,
             items: mapChatsToId(action.json),
+            byDate: action.json.map((chat) => (chat._id))
         });
     default:
         return state;
