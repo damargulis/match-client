@@ -4,11 +4,10 @@ export const CHATS_SUCCESS = 'CHATS_SUCCESS';
 const GLOBAL = require('./../Globals');
 
 function requestChats(query) {
-    return { type: CHATS_REQUEST, query }
+    return { type: CHATS_REQUEST, query };
 }
 
 function chatSuccess(query, json) {
-    console.log('chat5');
     return {
         type: CHATS_SUCCESS,
         query,
@@ -22,7 +21,6 @@ function setRequestChats(query) {
         return fetch(GLOBAL.BASE_URL + '/chat/' + query.userId)
         .then((response) => response.json())
         .then((json) => {
-            console.log('here4');
             dispatch(chatSuccess(query, json));
         });
     };
@@ -32,7 +30,7 @@ function shouldFetchChats(state) {
     if(state.chats.isFetching) {
         return false;
     }
-    return !state.chats.items
+    return !state.chats.items;
 }
 
 export function fetchChatsIfNeeded(query) {

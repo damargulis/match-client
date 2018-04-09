@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
+import { fetchChatsIfNeeded } from '../actions/chats';
 import MatchesScreen from './MatchesScreen';
 import React from 'react';
-import { fetchChatsIfNeeded } from '../actions/chats';
 
 class MatchesScreenContainer extends React.Component {
     componentDidMount() {
-        console.log('here3');
         this.props.fetchChats({userId: this.props.userId});
     }
 

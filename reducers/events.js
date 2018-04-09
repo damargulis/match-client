@@ -5,7 +5,7 @@ import {
     TOGGLE_RSVP_SUCCESS,
 } from '../actions/events';
 import {
-    LOGOUT
+    LOGOUT,
 } from '../actions/auth';
 
 function mapEventsToId(events) {

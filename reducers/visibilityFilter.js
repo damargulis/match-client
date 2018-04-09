@@ -3,7 +3,7 @@ import {
     SET_EVENT_FILTER,
 } from '../actions/events';
 import {
-    LOGOUT
+    LOGOUT,
 } from '../actions/auth';
 
 const { SHOW_ALL } = EventFilters;

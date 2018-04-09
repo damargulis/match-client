@@ -5,7 +5,7 @@ import {
     SWIPE_REQUEST,
 } from '../actions/swipeDeck';
 import {
-    LOGOUT
+    LOGOUT,
 } from '../actions/auth';
 
 function swipeDeck(state={
@@ -19,7 +19,7 @@ function swipeDeck(state={
             isFetching: false,
             items: [],
             nextSwipe: undefined,
-        }
+        };
     case FETCH_SWIPE_DECK_REQUEST:
         return Object.assign({}, state, {
             isFetching: true,

@@ -3,7 +3,7 @@ import {
     CHATS_SUCCESS,
 } from '../actions/chats';
 import {
-    LOGOUT
+    LOGOUT,
 } from '../actions/auth';
 
 function mapChatsToId(chats) {
@@ -22,7 +22,7 @@ function chats(state = {
     case LOGOUT:
         return Object.assign({}, state, {
             isFetching: false,
-            items: undefined
+            items: undefined,
         });
     case CHATS_REQUEST:
         return Object.assign({}, state, {
@@ -31,10 +31,10 @@ function chats(state = {
     case CHATS_SUCCESS:
         return Object.assign({}, state, {
             isFetching: false,
-            items: mapChatsToId(action.json)
+            items: mapChatsToId(action.json),
         });
     default:
-        return state
+        return state;
     }
 }
 

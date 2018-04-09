@@ -6,7 +6,7 @@ import {
     USER_SUCCESS,
 } from '../actions/users';
 import {
-    LOGOUT
+    LOGOUT,
 } from '../actions/auth';
 
 function users(state={
@@ -14,7 +14,7 @@ function users(state={
     switch(action.type) {
     case LOGOUT:
         return Object.assign({}, state, {
-            [action.userId]: undefined
+            [action.userId]: undefined,
         });
     case USER_REQUEST:
         return Object.assign({}, state, {
