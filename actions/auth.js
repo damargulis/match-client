@@ -17,8 +17,8 @@ function requestCreateAccount(query) {
     return { type: CREATE_ACCOUNT_REQUEST, query };
 }
 
-function sendLogout() {
-    return { type: LOGOUT };
+function sendLogout(userId) {
+    return { type: LOGOUT, userId };
 }
 
 function loginSuccess(query, json) {
@@ -100,9 +100,9 @@ function createAccount(query) {
     };
 }
 
-export function logout() {
+export function logout(userId) {
     return function (dispatch) {
-        dispatch(sendLogout());
+        dispatch(sendLogout(userId));
         return fetch(GLOBAL.BASE_URL + '/auth/logout', {
             method: 'POST',
             headers: {

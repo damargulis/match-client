@@ -4,6 +4,9 @@ import {
     TOGGLE_RSVP_REQUEST,
     TOGGLE_RSVP_SUCCESS,
 } from '../actions/events';
+import {
+    LOGOUT
+} from '../actions/auth';
 
 function mapEventsToId(events) {
     const map = {};
@@ -20,6 +23,12 @@ function events(state = {
     allEvents: [],
 }, action){
     switch(action.type) {
+    case LOGOUT:
+        return Object.assign({}, state, {
+            isFetching: false,
+            didInvalidate: false,
+            allEvents: [],
+        });
     case TOGGLE_RSVP_REQUEST:
         return Object.assign({}, state, {
             eventsById: Object.assign({}, state.eventsById, {

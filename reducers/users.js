@@ -5,10 +5,17 @@ import {
     USER_REQUEST,
     USER_SUCCESS,
 } from '../actions/users';
+import {
+    LOGOUT
+} from '../actions/auth';
 
 function users(state={
 }, action) {
     switch(action.type) {
+    case LOGOUT:
+        return Object.assign({}, state, {
+            [action.userId]: undefined
+        });
     case USER_REQUEST:
         return Object.assign({}, state, {
             [action.userId]: Object.assign({}, state[action.userId], {

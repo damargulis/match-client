@@ -15,7 +15,7 @@ class ProfileScreenContainer extends React.Component {
     }
 
     logout() {
-        this.props.logout().then(() => {
+        this.props.logout(this.props.user._id).then(() => {
             Actions.loginScreen();
         });
     }
@@ -50,7 +50,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    logout: () => dispatch(logout()),
+    logout: (userId) => dispatch(logout(userId)),
     fetchPhoto: (query) => dispatch(fetchPhotoIfNeeded(query)),
 });
 

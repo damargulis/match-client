@@ -1,4 +1,5 @@
 import auth from './auth';
+import chats from './chats';
 import { combineReducers } from 'redux';
 import events from './events';
 import photos from './photos';
@@ -8,6 +9,7 @@ import visibilityFilter from './visibilityFilter';
 
 export default combineReducers({
     auth,
+    chats,
     events,
     photos,
     swipeDeck,
