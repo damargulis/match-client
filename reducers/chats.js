@@ -33,7 +33,7 @@ function chats(state = {
         return Object.assign({}, state, {
             isFetching: false,
             items: mapChatsToId(action.json),
-            byDate: action.json.map((chat) => (chat._id))
+            byDate: action.json.map((chat) => (chat._id)),
         });
     default:
         return state;

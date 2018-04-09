@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
-import React from 'react';
 import MatchIcon from './MatchIcon';
+import React from 'react';
 
 class MatchIconContainer extends React.Component {
     render() {
         return (
             <MatchIcon match={{}}/>
-        )
+        );
     }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = () => ({
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = () => ({
 });
 
 export default connect(

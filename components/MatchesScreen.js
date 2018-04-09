@@ -2,8 +2,8 @@ import {
     FlatList,
     View,
 } from 'react-native';
-import React from 'react';
 import MatchIconContainer from './MatchIconContainer';
+import React from 'react';
 
 class MatchesScreen extends React.Component {
     renderMatch(match){

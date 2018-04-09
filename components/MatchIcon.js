@@ -12,7 +12,7 @@ class MatchIcon extends React.Component {
                     <Text>{'Thisis a match'}</Text>
                 </View>
             </TouchableHighlight>
-        )
+        );
     }
 }
 
