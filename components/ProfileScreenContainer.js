@@ -15,9 +15,8 @@ class ProfileScreenContainer extends React.Component {
     }
 
     logout() {
-        this.props.logout(this.props.user._id).then(() => {
-            Actions.loginScreen();
-        });
+        Actions.loginScreen();
+        this.props.logout(this.props.user._id).then();
     }
 
     editInfo() {
