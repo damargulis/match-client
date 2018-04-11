@@ -1,15 +1,22 @@
-import {Text, TouchableHighlight, View} from 'react-native';
+import {Image, Text, TouchableHighlight, View} from 'react-native';
 import React from 'React';
 
 class MatchIcon extends React.Component {
     render() {
+        const photo = this.props.photo && this.props.photo.data;
         return (
             <TouchableHighlight
                 onPress={() => ({})}
-                key={this.props.match._id}
+                key={this.props.chat._id}
             >
                 <View>
-                    <Text>{'Thisis a match'}</Text>
+                    <Text>
+                        {this.props.match ? this.props.match.firstName : ''}
+                    </Text>
+                    <Image
+                        style={{height: 100, width: 100}}
+                        source={{uri: photo }}
+                    />
                 </View>
             </TouchableHighlight>
         );

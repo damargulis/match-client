@@ -8,7 +8,7 @@ import React from 'react';
 class MatchesScreen extends React.Component {
     renderMatch(match){
         return (
-            <MatchIconContainer match={match} />
+            <MatchIconContainer matchId={match._id} />
         );
     }
 
