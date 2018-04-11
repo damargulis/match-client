@@ -4,6 +4,8 @@ import {
     FETCH_PHOTOS_SUCCESS,
 } from '../actions/photos';
 
+var Buffer = require('buffer').Buffer;
+
 function photos(state={
 }, action) {
     switch(action.type) {
@@ -14,9 +16,8 @@ function photos(state={
             },
         });
     case FETCH_PHOTOS_SUCCESS:{
-        let b64encode = btoa(
-            String.fromCharCode.apply(null, action.data.data.data)
-        );
+        let b64encode = new Buffer(action.data.data.data, 'binary')
+        .toString('base64');
         b64encode = 'data:image/jpeg;base64,' + b64encode;
         return Object.assign({}, state, {
             [action.query.photoId]: {
