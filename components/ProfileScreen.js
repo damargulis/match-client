@@ -1,7 +1,25 @@
 import { Button, Image, Text, View } from 'react-native';
+import Carousel from 'react-native-snap-carousel';
 import React from 'react';
 
 class ProfileScreen extends React.Component {
+    renderImage(photo) {
+        if(photo.item) {
+            return (
+                <Image
+                    source={{uri: photo.item}}
+                    style={{flex: 1, height: 300, width: 300}}
+                />
+            );
+        } else {
+            return (
+                <View style={{flex: 1, height: 300, width: 300}} >
+                    <Text>Loading</Text>
+                </View>
+            );
+        }
+    }
+
     render() {
         const { user, logout, editInfo, photos, editPhotos } = this.props;
         return (
@@ -12,9 +30,11 @@ class ProfileScreen extends React.Component {
                     justifyContent: 'center',
                 }}
             >
-                <Image
-                    source={{uri: photos[0]}}
-                    style={{flex: 1, height: 400, width: 400}}
+                <Carousel
+                    renderItem={this.renderImage}
+                    data={photos}
+                    itemWidth={300}
+                    sliderWidth={350}
                 />
                 <Text>Profile Screen</Text>
                 <Text>Name: {user.firstName}</Text>
