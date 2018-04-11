@@ -3,6 +3,7 @@ export const USER_SUCCESS = 'USER_SUCCESS';
 export const EDIT_INFO_REQUEST = 'EDIT_INFO_REQUEST';
 export const EDIT_INFO_SUCCESS = 'EDIT_INFO_SUCCESS';
 export const EDIT_INFO_FAILURE = 'EDIT_INFO_FAILURE';
+export const SET_LOCATION = 'SET_LOCATION';
 
 const GLOBAL = require('../Globals');
 
@@ -110,3 +111,22 @@ export function editInfoIfNeeded(query) {
     };
 }
 
+export function setLocation(location, userId) {
+    return (dispatch) => {
+        return dispatch(() => {
+            return fetch(GLOBAL.BASE_URL + '/user/' + userId + '/location', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    long: location.coords.longitude,
+                    lat: location.coords.latitude,
+                }),
+            }).then((response) => {
+                dispatch({ type: SET_LOCATION, response });
+            });
+        });
+    };
+}
