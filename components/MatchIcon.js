@@ -6,7 +6,7 @@ class MatchIcon extends React.Component {
         const photo = this.props.photo && this.props.photo.data;
         return (
             <TouchableHighlight
-                onPress={() => ({})}
+                onPress={this.props.gotoChat}
                 key={this.props.chat._id}
             >
                 <View>

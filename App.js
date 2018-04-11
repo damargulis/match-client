@@ -1,5 +1,6 @@
 import { applyMiddleware, createStore } from 'redux';
 import { Router, Scene, Stack } from 'react-native-router-flux';
+import ChatScreenContainer from './components/ChatScreenContainer';
 import CreateAccountScreenContainer from
     './components/CreateAccountScreenContainer';
 import {createLogger} from 'redux-logger';
@@ -86,12 +87,19 @@ class MainPage extends React.Component {
                                     component={UserDetailScreenContainer}
                                 />
                             </Stack>
-                            <Scene
+                            <Stack
                                 key="matchesScreen"
-                                component={MatchesScreenContainer}
-                                hideNavBar={true}
                                 title="Chat"
-                            />
+                            >
+                                <Scene
+                                    component={MatchesScreenContainer}
+                                    hideNavBar={true}
+                                    title="Chat"
+                                />
+                                <Scene key="chatScreen"
+                                    component={ChatScreenContainer}
+                                />
+                            </Stack>
                         </Scene>
                     </Scene>
                 </Router>

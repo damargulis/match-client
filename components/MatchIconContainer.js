@@ -1,3 +1,4 @@
+import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { fetchPhotoIfNeeded } from '../actions/photos';
 import { loadUserById } from '../actions/users';
@@ -22,6 +23,7 @@ class MatchIconContainer extends React.Component {
                 chat={this.props.chat}
                 match={this.props.otherUser}
                 photo={this.props.photo}
+                gotoChat={Actions.chatScreen}
             />
         );
     }
