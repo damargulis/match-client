@@ -1,5 +1,6 @@
 export const CHATS_REQUEST = 'CHATS_REQUEST';
 export const CHATS_SUCCESS = 'CHATS_SUCCESS';
+export const SEND_MESSAGE = 'SEND_MESSAGE';
 
 const GLOBAL = require('./../Globals');
 
@@ -12,6 +13,14 @@ function chatSuccess(query, json) {
         type: CHATS_SUCCESS,
         query,
         json,
+    };
+}
+
+function sendMessageAction(message, chatId) {
+    return {
+        type: SEND_MESSAGE,
+        message,
+        chatId,
     };
 }
 
@@ -40,5 +49,18 @@ export function fetchChatsIfNeeded(query) {
         } else {
             return Promise.resolve();
         }
+    };
+}
+
+function emitMessage(message, chatId) {
+    return function (dispatch) {
+        //emit socket
+        return dispatch(sendMessageAction(message, chatId));
+    };
+}
+
+export function sendMessage(message, chatId) {
+    return (dispatch) => {
+        return dispatch(emitMessage(message, chatId));
     };
 }

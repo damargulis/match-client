@@ -4,6 +4,8 @@ import { fetchPhotoIfNeeded } from '../actions/photos';
 import { loadUserById } from '../actions/users';
 import React from 'react';
 
+import { sendMessage } from '../actions/chats';
+
 class ChatScreenContainer extends React.Component {
     componentDidMount(){
         this.props.loadUser(this.props.otherId)
@@ -16,14 +18,15 @@ class ChatScreenContainer extends React.Component {
         });
     }
 
-    onSend(){
+    onSend(messages){
+        this.props.sendMessage(messages, this.props.chat._id);
     }
 
     render() {
         return(
             <ChatScreen
                 chat={this.props.chat}
-                onSend={this.onSend}
+                onSend={this.onSend.bind(this)}
                 otherUser={this.props.otherUser}
                 photo={this.props.photo}
             />
@@ -49,6 +52,7 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = (dispatch) => ({
     loadUser: (swipeId) => dispatch(loadUserById(swipeId)),
     getPhoto: (query) => dispatch(fetchPhotoIfNeeded(query)),
+    sendMessage: (message, chatId) => dispatch(sendMessage(message, chatId)),
 });
 
 export default connect(
