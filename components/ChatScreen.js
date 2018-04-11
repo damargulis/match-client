@@ -1,12 +1,38 @@
-import { Text, View } from 'react-native';
+import {Image, Text, View} from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import { GiftedChat } from 'react-native-gifted-chat';
 import React from 'react';
 
 class ChatScreen extends React.Component {
-    render() {
+    title() {
+        const photo = this.props.photo && this.props.photo.data;
         return (
             <View>
-                <Text>{'this is a chat screen'}</Text>
+                <Text>
+                    {this.props.otherUser ? this.props.otherUser.firstName : ''}
+                </Text>
+                <Image
+                    style={{height: 50, width: 50}}
+                    source={{uri: photo}}
+                />
             </View>
+        );
+    }
+
+    componentDidMount() {
+        const title = this.props.otherUser && this.props.otherUser.firstName;
+        Actions.refresh({title: title, renderTitle: this.title.bind(this) });
+    }
+
+    render() {
+        const { chat } = this.props;
+        return (
+            <GiftedChat
+                messages={chat.messages}
+                onSend={messages => this.props.onSend(messages)}
+                user={{_id: this.props.userId}}
+                keyboardShouldPersistTaps="never"
+            />
         );
     }
 }

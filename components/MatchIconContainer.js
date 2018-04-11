@@ -23,7 +23,9 @@ class MatchIconContainer extends React.Component {
                 chat={this.props.chat}
                 match={this.props.otherUser}
                 photo={this.props.photo}
-                gotoChat={Actions.chatScreen}
+                gotoChat={
+                    () => Actions.chatScreen({chatId: this.props.matchId})
+                }
             />
         );
     }

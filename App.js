@@ -99,6 +99,9 @@ class MainPage extends React.Component {
                                 <Scene key="chatScreen"
                                     component={ChatScreenContainer}
                                 />
+                                <Scene key="userDetailScreen"
+                                    component={UserDetailScreenContainer}
+                                />
                             </Stack>
                         </Scene>
                     </Scene>
