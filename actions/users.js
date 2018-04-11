@@ -46,6 +46,12 @@ export function loadUserById(userId) {
     };
 }
 
+export function reloadUser(userId) {
+    return (dispatch) => {
+        return dispatch(fetchUser(userId));
+    };
+}
+
 function requestEditInfo(query) {
     return { type: EDIT_INFO_REQUEST, query };
 }
@@ -103,3 +109,4 @@ export function editInfoIfNeeded(query) {
         }
     };
 }
+

@@ -7,11 +7,11 @@ import React from 'react';
 
 class ProfileScreenContainer extends React.Component {
     componentDidMount() {
-        if(this.props.photoId) {
+        this.props.photoIds.map((photoId) => {
             this.props.fetchPhoto({
-                photoId: this.props.photoId,
+                photoId: photoId,
             });
-        }
+        });
     }
 
     logout() {
@@ -28,13 +28,13 @@ class ProfileScreenContainer extends React.Component {
     }
 
     render() {
-        const { user, photo } = this.props;
+        const { user, photoDatas } = this.props;
         return (
             <ProfileScreen
                 user={user}
                 logout={this.logout.bind(this)}
                 editInfo={this.editInfo.bind(this)}
-                photo={photo}
+                photos={photoDatas}
                 editPhotos={this.editPhotos.bind(this)}
             />
         );
@@ -43,13 +43,15 @@ class ProfileScreenContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     const user = state.users[state.auth.userId] || {};
-    const photos = user.photos || [];
-    const photoId = photos[0];
-    const photoData = state.photos[photoId] || {};
+    const photoIds = user.photos || [];
+    const photoDatas = photoIds.map((photoId) => {
+        const photo = state.photos[photoId] || {};
+        return photo.data;
+    });
     return {
         user: state.users[state.auth.userId] || {},
-        photoId: photoId,
-        photo: photoData.data,
+        photoIds: photoIds,
+        photoDatas: photoDatas,
     };
 };
 

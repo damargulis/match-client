@@ -2,6 +2,7 @@ import {
     FETCH_PHOTOS_FAILURE,
     FETCH_PHOTOS_REQUEST,
     FETCH_PHOTOS_SUCCESS,
+    SAVE_PHOTO_SUCCESS,
 } from '../actions/photos';
 
 var Buffer = require('buffer').Buffer;
@@ -30,6 +31,12 @@ function photos(state={
         return Object.assign({}, state, {
             [action.query.photoId]: {
                 isFetching: false,
+            },
+        });
+    case SAVE_PHOTO_SUCCESS:
+        return Object.assign({}, state, {
+            [action.data.photoId]: {
+                data: 'data:image/jpeg;base64,' + action.query.photo.data,
             },
         });
     default:
