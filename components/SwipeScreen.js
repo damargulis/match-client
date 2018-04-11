@@ -40,12 +40,12 @@ class SwipeScreen extends React.Component {
                 <Button
                     title='View Details'
                     onPress={this.props.seeDetails}
-                    disables={!user}
+                    disabled={!user}
                 />
                 <View style={{flexDirection: 'row'}}>
                     <View style={{flex: 1}}>
                         <Button
-                            disables={!user}
+                            disabled={!user}
                             color='red'
                             title='No'
                             style={{flex: 1, backgroundColor: 'red'}}
@@ -55,7 +55,7 @@ class SwipeScreen extends React.Component {
                     </View>
                     <View style={{flex: 1}}>
                         <Button
-                            disables={!user}
+                            disabled={!user}
                             color='green'
                             title='Yes'
                             style={{flex: 1, backgroundColor: 'green'}}

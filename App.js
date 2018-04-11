@@ -4,8 +4,8 @@ import ChatScreenContainer from './components/ChatScreenContainer';
 import CreateAccountScreenContainer from
     './components/CreateAccountScreenContainer';
 import {createLogger} from 'redux-logger';
-import EditInfoScreenContainer from
-    './components/EditInfoScreenContainer';
+import EditInfoScreenContainer from './components/EditInfoScreenContainer';
+import EditPhotosScreenContainer from './components/EditPhotosScreenContainer';
 import EventDetailScreenContainer from
     './components/EventDetailsScreenContainer';
 import EventScreen from './components/EventScreen';
@@ -56,7 +56,13 @@ class MainPage extends React.Component {
                                 />
                                 <Scene
                                     key="editInfoScreen"
+                                    title="Edit Info"
                                     component={EditInfoScreenContainer}
+                                />
+                                <Scene
+                                    key="editPhotosScreen"
+                                    title="Edit Photos"
+                                    component={EditPhotosScreenContainer}
                                 />
                             </Stack>
 

@@ -3,7 +3,7 @@ import React from 'react';
 
 class ProfileScreen extends React.Component {
     render() {
-        const { user, logout, editInfo, photo } = this.props;
+        const { user, logout, editInfo, photo, editPhotos } = this.props;
         return (
             <View
                 style={{
@@ -29,6 +29,7 @@ class ProfileScreen extends React.Component {
                 }</Text>
                 <Button title="Log Out" onPress={logout} />
                 <Button title="Edit Info" onPress={editInfo} />
+                <Button title="Edit Photos" onPress={editPhotos} />
             </View>
         );
     }

@@ -23,6 +23,10 @@ class ProfileScreenContainer extends React.Component {
         Actions.editInfoScreen();
     }
 
+    editPhotos() {
+        Actions.editPhotosScreen();
+    }
+
     render() {
         const { user, photo } = this.props;
         return (
@@ -31,6 +35,7 @@ class ProfileScreenContainer extends React.Component {
                 logout={this.logout.bind(this)}
                 editInfo={this.editInfo.bind(this)}
                 photo={photo}
+                editPhotos={this.editPhotos.bind(this)}
             />
         );
     }
