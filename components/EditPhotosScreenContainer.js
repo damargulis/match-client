@@ -1,9 +1,9 @@
+import { deletePhoto, savePhoto } from '../actions/photos';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import EditPhotosScreen from './EditPhotosScreen';
 import React from 'react';
 import { reloadUser } from '../actions/users';
-import { savePhoto } from '../actions/photos';
 
 var ImagePicker = require('react-native-image-picker');
 
@@ -32,7 +32,25 @@ class EditPhotosScreenContainer extends React.Component {
         });
     }
 
-    deletePhoto() {
+    deletePhoto(index) {
+        const savedPhotos = this.props.photoIds
+            ? this.props.photoIds.length : 0;
+        if(index < savedPhotos) {
+            new Promise(() => {
+                this.props.deletePhoto({
+                    userId: this.props.userId,
+                    photoId: this.props.photoIds[index],
+                });
+            }).then(() => {
+                this.props.reloadUser(this.props.userId);
+            });
+        } else {
+            const addedPhotos = this.state.addedPhotos;
+            addedPhotos.splice(index - savedPhotos, 1);
+            this.setState({
+                addedPhotos: addedPhotos,
+            });
+        }
     }
 
     addPhoto() {
@@ -90,6 +108,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
     savePhoto: (query) => dispatch(savePhoto(query)),
     reloadUser: (query) => dispatch(reloadUser(query)),
+    deletePhoto: (query) => dispatch(deletePhoto(query)),
 });
 
 export default connect(

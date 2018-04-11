@@ -17,7 +17,10 @@ class EditPhotosScreen extends React.Component {
                         style={{width: 129, height: 129}}
                         key={index}
                     />
-                    <Button title="Delete" onPress={this.props.deletePhoto} />
+                    <Button
+                        title="Delete"
+                        onPress={() => this.props.deletePhoto(index)}
+                    />
                 </View>
             );
         } else {

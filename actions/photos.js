@@ -3,8 +3,13 @@ export const FETCH_PHOTOS_SUCCESS = 'FETCH_PHOTOS_SUCCESS';
 export const FETCH_PHOTOS_FAILURE = 'FETCH_PHOTOS_FAILURE';
 export const SAVE_PHOTO_REQUEST = 'SAVE_PHOTOS_REQUEST';
 export const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTOS_SUCCESS';
+export const DELETE_PHOTO = 'DELETE_PHOTO';
 
 const GLOBAL = require('./../Globals');
+
+function deletePhotoAction(query, data) {
+    return { type: DELETE_PHOTO, query, data};
+}
 
 function requestPhotos(query) {
     return { type: FETCH_PHOTOS_REQUEST, query };
@@ -45,6 +50,22 @@ function fetchPhoto(query) {
             error => dispatch(requestPhotosFailure(error))
         ).then((data) => {
             dispatch(requestPhotosSuccess(query, data));
+        });
+    };
+}
+
+export function deletePhoto(query) {
+    return function (dispatch) {
+        return fetch(GLOBAL.BASE_URL
+            + '/user/'
+            + query.userId
+            + '/photo/'
+            + query.photoId, {
+            method: 'DELETE',
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            dispatch(deletePhotoAction(query, data));
         });
     };
 }

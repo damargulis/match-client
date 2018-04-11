@@ -1,4 +1,5 @@
 import {
+    DELETE_PHOTO,
     FETCH_PHOTOS_FAILURE,
     FETCH_PHOTOS_REQUEST,
     FETCH_PHOTOS_SUCCESS,
@@ -38,6 +39,10 @@ function photos(state={
             [action.data.photoId]: {
                 data: 'data:image/jpeg;base64,' + action.query.photo.data,
             },
+        });
+    case DELETE_PHOTO:
+        return Object.assign({}, state, {
+            [action.query.photoId]: undefined,
         });
     default:
         return state;
