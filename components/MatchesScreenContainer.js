@@ -20,9 +20,11 @@ class MatchesScreenContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    const chats = (state.chats.byDate || []).map(
-        (chatId) => state.chats.items[chatId]
-    );
+    const chats = state.chats.items ? (state.chats.byDate || []).map(
+        (chatId) => {
+            return state.chats.items[chatId];
+        }
+    ) : [];
     return {
         userId: state.auth.userId,
         chats: chats.filter((chat) => chat.messages.length > 1),

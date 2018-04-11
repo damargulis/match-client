@@ -25,12 +25,12 @@ class ChatScreen extends React.Component {
     }
 
     render() {
-        const { chat } = this.props;
+        const { chat, userId } = this.props;
         return (
             <GiftedChat
-                messages={chat.messages}
+                messages={chat && chat.messages}
                 onSend={messages => this.props.onSend(messages)}
-                user={{_id: this.props.userId}}
+                user={{_id: userId}}
                 keyboardShouldPersistTaps="never"
             />
         );

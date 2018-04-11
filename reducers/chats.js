@@ -2,6 +2,7 @@ import {
     CHATS_REQUEST,
     CHATS_SUCCESS,
     SEND_MESSAGE,
+    SET_SOCKET,
 } from '../actions/chats';
 import { GiftedChat } from 'react-native-gifted-chat';
 import { LOGOUT } from '../actions/auth';
@@ -40,6 +41,14 @@ function chats(state = {
                 [action.chatId]: Object.assign({}, state.items[action.chatId], {
                     messages: GiftedChat.append(
                         state.items[action.chatId].messages, action.message),
+                }),
+            }),
+        });
+    case SET_SOCKET:
+        return Object.assign({}, state, {
+            items: Object.assign({}, state.items, {
+                [action.chatId]: Object.assign({}, state.items[action.chatId], {
+                    socket: action.socket,
                 }),
             }),
         });

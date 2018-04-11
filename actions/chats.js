@@ -1,6 +1,8 @@
 export const CHATS_REQUEST = 'CHATS_REQUEST';
 export const CHATS_SUCCESS = 'CHATS_SUCCESS';
 export const SEND_MESSAGE = 'SEND_MESSAGE';
+export const SET_SOCKET = 'SET_SOCKET';
+import io from 'socket.io-client/dist/socket.io';
 
 const GLOBAL = require('./../Globals');
 
@@ -13,6 +15,14 @@ function chatSuccess(query, json) {
         type: CHATS_SUCCESS,
         query,
         json,
+    };
+}
+
+function setSocketSuccess(chatId, socket) {
+    return {
+        type: SET_SOCKET,
+        chatId,
+        socket,
     };
 }
 
@@ -52,15 +62,48 @@ export function fetchChatsIfNeeded(query) {
     };
 }
 
-function emitMessage(message, chatId) {
+function emitMessage(message, chatId, state) {
     return function (dispatch) {
-        //emit socket
+        state.chats.items[chatId].socket.emit('sendMessage',
+            { message: message }
+        );
         return dispatch(sendMessageAction(message, chatId));
     };
 }
 
 export function sendMessage(message, chatId) {
-    return (dispatch) => {
-        return dispatch(emitMessage(message, chatId));
+    return (dispatch, getState) => {
+        return dispatch(emitMessage(message, chatId, getState()));
+    };
+}
+
+function setSocket(chatId) {
+    return function(dispatch) {
+        const socket = io(
+            GLOBAL.BASE_URL
+            + '/chatNotification'
+            + '?chatId='
+            + chatId,
+            {
+                jsonp: false,
+                path: '/socket.io',
+            },
+        );
+        return dispatch(setSocketSuccess(chatId, socket));
+    };
+}
+
+function shouldSetSocket(state, chatId) {
+    const chat = state.chats.items[chatId];
+    return !chat.socket;
+}
+
+export function setSocketIfNeeded(chatId) {
+    return (dispatch, getState) => {
+        if(shouldSetSocket(getState(), chatId)){
+            return dispatch(setSocket(chatId));
+        } else {
+            return Promise.resolve();
+        }
     };
 }
