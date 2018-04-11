@@ -9,7 +9,7 @@ class MatchIconContainer extends React.Component {
     componentDidMount() {
         this.props.loadUser(this.props.otherId)
         .then(() => {
-            if(this.props.otherUser){
+            if(this.props.otherUser && this.props.otherUser.photos){
                 return this.props.getPhoto({
                     photoId: this.props.otherUser.photos[0],
                 });

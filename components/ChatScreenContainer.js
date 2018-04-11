@@ -29,6 +29,7 @@ class ChatScreenContainer extends React.Component {
                 onSend={this.onSend.bind(this)}
                 otherUser={this.props.otherUser}
                 photo={this.props.photo}
+                userId={this.props.userId}
             />
         );
     }

@@ -1,6 +1,7 @@
 export const CHATS_REQUEST = 'CHATS_REQUEST';
 export const CHATS_SUCCESS = 'CHATS_SUCCESS';
 export const SEND_MESSAGE = 'SEND_MESSAGE';
+export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 export const SET_SOCKET = 'SET_SOCKET';
 import io from 'socket.io-client/dist/socket.io';
 
@@ -23,6 +24,14 @@ function setSocketSuccess(chatId, socket) {
         type: SET_SOCKET,
         chatId,
         socket,
+    };
+}
+
+function receiveMessage(chatId, data) {
+    return {
+        type: RECEIVE_MESSAGE,
+        chatId,
+        data,
     };
 }
 
@@ -89,6 +98,9 @@ function setSocket(chatId) {
                 path: '/socket.io',
             },
         );
+        socket.on('receiveMessage', (data) => {
+            dispatch(receiveMessage(chatId, data));
+        });
         return dispatch(setSocketSuccess(chatId, socket));
     };
 }

@@ -1,6 +1,7 @@
 import {
     CHATS_REQUEST,
     CHATS_SUCCESS,
+    RECEIVE_MESSAGE,
     SEND_MESSAGE,
     SET_SOCKET,
 } from '../actions/chats';
@@ -40,7 +41,20 @@ function chats(state = {
             items: Object.assign({}, state.items, {
                 [action.chatId]: Object.assign({}, state.items[action.chatId], {
                     messages: GiftedChat.append(
-                        state.items[action.chatId].messages, action.message),
+                        state.items[action.chatId].messages,
+                        action.message
+                    ),
+                }),
+            }),
+        });
+    case RECEIVE_MESSAGE:
+        return Object.assign({}, state, {
+            items: Object.assign({}, state.items, {
+                [action.chatId]: Object.assign({}, state.items[action.chatId], {
+                    messages: GiftedChat.append(
+                        state.items[action.chatId].messages,
+                        action.data.message.message
+                    ),
                 }),
             }),
         });
