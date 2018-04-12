@@ -28,6 +28,21 @@ class SwipeScreenContainer extends React.Component {
         });
     }
 
+    refresh() {
+        this.props.fetchSwipeDeck({userId: this.props.userId})
+        .then(() => {
+            return this.props.getNextSwipe();
+        }).then(() => {
+            return this.props.loadUser(this.props.nextSwipeId);
+        }).then(() => {
+            if(this.props.nextSwipe){
+                return this.props.getPhoto({
+                    photoId: this.props.nextSwipe.photos[0],
+                });
+            }
+        });
+    }
+
     swipe(like) {
         this.props.swipe({
             userId: this.props.userId,
@@ -58,6 +73,7 @@ class SwipeScreenContainer extends React.Component {
                 }
                 nextSwipePhoto={this.props.nextSwipePhoto}
                 swipe={this.swipe.bind(this)}
+                refresh={this.refresh.bind(this)}
             />
         );
     }

@@ -43,7 +43,7 @@ function sendMessageAction(message, chatId) {
     };
 }
 
-function setRequestChats(query) {
+export function setRequestChats(query) {
     return function (dispatch) {
         dispatch(requestChats(query));
         return fetch(GLOBAL.BASE_URL + '/chat/' + query.userId)

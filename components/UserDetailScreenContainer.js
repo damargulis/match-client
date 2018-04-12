@@ -1,3 +1,8 @@
+import {
+    getNextSwipe,
+    sendSwipe,
+} from '../actions/swipeDeck';
+import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { fetchPhotoIfNeeded } from '../actions/photos';
 import { loadUserById } from '../actions/users';
@@ -16,11 +21,25 @@ class UserDetailScreenContainer extends React.Component {
         });
     }
 
+    swipe(like) {
+        this.props.swipe({
+            userId: this.props.authUserId,
+            swipeId: this.props.userId,
+            liked: like,
+        }).then(() => {
+            return this.props.getNextSwipe();
+        }).then(() => {
+            Actions.pop();
+        });
+    }
+
     render() {
         return (
             <UserDetailScreen
                 user={this.props.user}
                 photos={this.props.photoDatas}
+                matched={false}
+                swipe={this.swipe.bind(this)}
             />
         );
     }
@@ -35,6 +54,7 @@ const mapStateToProps = (state, props) => {
     });
     return {
         user: user,
+        authUserId: state.auth.userId,
         photoIds: photoIds,
         photoDatas: photoDatas,
     };
@@ -43,6 +63,8 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = (dispatch) => ({
     loadUser: (swipeId) => dispatch(loadUserById(swipeId)),
     fetchPhoto: (query) => dispatch(fetchPhotoIfNeeded(query)),
+    getNextSwipe: () => dispatch(getNextSwipe()),
+    swipe: (query) => dispatch(sendSwipe(query)),
 });
 
 export default connect(

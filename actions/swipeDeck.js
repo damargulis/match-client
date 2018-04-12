@@ -5,6 +5,7 @@ export const SWIPE_REQUEST = 'SWIPE_REQUEST';
 export const SET_MATCH_SOCKET = 'SET_MATCH_SOCKET';
 export const NEW_MATCH = 'NEW_MATCH';
 import io from 'socket.io-client/dist/socket.io';
+import { setRequestChats } from './chats';
 
 const GLOBAL = require('./../Globals');
 
@@ -114,6 +115,7 @@ function setSocket(query) {
         );
         socket.on('newMatch', (data) => {
             dispatch(newMatch(data));
+            dispatch(setRequestChats({userId: query.userId}));
         });
         return dispatch(setSocketSuccess(query, socket));
     };

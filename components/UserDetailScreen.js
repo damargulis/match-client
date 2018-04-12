@@ -1,4 +1,5 @@
 import {
+    Button,
     Image,
     Text,
     View,
@@ -24,6 +25,43 @@ class UserDetailScreen extends React.Component {
         }
     }
 
+    renderExtraInfo() {
+        return (
+            <View>
+                <Text>Extra Info</Text>
+            </View>
+        );
+    }
+
+    renderSwipes() {
+        return (
+            <View style={{flexDirection: 'row'}}>
+                <View style={{flex: 1}}>
+                    <Button
+                        color='red'
+                        title='No'
+                        style={{flex: 1, backgroundColor: 'red'}}
+                        onPress={() => this.swipe(false)}
+                    >
+                    </Button>
+                </View>
+                <View style={{flex: 1}}>
+                    <Button
+                        color='green'
+                        title='Yes'
+                        style={{flex: 1, backgroundColor: 'green'}}
+                        onPress={() => this.swipe(true)}
+                    >
+                    </Button>
+                </View>
+            </View>
+        );
+    }
+
+    swipe(like){
+        this.props.swipe(like);
+    }
+
     render () {
         const { photos, user } = this.props;
         return (
@@ -44,6 +82,11 @@ class UserDetailScreen extends React.Component {
                 <Text>Age: {user.age}</Text>
                 <Text>School: {user.school}</Text>
                 <Text>Occupation: {user.occupation}</Text>
+                {
+                    this.props.matched
+                        ? this.renderExtraInfo()
+                        : this.renderSwipes()
+                }
             </View>
         );
     }

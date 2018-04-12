@@ -2,6 +2,7 @@ import {
     Button,
     Image,
     Text,
+    TouchableHighlight,
     View,
 } from 'react-native';
 import React from 'react';
@@ -28,12 +29,17 @@ class SwipeScreen extends React.Component {
                                     source={{uri: this.props.nextSwipePhoto }}
                                 />
                             </View>
-                        ) : (<View
-                            style={{height: 290, width: 290}}
-                        ><Text>{'No possible matches found. '
-                        + 'Rsvp to more events to see more users.'
-                            }</Text>
-                        </View>
+                        ) : (
+                            <TouchableHighlight onPress={this.props.refresh}>
+                                <View
+                                    style={{height: 290, width: 290}}
+                                >
+                                    <Text>{'No possible matches found. '
+                                + 'Rsvp to more events to see more users.'
+                                + '\nClick here to refresh.'
+                                    }</Text>
+                                </View>
+                            </TouchableHighlight >
                         )
                     }
                 </View>
