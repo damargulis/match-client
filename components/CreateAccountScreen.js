@@ -1,5 +1,4 @@
 import {
-    AsyncStorage,
     Button,
     Picker,
     ScrollView,
@@ -7,12 +6,9 @@ import {
     Text,
     TextInput,
 } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 import React from 'react';
 
-const GLOBAL = require('./../Globals');
-
-class CreateAccount extends React.Component {
+class CreateAccountScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,30 +18,6 @@ class CreateAccount extends React.Component {
             interestsAgeMax: 99,
         };
     }
-
-    createAccount() {
-        fetch(GLOBAL.BASE_URL + '/auth/createAccount', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                user: this.state,
-            }),
-        }).then((response) => response.json())
-        .then((response) => {
-            if(response.success){
-                AsyncStorage.setItem('userId', response.userId.toString())
-                .then(() => {
-                    Actions.appScreen({user: response.user});
-                }).then(() => {
-                    this.props.closeModal();
-                });
-            }
-        });
-    }
-
     render() {
         return (
             <ScrollView>
@@ -126,17 +98,18 @@ class CreateAccount extends React.Component {
                         (val) => this.setState({interestsAgeMax: val})
                     }
                 />
+                <Text style={{color: 'red'}}>{this.props.errorMessage}</Text>
                 <Button
                     title="Create"
-                    onPress={() => this.createAccount()}
+                    onPress={() => this.props.createAccount(this.state)}
                 />
                 <Button
                     title="Cancel"
-                    onPress={() => this.props.closeModal()}
+                    onPress={() => this.props.cancel()}
                 />
             </ScrollView>
         );
     }
 }
 
-export default CreateAccount;
+export default CreateAccountScreen;

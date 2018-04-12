@@ -1,21 +1,46 @@
 import {
     Button,
     Picker,
+    ScrollView,
     Slider,
     Text,
     TextInput,
-    View,
 } from 'react-native';
 import React from 'react';
-
-const GLOBAL = require('./../../Globals');
 
 class EditInfoScreen extends React.Component {
     constructor(props) {
         super(props);
+        const {
+            _id,
+            firstName,
+            age,
+            occupation,
+            school,
+            gender,
+            interestsGender,
+            interestsDistance,
+            interestsAgeMin,
+            interestsAgeMax,
+        } = this.props.original;
         this.state = {
-            edits: Object.assign({}, this.props.original),
+            edits: Object.assign({}, {
+                _id,
+                firstName,
+                age,
+                occupation,
+                school,
+                gender,
+                interestsGender,
+                interestsDistance,
+                interestsAgeMin,
+                interestsAgeMax,
+            }),
         };
+    }
+
+    save() {
+        this.props.save(this.state.edits);
     }
 
     setEdit(key, value) {
@@ -24,30 +49,13 @@ class EditInfoScreen extends React.Component {
         this.setState({edits: edits});
     }
 
-    save() {
-        fetch(GLOBAL.BASE_URL + '/user/' + this.props.userId, {
-            method: 'PUT',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                profile: this.state.edits,
-            }),
-        }).then(response => response.json())
-        .then((response) => {
-            if(response.success) {
-                this.props.save();
-            }
-        });
-    }
-
     render() {
         return(
-            <View>
+            <ScrollView>
                 <Text>Edit Info Form</Text>
                 <Text>First Name:</Text>
                 <TextInput
+                    value={this.state.edits.firstName}
                     onChangeText={(val) => this.setEdit('firstName', val)}
                 />
                 <Text>Age: {this.state.edits.age}</Text>
@@ -122,14 +130,14 @@ class EditInfoScreen extends React.Component {
                     }
                 />
                 <Button
-                    title="Cancel"
-                    onPress={() => this.props.closeModal()}
+                    title="Submit"
+                    onPress={this.save.bind(this)}
                 />
                 <Button
-                    title="Save"
-                    onPress={() => this.save()}
+                    title="Cancel"
+                    onPress={this.props.cancel}
                 />
-            </View>
+            </ScrollView>
         );
     }
 }
