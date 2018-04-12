@@ -2,6 +2,9 @@ export const FETCH_SWIPE_DECK_REQUEST = 'FETCH_SWIPE_DECK_REQUEST';
 export const FETCH_SWIPE_DECK_SUCCESS = 'FETCH_SWIPE_DECK_SUCCESS';
 export const GET_NEXT_SWIPE = 'GET_NEXT_SWIPE';
 export const SWIPE_REQUEST = 'SWIPE_REQUEST';
+export const SET_MATCH_SOCKET = 'SET_MATCH_SOCKET';
+export const NEW_MATCH = 'NEW_MATCH';
+import io from 'socket.io-client/dist/socket.io';
 
 const GLOBAL = require('./../Globals');
 
@@ -18,6 +21,21 @@ function requestSwipeDeckSuccess(query, data) {
         type: FETCH_SWIPE_DECK_SUCCESS,
         query,
         data,
+    };
+}
+
+function newMatch(data) {
+    return {
+        type: NEW_MATCH,
+        data,
+    };
+}
+
+function setSocketSuccess(query, socket) {
+    return {
+        type: SET_MATCH_SOCKET,
+        query,
+        socket,
     };
 }
 
@@ -76,7 +94,41 @@ export function getNextSwipe() {
     return (dispatch, getState) => {
         if(canGetSwipe(getState())) {
             return dispatch({ type: GET_NEXT_SWIPE });
+        } else {
+            return Promise.resolve();
         }
     };
 }
 
+function setSocket(query) {
+    return function(dispatch) {
+        const socket = io(
+            GLOBAL.BASE_URL
+            + '/matchNotification'
+            + '?userId='
+            + query.userId,
+            {
+                jsonp: false,
+                path: '/socket.io',
+            },
+        );
+        socket.on('newMatch', (data) => {
+            dispatch(newMatch(data));
+        });
+        return dispatch(setSocketSuccess(query, socket));
+    };
+}
+
+function shouldSetMatchSocket(state) {
+    return !state.swipeDeck.matchSocket;
+}
+
+export function setMatchSocket(query) {
+    return (dispatch, getState) => {
+        if(shouldSetMatchSocket(getState())){
+            return dispatch(setSocket(query));
+        } else {
+            return Promise.resolve();
+        }
+    };
+}

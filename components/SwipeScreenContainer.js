@@ -2,6 +2,7 @@ import {
     fetchSwipeDeckIfNeeded,
     getNextSwipe,
     sendSwipe,
+    setMatchSocket,
 } from '../actions/swipeDeck';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
@@ -12,6 +13,7 @@ import SwipeScreen from './SwipeScreen';
 
 class SwipeScreenContainer extends React.Component {
     componentDidMount() {
+        this.props.setMatchSocket({userId: this.props.userId});
         this.props.fetchSwipeDeck({userId: this.props.userId})
         .then(() => {
             return this.props.getNextSwipe();
@@ -79,6 +81,7 @@ const mapDispatchToProps = (dispatch) => ({
     loadUser: (swipeId) => dispatch(loadUserById(swipeId)),
     getPhoto: (query) => dispatch(fetchPhotoIfNeeded(query)),
     swipe: (query) => dispatch(sendSwipe(query)),
+    setMatchSocket: (query) => dispatch(setMatchSocket(query)),
 });
 
 export default connect(
