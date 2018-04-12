@@ -8,7 +8,11 @@ class UserDetailScreenContainer extends React.Component {
     componentDidMount() {
         this.props.loadUser(this.props.userId)
         .then(() => {
-            this.props.getPhoto({photoId: this.props.user.photos[0]});
+            this.props.photoIds.map((photoId) => {
+                this.props.fetchPhoto({
+                    photoId: photoId,
+                });
+            });
         });
     }
 
@@ -16,7 +20,7 @@ class UserDetailScreenContainer extends React.Component {
         return (
             <UserDetailScreen
                 user={this.props.user}
-                photo={this.props.photo}
+                photos={this.props.photoDatas}
             />
         );
     }
@@ -24,17 +28,21 @@ class UserDetailScreenContainer extends React.Component {
 
 const mapStateToProps = (state, props) => {
     const user = state.users[props.userId] || {};
-    const photos = user.photos || [];
-    const photo = state.photos[photos[0]] || {};
+    const photoIds = user.photos || [];
+    const photoDatas = photoIds.map((photoId) => {
+        const photo = state.photos[photoId] || {};
+        return photo.data;
+    });
     return {
         user: user,
-        photo: photo.data,
+        photoIds: photoIds,
+        photoDatas: photoDatas,
     };
 };
 
 const mapDispatchToProps = (dispatch) => ({
     loadUser: (swipeId) => dispatch(loadUserById(swipeId)),
-    getPhoto: (query) => dispatch(fetchPhotoIfNeeded(query)),
+    fetchPhoto: (query) => dispatch(fetchPhotoIfNeeded(query)),
 });
 
 export default connect(
