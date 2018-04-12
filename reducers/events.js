@@ -8,6 +8,12 @@ import {
     LOGOUT,
 } from '../actions/auth';
 
+function makeUnique(arr) {
+    return arr.filter(function(item, pos) {
+        return arr.indexOf(item) === pos;
+    });
+}
+
 function mapEventsToId(events) {
     const map = {};
     events.map((evt) => {
@@ -58,10 +64,15 @@ function events(state = {
     case RECEIVE_EVENTS:
         return Object.assign({}, state, {
             isFetching: false,
-            allEvents: action.events.map((evt) => evt._id),
-            eventsById: mapEventsToId(action.events),
+            allEvents: makeUnique(state.allEvents.concat(
+                action.events.map((evt) => evt._id)
+            )),
+            eventsById: Object.assign(
+                {},
+                state.eventsById,
+                mapEventsToId(action.events)
+            ),
             lastUpdated: action.receivedAt,
-            query: action.query,
         });
     default:
         return state;

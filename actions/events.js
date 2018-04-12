@@ -44,14 +44,14 @@ function toggleRsvpSuccess(query, json) {
 function fetchEvents(query) {
     return function (dispatch) {
         dispatch(requestEvents(query));
-        return fetch(GLOBAL.BASE_URL
-            + '/event?long='
-            + query.longitude
+        let queryString = '?long=' + query.longitude
             + '&lat='
             + query.latitude
             + '&maxDist='
-            + query.interestsDistance
-        ).then(response => response.json())
+            + query.interestsDistance;
+        queryString += query.afterTime ? '&afterTime=' + query.afterTime : '';
+        return fetch(GLOBAL.BASE_URL + '/event' + queryString)
+        .then(response => response.json())
         .then((json) => {
             dispatch(receiveEvents(query, json));
         });
@@ -80,11 +80,20 @@ function toggleRsvp(query) {
     };
 }
 
-function shouldFetchEvents(state) {
+function shouldFetchEvents(state, query) {
     if(state.events.isFetching) {
         return false;
     }
-    return true;
+    if(query.afterTime) {
+        const lastQuery = state.events.query;
+        const afterTime = lastQuery && lastQuery.afterTime;
+        if(afterTime === query.afterTime){
+            return false;
+        }
+        return true;
+    } else {
+        return true;
+    }
 }
 
 function shouldToggleRsvp(state, query) {

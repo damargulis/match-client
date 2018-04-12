@@ -9,14 +9,22 @@ import React from 'react';
 import { setLocation } from '../actions/users';
 
 class EventListContainer extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            location: {},
+        };
+    }
+
     componentDidMount() {
         navigator.geolocation.getCurrentPosition((position) => {
             //cheat simulator
             const query = {
                 longitude: -90.295861,
                 latitude: 38.650768,
-                interestsDistance: 50,
+                interestsDistance: this.props.interestsDistance,
             };
+            this.setState({location: position.coords});
             this.props.fetchEventsIfNeeded(query);
             this.props.setLocation(position, this.props.userId);
         }, () => {
@@ -30,11 +38,25 @@ class EventListContainer extends React.Component{
             const query = {
                 longitude: -90.295861,
                 latitude: 38.650768,
-                interestsDistance: 50,
+                interestsDistance: this.props.interestsDistance,
             };
+            this.setState({location: position.coords});
             this.props.fetchEventsIfNeeded(query);
             this.props.setLocation(position, this.props.userId);
         });
+    }
+
+    onEndReached() {
+        if(this.props.events.length) {
+            this.props.fetchEventsIfNeeded({
+                longitude: this.state.location.longitude,
+                latitude: this.state.location.latitude,
+                interestsDistance: this.props.interestsDistance,
+                afterTime: this.props.events[
+                this.props.events.length - 1
+                ].startTime,
+            });
+        }
     }
 
     render(){
@@ -42,6 +64,7 @@ class EventListContainer extends React.Component{
             <EventList
                 events={this.props.events}
                 gotoDetails={Actions.eventDetailScreen}
+                onEndReached={this.onEndReached.bind(this)}
             />
         );
     }
@@ -67,11 +90,19 @@ const getEvents = (events, filter, userId) => {
 };
 
 const mapStateToProps = state => {
-    return {events: getEvents(
+    const events = getEvents(
         state.events,
         state.visibilityFilter,
-        state.auth.userId,
-    ), userId: state.auth.userId};
+        state.auth.userId
+    );
+    const userId = state.auth.userId;
+    const user = state.users[userId];
+    const interestsDistance = user && user.interestsDistance;
+    return {
+        events: events,
+        userId: userId,
+        interestsDistance: interestsDistance,
+    };
 };
 
 const mapDispatchToProps = dispatch => ({
