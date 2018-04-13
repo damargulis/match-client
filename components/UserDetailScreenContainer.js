@@ -22,14 +22,13 @@ class UserDetailScreenContainer extends React.Component {
     }
 
     swipe(like) {
+        Actions.pop();
         this.props.swipe({
             userId: this.props.authUserId,
             swipeId: this.props.userId,
             liked: like,
         }).then(() => {
             return this.props.getNextSwipe();
-        }).then(() => {
-            Actions.pop();
         });
     }
 

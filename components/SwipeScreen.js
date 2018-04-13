@@ -12,6 +12,42 @@ class SwipeScreen extends React.Component {
         this.props.swipe(like);
     }
 
+    renderUser(user) {
+        if(this.props.hasSwipes) {
+            if(user && !user.isFetching) {
+                return (
+                    <View>
+                        <Text>{user.firstName}</Text>
+                        <Text>{user.school}</Text>
+                        <Image
+                            style={{height: 290, width: 290}}
+                            source={{uri: this.props.nextSwipePhoto }}
+                        />
+                    </View>
+                );
+            } else {
+                return (
+                    <View>
+                        <Text>Loading...</Text>
+                    </View>
+                );
+            }
+        } else {
+            return (
+                <TouchableHighlight onPress={this.props.refresh}>
+                    <View
+                        style={{height: 290, width: 290}}
+                    >
+                        <Text>{'No possible matches found. '
+                    + 'Rsvp to more events to see more users.'
+                    + '\nClick here to refresh.'
+                        }</Text>
+                    </View>
+                </TouchableHighlight >
+            );
+        }
+    }
+
     render() {
         const user = this.props.nextSwipe;
         return (
@@ -19,29 +55,7 @@ class SwipeScreen extends React.Component {
                 <View
                     style={{height: 300, width: 300}}
                 >
-                    {
-                        user ? (
-                            <View>
-                                <Text>{user.firstName}</Text>
-                                <Text>{user.school}</Text>
-                                <Image
-                                    style={{height: 290, width: 290}}
-                                    source={{uri: this.props.nextSwipePhoto }}
-                                />
-                            </View>
-                        ) : (
-                            <TouchableHighlight onPress={this.props.refresh}>
-                                <View
-                                    style={{height: 290, width: 290}}
-                                >
-                                    <Text>{'No possible matches found. '
-                                + 'Rsvp to more events to see more users.'
-                                + '\nClick here to refresh.'
-                                    }</Text>
-                                </View>
-                            </TouchableHighlight >
-                        )
-                    }
+                    { this.renderUser(user) }
                 </View>
                 <Button
                     title='View Details'

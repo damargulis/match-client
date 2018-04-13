@@ -74,6 +74,7 @@ class SwipeScreenContainer extends React.Component {
                 nextSwipePhoto={this.props.nextSwipePhoto}
                 swipe={this.swipe.bind(this)}
                 refresh={this.refresh.bind(this)}
+                hasSwipes={this.props.hasSwipes}
             />
         );
     }
@@ -83,11 +84,13 @@ const mapStateToProps = (state) => {
     const nextSwipe = state.users[state.swipeDeck.nextSwipe];
     const photoId = nextSwipe && nextSwipe.photos && nextSwipe.photos[0];
     const photo = state.photos[photoId];
+    const hasSwipes = state.swipeDeck.items && state.swipeDeck.items.length > 0;
     return {
         nextSwipeId: state.swipeDeck.nextSwipe,
         userId: state.auth.userId,
         nextSwipe: nextSwipe,
         nextSwipePhoto: photo && photo.data,
+        hasSwipes: hasSwipes,
     };
 };
 

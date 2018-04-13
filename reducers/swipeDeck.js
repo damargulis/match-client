@@ -15,13 +15,18 @@ function swipeDeck(state={
     isFetching: false,
     items: [],
     nextSwipe: undefined,
+    matchSocket: undefined,
 }, action) {
     switch(action.type) {
     case LOGOUT:
+        if(state.matchSocket){
+            state.matchSocket.close();
+        }
         return {
             isFetching: false,
             items: [],
             nextSwipe: undefined,
+            matchSocket: undefined,
         };
     case FETCH_SWIPE_DECK_REQUEST:
         return Object.assign({}, state, {
